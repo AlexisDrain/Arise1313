@@ -1508,6 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkCam: {fileID: 1592195577}
+  _eyesClosed: 0
 --- !u!1 &834350004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,7 +3086,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 179256749}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 0.3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3136,6 +3137,10 @@ PrefabInstance:
     - target: {fileID: 516749449721272162, guid: 5f2d712a3825d2d45872e81f263071a4, type: 3}
       propertyPath: m_RenderingPath
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 516749449721272162, guid: 5f2d712a3825d2d45872e81f263071a4, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2532338344746201364, guid: 5f2d712a3825d2d45872e81f263071a4, type: 3}
       propertyPath: m_IsActive
@@ -3982,7 +3987,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 1000
   field of view: 60
   orthographic: 0
