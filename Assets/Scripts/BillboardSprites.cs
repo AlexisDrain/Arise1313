@@ -8,6 +8,7 @@ using UnityEngine;
 public class BillboardSprites : MonoBehaviour
 {
     public bool plantOnGround = true;
+
     void LateUpdate() {
         transform.LookAt(Camera.main.transform);
         if(plantOnGround == true) {
