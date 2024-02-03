@@ -7,10 +7,11 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameObject gameManagerObj;
     public static Transform player;
-
+    public static BlinkController blinkController;
+    public static DisplayUseText displayUseText;
+    
     public static Transform playerCheckpoint;
     public static Transform checkpointCameraBundle;
     public static GameObject currentLevel;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     private static Pool pool_LoudAudioSource;
 
     public static bool playerIsAlive = true;
+    public static bool playerInBed = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
     public bool cheatMode = true;
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
     void Awake() {
         gameManagerObj = gameObject;
         player = GameObject.Find("Player").transform;
+        blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
+        displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
 
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
@@ -41,6 +45,12 @@ public class GameManager : MonoBehaviour
 
         // Time.timeScale = 0f;
         //NewGame();
+    }
+    public static void PlayerIsAsleep() {
+        GameManager.playerInBed = false;
+    }
+    public static void GoToBed() {
+        GameManager.playerInBed = true;
     }
     public static void KillPlayer() {
         playerIsAlive = false;
@@ -88,6 +98,16 @@ public class GameManager : MonoBehaviour
         audioObject.PlayWebGL(newAudioClip, newVolume);
         return audioObject;
         // audio object will set itself to inactive after done playing.
+    }
+    public void Update() {
+        if (cheatMode == true) {
+            // one level back
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                playerInBed = !playerInBed;
+            }
+
+        }
     }
     /*
     public void Update() {

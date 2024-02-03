@@ -7,22 +7,19 @@ public class TriggerDoSomethingInWorld : MonoBehaviour
 {
     [TextArea(2, 30)]
     public string notes;
+
     public UnityEvent onTriggerEnter;
     public bool triggerWithPlayer = true;
-    public bool resetWithPlayer = true;
-    public bool resetOnEnable = true;
+    public bool onEnableReset = true;
     public bool canBeReTriggered = false;
 
     private bool hasBeenTriggered = false;
     // Start is called before the first frame update
     void Start() {
         ResetTrigger();
-        if (resetWithPlayer) {
-            GameManager.playerRevive.AddListener(ResetTrigger);
-        }
     }
     private void OnEnable() {
-        if(resetOnEnable) {
+        if(onEnableReset) {
             hasBeenTriggered = false;
         }
     }
