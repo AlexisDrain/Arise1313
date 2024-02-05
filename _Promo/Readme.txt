@@ -20,4 +20,4 @@ Textures
 
 SFX
 Footsteps
-Sonniss.com - GDC 2017 - Game Audio Bundle\Tovusound - Edward – Foleyart Collection Add-On Extended Footsteps\289_Foley_Footsteps_Rocks_Sneaker_Jump_Land_On_Two_Feet_Close.wav
+https://freesound.org/people/avakas/sounds/172362/

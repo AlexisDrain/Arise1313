@@ -12,8 +12,6 @@ public class TriggerUse : MonoBehaviour
     [TextArea(2, 30)]
     public string useText = "Bed: Press E or left mouse to use.";
 
-    private bool hasBeenTriggered = false;
-
     void Start() {
 
     }
