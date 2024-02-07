@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public enum TimeOfDay {
     Morning,
@@ -21,6 +20,7 @@ public class GameManager : MonoBehaviour
     public static DisplayUseText displayUseText;
     
     public static Transform bedCameraTransform;
+    public static Transform playerAwakeTrans;
 
     private static Pool pool_LoudAudioSource;
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public static LayerMask entityMask;
     public static LayerMask triggersMask;
 
-    public static UnityEvent playerRevive = new UnityEvent(); 
+    public static UnityEvent changeTimeOfDayEvent = new UnityEvent(); 
 
     void Awake() {
         gameManagerObj = gameObject;
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
 
         bedCameraTransform = GameObject.Find("BedCamera").transform;
+        playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
 
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
@@ -52,13 +53,34 @@ public class GameManager : MonoBehaviour
         entityMask = LayerMask.NameToLayer("Entity");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
-        SetTimeOfDay(TimeOfDay.Morning);
+        SetTimeOfDay(TimeOfDay.Evening);
 
         // Time.timeScale = 0f;
         //NewGame();
     }
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
         currentTimeOfDay = newTimeOfDay;
+
+        changeTimeOfDayEvent.Invoke();
+
+        Image iconMorning = GameObject.Find("Canvas/IconTime/IconTime_Morning").GetComponent<Image>();
+        Image iconEvening = GameObject.Find("Canvas/IconTime/IconTime_Evening").GetComponent<Image>();
+        Image iconMidNight = GameObject.Find("Canvas/IconTime/IconTime_Midnight").GetComponent<Image>();
+
+        if (newTimeOfDay == TimeOfDay.Morning) {
+            iconMorning.enabled = true;
+            iconEvening.enabled = false;
+            iconMidNight.enabled = false;
+        } else if (newTimeOfDay == TimeOfDay.Evening) {
+            iconMorning.enabled = false;
+            iconEvening.enabled = true;
+            iconMidNight.enabled = false;
+        } else if (newTimeOfDay == TimeOfDay.Midnight) {
+            iconMorning.enabled = false;
+            iconEvening.enabled = false;
+            iconMidNight.enabled = true;
+        }
+
     }
 
     // sleeping is handled in FillFKey script
@@ -69,7 +91,13 @@ public class GameManager : MonoBehaviour
     }
     public static void PlayerLeaveBed() {
         GameManager.playerInBed = false;
+        SetTimeOfDay(TimeOfDay.Midnight);
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
+
+        GameManager.player.position = GameManager.playerAwakeTrans.position;
+        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
 
         mainCamera.transform.position = GameObject.Find("Player/CamDolly").transform.position;
         mainCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
