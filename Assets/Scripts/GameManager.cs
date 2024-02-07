@@ -5,21 +5,26 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+public enum TimeOfDay {
+    Morning,
+    Evening,
+    Midnight
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameObject gameManagerObj;
     public static Transform player;
+    public static Camera mainCamera;
+    public static Camera blinkCamera;
     public static BlinkController blinkController;
     public static DisplayUseText displayUseText;
     
-    public static Transform playerCheckpoint;
-    public static Transform checkpointCameraBundle;
-    public static GameObject currentLevel;
-    public static int currentLevelInt;
+    public static Transform bedCameraTransform;
 
     private static Pool pool_LoudAudioSource;
 
-    public static bool playerIsAlive = true;
+    public static TimeOfDay currentTimeOfDay;
     public static bool playerInBed = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
@@ -34,8 +39,12 @@ public class GameManager : MonoBehaviour
     void Awake() {
         gameManagerObj = gameObject;
         player = GameObject.Find("Player").transform;
+        mainCamera = GameObject.Find("Player/CamDolly/MainCam").GetComponent<Camera>();
+        blinkCamera = GameObject.Find("Player/CamDolly/BlinkCam").GetComponent<Camera>();
         blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
+
+        bedCameraTransform = GameObject.Find("BedCamera").transform;
 
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
@@ -43,18 +52,34 @@ public class GameManager : MonoBehaviour
         entityMask = LayerMask.NameToLayer("Entity");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
+        SetTimeOfDay(TimeOfDay.Morning);
+
         // Time.timeScale = 0f;
         //NewGame();
     }
-    public static void PlayerIsAsleep() {
-        GameManager.playerInBed = false;
+    public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
+        currentTimeOfDay = newTimeOfDay;
     }
-    public static void GoToBed() {
+
+    // sleeping is handled in FillFKey script
+
+    public static void PlayerGoToBed() {
         GameManager.playerInBed = true;
+        GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = false;
     }
+    public static void PlayerLeaveBed() {
+        GameManager.playerInBed = false;
+        GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
+
+        mainCamera.transform.position = GameObject.Find("Player/CamDolly").transform.position;
+        mainCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
+
+        blinkCamera.transform.position = GameObject.Find("Player/CamDolly").transform.position;
+        blinkCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
+    }
+
     public static void KillPlayer() {
-        playerIsAlive = false;
-        GameManager.player.position = GameManager.playerCheckpoint.position;
+        GameManager.player.position = GameManager.bedCameraTransform.position;
         /*
         GameManager.canvasDeath.SetActive(true);
         GameManager.player.GetComponent<PlayerController>().graphicGirl.SetActive(false);
@@ -65,6 +90,25 @@ public class GameManager : MonoBehaviour
             gibs.transform.rotation = GameManager.player.transform.rotation;
         }
         */
+    }
+    public void Update() {
+
+        if (GameManager.playerInBed) {
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, bedCameraTransform.position, 0.01f);
+            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, bedCameraTransform.rotation, 0.01f);
+
+            blinkCamera.transform.position = Vector3.Lerp(blinkCamera.transform.position, bedCameraTransform.position, 0.01f);
+            blinkCamera.transform.rotation = Quaternion.Lerp(blinkCamera.transform.rotation, bedCameraTransform.rotation, 0.01f);
+        }
+
+        if (cheatMode == true) {
+            // one level back
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                playerInBed = !playerInBed;
+            }
+
+        }
     }
     /*
     public static void RevivePlayer() {
@@ -98,16 +142,6 @@ public class GameManager : MonoBehaviour
         audioObject.PlayWebGL(newAudioClip, newVolume);
         return audioObject;
         // audio object will set itself to inactive after done playing.
-    }
-    public void Update() {
-        if (cheatMode == true) {
-            // one level back
-            if (Input.GetKey(KeyCode.G)
-            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
-                playerInBed = !playerInBed;
-            }
-
-        }
     }
     /*
     public void Update() {

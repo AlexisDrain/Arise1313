@@ -46,7 +46,13 @@ public class FillFKey : MonoBehaviour
         }
 
         if(blinkOutOfOne > 0.99f) {
-            GameManager.PlayerIsAsleep();
+            blinkOutOfOne = 0f;
+            GameManager.PlayerLeaveBed();
+            //keyImage.enabled = false;
+            //keyYellowImage.enabled = false;
+            //holdTextImage.enabled = false;
+            //fullscreenSolidBlack.enabled = false;
+            //fullscreenSolidBlack.color = new Color(0f, 0f, 0f, 0f);
         }
     }
 }

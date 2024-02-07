@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (GameManager.playerIsAlive == false) {
+        if (GameManager.playerInBed == true) {
             myRigidbody.velocity = new Vector3(0f, 0f, 0f);
             return;
         }

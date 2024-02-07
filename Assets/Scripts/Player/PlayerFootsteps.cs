@@ -51,7 +51,7 @@ public class PlayerFootsteps : MonoBehaviour
 
     public void PlayFootstep() {
 
-        if (GameManager.playerIsAlive == false) {
+        if (GameManager.playerInBed == true) {
             return;
         }
 

@@ -27,8 +27,12 @@ public class PlayerUseController : MonoBehaviour
     void Update()
     {
         // use button
-        if(objectHighlighted != null && Input.GetButtonDown("Use")) {
+        if (objectHighlighted != null && Input.GetButtonDown("Use")) {
             objectHighlighted.TriggerThisObject();
+        }
+        if (GameManager.playerInBed) {
+            objectHighlighted = null;
+            GameManager.displayUseText.HideDisplay();
         }
         /*
         RaycastHit hit;
