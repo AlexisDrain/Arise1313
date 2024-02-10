@@ -3,6 +3,11 @@
 
 [Long Description]
 
+Controls:
+- WASD / Arrow keys: move and turn. Left and right keys rotate you like a tank.
+- 1-9 keys or mouse to select choices in dialogue.
+- You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is hard to work with from my experience in making web FPS games.
+
 -----------------------
 
 Credits:
