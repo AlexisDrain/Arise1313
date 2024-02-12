@@ -32,10 +32,11 @@ public class BlinkController : MonoBehaviour
             StartCoroutine("ActivateBlinkCam");
             StopCoroutine("DeactivateBlinkCam");
         }
-        if (Input.GetButtonUp("Blink")) {
+        if (Input.GetButtonUp("Blink")
+            && Input.GetButton("Blink") == false) { // the second conditional is because there are 2 blink buttons and they can interfere with each other
             GetComponent<Animator>().SetBool("EyesOpen", true);
             StopCoroutine("ActivateBlinkCam");
             StartCoroutine("DeactivateBlinkCam");
-        }
-    }
+        }    }
+
 }

@@ -249,7 +249,7 @@ TextureImporter:
         width: 115
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,6 +257,48 @@ TextureImporter:
       bones: []
       spriteID: 6f38d81d8a365f243bcf2659c5382acb
       internalID: -2144570464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorialGeneric_0
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 209
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71a56b156b543f4390e28b9467493c5
+      internalID: 21546345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorialGeneric_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 209
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afee0c687f1390145a0be691dc847606
+      internalID: -661213799
       vertices: []
       indices: 
       edges: []
@@ -272,6 +314,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      tutorialGeneric_0: 21546345
+      tutorialGeneric_1: -661213799
       tutorial_0: 771519690
       tutorial_1: -2144570464
       tutorial_10: -1216851548

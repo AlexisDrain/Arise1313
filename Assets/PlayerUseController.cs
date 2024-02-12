@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerUseController : MonoBehaviour
 {
-    public float holdingBlink;
-    public TriggerUse objectHighlighted;
+
+    [Header("Read only")]
+    public TriggerUse _objectHighlighted;
 
     void Start()
     {
@@ -14,12 +15,12 @@ public class PlayerUseController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Usable")) {
-            objectHighlighted = other.GetComponent<TriggerUse>();
-            GameManager.displayUseText.Highlight(objectHighlighted.useText);
+            _objectHighlighted = other.GetComponent<TriggerUse>();
+            GameManager.displayUseText.Highlight(_objectHighlighted.useText);
         }
     }
     private void OnTriggerExit(Collider other) {
-        objectHighlighted = null;
+        _objectHighlighted = null;
         GameManager.displayUseText.HideDisplay();
     }
 
@@ -27,11 +28,11 @@ public class PlayerUseController : MonoBehaviour
     void Update()
     {
         // use button
-        if (objectHighlighted != null && Input.GetButtonDown("Use")) {
-            objectHighlighted.TriggerThisObject();
+        if (_objectHighlighted != null && Input.GetButtonDown("Use")) {
+            _objectHighlighted.TriggerThisObject();
         }
         if (GameManager.playerInBed) {
-            objectHighlighted = null;
+            _objectHighlighted = null;
             GameManager.displayUseText.HideDisplay();
         }
         /*

@@ -3,55 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Ink.Runtime;
 
 public class StoryType : MonoBehaviour
 {
 
-    // reason I'm putting all the story here is so that it's a little easier to localize if I ever decide to.
-    [TextArea(3, 5)]
-    public string story1 = "";
-    [TextArea(3, 5)]
-    public string story2 = "";
-    [TextArea(3, 5)]
-    public string story3 = "";
-    [TextArea(3, 5)]
-    public string story4 = "";
-    [TextArea(3, 5)]
-    public string story5 = "";
-    [TextArea(3, 5)]
-    public string story6 = "";
-    [TextArea(3, 5)]
-    public string story7 = "";
+    [SerializeField]
+    private TextAsset inkJSONAsset = null;
+    public List<int> collectedNightmares = new List<int>();
+    public Story inkStory;
 
     private string finalText = "";
     public TextMeshProUGUI myText;
     private Canvas myCanvas;
 
     private void Start() {
+        inkStory = new Story(inkJSONAsset.text);
 
         myText.text = "";
         myText.enabled = true; // disabled in the editor and enabled here so that the first frame doesn't show the full text
     }
 
-    public void StartTypewriter(int storyIndex) {
+    public void StartRandomNightmare() {
 
-        if (storyIndex == 1) {
-            finalText = story1;
-        } else if (storyIndex == 2) {
-            finalText = story2;
-        } else if (storyIndex == 3) {
-            finalText = story3;
-        } else if (storyIndex == 4) {
-            finalText = story4;
-        } else if (storyIndex == 5) {
-            finalText = story5;
-        } else if (storyIndex == 6) {
-            finalText = story6;
-        } else if (storyIndex == 7) {
-            finalText = story7;
+
+        // random nightmare
+        if(collectedNightmares.Count == 2) {
+            collectedNightmares.Clear();
+        }
+        List<int> notInNightmare = new List<int>();
+        for (int i = 0; i < 2;  i++) {
+            if(collectedNightmares.Contains(i)== false) {
+                notInNightmare.Add(i);
+            }
+        }
+        int randNum = Random.Range(0, notInNightmare.Count);
+        int randNightmare = notInNightmare[randNum];
+        collectedNightmares.Add(randNightmare);
+
+        // type story
+        myText.text = "";
+        finalText = "";
+        inkStory.ChoosePathString("dream_" + randNightmare);
+        while (inkStory.canContinue) {
+            inkStory.Continue();
+            finalText += inkStory.currentText + "\n";
         }
 
-        myText.text = "";
         StopCoroutine("Typewriter");
         StartCoroutine("Typewriter");
     }

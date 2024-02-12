@@ -10,29 +10,26 @@ public class TriggerWait : MonoBehaviour {
     public float timeToWait = 3f;
     public UnityEvent onTimeEnd;
     public bool waitForSecondsRealtime = false;
-    public bool resetWithPlayer = true;
     public bool startOnEnable = true;
     public bool startOnStart = false;
     public bool restartTimerOnReset = true;
 
     void Start() {
         if (startOnStart) {
-            StartCoroutine("Countdown");
-        }
-        if (resetWithPlayer) {
-            //GameManager.playerRevive.AddListener(ResetTrigger);
+            ResetTrigger();
         }
     }
     public void StartCoroutine() {
-        StartCoroutine("Countdown");
+        ResetTrigger();
     }
     private void OnEnable() {
         if (startOnEnable && gameObject.activeSelf) {
-            StartCoroutine("Countdown");
+            ResetTrigger();
         }
     }
 
     public IEnumerator Countdown() {
+        print(notes);
         if(waitForSecondsRealtime) {
             yield return new WaitForSecondsRealtime(timeToWait);
         } else {
