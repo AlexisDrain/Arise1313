@@ -17,6 +17,10 @@ https://alexclay.itch.io/
 
 Music
 
+Plugins:
+- UI Blur:
+https://assetstore.unity.com/packages/vfx/shaders/ui-blur-173331
+
 Fonts:  
 - Jo_wrote_a_lovesong
 - Roboto-Black - Apache License Version 2.0  
