@@ -37,6 +37,7 @@ public class BlinkController : MonoBehaviour
         if(currentTimeToBlink > 0f || GameManager.playerInBed) {
             currentTimeToBlink -= Time.deltaTime;
             currentTimeToBlink = Mathf.Clamp(currentTimeToBlink, -1f, defaultTimeToBlink);
+
             blurImage.Intensity = Mathf.Lerp(blurImage.Intensity, 0f, 0.1f);
             blurImage.Multiplier = Mathf.Lerp(blurImage.Intensity, 0f, 0.1f);
         }

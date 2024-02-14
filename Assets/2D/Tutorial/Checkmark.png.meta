@@ -186,7 +186,7 @@ TextureImporter:
         width: 72
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,6 +194,27 @@ TextureImporter:
       bones: []
       spriteID: 14612c4e3c9a678469ed2618d3f20a33
       internalID: -575230819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkmark_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 198
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f3ae6c5bc18af4daa10b49104365d9
+      internalID: -1516675688
       vertices: []
       indices: 
       edges: []
@@ -210,6 +231,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Checkmark_0: -575230819
+      Checkmark_1: -1516675688
       tutorial_0: 771519690
       tutorial_1: -2144570464
       tutorial_10: -1216851548
