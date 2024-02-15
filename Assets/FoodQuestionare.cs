@@ -55,10 +55,21 @@ public class FoodQuestionare : MonoBehaviour
 
     public void ChangeMeal()
     {
-        _currentBreakfastMain = currentBreakfastMainToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentBreakfastMain;
-        _currentBreakfastBev = currentBreakfastBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentBreakfastBev;
-        _currentDinnerMain = currentDinnerMainToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerMain;
-        _currentDinnerSide = currentDinnerSideToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerSide;
-        _currentDinnerBev = currentDinnerBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerBev;
+        if(currentBreakfastMainToggle.ActiveToggles().Count() > 0) {
+            _currentBreakfastMain = currentBreakfastMainToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentBreakfastMain;
+        }
+        if (currentBreakfastBevToggle.ActiveToggles().Count() > 0) {
+            _currentBreakfastBev = currentBreakfastBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentBreakfastBev;
+        }
+        if (currentDinnerMainToggle.ActiveToggles().Count() > 0) {
+            _currentDinnerMain = currentDinnerMainToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerMain;
+        }
+        if (currentDinnerSideToggle.ActiveToggles().Count() > 0) {
+            _currentDinnerSide = currentDinnerSideToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerSide;
+        }
+        if (currentDinnerBevToggle.ActiveToggles().Count() > 0) {
+            _currentDinnerBev = currentDinnerBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerBev;
+        }
+        
     }
 }
