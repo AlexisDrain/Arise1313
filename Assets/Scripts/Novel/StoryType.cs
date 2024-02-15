@@ -10,11 +10,13 @@ public class StoryType : MonoBehaviour
 
     [SerializeField]
     private TextAsset inkJSONAsset = null;
-    public List<int> collectedNightmares = new List<int>();
     public Story inkStory;
 
     private string finalText = "";
     public TextMeshProUGUI myText;
+
+    [Header("Read only")]
+    public List<int> _collectedNightmares = new List<int>();
     private Canvas myCanvas;
 
     private void Start() {
@@ -28,18 +30,18 @@ public class StoryType : MonoBehaviour
 
 
         // random nightmare
-        if(collectedNightmares.Count == 2) {
-            collectedNightmares.Clear();
+        if(_collectedNightmares.Count == 2) {
+            _collectedNightmares.Clear();
         }
         List<int> notInNightmare = new List<int>();
         for (int i = 0; i < 2;  i++) {
-            if(collectedNightmares.Contains(i)== false) {
+            if(_collectedNightmares.Contains(i)== false) {
                 notInNightmare.Add(i);
             }
         }
         int randNum = Random.Range(0, notInNightmare.Count);
         int randNightmare = notInNightmare[randNum];
-        collectedNightmares.Add(randNightmare);
+        _collectedNightmares.Add(randNightmare);
 
         // type story
         myText.text = "";
