@@ -34,7 +34,9 @@ public class GameManager : MonoBehaviour
     public static LayerMask entityMask;
     public static LayerMask triggersMask;
 
-    public static UnityEvent changeTimeOfDayEvent = new UnityEvent(); 
+    public static UnityEvent changeTimeOfDayEvent = new UnityEvent();
+    public static UnityEvent EyesClosedEvent = new UnityEvent();
+    public static UnityEvent EyesOpenEvent = new UnityEvent();
 
     void Awake() {
         gameManagerObj = gameObject;

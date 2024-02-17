@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Black
-    second: {fileID: 2100000, guid: c97c61bcf7794fc40918dd08da68bd91, type: 2}
+    second: {fileID: 2100000, guid: ff145d7a15fc4ea4f9ddd5fab2496ec4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -38,7 +38,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WhiteSquare.png
-    second: {fileID: 2100000, guid: c97c61bcf7794fc40918dd08da68bd91, type: 2}
+    second: {fileID: 2100000, guid: ff145d7a15fc4ea4f9ddd5fab2496ec4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
