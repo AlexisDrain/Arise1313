@@ -15,7 +15,9 @@ Credits:
 A game by Alexis Clay
 https://alexclay.itch.io/
 
-Music
+Music:
+- Debussy's Clair de Lune, performed by Caela Harrison
+https://archive.org/details/ClairDeLunedebussy
 
 Plugins:
 - UI Blur:

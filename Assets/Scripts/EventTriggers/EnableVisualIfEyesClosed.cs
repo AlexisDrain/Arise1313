@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnableVisualIfEyesClosed : MonoBehaviour
 {
@@ -17,13 +18,20 @@ public class EnableVisualIfEyesClosed : MonoBehaviour
 
     void DisableVisual()
     {
+        
         if(GetComponent<Image>()) {
             GetComponent<Image>().enabled = false;
+        }
+        if(GetComponent<TextMeshProUGUI>()) {
+            GetComponent<TextMeshProUGUI>().enabled = false;
         }
     }
     void EnableVisual() {
         if (GetComponent<Image>()) {
             GetComponent<Image>().enabled = true;
+        }
+        if (GetComponent<TextMeshProUGUI>()) {
+            GetComponent<TextMeshProUGUI>().enabled = true;
         }
     }
 }
