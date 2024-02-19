@@ -4,10 +4,28 @@
 # By Alexis Clay
 
 /*
-    Dreams
+    Novel
 */
 
--> dream_0
+=== novel_intro1 ===
+72 hours until our world is devastated…
+The fate of humanity rested on my shoulders. A note that had my handwriting was sent back from the future describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
+I had 3 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
+Or, I can at least spare myself the eternal torture with a bullet.
+* [1- Suicide.] -> novel_intro2
+* [2- Drive to house of worship.] -> novel_intro2
+
+=== novel_intro2 ===
+Speeding like a bat out of hell, it’s no surprise that I encountered a cop.
+After flashing his lights we slow down to the side of the road. He gets out, goes over to my side and starts tapping on my window. He’s threatening to have me arrested.
+For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have one obvious option...
+* [1- Shoot the cop.] -> wakeup
+* [2- Reason with the cop.] -> wakeup
+
+
+/*
+    Dreams
+*/
 
 === dream_0 === // turn to stone
 You feel an unnatural weight on your limbs as an unseen force begins the petrification process. The ground beneath you, once soft and yielding, turns into an unforgiving surface that clings to your feet, making every step a struggle. The air thickens with an unsettling stillness, and an eerie silence surrounds you, broken only by the distant echoes of your own footsteps.
@@ -19,3 +37,7 @@ You wake up to a world that seems eerily familiar yet unsettlingly different. As
 
 The air is heavy with an unnatural stillness as these doppelgangers move through the house, mimicking the routines and gestures of your family members with an unsettling precision. Conversations are stilted and void of genuine connection, each interaction leaving you with a sense of profound alienation.
 * 1- Wake up. -> wakeup
+
+=== wakeup ===
+# closeNovel
+-> END

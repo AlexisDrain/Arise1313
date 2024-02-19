@@ -11,6 +11,8 @@ public class StoryType : MonoBehaviour
     [SerializeField]
     private TextAsset inkJSONAsset = null;
     public Story inkStory;
+    public ChoiceButtonData choice0;
+    public ChoiceButtonData choice1;
 
     private string finalText = "";
     public TextMeshProUGUI myText;
@@ -24,6 +26,53 @@ public class StoryType : MonoBehaviour
 
         myText.text = "";
         myText.enabled = true; // disabled in the editor and enabled here so that the first frame doesn't show the full text
+    }
+
+    public void CloseNovel() {
+        gameObject.SetActive(false);
+    }
+    public void NovelStart() {
+        inkStory.ChoosePathString("novel_intro1");
+
+        ProgressNovel(-1);
+    }
+    public void ProgressNovel(int newIndex = -1) {
+
+        if(newIndex != -1) {
+            inkStory.ChooseChoiceIndex(newIndex);
+        }
+
+        // type story
+        myText.text = "";
+        finalText = "";
+        while (inkStory.canContinue) {
+            inkStory.Continue();
+            finalText += inkStory.currentText + "\n";
+        }
+
+        // check we are at the end
+        if(inkStory.currentTags.Count > 0) {
+            if(inkStory.currentTags[0] == "closeNovel") {
+                CloseNovel();
+                return;
+            }
+        }
+
+        // buttons
+        choice0.UpdateText(inkStory.currentChoices[0].text);
+        if (inkStory.currentChoices[1]) {
+            choice1.UpdateText(inkStory.currentChoices[1].text);
+        } else {
+            choice1.HideChoice();
+        }
+        if (inkStory.currentChoices[0].text.Contains("Suicide")) {
+            choice0.ShakeButton(true);
+        } else {
+            choice0.ShakeButton(false);
+        }
+
+        StopCoroutine("Typewriter");
+        StartCoroutine("Typewriter");
     }
 
     public void StartRandomNightmare() {
@@ -59,6 +108,10 @@ public class StoryType : MonoBehaviour
         StopCoroutine("Typewriter");
         myText.text = "";
         myCanvas.enabled = false;
+    }
+    public void FastForwardStory() {
+        StopCoroutine("Typewriter");
+        myText.text = finalText;
     }
     IEnumerator Typewriter() {
         myText.text = "";
