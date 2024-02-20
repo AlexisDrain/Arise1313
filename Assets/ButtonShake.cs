@@ -6,7 +6,8 @@ public class ButtonShake : MonoBehaviour
 {
 
     public Vector2 randomRange = new Vector2(-4f, 4f);
-    public float shakeSpeedDefault = 1f;
+    public float shakeSpeedDefault = 0.01f;
+    public bool startShaking = false;
 
     private bool shakeButtonState;
     private Vector3 originalPos;
@@ -14,6 +15,9 @@ public class ButtonShake : MonoBehaviour
     void Start()
     {
         originalPos = transform.position;
+        if(startShaking == true) {
+            ShakeButtonState(true);
+        }
     }
     public void ShakeButtonState(bool newShakeState) {
         shakeButtonState = newShakeState;
