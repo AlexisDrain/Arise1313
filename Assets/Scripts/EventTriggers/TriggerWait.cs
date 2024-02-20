@@ -29,7 +29,7 @@ public class TriggerWait : MonoBehaviour {
     }
 
     public IEnumerator Countdown() {
-        print(notes);
+        print("TriggerWait: " + gameObject.name + " - " + notes);
         if(waitForSecondsRealtime) {
             yield return new WaitForSecondsRealtime(timeToWait);
         } else {

@@ -10,6 +10,7 @@ public class ChoiceButtonData : MonoBehaviour
     public int storyIndex = 0;
     public GameObject choicesText;
     public TextMeshProUGUI buttonText;
+    public AudioClip keyboardClickSound;
 
     void Start()
     {
@@ -35,6 +36,15 @@ public class ChoiceButtonData : MonoBehaviour
         choicesText.SetActive(false);
         if (storyIndex == 0) { // if there's no first choice. hide the "Choices" text
             buttonText.gameObject.SetActive(false);
+        }
+    }
+    private void Update() {
+        if(storyIndex == 0 && Input.GetButtonDown("Dialogue1")) {
+            ProgressStory();
+            GameManager.SpawnLoudAudio(keyboardClickSound);
+        } else if (storyIndex == 1 && Input.GetButtonDown("Dialogue2")) {
+            GameManager.SpawnLoudAudio(keyboardClickSound);
+            ProgressStory();
         }
     }
     public void ShakeButton(bool newState) {
