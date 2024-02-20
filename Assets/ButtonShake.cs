@@ -22,6 +22,9 @@ public class ButtonShake : MonoBehaviour
     public void ShakeButtonState(bool newShakeState) {
         shakeButtonState = newShakeState;
     }
+    public void UpdateNewLocation(Vector3 newLocation) {
+        originalPos = transform.position;
+    }
 
     void LateUpdate()
     {

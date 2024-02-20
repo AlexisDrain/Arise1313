@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     public static void KillPlayer() {
         GameManager.player.position = GameManager.bedCameraTransform.position;
+        print("kill player");
         /*
         GameManager.canvasDeath.SetActive(true);
         GameManager.player.GetComponent<PlayerController>().graphicGirl.SetActive(false);
@@ -120,6 +121,9 @@ public class GameManager : MonoBehaviour
             gibs.transform.rotation = GameManager.player.transform.rotation;
         }
         */
+    }
+    public static void StopSayonara() {
+        print("Stop sayonara");
     }
     public void Update() {
 
