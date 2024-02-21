@@ -31,7 +31,7 @@ public class PlayerUseController : MonoBehaviour
         if (_objectHighlighted != null && Input.GetButtonDown("Use")) {
             _objectHighlighted.TriggerThisObject();
         }
-        if (GameManager.playerInBed) {
+        if (GameManager.playerInBed || GameManager.playerInNovelOrSayonara) {
             _objectHighlighted = null;
             GameManager.displayUseText.HideDisplay();
         }

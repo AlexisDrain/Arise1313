@@ -10,10 +10,17 @@ public enum TimeOfDay {
     Midnight
 }
 
+public enum PlayerProgress {
+    PlayerInNovelIntroFirstTime,
+
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameObject gameManagerObj;
     public static Transform player;
+    public static SayonaraController sayonaraController;
+    public static StoryType storyType;
     public static Camera mainCamera;
     public static Camera blinkCamera;
     public static BlinkController blinkController;
@@ -24,7 +31,9 @@ public class GameManager : MonoBehaviour
 
     private static Pool pool_LoudAudioSource;
 
+    public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
+    public static bool playerInNovelOrSayonara = false;
     public static bool playerInBed = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
@@ -41,6 +50,10 @@ public class GameManager : MonoBehaviour
     void Awake() {
         gameManagerObj = gameObject;
         player = GameObject.Find("Player").transform;
+        sayonaraController = GameObject.Find("Canvas/Sayonara").GetComponent<SayonaraController>();
+        sayonaraController.gameObject.SetActive(false);
+        storyType = GameObject.Find("Canvas/IntroNovel").GetComponent<StoryType>();
+        storyType.gameObject.SetActive(false);
         mainCamera = GameObject.Find("Player/CamDolly/MainCam").GetComponent<Camera>();
         blinkCamera = GameObject.Find("Player/CamDolly/BlinkCam").GetComponent<Camera>();
         blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
@@ -58,7 +71,9 @@ public class GameManager : MonoBehaviour
         SetTimeOfDay(TimeOfDay.Evening);
 
         // Time.timeScale = 0f;
-        //NewGame();
+    }
+    private void Start() {
+        GameManager.NewGame();
     }
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
         currentTimeOfDay = newTimeOfDay;
@@ -92,6 +107,8 @@ public class GameManager : MonoBehaviour
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = false;
     }
     public static void PlayerLeaveBed() {
+        storyType.StartRandomNightmare();
+
         GameManager.playerInBed = false;
         SetTimeOfDay(TimeOfDay.Midnight);
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
@@ -107,10 +124,18 @@ public class GameManager : MonoBehaviour
         blinkCamera.transform.position = GameObject.Find("Player/CamDolly").transform.position;
         blinkCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
     }
-
     public static void KillPlayer() {
-        GameManager.player.position = GameManager.bedCameraTransform.position;
+        GameManager.player.position = GameManager.playerAwakeTrans.position;
+        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+
         print("kill player");
+
+        if(GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+            playerInNovelOrSayonara = true;
+            GameManager.NewGame();
+        }
         /*
         GameManager.canvasDeath.SetActive(true);
         GameManager.player.GetComponent<PlayerController>().graphicGirl.SetActive(false);
@@ -122,8 +147,30 @@ public class GameManager : MonoBehaviour
         }
         */
     }
+    public static void NewGame() {
+        gameHasBeenStartedOnce = true;
+        playerInNovelOrSayonara = true;
+        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+            GameManager.StartNovel();
+        }
+    }
+    public static void StartNovel() {
+        playerInNovelOrSayonara = true;
+        storyType.NovelStartFromIntro();
+    }
+    public static void StopNovel() {
+        storyType.gameObject.SetActive(false);
+        playerInNovelOrSayonara = false;
+    }
+    public static void StartSayonara() {
+        sayonaraController.gameObject.SetActive(true);
+        playerInNovelOrSayonara = true;
+    }
     public static void StopSayonara() {
-        print("Stop sayonara");
+        sayonaraController.gameObject.SetActive(false);
+        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+            GameManager.StartNovel();
+        }
     }
     public void Update() {
 
@@ -238,10 +285,6 @@ public class GameManager : MonoBehaviour
         SwitchLevel(currentLevelInt);
     }
     */
-    public void NewGame() {
-        gameHasBeenStartedOnce = true;
-
-    }
     public void ResumeGame() {
         Time.timeScale = 1.0f;
         gameIsPaused = false;

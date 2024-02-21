@@ -21,7 +21,7 @@ public class StoryType : MonoBehaviour
     public List<int> _collectedNightmares = new List<int>();
     private Canvas myCanvas;
 
-    private void Start() {
+    private void Awake() {
         inkStory = new Story(inkJSONAsset.text);
 
         myText.text = "";
@@ -29,9 +29,12 @@ public class StoryType : MonoBehaviour
     }
 
     public void CloseNovel() {
-        gameObject.SetActive(false);
+        GameManager.StopNovel();
     }
-    public void NovelStart() {
+    public void NovelStartFromIntro() {
+        inkStory = new Story(inkJSONAsset.text);
+
+        gameObject.SetActive(true);
         inkStory.ChoosePathString("novel_intro1");
 
         ProgressNovel(-1);
@@ -51,32 +54,28 @@ public class StoryType : MonoBehaviour
         }
 
         // check we are at the end
-        if(inkStory.currentTags.Count > 0) {
-            if(inkStory.currentTags[0] == "closeNovel") {
+        if (inkStory.currentTags.Count > 0) {
+            if (inkStory.currentTags[0] == "sayonaraStart") {
+                GameManager.StartSayonara();
+                CloseNovel();
+                return;
+            }
+            if (inkStory.currentTags[0] == "closeNovel") {
                 CloseNovel();
                 return;
             }
         }
 
         // buttons
-        choice0.UpdateText(inkStory.currentChoices[0].text);
-        if (inkStory.currentChoices[1]) {
-            choice1.UpdateText(inkStory.currentChoices[1].text);
-        } else {
-            choice1.HideChoice();
-        }
-        if (inkStory.currentChoices[0].text.Contains("Suicide")) {
-            choice0.ShakeButton(true);
-        } else {
-            choice0.ShakeButton(false);
-        }
+        choice0.HideChoice();
+        choice1.HideChoice();
 
         StopCoroutine("Typewriter");
         StartCoroutine("Typewriter");
     }
 
     public void StartRandomNightmare() {
-
+        gameObject.SetActive(true);
 
         // random nightmare
         if(_collectedNightmares.Count == 2) {
@@ -95,23 +94,39 @@ public class StoryType : MonoBehaviour
         // type story
         myText.text = "";
         finalText = "";
+
         inkStory.ChoosePathString("dream_" + randNightmare);
         while (inkStory.canContinue) {
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
         }
 
+        // buttons
+        choice0.HideChoice();
+        choice1.HideChoice();
+        // choice0.UpdateText(inkStory.currentChoices[0].text);
+
         StopCoroutine("Typewriter");
         StartCoroutine("Typewriter");
     }
-    public void DisableCanvas() {
-        StopCoroutine("Typewriter");
-        myText.text = "";
-        myCanvas.enabled = false;
-    }
+
     public void FastForwardStory() {
         StopCoroutine("Typewriter");
         myText.text = finalText;
+        ShowButtons();
+    }
+    private void ShowButtons() {
+        choice0.UpdateText(inkStory.currentChoices[0].text);
+        if (inkStory.currentChoices.Count >= 2 && inkStory.currentChoices[1]) {
+            choice1.UpdateText(inkStory.currentChoices[1].text);
+        } else {
+            choice1.HideChoice();
+        }
+        if (inkStory.currentChoices[0].text.Contains("Suicide")) {
+            choice0.ShakeButton(true);
+        } else {
+            choice0.ShakeButton(false);
+        }
     }
     IEnumerator Typewriter() {
         myText.text = "";
@@ -124,7 +139,7 @@ public class StoryType : MonoBehaviour
             yield return new WaitForSeconds(.01f);
         }
         yield return new WaitForSeconds(3f);
-        print("Enable buttons");
+        ShowButtons();
     }
 
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
 
-public class SpawnSayonara : MonoBehaviour
-{
+public class SpawnSayonara : MonoBehaviour {
+
+    public SayonaraController sayonaraController;
+
     public List<GameObject> sayoGoodButtons = new List<GameObject>();
     public List<GameObject> sayoBadButtons = new List<GameObject>();
     public Vector2 randXPos = new Vector2(0f, 1920f);
@@ -24,6 +26,9 @@ public class SpawnSayonara : MonoBehaviour
     void Start()
     {
         DeactivateAllMembers();
+        if(sayonaraController.sayonaraTutorial == true) {
+            SpawnTutorial();
+        }
     }
     public Vector2 GenerateNewPosition() {
         Vector2 randPosition = new Vector2(Random.Range(randXPos.x, randXPos.y), Random.Range(randYPos.x, randYPos.y));
@@ -39,6 +44,22 @@ public class SpawnSayonara : MonoBehaviour
             _previousSpawnPositions.RemoveAt(0);
         }
         return randPosition;
+    }
+    public void SpawnTutorial() {
+        GameObject obj = sayoGoodButtons[0];
+        obj.SetActive(true);
+        previousIndexGood = 0;
+        Vector2 setPosition = new Vector2(500f, -500f);
+        obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
+
+
+        obj = sayoBadButtons[0];
+        obj.SetActive(true);
+        previousIndexBad = 0;
+        setPosition = new Vector2(1100f, -500f);
+        obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
     }
     public void SpawnGood() {
 
@@ -78,6 +99,10 @@ public class SpawnSayonara : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (sayonaraController.sayonaraTutorial == true) {
+            return;
+        }
+
         if(waitUntilSpawnNewCurrent > 0f) {
             waitUntilSpawnNewCurrent -= Time.deltaTime;
         } else {

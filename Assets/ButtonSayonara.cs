@@ -27,6 +27,10 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
     }
 
     public void ClickSayonara() {
+        if (sayonaraController.sayonaraTutorial == true) {
+            sayonaraController.sayonaraTutorial = false;
+            sayonaraController.sayonaraTutorialText.SetActive(false);
+        }
         GetComponent<Button>().interactable = false;
         GetComponent<Button>().interactable = true; // hack so that the button looks unhighlighted after clicking
 
@@ -40,6 +44,11 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
         sign.enabled = false;
     }
     public void FixedUpdate() {
+
+        if (sayonaraController.sayonaraTutorial == true) {
+            return;
+        }
+
         if (waitUntilRemoveCurrent > 0f) {
             waitUntilRemoveCurrent -= Time.deltaTime;
         } else {

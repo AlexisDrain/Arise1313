@@ -51,7 +51,7 @@ public class PlayerFootsteps : MonoBehaviour
 
     public void PlayFootstep() {
 
-        if (GameManager.playerInBed == true) {
+        if (GameManager.playerInBed == true || GameManager.playerInNovelOrSayonara) {
             return;
         }
 

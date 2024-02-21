@@ -36,7 +36,7 @@ public class BlinkController : MonoBehaviour
         GameManager.EyesOpenEvent.Invoke();
     }
     private void FixedUpdate() {
-        if(currentTimeToBlink > 0f || GameManager.playerInBed) {
+        if(currentTimeToBlink > 0f || GameManager.playerInBed || GameManager.playerInNovelOrSayonara == false) {
             currentTimeToBlink -= Time.deltaTime;
             currentTimeToBlink = Mathf.Clamp(currentTimeToBlink, -1f, defaultTimeToBlink);
 

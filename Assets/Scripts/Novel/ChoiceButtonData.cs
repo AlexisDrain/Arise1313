@@ -14,18 +14,18 @@ public class ChoiceButtonData : MonoBehaviour
 
     void Start()
     {
-        HideChoice();
+
     }
 
     // Update is called once per frame
-    public void UpdateText(string newChoiceText)
-    {
+    public void UpdateText(string newChoiceText) {
         ShowChoice();
         buttonText.text = newChoiceText;
     }
     public void ShowChoice() {
         GetComponent<Button>().interactable = false;
         GetComponent<Button>().interactable = true; // hack so that the button looks unhighlighted after clicking
+
         choicesText.SetActive(true);
         gameObject.SetActive(true);
         buttonText.gameObject.SetActive(true);
