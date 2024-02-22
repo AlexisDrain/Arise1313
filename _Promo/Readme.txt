@@ -32,6 +32,11 @@ https://fonts.google.com/specimen/Roboto
 https://fontstruct.com/fontstructions/show/1770102/digital-183
 
 Textures
+- Old book page - vusos & yd
+https://opengameart.org/content/old-pagesflip-with-sound
+https://opengameart.org/content/horror-game-note-page-background-old-paper-png
+
+Wood texture. Door texture. Wall texture
 
 SFX
 Footsteps

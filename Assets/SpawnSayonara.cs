@@ -23,12 +23,10 @@ public class SpawnSayonara : MonoBehaviour {
     private int previousIndexGood;
     private int previousIndexBad;
 
-    void Start()
+    void OnEnable()
     {
         DeactivateAllMembers();
-        if(sayonaraController.sayonaraTutorial == true) {
-            SpawnTutorial();
-        }
+        SpawnTutorial();
     }
     public Vector2 GenerateNewPosition() {
         Vector2 randPosition = new Vector2(Random.Range(randXPos.x, randXPos.y), Random.Range(randYPos.x, randYPos.y));
@@ -50,6 +48,7 @@ public class SpawnSayonara : MonoBehaviour {
         obj.SetActive(true);
         previousIndexGood = 0;
         Vector2 setPosition = new Vector2(500f, -500f);
+        _previousSpawnPositions.Add(setPosition);
         obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
 
@@ -58,6 +57,7 @@ public class SpawnSayonara : MonoBehaviour {
         obj.SetActive(true);
         previousIndexBad = 0;
         setPosition = new Vector2(1100f, -500f);
+        _previousSpawnPositions.Add(setPosition);
         obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
     }

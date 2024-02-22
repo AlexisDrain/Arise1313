@@ -17,9 +17,12 @@ public class SayonaraController : MonoBehaviour
 
     void OnEnable() {
         _sayonaraHealth = 0.6f;
-        if (sayonaraTutorial == true) {
-            sayonaraTutorialText.SetActive(true);
-        }
+
+
+        sayonaraTutorial = true;
+        //if (sayonaraTutorial == true) {
+        sayonaraTutorialText.SetActive(true);
+        //}
     }
 
     private void FixedUpdate() {
