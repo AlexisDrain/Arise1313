@@ -8,6 +8,22 @@ Controls:
 - 1-9 keys or mouse to select choices in dialogue.
 - You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is hard to work with from my experience in making web FPS games.
 
+-----------------
+
+TODO
+
+[sayonara sfx]
+DSGNErie_Atmospheric element Noise 004_MMSD
+[horror sfx]
+GAF SFX01 - HORROR - DESIGNED - stab_medium_10
+GAF SFX01 - HORROR - Hammer Impact, huge
+
+music:
+Claire da lune.
+The song that sounds like clair da lune Gymnopedie No. 2
+Muddasheep: cease, always believe, arise, hope (remains). Somos version one. Three thousand years. broken heaven. Still stand (light long gone). A light long gone (a long long gone), Thought Machine (Meadow Mayhem)
+https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
+
 -----------------------
 
 Credits:
@@ -41,3 +57,6 @@ Wood texture. Door texture. Wall texture
 SFX
 Footsteps
 https://freesound.org/people/avakas/sounds/172362/
+
+Quest update SFX:
+Halfquake Trilogy by Muddasheep
