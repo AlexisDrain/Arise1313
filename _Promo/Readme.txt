@@ -12,8 +12,9 @@ Controls:
 
 TODO
 
-[sayonara sfx]
+[sayonara sfx] Search terms: Dark, Ambience, Tonal
 DSGNErie_Atmospheric element Noise 004_MMSD
+Dark Ambience Pad High Screaming Swarm
 [horror sfx]
 GAF SFX01 - HORROR - DESIGNED - stab_medium_10
 GAF SFX01 - HORROR - Hammer Impact, huge

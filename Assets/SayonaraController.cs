@@ -10,6 +10,7 @@ public class SayonaraController : MonoBehaviour
     public Image sayonaraBar1;
     public Image sayonaraBar2;
     public GameObject sayonaraTutorialText;
+    public AudioSource scaryMusic;
 
     [Header("Read me")]
     public float _sayonaraHealth = 0.6f;
@@ -36,6 +37,13 @@ public class SayonaraController : MonoBehaviour
         if (_sayonaraHealth > 0f) {
             _sayonaraHealth -= Time.deltaTime * healthDepletionRate;
             _sayonaraHealth = Mathf.Clamp(_sayonaraHealth, 0f, 1f);
+        }
+
+        // music
+        if(_sayonaraHealth < 0.3f && scaryMusic.isPlaying == false) {
+            scaryMusic.PlayWebGL();
+        } else if (_sayonaraHealth > 0.3f && scaryMusic.isPlaying == true) {
+            scaryMusic.StopWebGL();
         }
 
         if (_sayonaraHealth <= 0f) {
