@@ -70,8 +70,7 @@ public class StoryType : MonoBehaviour
         choice0.HideChoice();
         choice1.HideChoice();
 
-        StopCoroutine("Typewriter");
-        StartCoroutine("Typewriter");
+        StartCoroutine("StoryIntroDelay");
     }
 
     public void StartRandomNightmare() {
@@ -127,6 +126,11 @@ public class StoryType : MonoBehaviour
         } else {
             choice0.ShakeButton(false);
         }
+    }
+    IEnumerator StoryIntroDelay() {
+        yield return new WaitForSeconds(2f);
+        StopCoroutine("Typewriter");
+        StartCoroutine("Typewriter");
     }
     IEnumerator Typewriter() {
         myText.text = "";

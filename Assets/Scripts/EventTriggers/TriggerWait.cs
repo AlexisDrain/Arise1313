@@ -29,7 +29,6 @@ public class TriggerWait : MonoBehaviour {
     }
 
     public IEnumerator Countdown() {
-        print("TriggerWait: " + gameObject.name + " - " + notes);
         if(waitForSecondsRealtime) {
             yield return new WaitForSecondsRealtime(timeToWait);
         } else {
@@ -44,7 +43,7 @@ public class TriggerWait : MonoBehaviour {
             StopCoroutine("Countdown");
         }
 
-        if(startOnEnable && gameObject.activeSelf) {
+        if (gameObject.activeSelf) {
             StartCoroutine("Countdown");
         }
     }

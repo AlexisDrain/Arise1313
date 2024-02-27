@@ -8,7 +8,7 @@ public class FillFKey : MonoBehaviour
     public Image keyImage;
     public Image keyYellowImage;
     public Image holdTextImage;
-    public Image fullscreenSolidBlack;
+    public Image sleepFullscreenSolidBlack;
     private float blinkOutOfOne = 0f;
     void Start()
     {
@@ -22,13 +22,13 @@ public class FillFKey : MonoBehaviour
             keyImage.enabled = false;
             keyYellowImage.enabled = false;
             holdTextImage.enabled = false;
-            fullscreenSolidBlack.enabled = false;
+            sleepFullscreenSolidBlack.enabled = false;
             return;
         }
         keyImage.enabled = true;
         keyYellowImage.enabled = true;
         holdTextImage.enabled = true;
-        fullscreenSolidBlack.enabled = true;
+        sleepFullscreenSolidBlack.enabled = true;
 
         if (GameManager.blinkController._eyesClosed && GameManager.playerInBed == true) {
             blinkOutOfOne += Time.deltaTime * 0.2f;
@@ -39,10 +39,10 @@ public class FillFKey : MonoBehaviour
         blinkOutOfOne = Mathf.Clamp01(blinkOutOfOne);
         keyYellowImage.fillAmount = blinkOutOfOne;
         if(blinkOutOfOne > 0f) {
-            fullscreenSolidBlack.enabled = true;
-            fullscreenSolidBlack.color = new Color(0f, 0f, 0f, blinkOutOfOne);
+            sleepFullscreenSolidBlack.enabled = true;
+            sleepFullscreenSolidBlack.color = new Color(0f, 0f, 0f, blinkOutOfOne);
         } else {
-            fullscreenSolidBlack.enabled = false;
+            sleepFullscreenSolidBlack.enabled = false;
         }
 
         if(blinkOutOfOne > 0.99f) {

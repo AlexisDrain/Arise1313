@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SayonaraController : MonoBehaviour
 {
     public bool sayonaraTutorial = true;
+    public bool sayonaraTransition = false;
     public float healthDepletionRate = 0.01f;
     public Image sayonaraBar1;
     public Image sayonaraBar2;
@@ -14,12 +15,12 @@ public class SayonaraController : MonoBehaviour
 
     [Header("Read me")]
     public float _sayonaraHealth = 0.6f;
-
+    
 
     void OnEnable() {
         _sayonaraHealth = 0.6f;
 
-
+        sayonaraTransition = false;
         sayonaraTutorial = true;
         //if (sayonaraTutorial == true) {
         sayonaraTutorialText.SetActive(true);
@@ -27,6 +28,9 @@ public class SayonaraController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if(sayonaraTransition) {
+            return;
+        }
         sayonaraBar1.fillAmount = _sayonaraHealth;
         sayonaraBar2.fillAmount = _sayonaraHealth;
 
@@ -53,8 +57,16 @@ public class SayonaraController : MonoBehaviour
         }
         if(_sayonaraHealth >= 0.99f) {
             // gameObject.SetActive(false);
-            GameManager.StopSayonara();
+            StartCoroutine("EndSayonara");
         }
+    }
+    private IEnumerator EndSayonara() {
+        sayonaraTransition = true;
+        yield return new WaitForSeconds(1.5f);
+        GameManager.FadeInThenOut();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.StopSayonara();
+        sayonaraTransition = false;
     }
     public void GiveHealth() {
         _sayonaraHealth += 0.2f;

@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
     public static Camera blinkCamera;
     public static BlinkController blinkController;
     public static DisplayUseText displayUseText;
+    public static GameObject imageScreenTransition;
     
+
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         blinkCamera = GameObject.Find("Player/CamDolly/BlinkCam").GetComponent<Camera>();
         blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
+        imageScreenTransition = GameObject.Find("ScreenTransition");
 
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
@@ -73,8 +76,13 @@ public class GameManager : MonoBehaviour
         // Time.timeScale = 0f;
     }
     private void Start() {
-        GameManager.NewGame();
+        
+        // GameManager.NewGame(); done in Main Menu
     }
+    public static void FadeInThenOut() {
+        imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
+    }
+
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
         currentTimeOfDay = newTimeOfDay;
 
