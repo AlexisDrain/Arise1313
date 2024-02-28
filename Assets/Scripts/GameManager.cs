@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -25,8 +26,12 @@ public class GameManager : MonoBehaviour
     public static Camera blinkCamera;
     public static BlinkController blinkController;
     public static DisplayUseText displayUseText;
+
+    // canvas
+    public static GameObject dream;
+    public static GameObject foodQuestinare;
+    public static GameObject tabMenu;
     public static GameObject imageScreenTransition;
-    
 
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
@@ -60,8 +65,16 @@ public class GameManager : MonoBehaviour
         blinkCamera = GameObject.Find("Player/CamDolly/BlinkCam").GetComponent<Camera>();
         blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
-        imageScreenTransition = GameObject.Find("ScreenTransition");
 
+        // canvas
+        dream = GameObject.Find("Canvas/Dream");
+        dream.gameObject.SetActive(false);
+        foodQuestinare = GameObject.Find("Canvas/FoodQuestinare");
+        foodQuestinare.gameObject.SetActive(false);
+        tabMenu = GameObject.Find("Canvas/TabMenu");
+        //tabMenu.gameObject.SetActive(false);
+        imageScreenTransition = GameObject.Find("ScreenTransition");
+        
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
 

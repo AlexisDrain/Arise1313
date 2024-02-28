@@ -15,6 +15,7 @@ public class StoryType : MonoBehaviour
     public ChoiceButtonData choice1;
 
     private string finalText = "";
+    private bool justOpenedStory = false;
     public TextMeshProUGUI myText;
 
     [Header("Read only")]
@@ -35,6 +36,7 @@ public class StoryType : MonoBehaviour
         inkStory = new Story(inkJSONAsset.text);
 
         gameObject.SetActive(true);
+        justOpenedStory = true;
         inkStory.ChoosePathString("novel_intro1");
 
         ProgressNovel(-1);
@@ -70,14 +72,20 @@ public class StoryType : MonoBehaviour
         choice0.HideChoice();
         choice1.HideChoice();
 
-        StartCoroutine("StoryIntroDelay");
+        if (justOpenedStory == true) {
+            StartCoroutine("StoryIntroDelay");
+            justOpenedStory = false;
+        } else { // same as StoryIntroDelay but without delay
+            StopCoroutine("Typewriter");
+            StartCoroutine("Typewriter");
+        }
     }
 
     public void StartRandomNightmare() {
         gameObject.SetActive(true);
 
         // random nightmare
-        if(_collectedNightmares.Count == 2) {
+        if (_collectedNightmares.Count == 2) {
             _collectedNightmares.Clear();
         }
         List<int> notInNightmare = new List<int>();
@@ -142,7 +150,7 @@ public class StoryType : MonoBehaviour
             myText.text += c;
             yield return new WaitForSeconds(.01f);
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         ShowButtons();
     }
 
