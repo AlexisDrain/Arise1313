@@ -21,7 +21,11 @@ GAF SFX01 - HORROR - Hammer Impact, huge
 
 music:
 Claire da lune.
-The song that sounds like clair da lune Gymnopedie No. 2
+
+"Gymnopedie No. 1" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
 Muddasheep: cease, always believe, arise, hope (remains). Somos version one. Three thousand years. broken heaven. Still stand (light long gone). A light long gone (a long long gone), Thought Machine (Meadow Mayhem)
 https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 

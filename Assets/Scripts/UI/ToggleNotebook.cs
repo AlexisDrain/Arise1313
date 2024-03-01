@@ -8,10 +8,11 @@ public class ToggleNotebook : MonoBehaviour
     private GameObject notebook;
     void Start()
     {
-        quests = GameObject.Find("Quests");
+        quests = transform.Find("Quests").gameObject;
         quests.SetActive(false);
-        notebook = GameObject.Find("Notebook");
+        notebook = transform.Find("Notebook").gameObject;
         notebook.SetActive(false);
+        GameManager.playerInNotebook = false;
     }
 
     // Update is called once per frame
@@ -21,9 +22,11 @@ public class ToggleNotebook : MonoBehaviour
             if(quests.activeSelf == false) {
                 quests.SetActive(true);
                 notebook.SetActive(true);
+                GameManager.playerInNotebook = true;
             } else if (quests.activeSelf == true) {
                 quests.SetActive(false);
                 notebook.SetActive(false);
+                GameManager.playerInNotebook = false;
             }
         }
     }

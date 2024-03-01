@@ -6,9 +6,10 @@ using UnityEngine.Pool;
 
 public class TriggerTimeOfDay : MonoBehaviour
 {
-    public GameObject objectMorning;
-    public GameObject objectEvening;
-    public GameObject objectMidnight;
+    [Header("Day3")]
+    public List<GameObject> objectMorning;
+    public List<GameObject> objectEvening;
+    public List<GameObject> objectMidnight;
 
     void Start()
     {
@@ -16,24 +17,34 @@ public class TriggerTimeOfDay : MonoBehaviour
         UpdateTimeOfDay();
     }
 
+    private void EnableAllMembers(List<GameObject> members) {
+        for (int i = 0; i < members.Count; i++) {
+            members[i].SetActive(true);
+        }
+    }
+    public void DisableAllMembers(List<GameObject> members) {
+        for (int i = 0; i < members.Count; i++) {
+            members[i].SetActive(false);
+        }
+    }
 
     void UpdateTimeOfDay()
     {
         if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
             
-            objectMorning.SetActive(true);
-            objectEvening.SetActive(false);
-            objectMidnight.SetActive(false);
+            EnableAllMembers(objectMorning);
+            DisableAllMembers(objectEvening);
+            DisableAllMembers(objectMidnight);
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
 
-            objectMorning.SetActive(false);
-            objectEvening.SetActive(true);
-            objectMidnight.SetActive(false);
+            DisableAllMembers(objectMorning);
+            EnableAllMembers(objectEvening);
+            DisableAllMembers(objectMidnight);
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
 
-            objectMorning.SetActive(false);
-            objectEvening.SetActive(false);
-            objectMidnight.SetActive(true);
+            DisableAllMembers(objectMorning);
+            DisableAllMembers(objectEvening);
+            EnableAllMembers(objectMidnight);
         }
     }
 }

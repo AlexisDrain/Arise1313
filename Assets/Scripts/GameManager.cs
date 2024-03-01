@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     // canvas
     public static GameObject dream;
-    public static GameObject foodQuestinare;
+    public static GameObject foodQuestionnaire;
     public static GameObject tabMenu;
     public static GameObject imageScreenTransition;
 
@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
 
     public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
+    public static bool playerInFoodQuestionnaire = false;
     public static bool playerInNovelOrSayonara = false;
+    public static bool playerInNotebook = false;
     public static bool playerInBed = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
@@ -69,8 +71,8 @@ public class GameManager : MonoBehaviour
         // canvas
         dream = GameObject.Find("Canvas/Dream");
         dream.gameObject.SetActive(false);
-        foodQuestinare = GameObject.Find("Canvas/FoodQuestinare");
-        foodQuestinare.gameObject.SetActive(false);
+        foodQuestionnaire = GameObject.Find("Canvas/FoodQuestionnaire");
+        foodQuestionnaire.gameObject.SetActive(false);
         tabMenu = GameObject.Find("Canvas/TabMenu");
         //tabMenu.gameObject.SetActive(false);
         imageScreenTransition = GameObject.Find("ScreenTransition");
@@ -168,12 +170,24 @@ public class GameManager : MonoBehaviour
         }
         */
     }
+    public void ResumeGame() {
+        Time.timeScale = 1.0f;
+        gameIsPaused = false;
+    }
     public static void NewGame() {
         gameHasBeenStartedOnce = true;
         playerInNovelOrSayonara = true;
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
             GameManager.StartNovel();
         }
+    }
+    public static void StartFoodQuestionnaire() {
+        GameManager.foodQuestionnaire.SetActive(true);
+        playerInFoodQuestionnaire = true;
+    }
+    public static void StopFoodQuestionnaire() {
+        GameManager.foodQuestionnaire.SetActive(false);
+        playerInFoodQuestionnaire = false;
     }
     public static void StartNovel() {
         playerInNovelOrSayonara = true;
@@ -204,32 +218,19 @@ public class GameManager : MonoBehaviour
         }
 
         if (cheatMode == true) {
-            // one level back
+            //if (Input.GetKey(KeyCode.G)
+            //&& (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+            //    playerInBed = !playerInBed;
+            //}
             if (Input.GetKey(KeyCode.G)
-            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
-                playerInBed = !playerInBed;
+            && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
+                StopSayonara();
+                StopNovel();
             }
 
         }
     }
-    /*
-    public static void RevivePlayer() {
-        playerIsAlive = true;
-        GameManager.canvasDeath.SetActive(false);
-        GameManager.player.GetComponent<PlayerController>().graphicGirl.SetActive(true);
-        GameManager.player.GetComponent<PlayerController>().graphicGirl.GetComponent<Animator>().Rebind();
-        player.GetComponent<PlayerEnemyCollision>().health = 3;
-        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        player.GetComponent<Rigidbody>().rotation = playerCheckpoint.rotation;
-        player.transform.rotation = playerCheckpoint.rotation;
-        player.GetComponent<Rigidbody>().position = playerCheckpoint.position;
-        player.transform.position = playerCheckpoint.position;
 
-        GameManager.checkpointCameraBundle.gameObject.SetActive(true);
-
-        playerRevive.Invoke();
-    }
-    */
     public static AudioSource SpawnLoudAudio(AudioClip newAudioClip, Vector2 pitch = new Vector2(), float newVolume = 1f) {
 
         float sfxPitch;
@@ -244,70 +245,5 @@ public class GameManager : MonoBehaviour
         audioObject.PlayWebGL(newAudioClip, newVolume);
         return audioObject;
         // audio object will set itself to inactive after done playing.
-    }
-    /*
-    public void Update() {
-
-        if (Input.GetButtonDown("Pause")) {
-            if (gameIsPaused && gameHasBeenStartedOnce == true) {
-                gameIsPaused = false;
-                canvasMenu.SetActive(false);
-                Time.timeScale = 1f;
-            } else {
-                gameIsPaused = true;
-                canvasMenu.SetActive(true);
-                Time.timeScale = 0f;
-            }
-        }
-
-        if (playerIsAlive == false) {
-            if (Input.GetButtonDown("Revive") || Input.GetButtonDown("Jump")) {
-                RevivePlayer();
-            }
-        } else {
-            if (Input.GetButtonDown("Revive")) {
-                print("player is not dead but pressed Revive");
-                if (currentLevelInt != 13) { // Hack: 13 is the The End level
-                    RevivePlayer();
-
-                }
-            }
-        }
-
-        if(cheatMode == true) {
-            // one level back
-            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
-                currentLevelInt -= 1;
-                GameManager.gameManagerObj.GetComponent<GameManager>().SetNewLevel(currentLevelInt);
-            }
-            // one level forward
-            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
-                currentLevelInt += 1;
-                GameManager.gameManagerObj.GetComponent<GameManager>().SetNewLevel(currentLevelInt);
-            }
-            // new game
-            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-                && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
-                //NewGame();
-            }
-            // remove tutorial message
-            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
-                GameManager.canvasTopRightTutorial.SetActive(false);
-            }
-        }
-    }
-
-    public IEnumerator ScreenTransition() {
-        canvasScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
-        yield return new WaitForSecondsRealtime(0.5f);
-        SwitchLevel(currentLevelInt);
-    }
-    */
-    public void ResumeGame() {
-        Time.timeScale = 1.0f;
-        gameIsPaused = false;
     }
 }

@@ -70,6 +70,6 @@ public class FoodQuestionare : MonoBehaviour
         if (currentDinnerBevToggle.ActiveToggles().Count() > 0) {
             _currentDinnerBev = currentDinnerBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerBev;
         }
-        
+        GameManager.StopFoodQuestionnaire();
     }
 }
