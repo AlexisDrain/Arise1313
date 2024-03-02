@@ -40,9 +40,10 @@ public class GameManager : MonoBehaviour
 
     public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
+    public static bool playerInMainMenu = true;
     public static bool playerInFoodQuestionnaire = false;
     public static bool playerInNovelOrSayonara = false;
-    public static bool playerInNotebook = false;
+    public static bool playerInTabMenu = false;
     public static bool playerInBed = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour
     public static void NewGame() {
         gameHasBeenStartedOnce = true;
         playerInNovelOrSayonara = true;
+        playerInMainMenu = false;
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
             GameManager.StartNovel();
         }

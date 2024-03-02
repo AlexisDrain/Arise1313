@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class DeactivateOnClick : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool deactivateOnStart = false;
+    public bool deactivateAfterEndOfClick = false;
+    public bool deactivateThisComponentAtEnd = false;
     void Start()
     {
-        
+        if(deactivateOnStart) {
+            gameObject.SetActive(false);
+        }
     }
 
+    private void Deactivate() {
+        if(deactivateThisComponentAtEnd) {
+            GetComponent<DeactivateOnClick>().enabled = false;
+        }
+        gameObject.SetActive(false);
+    }
     // Update is called once per frame
     void LateUpdate()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            gameObject.SetActive(false);
+        if(deactivateAfterEndOfClick) {
+            if (Input.GetMouseButtonUp(0)) {
+                StartCoroutine("LateDeactivateCountdown");
+            }
+        } else {
+            if (Input.GetMouseButtonDown(0)) {
+                Deactivate();
+            }
+
         }
+    }
+    IEnumerator LateDeactivateCountdown() {
+        yield return new WaitForSecondsRealtime(0.1f);
+        Deactivate();
     }
 }

@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (GameManager.playerInBed == true || GameManager.playerInNovelOrSayonara == true || GameManager.playerInNotebook == true
+        if (GameManager.playerInBed == true || GameManager.playerInNovelOrSayonara == true || GameManager.playerInTabMenu == true
             || GameManager.playerInFoodQuestionnaire == true) {
             myRigidbody.velocity = new Vector3(0f, 0f, 0f);
             return;

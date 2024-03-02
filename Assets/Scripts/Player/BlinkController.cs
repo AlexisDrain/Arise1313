@@ -37,7 +37,7 @@ public class BlinkController : MonoBehaviour
     }
     private void FixedUpdate() {
 
-        if (GameManager.playerInBed || GameManager.playerInNovelOrSayonara || GameManager.playerInFoodQuestionnaire || GameManager.playerInNotebook) {
+        if (GameManager.playerInBed || GameManager.playerInNovelOrSayonara || GameManager.playerInFoodQuestionnaire || GameManager.playerInTabMenu) {
             return;
         }
         if(currentTimeToBlink > 0f) {
