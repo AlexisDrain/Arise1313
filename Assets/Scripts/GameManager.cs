@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         entityMask = LayerMask.NameToLayer("Entity");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
-        SetTimeOfDay(TimeOfDay.Evening);
+        SetTimeOfDay(TimeOfDay.Morning);
 
         // Time.timeScale = 0f;
     }
@@ -104,9 +104,9 @@ public class GameManager : MonoBehaviour
 
         changeTimeOfDayEvent.Invoke();
 
-        Image iconMorning = GameObject.Find("Canvas/IconTime/IconTime_Morning").GetComponent<Image>();
-        Image iconEvening = GameObject.Find("Canvas/IconTime/IconTime_Evening").GetComponent<Image>();
-        Image iconMidNight = GameObject.Find("Canvas/IconTime/IconTime_Midnight").GetComponent<Image>();
+        Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
+        Image iconEvening = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening").GetComponent<Image>();
+        Image iconMidNight = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight").GetComponent<Image>();
 
         if (newTimeOfDay == TimeOfDay.Morning) {
             iconMorning.enabled = true;
@@ -191,9 +191,13 @@ public class GameManager : MonoBehaviour
         GameManager.foodQuestionnaire.SetActive(false);
         playerInFoodQuestionnaire = false;
     }
-    public static void StartNovel() {
+    public static void StartNovel(string newStoryKnot = "") {
         playerInNovelOrSayonara = true;
-        storyType.NovelStartFromIntro();
+        if(newStoryKnot == "") {
+            storyType.NovelStartFromIntro();
+        } else {
+            storyType.StartNovelKnot(newStoryKnot);
+        }
     }
     public static void StopNovel() {
         storyType.gameObject.SetActive(false);

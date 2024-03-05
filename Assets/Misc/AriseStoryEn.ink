@@ -9,6 +9,7 @@
 */
 
 === novel_intro1 ===
+# image_redComputer
 72 hours until our world is devastated…
 The fate of humanity rested on my shoulders. A note that had my handwriting was sent back from the future describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
 I had 3 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
@@ -17,12 +18,24 @@ Or, I can at least spare myself the eternal torture with a bullet.
 + [2- Drive to house of worship.] -> novel_intro2
 
 === novel_intro2 ===
+# image_black
 Speeding like a bat out of hell, it’s no surprise that I encountered a cop.
 After flashing his lights we slow down to the side of the road. He gets out, goes over to my side and starts tapping on my window. He’s threatening to have me arrested.
 For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have one obvious option...
 + [1- Shoot the cop.] -> wakeup
 + [2- Reason with the cop.] -> wakeup
 
+
+/*
+    Activities
+*/
+=== breakfast_3 ===
+# image_black
+Last call for breakfast! It’s not too late to have breakfast at 2PM!
+\*Chef Ratsy acknowledges you*
+Hello dear, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later.
+\*You get food and a paper*
++ [1- Fill out questionnaire] -> foodGet
 
 /*
     Dreams
@@ -38,6 +51,13 @@ You wake up to a world that seems eerily familiar yet unsettlingly different. As
 
 The air is heavy with an unnatural stillness as these doppelgangers move through the house, mimicking the routines and gestures of your family members with an unsettling precision. Conversations are stilted and void of genuine connection, each interaction leaving you with a sense of profound alienation.
 + 1- Wake up. -> wakeup
+
+/* 
+    special functions 
+*/
+=== foodGet ===
+# foodGet
+-> END
 
 === sayonara ===
 # sayonaraStart

@@ -15,8 +15,11 @@ public class StoryType : MonoBehaviour
     public ChoiceButtonData choice1;
 
     private string finalText = "";
-    private bool justOpenedStory = false;
+    private bool justOpenedStoryIntro = false;
+    public Image bgImage;
     public TextMeshProUGUI myText;
+
+    public List<Sprite> imageList = new List<Sprite>();
 
     [Header("Read only")]
     public List<int> _collectedNightmares = new List<int>();
@@ -36,8 +39,17 @@ public class StoryType : MonoBehaviour
         inkStory = new Story(inkJSONAsset.text);
 
         gameObject.SetActive(true);
-        justOpenedStory = true;
+        justOpenedStoryIntro = true;
         inkStory.ChoosePathString("novel_intro1");
+
+        ProgressNovel(-1);
+    }
+    public void StartNovelKnot(string newPathString) {
+        inkStory = new Story(inkJSONAsset.text);
+
+        gameObject.SetActive(true);
+        //justOpenedStory = true; too slow ingame
+        inkStory.ChoosePathString(newPathString);
 
         ProgressNovel(-1);
     }
@@ -51,12 +63,21 @@ public class StoryType : MonoBehaviour
         myText.text = "";
         finalText = "";
         while (inkStory.canContinue) {
+            if (inkStory.currentTags.Count > 0) {
+                if (inkStory.currentTags[0] == "image_black") {
+                    bgImage.sprite = imageList[0];
+                }
+                if (inkStory.currentTags[0] == "image_redComputer") {
+                    bgImage.sprite = imageList[1];
+                }
+            }
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
         }
 
         // check we are at the end
         if (inkStory.currentTags.Count > 0) {
+
             if (inkStory.currentTags[0] == "sayonaraStart") {
                 GameManager.StartSayonara();
                 CloseNovel();
@@ -66,15 +87,21 @@ public class StoryType : MonoBehaviour
                 CloseNovel();
                 return;
             }
+            if (inkStory.currentTags[0] == "foodGet") {
+                GameManager.StartFoodQuestionnaire();
+                CloseNovel();
+                return;
+            }
+            
         }
 
         // buttons
         choice0.HideChoice();
         choice1.HideChoice();
 
-        if (justOpenedStory == true) {
+        if (justOpenedStoryIntro == true) {
             StartCoroutine("StoryIntroDelay");
-            justOpenedStory = false;
+            justOpenedStoryIntro = false;
         } else { // same as StoryIntroDelay but without delay
             StopCoroutine("Typewriter");
             StartCoroutine("Typewriter");
@@ -137,6 +164,12 @@ public class StoryType : MonoBehaviour
     }
     IEnumerator StoryIntroDelay() {
         yield return new WaitForSeconds(2f);
+        StopCoroutine("Typewriter");
+        StartCoroutine("Typewriter");
+    }
+    IEnumerator StoryFadeInBlackDelay() {
+        GameManager.FadeInThenOut();
+        yield return new WaitForSeconds(0.5f);
         StopCoroutine("Typewriter");
         StartCoroutine("Typewriter");
     }

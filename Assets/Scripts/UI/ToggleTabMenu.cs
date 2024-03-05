@@ -8,6 +8,7 @@ public class ToggleTabMenu : MonoBehaviour
     private GameObject sanity;
     private GameObject inventory;
     private GameObject inventoryTooltip;
+    private GameObject iconTime;
     void Start()
     {
         quests = transform.Find("Quests").gameObject;
@@ -18,6 +19,8 @@ public class ToggleTabMenu : MonoBehaviour
         inventory.SetActive(false);
         inventoryTooltip = transform.Find("InventoryTooltip").gameObject;
         inventoryTooltip.SetActive(false);
+        iconTime = transform.Find("IconTime").gameObject;
+        iconTime.SetActive(false);
 
         GameManager.playerInTabMenu = false;
     }
@@ -27,6 +30,7 @@ public class ToggleTabMenu : MonoBehaviour
         sanity.SetActive(false);
         inventory.SetActive(false);
         inventoryTooltip.SetActive(false);
+        iconTime.SetActive(false);
         GameManager.playerInTabMenu = false;
     }
     void Update()
@@ -45,6 +49,7 @@ public class ToggleTabMenu : MonoBehaviour
                 sanity.SetActive(true);
                 inventory.SetActive(true);
                 // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
+                iconTime.SetActive(true);
                 GameManager.playerInTabMenu = true;
             } else if (quests.activeSelf == true) {
                 HideMenu();
