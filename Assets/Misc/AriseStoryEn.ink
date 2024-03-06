@@ -31,11 +31,17 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 */
 === breakfast_3 ===
 # image_black
-Last call for breakfast! It’s not too late to have breakfast at 2PM!
-\*Chef Ratsy acknowledges you*
-Hello dear, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later.
+"Last call for breakfast! It’s not too late to have breakfast at 2PM!" says Chef Ratsy.
+\*She acknowledges you*
+"Hello sugar cube, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later."
 \*You get food and a paper*
-+ [1- Fill out questionnaire] -> foodGet
++ [1- Fill out questionnaire] -> foodGetAndQuestionnaire
+
+=== dinner_3 ===
+# image_black
+"I hope you're starving! Plenty of food to go around."
+\* Chef Ratsy hands you your dinner*
++ [1- Leave] -> foodGet
 
 /*
     Dreams
@@ -55,6 +61,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 /* 
     special functions 
 */
+=== foodGetAndQuestionnaire ===
+# foodGetAndQuestionnaire
+-> END
+
 === foodGet ===
 # foodGet
 -> END

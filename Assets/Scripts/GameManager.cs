@@ -19,6 +19,7 @@ public enum PlayerProgress {
 public class GameManager : MonoBehaviour
 {
     public static GameObject gameManagerObj;
+    public static QuestManager questManager;
     public static Transform player;
     public static SayonaraController sayonaraController;
     public static StoryType storyType;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     public static bool playerInNovelOrSayonara = false;
     public static bool playerInTabMenu = false;
     public static bool playerInBed = false;
+    public static bool playerGotBreakfastOrDinner = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
     public bool cheatMode = true;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Awake() {
         gameManagerObj = gameObject;
+        questManager = GetComponent<QuestManager>();
         player = GameObject.Find("Player").transform;
         sayonaraController = GameObject.Find("Canvas/Sayonara").GetComponent<SayonaraController>();
         sayonaraController.gameObject.SetActive(false);
@@ -95,6 +98,7 @@ public class GameManager : MonoBehaviour
         
         // GameManager.NewGame(); done in Main Menu
     }
+
     public static void FadeInThenOut() {
         imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
     }
@@ -112,6 +116,8 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = true;
             iconEvening.enabled = false;
             iconMidNight.enabled = false;
+            questManager.CreateNewQuest("breakfast3");
+
         } else if (newTimeOfDay == TimeOfDay.Evening) {
             iconMorning.enabled = false;
             iconEvening.enabled = true;

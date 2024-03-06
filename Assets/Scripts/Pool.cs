@@ -81,7 +81,7 @@ public class Pool : MonoBehaviour {
 		return Spawn(position);
 	}
 
-	public void DeactivateAllMembers () {
+	public void DeactivateAllSounds () {
 		for (int i = 0; i < pooledObjects.Count; i++) {
 			pooledObjects [i].transform.position = new Vector3 (100f, float.MaxValue, 0f);
 			pooledObjects [i].SetActive (false);

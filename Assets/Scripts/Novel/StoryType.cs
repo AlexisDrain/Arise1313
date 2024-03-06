@@ -88,11 +88,22 @@ public class StoryType : MonoBehaviour
                 return;
             }
             if (inkStory.currentTags[0] == "foodGet") {
+                GameManager.questManager.SolveQuest("breakfast3");
+                //GameManager.StartFoodQuestionnaire();
+                print("Give food");
+                CloseNovel();
+                return;
+            }
+            if (inkStory.currentTags[0] == "foodGetAndQuestionnaire") {
+                GameManager.questManager.SolveQuest("breakfast3");
                 GameManager.StartFoodQuestionnaire();
+                print("Give food & questionnaire");
                 CloseNovel();
                 return;
             }
             
+
+
         }
 
         // buttons
