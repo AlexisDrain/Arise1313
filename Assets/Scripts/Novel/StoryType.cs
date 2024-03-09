@@ -59,21 +59,31 @@ public class StoryType : MonoBehaviour
             inkStory.ChooseChoiceIndex(newIndex);
         }
 
+
         // type story
         myText.text = "";
         finalText = "";
         while (inkStory.canContinue) {
             if (inkStory.currentTags.Count > 0) {
-                if (inkStory.currentTags[0] == "image_black") {
-                    bgImage.sprite = imageList[0];
-                }
-                if (inkStory.currentTags[0] == "image_redComputer") {
-                    bgImage.sprite = imageList[1];
+                for (int i = 0; i < inkStory.currentTags.Count; i++) {
+                    if (inkStory.currentTags[i] == "image_black") {
+                        bgImage.sprite = imageList[0];
+                        continue;
+                    }
+                    if (inkStory.currentTags[i] == "image_redComputer") {
+                        bgImage.sprite = imageList[1];
+                        continue;
+                    }
+                    if (inkStory.currentTags[i] == "confiscate") {
+                        inkStory.variablesState["confiscateVar"] = "";
+                        continue;
+                    }
                 }
             }
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
         }
+
 
         // check we are at the end
         if (inkStory.currentTags.Count > 0) {
@@ -101,7 +111,10 @@ public class StoryType : MonoBehaviour
                 CloseNovel();
                 return;
             }
-            
+            //if (inkStory.currentTags[0] == "confiscate") {
+            //}
+
+
 
 
         }

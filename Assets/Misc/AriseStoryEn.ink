@@ -5,6 +5,12 @@
 # By Alexis Clay
 
 /*
+    Variables
+*/
+
+VAR confiscateVar = ""
+
+/*
     Novel
 */
 
@@ -43,6 +49,20 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 \* Chef Ratsy hands you your dinner*
 + [1- Leave] -> foodGet
 
+=== meeting_3 ===
+# image_black
+# confiscate
+You spend the entire 1-on-1 session relaying the world ending phenomenon.
+
+You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
+Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.” {confiscateVar}
++ [“So you don’t believe me?”] -> meeting_3No
++ [“So you’ll let me out?”] -> meeting_3No
+
+=== meeting_3No ===
+Therapist: "No."
++ [1- Leave] -> stopNovel
+
 /*
     Dreams
 */
@@ -71,6 +91,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 
 === sayonara ===
 # sayonaraStart
+-> END
+
+=== stopNovel ===
+# closeNovel
 -> END
 
 === wakeup ===
