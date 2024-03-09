@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class SayonaraController : MonoBehaviour
 {
     public bool sayonaraTutorial = true;
     public bool sayonaraTransition = false;
     public float healthDepletionRate = 0.01f;
+    public Image imageHand;
+    public Animator animFace;
     public Image sayonaraBar1;
     public Image sayonaraBar2;
     public GameObject sayonaraTutorialText;
@@ -19,6 +22,8 @@ public class SayonaraController : MonoBehaviour
 
     void OnEnable() {
         _sayonaraHealth = 0.6f;
+        imageHand.GetComponent<RectTransform>().anchoredPosition = new Vector2(537f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
+        animFace.SetTrigger("NewSayonara");
 
         sayonaraTransition = false;
         sayonaraTutorial = true;
@@ -33,6 +38,13 @@ public class SayonaraController : MonoBehaviour
         }
         sayonaraBar1.fillAmount = _sayonaraHealth;
         sayonaraBar2.fillAmount = _sayonaraHealth;
+
+        // sayonara hand position. max: 725f. Death: 275f, start: 537f
+        float handPosRange = (725f - 275f);
+        float handPosValue = (_sayonaraHealth * handPosRange) + 275f;
+        
+        imageHand.GetComponent<RectTransform>().anchoredPosition
+            = new Vector2(Mathf.Lerp(imageHand.GetComponent<RectTransform>().anchoredPosition.x, handPosValue, 0.1f), imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
         if (sayonaraTutorial == true) {
             return;
@@ -52,15 +64,27 @@ public class SayonaraController : MonoBehaviour
 
         if (_sayonaraHealth <= 0f) {
             // gameObject.SetActive(false);
-            GameManager.KillPlayer();
-            GameManager.StopSayonara();
+            StartCoroutine("KillPlayerSayonara");
         }
         if(_sayonaraHealth >= 0.99f) {
             // gameObject.SetActive(false);
-            StartCoroutine("EndSayonara");
+            StartCoroutine("EndSayonaraGood");
         }
     }
-    private IEnumerator EndSayonara() {
+    private IEnumerator KillPlayerSayonara() {
+        sayonaraTransition = true;
+        imageHand.GetComponent<RectTransform>().anchoredPosition
+            = new Vector2(200f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
+
+        animFace.SetTrigger("Die");
+        yield return new WaitForSeconds(1.5f);
+        GameManager.FadeInThenOut();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.KillPlayer();
+        GameManager.StopSayonara();
+        sayonaraTransition = false;
+    }
+    private IEnumerator EndSayonaraGood() {
         sayonaraTransition = true;
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();
