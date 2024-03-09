@@ -3,28 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum InvItem {
+    None,
+    FuturePaper,
+    Drugs,
+    Oatmeal,
+    ScrambledEggs,
+    FrenchToast,
+    AppleJuice,
+    CranberryJuice,
+    OrangeJuice,
+    DecafCoffee,
+    Pizza,
+    Burger,
+    Hummus,
+    Rice,
+    MacAndCheese,
+    Milk
+};
+
 public class InventoryGridItem : MonoBehaviour
 {
-    public GameObject tooltip;
-    public GameObject inventory;
+    public string itemLabelName;
+    public InvItem myInvItem;
+    [Header("Set once")]
+    //public Sprite imageNothing;
+    public InventoryTooltip tooltip;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(SummonTooltip);
+        GetComponent<Button>().onClick.AddListener(ClickButton);
     }
 
-    // Update is called once per frame
-    public void SummonTooltip()
-    {
-        StartCoroutine("EnableTooltipDeactivate");
-        tooltip.SetActive(true);
-        tooltip.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition
-            + inventory.GetComponent<RectTransform>().anchoredPosition
-            + new Vector2(-175f, 0f);
+    public void ClickButton() {
+        tooltip.SummonTooltip(GetComponent<InventoryGridItem>());
     }
 
-    private IEnumerator EnableTooltipDeactivate() {
-        yield return new WaitForSecondsRealtime(0.01f);
-        tooltip.GetComponent<DeactivateOnClick>().enabled = true;
+    public void DestroyGridItem() {
+        Destroy(gameObject);
     }
+
+
 }
