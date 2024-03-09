@@ -90,14 +90,14 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[0] == "foodGet") {
                 GameManager.questManager.SolveQuest("breakfast3");
                 //GameManager.StartFoodQuestionnaire();
-                print("Give food");
+                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
                 CloseNovel();
                 return;
             }
             if (inkStory.currentTags[0] == "foodGetAndQuestionnaire") {
                 GameManager.questManager.SolveQuest("breakfast3");
+                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
                 GameManager.StartFoodQuestionnaire();
-                print("Give food & questionnaire");
                 CloseNovel();
                 return;
             }

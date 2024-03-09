@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetQuestionnaire : MonoBehaviour
 {
-
+    // this goes into each food UI toggle, and changed manually there.
     public Breakfast_main currentBreakfastMain = Breakfast_main.None;
     public Breakfast_bev currentBreakfastBev = Breakfast_bev.None;
     public Dinner_main currentDinnerMain = Dinner_main.None;

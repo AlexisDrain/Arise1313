@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public static GameObject dream;
     public static GameObject foodQuestionnaire;
     public static GameObject tabMenu;
+    public static GameObject inventory;
+    public static InventoryTooltip invTooltip;
     public static GameObject imageScreenTransition;
 
     public static Transform bedCameraTransform;
@@ -79,6 +81,8 @@ public class GameManager : MonoBehaviour
         foodQuestionnaire.gameObject.SetActive(false);
         tabMenu = GameObject.Find("Canvas/TabMenu");
         //tabMenu.gameObject.SetActive(false);
+        inventory = GameObject.Find("Canvas/TabMenu/Inventory");
+        invTooltip = GameObject.Find("Canvas/TabMenu/InventoryTooltip").GetComponent<InventoryTooltip>();
         imageScreenTransition = GameObject.Find("ScreenTransition");
         
         bedCameraTransform = GameObject.Find("BedCamera").transform;
@@ -197,6 +201,7 @@ public class GameManager : MonoBehaviour
         GameManager.foodQuestionnaire.SetActive(false);
         playerInFoodQuestionnaire = false;
     }
+
     public static void StartNovel(string newStoryKnot = "") {
         playerInNovelOrSayonara = true;
         if(newStoryKnot == "") {
@@ -219,6 +224,7 @@ public class GameManager : MonoBehaviour
             GameManager.StartNovel();
         }
     }
+
     public void Update() {
 
         if (GameManager.playerInBed) {

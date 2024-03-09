@@ -39,11 +39,15 @@ public enum Dinner_bev {
 public class FoodQuestionare : MonoBehaviour
 {
 
+    [Header("Set once")]
     public ToggleGroup currentBreakfastMainToggle;
     public ToggleGroup currentBreakfastBevToggle;
     public ToggleGroup currentDinnerMainToggle;
     public ToggleGroup currentDinnerSideToggle;
     public ToggleGroup currentDinnerBevToggle;
+
+    [Space]
+    public GameObject breakfastEggs;
 
     [Header("Read Only")]
     public Breakfast_main _currentBreakfastMain = Breakfast_main.Oatmeal;
@@ -52,9 +56,25 @@ public class FoodQuestionare : MonoBehaviour
     public Dinner_side _currentDinnerSide = Dinner_side.Hummus;
     public Dinner_bev _currentDinnerBev = Dinner_bev.AppleJuice;
 
+    public void PlayerGiveMealBreakfast() {
+        print("give breakfast");
+
+        // todo
+        print("TODO: remove breakfast eggs, add all other breakfast items inside the if statement");
+        GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
+
+        if (_currentBreakfastMain == Breakfast_main.ScrambledEggs) {
+            GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
+        }
+    }
+    public void PlayerGiveMealDinner() {
+        print("give dinner");
+    }
 
     public void ChangeMeal()
     {
+        print("give meals");
+
         if(currentBreakfastMainToggle.ActiveToggles().Count() > 0) {
             _currentBreakfastMain = currentBreakfastMainToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentBreakfastMain;
         }

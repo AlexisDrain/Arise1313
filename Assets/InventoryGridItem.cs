@@ -26,9 +26,7 @@ public class InventoryGridItem : MonoBehaviour
 {
     public string itemLabelName;
     public InvItem myInvItem;
-    [Header("Set once")]
-    //public Sprite imageNothing;
-    public InventoryTooltip tooltip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +34,7 @@ public class InventoryGridItem : MonoBehaviour
     }
 
     public void ClickButton() {
-        tooltip.SummonTooltip(GetComponent<InventoryGridItem>());
+        GameManager.invTooltip.SummonTooltip(GetComponent<InventoryGridItem>());
     }
 
     public void DestroyGridItem() {
