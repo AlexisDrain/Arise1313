@@ -20,6 +20,7 @@ public class StoryType : MonoBehaviour
     public TextMeshProUGUI myText;
 
     public List<Sprite> imageList = new List<Sprite>();
+    public List<AudioClip> audioClipList = new List<AudioClip>();
 
     [Header("Read only")]
     public List<int> _collectedNightmares = new List<int>();
@@ -33,6 +34,7 @@ public class StoryType : MonoBehaviour
     }
 
     public void CloseNovel() {
+        StopCoroutine("Typewriter");
         GameManager.StopNovel();
     }
     public void NovelStartFromIntro() {
@@ -53,70 +55,68 @@ public class StoryType : MonoBehaviour
 
         ProgressNovel(-1);
     }
-    public void ProgressNovel(int newIndex = -1) {
+    public void ProcessTags() {
 
-        if(newIndex != -1) {
+        for (int i = 0; i < inkStory.currentTags.Count; i++) {
+            print("inkStory tag: " + inkStory.currentTags[i]);
+
+            // images
+            if (inkStory.currentTags[i] == "image_black") {
+                bgImage.sprite = imageList[0];
+            }
+            if (inkStory.currentTags[i] == "image_redComputer") {
+                bgImage.sprite = imageList[1];
+            }
+            // sfx
+            if (inkStory.currentTags[i] == "sfx_phoneUp") {
+                GameManager.SpawnLoudAudio(audioClipList[0]);
+            }
+
+            // special functions
+            if (inkStory.currentTags[i] == "confiscate") {
+                inkStory.variablesState["confiscateVar"] = "";
+            }
+
+            // endings
+            if (inkStory.currentTags[i] == "sayonaraStart") {
+                GameManager.StartSayonara();
+                CloseNovel();
+            }
+            if (inkStory.currentTags[i] == "closeNovel") {
+                CloseNovel();
+            }
+            if (inkStory.currentTags[i] == "foodGet") {
+                GameManager.questManager.SolveQuest("breakfast3");
+                //GameManager.StartFoodQuestionnaire();
+                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                CloseNovel();
+            }
+            if (inkStory.currentTags[i] == "foodGetAndQuestionnaire") {
+                GameManager.questManager.SolveQuest("breakfast3");
+                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
+                GameManager.StartFoodQuestionnaire();
+                CloseNovel();
+            }
+        }
+    }
+    public void ProgressNovel(int newIndex = -1) {
+        // newIndex is which choice the player chooses.
+        // I.e. 0 is the first option. 1 is the second option provided to the player.
+        // -1 means no choice provided
+
+        if (newIndex >= 0) {
             inkStory.ChooseChoiceIndex(newIndex);
         }
-
 
         // type story
         myText.text = "";
         finalText = "";
         while (inkStory.canContinue) {
             if (inkStory.currentTags.Count > 0) {
-                for (int i = 0; i < inkStory.currentTags.Count; i++) {
-                    if (inkStory.currentTags[i] == "image_black") {
-                        bgImage.sprite = imageList[0];
-                        continue;
-                    }
-                    if (inkStory.currentTags[i] == "image_redComputer") {
-                        bgImage.sprite = imageList[1];
-                        continue;
-                    }
-                    if (inkStory.currentTags[i] == "confiscate") {
-                        inkStory.variablesState["confiscateVar"] = "";
-                        continue;
-                    }
-                }
+                ProcessTags();
             }
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
-        }
-
-
-        // check we are at the end
-        if (inkStory.currentTags.Count > 0) {
-
-            if (inkStory.currentTags[0] == "sayonaraStart") {
-                GameManager.StartSayonara();
-                CloseNovel();
-                return;
-            }
-            if (inkStory.currentTags[0] == "closeNovel") {
-                CloseNovel();
-                return;
-            }
-            if (inkStory.currentTags[0] == "foodGet") {
-                GameManager.questManager.SolveQuest("breakfast3");
-                //GameManager.StartFoodQuestionnaire();
-                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
-                CloseNovel();
-                return;
-            }
-            if (inkStory.currentTags[0] == "foodGetAndQuestionnaire") {
-                GameManager.questManager.SolveQuest("breakfast3");
-                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
-                GameManager.StartFoodQuestionnaire();
-                CloseNovel();
-                return;
-            }
-            //if (inkStory.currentTags[0] == "confiscate") {
-            //}
-
-
-
-
         }
 
         // buttons
@@ -129,6 +129,10 @@ public class StoryType : MonoBehaviour
         } else { // same as StoryIntroDelay but without delay
             StopCoroutine("Typewriter");
             StartCoroutine("Typewriter");
+        }
+
+        if (inkStory.currentTags.Count > 0) {
+            ProcessTags();
         }
     }
 

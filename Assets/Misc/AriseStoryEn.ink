@@ -4,6 +4,8 @@
 
 # By Alexis Clay
 
+// there's a bug where a knot that has only one sentence repeats its tags like in === telephone_noone ===
+
 /*
     Variables
 */
@@ -28,15 +30,23 @@ Or, I can at least spare myself the eternal torture with a bullet.
 Speeding like a bat out of hell, it’s no surprise that I encountered a cop.
 After flashing his lights we slow down to the side of the road. He gets out, goes over to my side and starts tapping on my window. He’s threatening to have me arrested.
 For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have one obvious option...
-+ [1- Shoot the cop.] -> wakeup
-+ [2- Reason with the cop.] -> wakeup
++ [1- Shoot the cop.] -> stopNovel
++ [2- Reason with the cop.] -> stopNovel
 
 /*
     Items
 */
 === selfharm_pencilDull ===
+# image_black
 You try sticking the pencil in your eye but it's too dull to cause any harm to your eye or brain.
-+ [1- Continue]
++ [1- Continue] -> stopNovel
+
+=== telephone_noone ===
+# image_black
+# sfx_phoneUp
+You pick up the phone receiver. After thinking, you do not have anyone on mind to call.
+You put the receiver back. // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Leave] -> stopNovel
 
 /*
     Activities
