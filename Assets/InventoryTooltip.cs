@@ -13,6 +13,7 @@ public class InventoryTooltip : MonoBehaviour
     public TextMeshProUGUI tooltipLabel;
     public Button readButton;
     public Button eatButton;
+    public Button selfharmButton;
     public Button discardButton;
     public GameObject inventory;
 
@@ -24,9 +25,11 @@ public class InventoryTooltip : MonoBehaviour
     public void Eat() {
         if (_selectedGridItem != null) {
             // use item
+            print("SFX: eat sound");
+
+            // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
             _selectedGridItem = null;
-            print("SFX: eat sound");
 
             // hide tooltip
             GetComponent<DeactivateOnClick>().enabled = false;
@@ -36,9 +39,30 @@ public class InventoryTooltip : MonoBehaviour
     public void Discard() {
         if (_selectedGridItem != null) {
             // use item
+            print("SFX: discard sound / throwing away paper");
+
+            // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
             _selectedGridItem = null;
-            print("SFX: discard sound / throwing away paper");
+
+            // hide tooltip
+            GetComponent<DeactivateOnClick>().enabled = false;
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void Selfharm() {
+        if (_selectedGridItem != null) {
+            // use item
+            if (_selectedGridItem.myInvItem == InvItem.PencilDull) {
+                print("summon sayonara");
+            } else if (_selectedGridItem.myInvItem == InvItem.PencilSharp) {
+                print("summon sayonara");
+            }
+
+            // remove item
+            _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
+            _selectedGridItem = null;
 
             // hide tooltip
             GetComponent<DeactivateOnClick>().enabled = false;
@@ -62,10 +86,17 @@ public class InventoryTooltip : MonoBehaviour
         if (invItem.myInvItem == InvItem.FuturePaper) {
             readButton.gameObject.SetActive(true);
             eatButton.gameObject.SetActive(false);
+            selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
         } else if (invItem.myInvItem == InvItem.ScrambledEggs) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(true);
+            selfharmButton.gameObject.SetActive(false);
+            discardButton.gameObject.SetActive(true);
+        } else if (invItem.myInvItem == InvItem.PencilDull) {
+            readButton.gameObject.SetActive(false);
+            eatButton.gameObject.SetActive(false);
+            selfharmButton.gameObject.SetActive(true);
             discardButton.gameObject.SetActive(true);
         }
     }

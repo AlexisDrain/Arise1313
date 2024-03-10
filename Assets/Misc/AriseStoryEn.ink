@@ -31,6 +31,12 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 + [1- Shoot the cop.] -> wakeup
 + [2- Reason with the cop.] -> wakeup
 
+/*
+    Items
+*/
+=== selfharm_pencilDull ===
+You try sticking the pencil in your eye but it's too dull to cause any harm to your eye or brain.
++ [1- Continue]
 
 /*
     Activities
@@ -81,22 +87,22 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 /* 
     special functions 
 */
-=== foodGetAndQuestionnaire ===
+=== foodGetAndQuestionnaire === // only one tag at a time
 # foodGetAndQuestionnaire
 -> END
 
-=== foodGet ===
+=== foodGet === // only one tag at a time
 # foodGet
 -> END
 
-=== sayonara ===
+=== sayonara === // only one tag at a time
 # sayonaraStart
 -> END
 
-=== stopNovel ===
+=== stopNovel === // only one tag at a time
 # closeNovel
 -> END
 
-=== wakeup ===
+=== wakeup === // only one tag at a time
 # closeNovel
 -> END

@@ -134,5 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLabelName: 'Food: Scrambled Eggs'
-  myInvItem: 4
-  tooltip: {fileID: 0}
+  myInvItem: 6

@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum InvItem {
+    // Add items at the end, not the begining, as it will break the indexing.
     None,
     FuturePaper,
+    PencilDull,
+    PencilSharp,
     Drugs,
     Oatmeal,
     ScrambledEggs,
