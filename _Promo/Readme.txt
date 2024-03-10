@@ -57,6 +57,9 @@ Textures
 https://opengameart.org/content/old-pagesflip-with-sound
 https://opengameart.org/content/horror-game-note-page-background-old-paper-png
 
+Phone HUD textures by Lucian Pavel:
+https://opengameart.org/content/old-phone
+
 Wood texture. Door texture. Wall texture
 
 SFX
@@ -65,3 +68,9 @@ https://freesound.org/people/avakas/sounds/172362/
 
 Quest update SFX:
 Halfquake Trilogy by Muddasheep
+
+Phone pickup / slam down:
+https://freesound.org/people/cookies+policy/sounds/556495/
+
+Phone dial:
+https://opengameart.org/content/beep-sound
