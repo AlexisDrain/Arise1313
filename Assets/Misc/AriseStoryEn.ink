@@ -46,7 +46,7 @@ You try sticking the pencil in your eye but it's too dull to cause any harm to y
 "Last call for breakfast! It’s not too late to have breakfast at 2PM!" says Chef Ratsy.
 \*She acknowledges you*
 "Hello sugar cube, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later."
-\*You get food and a paper*
+\*You get food, a new pencil, and a paper to fill out*
 + [1- Fill out questionnaire] -> foodGetAndQuestionnaire
 
 === dinner_3 ===

@@ -45,6 +45,7 @@ public class FoodQuestionare : MonoBehaviour
     public ToggleGroup currentDinnerMainToggle;
     public ToggleGroup currentDinnerSideToggle;
     public ToggleGroup currentDinnerBevToggle;
+    public GameObject dullPencilText;
 
     [Space]
     public GameObject breakfastEggs;
@@ -55,6 +56,21 @@ public class FoodQuestionare : MonoBehaviour
     public Dinner_main _currentDinnerMain = Dinner_main.Pizza;
     public Dinner_side _currentDinnerSide = Dinner_side.Hummus;
     public Dinner_bev _currentDinnerBev = Dinner_bev.AppleJuice;
+    public GameObject invItemPencilDull;
+    public GameObject invItemPencilSharp;
+
+    private int dullPencilCountdown = 5;
+
+    public void UsePencilOnce() {
+        dullPencilCountdown -= 1;
+        if(dullPencilCountdown <= 0) {
+            dullPencilText.SetActive(true);
+        }
+    }
+    public void OnEnable() {
+        dullPencilCountdown = 5;
+        dullPencilText.SetActive(false);
+    }
 
     public void PlayerGiveMealBreakfast() {
         print("give breakfast");
@@ -90,6 +106,14 @@ public class FoodQuestionare : MonoBehaviour
         if (currentDinnerBevToggle.ActiveToggles().Count() > 0) {
             _currentDinnerBev = currentDinnerBevToggle.ActiveToggles().First().GetComponent<SetQuestionnaire>().currentDinnerBev;
         }
+
+        // give dull or sharp pencil
+        if (dullPencilCountdown <= 0) {
+            GameObject.Instantiate(invItemPencilDull, GameManager.inventory.transform);
+        } else {
+            GameObject.Instantiate(invItemPencilSharp, GameManager.inventory.transform);
+        }
+
         GameManager.StopFoodQuestionnaire();
     }
 }
