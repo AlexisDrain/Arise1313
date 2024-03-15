@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public static GameObject inventory;
     public static InventoryTooltip invTooltip;
     public static GameObject imageScreenTransition;
+    public static GameObject timePass;
 
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
@@ -84,7 +85,9 @@ public class GameManager : MonoBehaviour
         inventory = GameObject.Find("Canvas/TabMenu/Inventory");
         invTooltip = GameObject.Find("Canvas/TabMenu/InventoryTooltip").GetComponent<InventoryTooltip>();
         imageScreenTransition = GameObject.Find("ScreenTransition");
-        
+        timePass = GameObject.Find("Canvas/TimePass");
+        timePass.SetActive(false);
+
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
 
@@ -112,21 +115,34 @@ public class GameManager : MonoBehaviour
 
         changeTimeOfDayEvent.Invoke();
 
+        timePass.SetActive(true); // cutscene object
+
         Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
         Image iconEvening = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening").GetComponent<Image>();
         Image iconMidNight = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight").GetComponent<Image>();
+        TMPro.TextMeshProUGUI iconTime = GameObject.Find("Canvas/TabMenu/IconTime/TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI iconTimeCutscene = timePass.transform.Find("TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
 
         if (newTimeOfDay == TimeOfDay.Morning) {
+            timePass.GetComponent<Animator>().SetTrigger("SetMorning");
+            iconTime.text = "02:00 PM";
+            iconTimeCutscene.text = "02:00 PM";
             iconMorning.enabled = true;
             iconEvening.enabled = false;
             iconMidNight.enabled = false;
             questManager.CreateNewQuest("breakfast3");
 
         } else if (newTimeOfDay == TimeOfDay.Evening) {
+            timePass.GetComponent<Animator>().SetTrigger("SetEve");
+            iconTime.text = "08:00 PM";
+            iconTimeCutscene.text = "08:00 PM";
             iconMorning.enabled = false;
             iconEvening.enabled = true;
             iconMidNight.enabled = false;
         } else if (newTimeOfDay == TimeOfDay.Midnight) {
+            timePass.GetComponent<Animator>().SetTrigger("SetNight");
+            iconTime.text = "04:00 AM";
+            iconTimeCutscene.text = "04:00 AM";
             iconMorning.enabled = false;
             iconEvening.enabled = false;
             iconMidNight.enabled = true;
@@ -140,11 +156,14 @@ public class GameManager : MonoBehaviour
         GameManager.playerInBed = true;
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = false;
     }
-    public static void PlayerLeaveBed() {
+    public static void PlayerDream() {
         storyType.StartRandomNightmare();
 
-        GameManager.playerInBed = false;
+    }
+    public static void PlayerLeaveBed() {
         SetTimeOfDay(TimeOfDay.Midnight);
+
+        GameManager.playerInBed = false;
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
 
         GameManager.player.position = GameManager.playerAwakeTrans.position;

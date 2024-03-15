@@ -85,6 +85,11 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "closeNovel") {
                 CloseNovel();
             }
+            if (inkStory.currentTags[i] == "playerWakeup") {
+                CloseNovel();
+                GameManager.PlayerLeaveBed();
+            }
+            
             if (inkStory.currentTags[i] == "foodGet") {
                 GameManager.questManager.SolveQuest("breakfast3");
                 //GameManager.StartFoodQuestionnaire();

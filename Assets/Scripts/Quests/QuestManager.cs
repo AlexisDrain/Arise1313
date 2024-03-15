@@ -30,7 +30,7 @@ public class QuestManager : MonoBehaviour {
         TODO: repeated quest. set first
         for (int i = 0; i <= questListParent.childCount - 1; i++) {
             if (questListParent.GetChild(i).GetComponent<QuestItem>().questHash == questHash) {
-                //questListParent.GetChild(i).GetComponent<QuestItem>().StartQuest("Get breakfast from kitchen."); // this resets the quest
+                //questListParent.GetChild(i).GetComponent<QuestItem>().StartQuest("Get breakfast from the kitchen."); // this resets the quest
                 //questListParent.GetChild(i).SetAsFirstSibling();
                 //return;
             }
@@ -39,7 +39,7 @@ public class QuestManager : MonoBehaviour {
 
         if (questHash == "breakfast3") {
             GameObject newQuest = GameObject.Instantiate(totalQuests[0], questListParent);
-            newQuest.GetComponent<QuestItem>().StartQuest("Get breakfast from kitchen.");
+            newQuest.GetComponent<QuestItem>().StartQuest("Get breakfast from the kitchen.");
             _activeQuests.Add(newQuest);
         }
     }

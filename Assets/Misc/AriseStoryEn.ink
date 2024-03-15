@@ -136,5 +136,5 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 -> END
 
 === wakeup === // only one tag at a time
-# closeNovel
+# playerWakeup
 -> END

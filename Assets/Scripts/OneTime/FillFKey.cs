@@ -47,7 +47,7 @@ public class FillFKey : MonoBehaviour
 
         if(blinkOutOfOne > 0.99f) {
             blinkOutOfOne = 0f;
-            GameManager.PlayerLeaveBed();
+            GameManager.PlayerDream();
             //keyImage.enabled = false;
             //keyYellowImage.enabled = false;
             //holdTextImage.enabled = false;
