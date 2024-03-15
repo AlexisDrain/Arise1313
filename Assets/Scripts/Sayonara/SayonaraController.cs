@@ -14,6 +14,7 @@ public class SayonaraController : MonoBehaviour
     public Image sayonaraBar1;
     public Image sayonaraBar2;
     public GameObject sayonaraTutorialText;
+    public SpawnSayonara spawnSayonara;
     public AudioSource scaryMusic;
 
     [Header("Read me")]
@@ -72,10 +73,12 @@ public class SayonaraController : MonoBehaviour
         }
     }
     private IEnumerator KillPlayerSayonara() {
+
         sayonaraTransition = true;
         imageHand.GetComponent<RectTransform>().anchoredPosition
             = new Vector2(200f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
+        spawnSayonara.DeactivateAllMembers();
         animFace.SetTrigger("Die");
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();

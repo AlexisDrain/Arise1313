@@ -85,11 +85,21 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "closeNovel") {
                 CloseNovel();
             }
-            if (inkStory.currentTags[i] == "playerWakeup") {
+            if (inkStory.currentTags[i] == "playerWakeupToNight") {
                 CloseNovel();
+                GameManager.SetTimeOfDay(TimeOfDay.Midnight);
                 GameManager.PlayerLeaveBed();
             }
-            
+            if (inkStory.currentTags[i] == "playerWakeupToMorning") {
+                CloseNovel();
+                GameManager.SetTimeOfDay(TimeOfDay.Morning);
+                GameManager.PlayerLeaveBed();
+            }
+            if (inkStory.currentTags[i] == "setTimeEve") {
+                CloseNovel();
+                GameManager.SetTimeOfDay(TimeOfDay.Evening);
+            }
+
             if (inkStory.currentTags[i] == "foodGet") {
                 GameManager.questManager.SolveQuest("breakfast3");
                 //GameManager.StartFoodQuestionnaire();

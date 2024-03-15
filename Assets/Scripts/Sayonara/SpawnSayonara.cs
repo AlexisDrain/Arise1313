@@ -99,7 +99,7 @@ public class SpawnSayonara : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (sayonaraController.sayonaraTutorial == true) {
+        if (sayonaraController.sayonaraTutorial == true || sayonaraController.sayonaraTransition) {
             return;
         }
 
