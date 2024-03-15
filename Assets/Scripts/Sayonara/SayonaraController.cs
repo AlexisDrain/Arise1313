@@ -64,11 +64,13 @@ public class SayonaraController : MonoBehaviour
         }
 
         if (_sayonaraHealth <= 0f) {
-            // gameObject.SetActive(false);
+            sayonaraBar1.fillAmount = 0f;
+            sayonaraBar2.fillAmount = 0f;
             StartCoroutine("KillPlayerSayonara");
         }
         if(_sayonaraHealth >= 0.99f) {
-            // gameObject.SetActive(false);
+            sayonaraBar1.fillAmount = 1f;
+            sayonaraBar2.fillAmount = 1f;
             StartCoroutine("EndSayonaraGood");
         }
     }
