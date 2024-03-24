@@ -40,6 +40,9 @@ Music:
 - Debussy's Clair de Lune, performed by Caela Harrison
 https://archive.org/details/ClairDeLunedebussy
 
+Human 3D Model:
+"Low Poly Male Base" (https://skfb.ly/KVAp) by wh_nerevar is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 Plugins:
 - UI Blur:
 https://assetstore.unity.com/packages/vfx/shaders/ui-blur-173331

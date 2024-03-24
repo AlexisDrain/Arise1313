@@ -19,8 +19,8 @@ VAR confiscateVar = ""
 === novel_intro1 ===
 # image_redComputer
 72 hours until our world is devastated…
-The fate of humanity rested on my shoulders. A note that had my handwriting was sent back from the future describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
-I had 3 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
+The fate of humanity rests on my shoulders. A note that had my handwriting was sent back from the future that describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
+I have 3 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
 Or, I can at least spare myself the eternal torture.
 + [1- Suicide.] -> sayonara
 + [2- Drive to house of worship.] -> novel_intro2
@@ -29,7 +29,7 @@ Or, I can at least spare myself the eternal torture.
 # image_black
 Speeding like a bat out of hell, it’s no surprise that I encountered a cop.
 After flashing his lights we slow down to the side of the road. He gets out, goes over to my side and starts tapping on my window. He’s threatening to have me arrested.
-For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have one obvious option...
+For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have only one obvious option...
 + [1- Grab the cop's gun.] -> novel_angryCop1
 + [2- Reason with the cop.] -> novel_angryCop2
 
@@ -37,22 +37,22 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 === novel_angryCop1 ===
 # image_black
 Time was running out and every second mattered. With my heart pounding, I execute a harrowing decision.
-I reach for the cop’s handgun, part of me thinks that my hand will go through him, but no. I feel him. The cop is in as much disbelief as I am. Until the shock passes through him.
-The cop whips me with his pistol, then he starts stomping me on the ground until I pass out. Later, I woke up in his cruiser, on the way to an asylum.
+I reach for the cop’s handgun, part of me thinks that my hand will go through him, but no. I feel him. The cop is in as much disbelief as I am... until the shock passes through him.
+The cop whips me with his pistol, then he starts stomping me on the ground until I pass out. Later, I wake up in his cruiser, on the way to an asylum.
 + [1- Continue.] -> asylum1
 
 === novel_angryCop2 ===
 # image_black
-The cop fails to see my side of the conversation. I beg him to leave me until I perform the ritual, I also show him the letter from my future-self as evidence. He looks very disturbed by the content, but from his perspective it's the rambling of a madman. 
-After he notices a line in the paper that mentions a need to sacrifice a living being. He has me arrested under pretense of self-harm. He drives me to a psychiatric hospital.
+The cop fails to see my side of the conversation. I beg him to leave me until I perform the ritual. I also show him the letter from my future-self as evidence. He looks very disturbed by the content, but from his perspective it's the rambling of a madman. 
+After he notices a phrase in the paper that mentions a need to sacrifice a living being, he has me arrested under pretense of self-harm. He drives me to a psychiatric hospital.
 + [1- Continue.] -> asylum1
 
 === asylum1 ===
 # image_black
-The letter from my future self DID NOT mention the cop, or that I will be committed in an asylum. 
-Then why did my future self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
-I arrive through a one-way elevator into the ground. The doors shut behind me, this could be where I will spend the last few days of my life.
-+ [1- continue] -> stopNovel
+The letter from my future-self DID NOT mention the cop, or that I will be committed in an asylum. 
+Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
+I arrive through a one-way elevator to the psych ward. The doors shut behind me. This could be where I will spend the last few days of my life.
++ [1- Continue] -> stopNovel
 
 
 /*
@@ -94,8 +94,8 @@ You spend the entire 1-on-1 session relaying the world ending phenomenon.
 
 You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
 Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.” {confiscateVar}
-+ [“So you don’t believe me?”] -> meeting_3No
-+ [“So you’ll let me out?”] -> meeting_3No
++ [1- “So you don’t believe me?”] -> meeting_3No
++ [2- “So you’ll let me out?”] -> meeting_3No
 
 === meeting_3No ===
 Therapist: "No."

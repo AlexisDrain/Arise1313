@@ -5,11 +5,14 @@ using UnityEngine;
 public class RandomImpulseWind : MonoBehaviour
 {
     public float swingForce = 10f;
-    public float defaultTimeToSwing = 1f;
     private float currentTimeToSwing = 1f;
-    void Start()
+
+    private void Start() {
+        currentTimeToSwing = Random.Range(0f, 3f); // starts random
+    }
+    void OnEnable()
     {
-        
+        currentTimeToSwing = Random.Range(0f, 3f); // starts random
     }
 
     // Update is called once per frame
@@ -18,7 +21,7 @@ public class RandomImpulseWind : MonoBehaviour
         if(currentTimeToSwing > 0f) {
             currentTimeToSwing -= Time.deltaTime;
         } else {
-            currentTimeToSwing = defaultTimeToSwing;
+            currentTimeToSwing = 3f;
             GetComponent<Rigidbody>().AddForce(swingForce * Vector3.right, ForceMode.Impulse);
         }
     }
