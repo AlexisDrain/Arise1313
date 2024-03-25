@@ -11,6 +11,7 @@
 */
 
 VAR confiscateVar = ""
+VAR finalMeal = ""
 
 /*
     Novel
@@ -52,8 +53,86 @@ After he notices a phrase in the paper that mentions a need to sacrifice a livin
 The letter from my future-self DID NOT mention the cop, or that I will be committed in an asylum. 
 Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
 I arrive through a one-way elevator to the psych ward. The doors shut behind me. This could be where I will spend the last few days of my life.
-+ [1- Continue] -> stopNovel
++ [1- Continue.] -> stopNovel
 
+/*
+    banishment ritual
+*/
+=== ritual_0 ===
+# image_black
+Tonight is the night. The ritual must be followed as described by the letter sent to me from the future. I must do step 1 and 2 before starting. I could do step 3 right after.
++ [1- Delay The Ritual.] -> stopNovel
++ [2- Start The Ritual.] -> ritual_step1
+
+// Step 1
+=== ritual_step1 ===
+# image_black
+With trembling hands, I enacted the banishment ritual.
+Step One: Dialing the number: 69624-1059226
++ [1- Continue.] -> ritual_step1_check
+
+=== ritual_step1_check ===
+# checkStep1
+-> END
+
+=== ritual_step1_correct ===
+# image_black
+I have dialed the number correctly the past day.
++ [1- Continue.] -> ritual_step2
+
+=== ritual_step1_incorrect ===
+# image_black
+I forgot to dial it before the ritual.
++ [1- Continue.] -> ritual_step2
+
+// Step 2
+=== ritual_step2 ===
+# image_black
+# updateMealString
+Step Two: The Last Meal: Apple juice and meat.
+The last meal I had was:
+{finalMeal}
++ [1- Continue.] -> ritual_step2_check
+
+=== ritual_step2_check ===
+# checkStep2
+-> END
+
+=== ritual_step2_correct ===
+# image_black
+My last meal matches the second ritual step meal.
++ [1- Continue.] -> ritual_step3
+
+=== ritual_step2_incorrect ===
+# image_black
+My last meal DOES NOT match the second ritual step meal.
++ [1- Continue.] -> ritual_step3
+
+// Step 3
+=== ritual_step3 ===
+# image_black
+Step Three: The Sacrifice.
++ [1- Continue.] -> ritual_step3_check
+
+=== ritual_step3_check ===
+# checkStep3
+-> END
+
+=== ritual_step3_pet ===
+# image_black
+I have blood from the cat I killed earlier.
++ [1- Continue.] -> ritual_step2
+
+=== ritual_step3_nopet ===
+# image_black
+I must do the sacrifice now.
++ [1- Suicide.] -> ritual_total
++ [2- Do not suicide.] -> ritual_total
+
+=== ritual_total ===
+# image_black
+The ritual, in total, is correct.
++ [1- Continue.] -> stopNovel
 
 /*
     Items
@@ -61,14 +140,14 @@ I arrive through a one-way elevator to the psych ward. The doors shut behind me.
 === selfharm_pencilDull ===
 # image_black
 You try sticking the pencil in your eye but it's too dull to cause any harm to your eye or brain.
-+ [1- Continue] -> stopNovel
++ [1- Continue.] -> stopNovel
 
 === telephone_noone ===
 # image_black
 # sfx_phoneUp
 You pick up the phone receiver. After thinking, you do not have anyone on mind to call.
 You put the receiver back. // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
-+ [1- Leave] -> stopNovel
++ [1- Leave.] -> stopNovel
 
 /*
     Activities
@@ -85,7 +164,7 @@ You put the receiver back. // there's a bug where a knot that has only one sente
 # image_black
 "I hope you're starving! Plenty of food to go around."
 \* Chef Ratsy hands you your dinner*
-+ [1- Leave] -> foodGet
++ [1- Leave.] -> foodGet
 
 === meeting_3 ===
 # image_black
@@ -99,7 +178,7 @@ Therapist: “Fascinating… Your delusions are consistent. Usually schizophreni
 
 === meeting_3No ===
 Therapist: "No."
-+ [1- Leave] -> setTimeEve
++ [1- Leave.] -> setTimeEve
 
 /*
     Dreams
@@ -108,13 +187,13 @@ Therapist: "No."
 === dream_0 === // turn to stone
 You feel an unnatural weight on your limbs as an unseen force begins the petrification process. The ground beneath you, once soft and yielding, turns into an unforgiving surface that clings to your feet, making every step a struggle. The air thickens with an unsettling stillness, and an eerie silence surrounds you, broken only by the distant echoes of your own footsteps.
 As you desperately try to escape, your movements become slower, more laborious. Your skin starts to take on a cold, stony texture, and a creeping numbness spreads through your body. Panic sets in as you realize that your very essence is being transformed into unfeeling stone.
-+ 1- Wake up. -> wakeupToMorning
++ [1- Wake up.] -> wakeupToMorning
 
 === dream_1 === // Family replaced by clones
 You wake up to a world that seems eerily familiar yet unsettlingly different. As you navigate your once-familiar home, a sinister realization takes hold – your family has been replaced by emotionless, identical clones. Their faces bear an uncanny resemblance to your loved ones, but their eyes lack warmth, their voices devoid of genuine emotion.
 
 The air is heavy with an unnatural stillness as these doppelgangers move through the house, mimicking the routines and gestures of your family members with an unsettling precision. Conversations are stilted and void of genuine connection, each interaction leaving you with a sense of profound alienation.
-+ 1- Wake up. -> wakeupToMorning
++ [1- Wake up.] -> wakeupToMorning
 
 /* 
     special functions 

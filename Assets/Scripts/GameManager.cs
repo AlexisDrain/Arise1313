@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
 
     public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
+    // ritual
+    public static bool stepOneComplete = false;
+    public static bool stepTwoComplete = false;
+    public static bool stepThreeComplete = false;
+    // player navigation
     public static bool playerInMainMenu = true;
     public static bool playerInFoodQuestionnaire = false;
     public static bool playerInNovelOrSayonara = false;

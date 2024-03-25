@@ -76,6 +76,31 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "confiscate") {
                 inkStory.variablesState["confiscateVar"] = "";
             }
+            // ritual
+            if (inkStory.currentTags[i] == "checkStep1") {
+                if(GameManager.stepOneComplete) {
+                    GameManager.StartNovel("ritual_step1_correct");
+                } else {
+                    GameManager.StartNovel("ritual_step1_incorrect");
+                }
+            }
+            if (inkStory.currentTags[i] == "updateMealString") {
+                inkStory.variablesState["finalMeal"] = "- Apple Juice\n - Yaba Daba Dooooo";
+            }
+            if (inkStory.currentTags[i] == "checkStep2") {
+                if (GameManager.stepTwoComplete) {
+                    GameManager.StartNovel("ritual_step2_correct");
+                } else {
+                    GameManager.StartNovel("ritual_step2_incorrect");
+                }
+            }
+            if (inkStory.currentTags[i] == "checkStep3") {
+                if (GameManager.stepThreeComplete) {
+                    GameManager.StartNovel("ritual_step3_pet");
+                } else {
+                    GameManager.StartNovel("ritual_step3_nopet");
+                }
+            }
 
             // endings
             if (inkStory.currentTags[i] == "sayonaraStart") {
