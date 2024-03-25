@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     public static InventoryTooltip invTooltip;
     public static GameObject imageScreenTransition;
     public static GameObject timePass;
-
+    
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
 
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
         imageScreenTransition = GameObject.Find("ScreenTransition");
         timePass = GameObject.Find("Canvas/TimePass");
         timePass.SetActive(false);
-
+        
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
 
@@ -113,6 +114,12 @@ public class GameManager : MonoBehaviour
 
     public static void FadeInThenOut() {
         imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
+    }
+
+    public static void ShowMessage(string newMessageText) {
+        Transform message = GameObject.Find("Canvas/Message").transform;
+        message.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
+        message.GetComponent<Animator>().SetTrigger("MessageFade");
     }
 
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
