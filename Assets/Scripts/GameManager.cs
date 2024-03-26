@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public static DisplayUseText displayUseText;
 
     // canvas
-    public static GameObject dream;
+    //public static GameObject dream;
     public static GameObject foodQuestionnaire;
     public static GameObject tabMenu;
     public static GameObject inventory;
@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
 
         // canvas
-        dream = GameObject.Find("Canvas/Dream");
-        dream.gameObject.SetActive(false);
+        //dream = GameObject.Find("Canvas/Dream");
+        //dream.gameObject.SetActive(false);
         foodQuestionnaire = GameObject.Find("Canvas/FoodQuestionnaire");
         foodQuestionnaire.gameObject.SetActive(false);
         tabMenu = GameObject.Find("Canvas/TabMenu");
@@ -126,6 +126,11 @@ public class GameManager : MonoBehaviour
         currentTimeOfDay = newTimeOfDay;
 
         changeTimeOfDayEvent.Invoke();
+
+        GameManager.player.position = GameManager.playerAwakeTrans.position;
+        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
 
         timePass.SetActive(true); // cutscene object
 
