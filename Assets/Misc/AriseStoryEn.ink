@@ -60,7 +60,8 @@ I arrive through a one-way elevator to the psych ward. The doors shut behind me.
 */
 === ritual_0 ===
 # image_black
-Tonight is the night. The ritual must be followed as described by the letter sent to me from the future. I must do step 1 and 2 before starting. I could do step 3 right after.
+Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
+I must do step 1 and 2 before starting. I could do step 3 during the ritual.
 + [1- Delay The Ritual.] -> stopNovel
 + [2- Start The Ritual.] -> ritual_step1
 
