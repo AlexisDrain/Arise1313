@@ -167,7 +167,6 @@ public class StoryType : MonoBehaviour
 
         if (justOpenedStoryIntro == true) {
             StartCoroutine("StoryIntroDelay");
-            justOpenedStoryIntro = false;
         } else { // same as StoryIntroDelay but without delay
             StopCoroutine("Typewriter");
             StartCoroutine("Typewriter");
@@ -215,6 +214,9 @@ public class StoryType : MonoBehaviour
     }
 
     public void FastForwardStory() {
+        if(justOpenedStoryIntro) {
+            return;
+        }
         StopCoroutine("Typewriter");
         myText.text = finalText;
         ShowButtons();
@@ -234,6 +236,7 @@ public class StoryType : MonoBehaviour
     }
     IEnumerator StoryIntroDelay() {
         yield return new WaitForSeconds(2f);
+        justOpenedStoryIntro = false;
         StopCoroutine("Typewriter");
         StartCoroutine("Typewriter");
     }
