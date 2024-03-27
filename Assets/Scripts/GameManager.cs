@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour
     public static bool playerInNovelOrSayonara = false;
     public static bool playerInTabMenu = false;
     public static bool playerInBed = false;
-    public static bool playerGotBreakfastOrDinner = false;
+    public static bool playerGotBreakfast = false;
+    public static bool playerGotDinner = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
     public bool cheatMode = true;
@@ -181,6 +182,8 @@ public class GameManager : MonoBehaviour
         SetTimeOfDay(TimeOfDay.Midnight);
 
         GameManager.playerInBed = false;
+        GameManager.playerGotBreakfast = false;
+        GameManager.playerGotDinner = false;
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
 
         GameManager.player.position = GameManager.playerAwakeTrans.position;

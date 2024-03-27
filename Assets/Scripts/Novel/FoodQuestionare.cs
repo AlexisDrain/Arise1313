@@ -74,6 +74,7 @@ public class FoodQuestionare : MonoBehaviour
 
     public void PlayerGiveMealBreakfast() {
         print("give breakfast");
+        GameManager.playerGotBreakfast = true; // set to false in player wake up
 
         // todo
         print("TODO: remove breakfast eggs, add all other breakfast items inside the if statement");
@@ -85,6 +86,7 @@ public class FoodQuestionare : MonoBehaviour
     }
     public void PlayerGiveMealDinner() {
         print("give dinner");
+        GameManager.playerGotDinner = true; // set to false in player wake up
     }
 
     public void ChangeMeal()
