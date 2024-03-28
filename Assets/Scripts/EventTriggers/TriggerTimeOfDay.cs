@@ -32,14 +32,14 @@ public class TriggerTimeOfDay : MonoBehaviour
     {
         if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
             
-            EnableAllMembers(objectMorning);
             DisableAllMembers(objectEvening);
             DisableAllMembers(objectMidnight);
+            EnableAllMembers(objectMorning); // enabled last so that objects listed in more than morning list does not get removed
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
 
             DisableAllMembers(objectMorning);
-            EnableAllMembers(objectEvening);
             DisableAllMembers(objectMidnight);
+            EnableAllMembers(objectEvening); // enabled last so that objects listed in more than morning list does not get removed
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
 
             DisableAllMembers(objectMorning);

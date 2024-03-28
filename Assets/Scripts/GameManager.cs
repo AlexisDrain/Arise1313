@@ -143,8 +143,8 @@ public class GameManager : MonoBehaviour
 
         if (newTimeOfDay == TimeOfDay.Morning) {
             timePass.GetComponent<Animator>().SetTrigger("SetMorning");
-            iconTime.text = "02:00 PM";
-            iconTimeCutscene.text = "02:00 PM";
+            iconTime.text = "08:00 AM";
+            iconTimeCutscene.text = "08:00 AM";
             iconMorning.enabled = true;
             iconEvening.enabled = false;
             iconMidNight.enabled = false;
@@ -152,15 +152,15 @@ public class GameManager : MonoBehaviour
 
         } else if (newTimeOfDay == TimeOfDay.Evening) {
             timePass.GetComponent<Animator>().SetTrigger("SetEve");
-            iconTime.text = "08:00 PM";
-            iconTimeCutscene.text = "08:00 PM";
+            iconTime.text = "04:00 PM";
+            iconTimeCutscene.text = "04:00 PM";
             iconMorning.enabled = false;
             iconEvening.enabled = true;
             iconMidNight.enabled = false;
         } else if (newTimeOfDay == TimeOfDay.Midnight) {
             timePass.GetComponent<Animator>().SetTrigger("SetNight");
-            iconTime.text = "04:00 AM";
-            iconTimeCutscene.text = "04:00 AM";
+            iconTime.text = "11:00 PM";
+            iconTimeCutscene.text = "11:00 PM";
             iconMorning.enabled = false;
             iconEvening.enabled = false;
             iconMidNight.enabled = true;
