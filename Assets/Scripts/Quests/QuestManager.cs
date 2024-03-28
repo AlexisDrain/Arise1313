@@ -37,9 +37,15 @@ public class QuestManager : MonoBehaviour {
         }
         */
 
-        if (questHash == "breakfast3") {
+        if (questHash == "q_breakfast3") {
             GameObject newQuest = GameObject.Instantiate(totalQuests[0], questListParent);
             newQuest.GetComponent<QuestItem>().StartQuest("Get breakfast from the kitchen.");
+            _activeQuests.Add(newQuest);
+        }
+        else if (questHash == "q_goToGroupMorn") {
+            GameObject newQuest = GameObject.Instantiate(totalQuests[0], questListParent);
+            newQuest.GetComponent<QuestItem>().StartQuest("Go to group OR go to 1-on-1 therapist meeting.");
+            GameManager.ShowMessage("New quest received! Press Tab to read it.");
             _activeQuests.Add(newQuest);
         }
     }

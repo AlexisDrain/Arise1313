@@ -225,6 +225,7 @@ public class GameManager : MonoBehaviour
         gameIsPaused = false;
     }
     public static void NewGame() {
+        gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
         gameHasBeenStartedOnce = true;
         playerInNovelOrSayonara = true;
         playerInMainMenu = false;

@@ -6,7 +6,7 @@ using TMPro;
 
 public class QuestItem : MonoBehaviour
 {
-    public string questHash = "breakfast3";
+    public string questHash = "q_breakfast3";
 
     [Header("Set once")]
     public Image questIcon;
