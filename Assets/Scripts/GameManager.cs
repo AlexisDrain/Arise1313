@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
+    public static Transform playerStartTrans;
 
     private static Pool pool_LoudAudioSource;
 
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
         
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
-
+        playerStartTrans = GameObject.Find("PlayerStartTrans").transform;
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
         worldMask = LayerMask.NameToLayer("World");
@@ -128,10 +129,6 @@ public class GameManager : MonoBehaviour
 
         changeTimeOfDayEvent.Invoke();
 
-        GameManager.player.position = GameManager.playerAwakeTrans.position;
-        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
 
         timePass.SetActive(true); // cutscene object
 
@@ -232,6 +229,11 @@ public class GameManager : MonoBehaviour
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
             GameManager.StartNovel();
         }
+
+        GameManager.player.position = GameManager.playerStartTrans.position;
+        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerStartTrans.position;
+        GameManager.player.rotation = GameManager.playerStartTrans.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerStartTrans.rotation;
     }
     public static void StartFoodQuestionnaire() {
         GameManager.foodQuestionnaire.SetActive(true);

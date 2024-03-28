@@ -45,7 +45,7 @@ public class QuestManager : MonoBehaviour {
         else if (questHash == "q_goToGroupMorn") {
             GameObject newQuest = GameObject.Instantiate(totalQuests[0], questListParent);
             newQuest.GetComponent<QuestItem>().StartQuest("Go to group OR go to 1-on-1 therapist meeting.");
-            GameManager.ShowMessage("New quest received! Press Tab to read it.");
+            GameManager.ShowMessage("A new quest! Press Tab to read it.");
             _activeQuests.Add(newQuest);
         }
     }
