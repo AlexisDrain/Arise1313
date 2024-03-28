@@ -12,20 +12,7 @@ Controls:
 
 TODO
 
-[sayonara sfx] Search terms: Dark, Ambience, Tonal
-DSGNErie_Atmospheric element Noise 004_MMSD
-Dark Ambience Pad High Screaming Swarm
-[horror sfx]
-GAF SFX01 - HORROR - DESIGNED - stab_medium_10
-GAF SFX01 - HORROR - Hammer Impact, huge
-
-music:
-Claire da lune.
-
-"Gymnopedie No. 1" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
+Song ideas:
 Muddasheep: cease, always believe, arise, hope (remains). Somos version one. Three thousand years. broken heaven. Still stand (light long gone). A light long gone (a long long gone), Thought Machine (Meadow Mayhem)
 https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 
@@ -39,6 +26,18 @@ https://alexclay.itch.io/
 Music:
 - Debussy's Clair de Lune, performed by Caela Harrison
 https://archive.org/details/ClairDeLunedebussy
+
+- "Gymnopedie No. 1" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+- muddasheep - grand ambience. From the album "grandscapism".
+https://www.youtube.com/watch?v=jqW9l6iEHFg
+
+- muddasheep - a light long gone (feat. Lou Dunand-Vincent) 
+https://www.youtube.com/watch?v=cV18OJr0Vag
+
+---
 
 Human 3D Model:
 "Low Poly Male Base" (https://skfb.ly/KVAp) by wh_nerevar is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
@@ -68,6 +67,13 @@ Wood texture. Door texture. Wall texture
 SFX
 Footsteps
 https://freesound.org/people/avakas/sounds/172362/
+
+-Door open:  
+Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_open_004.wav  
+Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav  
+
+- Sayonara SFX:
+Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
 
 Quest update SFX:
 Halfquake Trilogy by Muddasheep
