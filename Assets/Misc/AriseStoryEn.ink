@@ -56,6 +56,21 @@ I arrive through a one-way elevator to the psych ward. The doors shut behind me.
 + [1- Continue.] -> stopNovel
 
 /*
+    Minor characters
+*/
+=== nursedesk_3 ===
+# image_black
+The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
+She continues: "I suggest getting food first then you have an option of going to group or talking to a therapist 1-on-1."
++ [1- Leave.] -> stopNovel
+
+=== bystander_1 ===
+# image_black
+You approach a sitting patient.
+He yells at you unanounced: "Apple juice is piss! Apple juice is piss! Apple juice is deluxe, demon piss!"
++ [1- "Ok..." Leave.] -> stopNovel
+
+/*
     banishment ritual
 */
 === ritual_0 ===

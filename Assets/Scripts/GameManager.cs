@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
 
     // canvas
     //public static GameObject dream;
-    public static GameObject foodQuestionnaire;
+    public static GameObject foodQuestionnaire; 
+    public static GameObject tutorialControls;
     public static GameObject tabMenu;
     public static GameObject inventory;
     public static InventoryTooltip invTooltip;
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
         //dream.gameObject.SetActive(false);
         foodQuestionnaire = GameObject.Find("Canvas/FoodQuestionnaire");
         foodQuestionnaire.gameObject.SetActive(false);
+        tutorialControls = GameObject.Find("Canvas/Tutorial_Controls");
         tabMenu = GameObject.Find("Canvas/TabMenu");
         //tabMenu.gameObject.SetActive(false);
         inventory = GameObject.Find("Canvas/TabMenu/Inventory");
@@ -129,7 +131,6 @@ public class GameManager : MonoBehaviour
 
         changeTimeOfDayEvent.Invoke();
 
-
         timePass.SetActive(true); // cutscene object
 
         Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
@@ -148,6 +149,7 @@ public class GameManager : MonoBehaviour
             questManager.CreateNewQuest("breakfast3");
 
         } else if (newTimeOfDay == TimeOfDay.Evening) {
+
             timePass.GetComponent<Animator>().SetTrigger("SetEve");
             iconTime.text = "04:00 PM";
             iconTimeCutscene.text = "04:00 PM";
@@ -236,6 +238,9 @@ public class GameManager : MonoBehaviour
         GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerStartTrans.rotation;
     }
     public static void StartFoodQuestionnaire() {
+        // remove tutorial:
+        tutorialControls.SetActive(false);
+
         GameManager.foodQuestionnaire.SetActive(true);
         playerInFoodQuestionnaire = true;
     }
