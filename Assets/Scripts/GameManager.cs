@@ -133,11 +133,18 @@ public class GameManager : MonoBehaviour
 
         timePass.SetActive(true); // cutscene object
 
+        //change time icon
         Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
         Image iconEvening = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening").GetComponent<Image>();
         Image iconMidNight = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight").GetComponent<Image>();
         TMPro.TextMeshProUGUI iconTime = GameObject.Find("Canvas/TabMenu/IconTime/TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
         TMPro.TextMeshProUGUI iconTimeCutscene = timePass.transform.Find("TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
+
+        // change player location
+        GameManager.player.position = GameManager.playerAwakeTrans.position;
+        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
 
         if (newTimeOfDay == TimeOfDay.Morning) {
             timePass.GetComponent<Animator>().SetTrigger("SetMorning");

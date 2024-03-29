@@ -61,7 +61,7 @@ I arrive through a one-way elevator to the psych ward. The doors shut behind me.
 === nursedesk_3 ===
 # image_black
 The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
-She continues: "I suggest getting food first then you have an option of going to group or talking to a therapist 1-on-1."
+She continues: "I suggest getting food first, then you have the option of going to group or talking to a therapist 1-on-1."
 + [1- Leave.] -> stopNovel
 
 === bystander_1 ===
@@ -185,19 +185,21 @@ You put the receiver back. // there's a bug where a knot that has only one sente
 \* Chef Ratsy hands you your dinner*
 + [1- Leave.] -> foodGet
 
+// first therapist meeting
 === meeting_3 ===
 # image_black
 # confiscate
 You spend the entire 1-on-1 session relaying the world ending phenomenon.
-
 You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
 Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.” {confiscateVar}
 + [1- “So you don’t believe me?”] -> meeting_3No
 + [2- “So you’ll let me out?”] -> meeting_3No
-
 === meeting_3No ===
 Therapist: "No."
-+ [1- Leave.] -> setTimeEve
++ [1- Leave.] -> meeting_3No2
+=== meeting_3No2 ===
+At the conclusion of the therapy activity, you go back to your room.
++ [1- Continue.] -> setTimeEve
 
 /*
     Dreams
