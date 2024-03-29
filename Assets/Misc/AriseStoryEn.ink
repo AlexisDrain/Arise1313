@@ -67,7 +67,10 @@ She continues: "I suggest getting food first then you have an option of going to
 === bystander_1 ===
 # image_black
 You approach a sitting patient.
-He yells at you unanounced: "Apple juice is piss! Apple juice is piss! Apple juice is deluxe, demon piss!"
+He yells past you, unanounced:
+"Apple juice is piss!"
+"Apple juice is piss!"
+"Apple juice is deluxe, demon piss!"
 + [1- "Ok..." Leave.] -> stopNovel
 
 /*
