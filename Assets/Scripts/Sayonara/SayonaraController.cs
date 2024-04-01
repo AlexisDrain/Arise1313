@@ -80,7 +80,7 @@ public class SayonaraController : MonoBehaviour
         imageHand.GetComponent<RectTransform>().anchoredPosition
             = new Vector2(200f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
-        spawnSayonara.DeactivateAllMembers();
+        spawnSayonara.DestroyAllMembers();
         animFace.SetTrigger("Die");
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();

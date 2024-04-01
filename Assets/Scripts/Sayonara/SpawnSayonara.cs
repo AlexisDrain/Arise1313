@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpawnSayonara : MonoBehaviour {
 
     public SayonaraController sayonaraController;
 
-    public List<GameObject> sayoGoodButtons = new List<GameObject>();
-    public List<GameObject> sayoBadButtons = new List<GameObject>();
+    public List<string> sayoGoodWords = new List<string>();
+    public List<string> sayoBadWords = new List<string>();
+    public GameObject sayoGoodButton;
+    public GameObject sayoBadButton;
     public Vector2 randXPos = new Vector2(0f, 1920f);
     public Vector2 randYPos = new Vector2(0f, 1080f);
     public float minimumButtonDistances = 150f;
@@ -25,7 +28,7 @@ public class SpawnSayonara : MonoBehaviour {
 
     void OnEnable()
     {
-        DeactivateAllMembers();
+        DestroyAllMembers();
         SpawnTutorial();
     }
     public Vector2 GenerateNewPosition() {
@@ -44,54 +47,56 @@ public class SpawnSayonara : MonoBehaviour {
         return randPosition;
     }
     public void SpawnTutorial() {
-        GameObject obj = sayoGoodButtons[0];
-        obj.SetActive(true);
+        GameObject obj1 = GameObject.Instantiate(sayoGoodButton, transform);
         previousIndexGood = 0;
         Vector2 setPosition = new Vector2(500f, -500f);
         _previousSpawnPositions.Add(setPosition);
-        obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
-        obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
+        obj1.GetComponent<TextMeshProUGUI>().text = sayoGoodWords[0];
+        obj1.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj1.GetComponent<ButtonShake>().UpdateNewLocation(obj1.transform.position);
 
 
-        obj = sayoBadButtons[0];
-        obj.SetActive(true);
+        GameObject obj2 = GameObject.Instantiate(sayoBadButton, transform);
         previousIndexBad = 0;
         setPosition = new Vector2(1100f, -500f);
         _previousSpawnPositions.Add(setPosition);
-        obj.GetComponent<RectTransform>().anchoredPosition = setPosition;
-        obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
+        obj2.GetComponent<TextMeshProUGUI>().text = sayoBadWords[0];
+        obj2.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj2.GetComponent<ButtonShake>().UpdateNewLocation(obj2.transform.position);
     }
     public void SpawnGood() {
 
-        int randIndex = Random.Range(0, sayoGoodButtons.Count);
+        int randIndex = Random.Range(0, sayoGoodWords.Count);
         while (randIndex == previousIndexGood) {
-            randIndex = Random.Range(0, sayoGoodButtons.Count);
+            randIndex = Random.Range(0, sayoGoodWords.Count);
         }
 
-        GameObject obj = sayoGoodButtons[randIndex];
+        GameObject obj = GameObject.Instantiate(sayoGoodButton, transform);
         obj.SetActive(true);
 
         previousIndexGood = randIndex;
 
         Vector2 randPosition = GenerateNewPosition();
 
+        obj.GetComponent<TextMeshProUGUI>().text = sayoGoodWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
     }
     public void SpawnBad() {
 
-        int randIndex = Random.Range(0, sayoBadButtons.Count);
+        int randIndex = Random.Range(0, sayoBadWords.Count);
         while (randIndex == previousIndexBad) {
-            randIndex = Random.Range(0, sayoBadButtons.Count);
+            randIndex = Random.Range(0, sayoBadWords.Count);
         }
 
-        GameObject obj = sayoBadButtons[randIndex];
+        GameObject obj = GameObject.Instantiate(sayoBadButton, transform);
         obj.SetActive(true);
 
         previousIndexBad = randIndex;
 
         Vector2 randPosition = GenerateNewPosition();
 
+        obj.GetComponent<TextMeshProUGUI>().text = sayoBadWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
     }
@@ -113,12 +118,9 @@ public class SpawnSayonara : MonoBehaviour {
         }
     }
 
-    public void DeactivateAllMembers() {
-        for (int i = 0; i < sayoBadButtons.Count; i++) {
-            sayoBadButtons[i].SetActive(false);
-        }
-        for (int i = 0; i < sayoGoodButtons.Count; i++) {
-            sayoGoodButtons[i].SetActive(false);
+    public void DestroyAllMembers() {
+        for (int i = 0; i < transform.childCount; i++) {
+            Destroy(transform.GetChild(i).gameObject);
         }
     }
 }

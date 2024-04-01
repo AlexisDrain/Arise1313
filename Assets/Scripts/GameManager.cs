@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public static bool playerGotDinner = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
+    public static bool sayonaraColorBlind = false;
     public bool cheatMode = true;
 
     public static LayerMask worldMask;
