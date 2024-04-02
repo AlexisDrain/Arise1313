@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public static bool playerGotDinner = false;
     public static bool gameIsPaused = true;
     public static bool gameHasBeenStartedOnce = false;
+    public static bool storySeenBrother = false;
     public static bool sayonaraColorBlind = false;
     public bool cheatMode = true;
 
@@ -234,6 +235,7 @@ public class GameManager : MonoBehaviour
     public static void NewGame() {
         gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
         gameHasBeenStartedOnce = true;
+        storySeenBrother = false;
         playerInNovelOrSayonara = true;
         playerInMainMenu = false;
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {

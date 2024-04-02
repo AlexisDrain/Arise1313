@@ -76,9 +76,19 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "confiscate") {
                 inkStory.variablesState["confiscateVar"] = "";
             }
+            // brother encounter
+            if (inkStory.currentTags[i] == "checkBrother") {
+                if (GameManager.storySeenBrother == false) {
+                    GameManager.storySeenBrother = true;
+                    GameManager.StartNovel("hasBrother");
+                } else {
+                    CloseNovel();
+                }
+            }
+
             // ritual
             if (inkStory.currentTags[i] == "checkStep1") {
-                if(GameManager.stepOneComplete) {
+                if (GameManager.stepOneComplete) {
                     GameManager.StartNovel("ritual_step1_correct");
                 } else {
                     GameManager.StartNovel("ritual_step1_incorrect");
@@ -122,9 +132,23 @@ public class StoryType : MonoBehaviour
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 GameManager.PlayerLeaveBed();
             }
+            if (inkStory.currentTags[i] == "setTimeFollowingTimePeriod") {
+                CloseNovel();
+                if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
+                    GameManager.SetTimeOfDay(TimeOfDay.Evening);
+                } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
+                    GameManager.SetTimeOfDay(TimeOfDay.Midnight);
+                } else {
+                    Debug.LogWarning("setTimeFollowingTimePeriod is invalid");
+                }
+            }
             if (inkStory.currentTags[i] == "setTimeEve") {
                 CloseNovel();
                 GameManager.SetTimeOfDay(TimeOfDay.Evening);
+            }
+            if (inkStory.currentTags[i] == "setTimeMidnight") {
+                CloseNovel();
+                GameManager.SetTimeOfDay(TimeOfDay.Midnight);
             }
 
             if (inkStory.currentTags[i] == "foodGet") {

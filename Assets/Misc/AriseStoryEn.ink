@@ -201,6 +201,18 @@ Therapist: "No."
 At the conclusion of the therapy activity, you go back to your room.
 + [1- Continue.] -> setTimeEve
 
+=== group_3 ===
+# image_black
+"Alright class! Everyone, grab a seat from the kitchen and sit around a circle.
++ [1- Continue.] -> checkBrother
+=== checkBrother ===
+# checkBrother
+-> END
+=== hasBrother ===
+# image_black
+"I love you very much!" As he gets dragged away.
++ [1- Continue.] -> setTimeFollowingTimePeriod
+
 /*
     Dreams
 */
@@ -235,8 +247,15 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 # closeNovel
 -> END
 
+=== setTimeFollowingTimePeriod === // in case an event forwards the time but we're not sure if it's morning or evening.
+# setTimeFollowingTimePeriod
+-> END
+
 === setTimeEve === // only one tag at a time
 # setTimeEve
+-> END
+=== setTimeMidnight === // only one tag at a time
+# setTimeMidnight
 -> END
 
 === wakeupToNight === // only one tag at a time
