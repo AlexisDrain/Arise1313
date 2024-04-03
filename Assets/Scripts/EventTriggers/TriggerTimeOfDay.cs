@@ -11,6 +11,11 @@ public class TriggerTimeOfDay : MonoBehaviour
     public List<GameObject> objectEvening;
     public List<GameObject> objectMidnight;
 
+    [Header("Day2")]
+    public List<GameObject> objectMorning2;
+    public List<GameObject> objectEvening2;
+    public List<GameObject> objectMidnight2;
+
     void Start()
     {
         GameManager.changeTimeOfDayEvent.AddListener(UpdateTimeOfDay);

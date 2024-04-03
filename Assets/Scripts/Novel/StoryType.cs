@@ -97,7 +97,7 @@ public class StoryType : MonoBehaviour
                     }
                     CloseNovel();
                 }
-                return;
+                return; // inkStory tags that change the knot needs to return;
             }
 
             // ritual

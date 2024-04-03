@@ -93,7 +93,6 @@ Step One: Dialing the number: 69624-105-9226
 
 === ritual_step1_check ===
 # checkStep1
-.
 -> END
 
 === ritual_step1_correct ===
@@ -163,11 +162,45 @@ The ritual, in total, is correct.
 You try sticking the pencil in your eye but it's too dull to cause any harm to your eye or brain.
 + [1- Continue.] -> stopNovel
 
-=== telephone_noone ===
+=== telephone_3 ===
 # image_black
 # sfx_phoneUp
-You pick up the phone receiver. After thinking, you do not have anyone on mind to call.
-You put the receiver back. // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
+You pick up the phone receiver.
+Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Call parents.] -> telephone_parents
++ [2- Leave.] -> telephone_noone
+=== telephone_noone ===
+After thinking, you do not have anyone on mind to call.
+You put the receiver back.
++ [1- Leave.] -> stopNovel
+=== telephone_parents ===
+# image_black
+Your relationship with your parents is normally strained, but talking about your suicidal ideation and your hospitalization brings anyone together.
++ [1- Leave.] -> stopNovel
+
+=== telephone_2 ===
+# image_black
+# sfx_phoneUp
+You pick up the phone receiver.
+Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Call sibling.] -> telephone_sibling
++ [2- Leave.] -> telephone_noone
+=== telephone_sibling ===
+# image_black
+When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: “Are you sure you’re taking your meds?”
++ [1- Leave.] -> stopNovel
+
+=== telephone_night ===
+# image_black
+# sfx_phoneUp
+You pick up the phone receiver.
+Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Call parents.] -> telephone_night_parents
++ [2- Leave.] -> telephone_noone
+=== telephone_night_parents ===
+# image_black
+Despite the hour being almost midnight, your parents are awake and concerened about your health. They were thinking of you when you called.
+They make you promise not to go back to the hospital.
 + [1- Leave.] -> stopNovel
 
 /*
@@ -175,16 +208,15 @@ You put the receiver back. // there's a bug where a knot that has only one sente
 */
 === breakfast_3 ===
 # image_black
-"Last call for breakfast! It’s not too late to have breakfast at 2PM!" says Chef Ratsy.
-\*She acknowledges you*
 "Hello sugar cube, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later."
-\*You get food, a new pencil, and a paper to fill out*
+You get food, a new pencil, and a paper to fill out
+//\*You get food, a new pencil, and a paper to fill out*
 + [1- Fill out questionnaire] -> foodGetAndQuestionnaire
 
 === dinner_3 ===
 # image_black
 "I hope you're starving! Plenty of food to go around."
-\* Chef Ratsy hands you your dinner*
+Chef Ratsy hands you your dinner
 + [1- Leave.] -> foodGet
 
 // first therapist meeting
