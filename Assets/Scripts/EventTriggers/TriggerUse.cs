@@ -29,5 +29,9 @@ public class TriggerUse : MonoBehaviour
         }
         onTriggerUse.Invoke();
     }
-
+    /*
+    public void ShowMessage(string messageToShow) {
+        GameManager.ShowMessage(messageToShow);
+    }
+    */
 }

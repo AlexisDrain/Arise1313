@@ -52,7 +52,8 @@ After he notices a phrase in the paper that mentions a need to sacrifice a livin
 # image_black
 The letter from my future-self DID NOT mention the cop, or that I will be committed in an asylum. 
 Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
-I arrive through a one-way elevator to the psych ward. The doors shut behind me. This could be where I will spend the last few days of my life.
+I arrive through a one-way elevator to the psych ward. They shackle an ID bracelet on my wrist. The doors shut behind me.
+This could be where I will spend the last few days of my life.
 + [1- Continue.] -> stopNovel
 
 /*
@@ -87,11 +88,12 @@ I must do step 1 and 2 before starting. I could do step 3 during the ritual.
 === ritual_step1 ===
 # image_black
 With trembling hands, I enacted the banishment ritual.
-Step One: Dialing the number: 69624-1059226
+Step One: Dialing the number: 69624-105-9226
 + [1- Continue.] -> ritual_step1_check
 
 === ritual_step1_check ===
 # checkStep1
+.
 -> END
 
 === ritual_step1_correct ===
@@ -210,7 +212,11 @@ At the conclusion of the therapy activity, you go back to your room.
 -> END
 === hasBrother ===
 # image_black
-"I love you very much!" As he gets dragged away.
+At the conclusion of the group, a man bumps into you.
+He says: “Step One is to call a number! It’s on your wrist!”
+You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?
+He gets tackled by two orderlies built like bulldozers. “I’m your brother!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
+You don’t know who he is or where he will be taken.
 + [1- Continue.] -> setTimeFollowingTimePeriod
 
 /*

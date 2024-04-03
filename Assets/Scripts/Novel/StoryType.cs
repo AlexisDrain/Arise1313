@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
+using System.Linq;
 
 public class StoryType : MonoBehaviour
 {
@@ -59,6 +60,11 @@ public class StoryType : MonoBehaviour
 
         for (int i = 0; i < inkStory.currentTags.Count; i++) {
             print("inkStory tag: " + inkStory.currentTags[i]);
+            if (i > inkStory.currentTags[i].Length) {
+                print("no ink tags");
+                return;
+            }
+
 
             // images
             if (inkStory.currentTags[i] == "image_black") {
@@ -82,11 +88,20 @@ public class StoryType : MonoBehaviour
                     GameManager.storySeenBrother = true;
                     GameManager.StartNovel("hasBrother");
                 } else {
+                    if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
+                        GameManager.SetTimeOfDay(TimeOfDay.Evening);
+                    } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
+                        GameManager.SetTimeOfDay(TimeOfDay.Midnight);
+                    } else {
+                        Debug.LogWarning("hasBrother is invalid");
+                    }
                     CloseNovel();
                 }
+                return;
             }
 
             // ritual
+            print(inkStory.currentTags[i]);
             if (inkStory.currentTags[i] == "checkStep1") {
                 if (GameManager.stepOneComplete) {
                     GameManager.StartNovel("ritual_step1_correct");
@@ -133,7 +148,6 @@ public class StoryType : MonoBehaviour
                 GameManager.PlayerLeaveBed();
             }
             if (inkStory.currentTags[i] == "setTimeFollowingTimePeriod") {
-                CloseNovel();
                 if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
                     GameManager.SetTimeOfDay(TimeOfDay.Evening);
                 } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
@@ -141,6 +155,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     Debug.LogWarning("setTimeFollowingTimePeriod is invalid");
                 }
+                CloseNovel();
             }
             if (inkStory.currentTags[i] == "setTimeEve") {
                 CloseNovel();
