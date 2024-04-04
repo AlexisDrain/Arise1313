@@ -266,7 +266,8 @@ At the conclusion of the therapy activity, you go back to your room.
 === group_1 ===
 # image_black
 "Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
-It's a fairly standard group therapy session. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand. It's actually pretty nice being here!
+It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
+It's actually pretty nice being here!
 [1- Continue.] -> group_1_2
 === group_1_2 ===
 During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
@@ -286,6 +287,7 @@ He says: “Step One is to call a number! It’s on your wrist!”
 You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?
 He gets tackled by two orderlies built like bulldozers. “I’M YOUR BROTHER!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
 You don’t know who he is or where he will be taken.
+"He says that to everyone," the group leader claims, smiling knowingly.
 + [1- Continue.] -> setTimeFollowingTimePeriod
 
 /*
