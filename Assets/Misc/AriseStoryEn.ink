@@ -210,34 +210,71 @@ They make you promise not to go back to the hospital.
 # image_black
 "Hello sugar cube, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later."
 You get food, a new pencil, and a paper to fill out
-//\*You get food, a new pencil, and a paper to fill out*
+// commented out astrix: \*You get food, a new pencil, and a paper to fill out*
 + [1- Fill out questionnaire] -> foodGetAndQuestionnaire
 
 === dinner_3 ===
 # image_black
 "I hope you're starving! Plenty of food to go around."
-Chef Ratsy hands you your dinner
+Chef Ratsy hands you your dinner.
 + [1- Leave.] -> foodGet
 
 // first therapist meeting
+=== meeting_1 ===
+You: “Do you see yellow text while closing your eyes?”
+Therapist Rose: “Like… thinking of words and then imagining them in physical form? I think everyone does? What does the yellow text say by the way?”
+You: “It’s says ‘You’re insane if you trust her.’”
+Therapist: “Ha-ha. Nothing un-insane about a visual hallucination telling you that you're not insane.”
++ [1- Continue.] -> meeting_1_2
+=== meeting_1_2 ===
+Therapist: "I will let you in on a secret. There IS a step in the ritual that I know of:"
+"Step Three requires a sacrifice. Of you or of someone else. That's all I'm going to say. And good luck getting that in the less than 3 days that this world has."
+She shifts her legs and continues: "My real employer provides me with $2000 per hour to... humor you. There's a wagering contest going on. And it looks like you're on the losing side already."
+She leaves. Leaving you absolutely stunned in your seat. A while later you go back to your room to think.
++ [1- Continue.] -> setTimeFollowingTimePeriod
+
+// second therapist meeting
+=== meeting_2 ===
+# image_black
+This is a different therapist than before. She does not recognize the previous therapist. You spend the entire 1-on-1 session relaying the world ending phenomenon.
+You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
+Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.”
++ [1- “So you don’t believe me?”] -> meeting_2_2
++ [2- “So you’ll let me out?”] -> meeting_2_2
+=== meeting_2_2 ===
+Therapist: "No."
++ [1- Leave.] -> meeting_2_3
+=== meeting_2_3 ===
+At the conclusion of the therapy activity, you go back to your room.
++ [1- Continue.] -> setTimeFollowingTimePeriod
+
+// third therapist meeting
 === meeting_3 ===
 # image_black
-# confiscate
-You spend the entire 1-on-1 session relaying the world ending phenomenon.
-You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
-Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.” {confiscateVar}
-+ [1- “So you don’t believe me?”] -> meeting_3No
-+ [2- “So you’ll let me out?”] -> meeting_3No
-=== meeting_3No ===
-Therapist: "No."
-+ [1- Leave.] -> meeting_3No2
-=== meeting_3No2 ===
+This is second therapist you met. The one that claimed they didn't know about the end of the world.
+She talks in a way that you think SHE has a mental illness. Always has to rattle off, never leaving you a chance to speak your turn.
+"Well, well, well! How are we feeling today, my dear inmate? Oh, I must say, I've been having the most intriguing thoughts about the interconnectedness of the universe. It's like this vast web of emotions and energy, you know? Speaking of which, how do you feel today? Don't hold back, spill the beans! Let's dissect those feelings and unravel the mysteries of your psyche."
+You: "Uh, well, I guess I've been feeling a bit..."
+"Fantastic! Feelings are like puzzle pieces, scattered across the canvas of our minds. Now, have you been hearing any voices lately? Oh, the symphony of voices in my head, they're like a choir singing the song of existence. Sometimes I wonder if they're trying to communicate some profound truth with me. But I digress! Your turn, my dear patient, any voices whispering sweet nothings in your ears?"
+You sigh internally, and talk robotically through the appointment.
+[1- Continue.]
+=== meeting_3_2 ===
 At the conclusion of the therapy activity, you go back to your room.
-+ [1- Continue.] -> setTimeEve
++ [1- Continue.] -> setTimeFollowingTimePeriod
 
-=== group_3 ===
+// first group meeting
+=== group_1 ===
 # image_black
-"Alright class! Everyone, grab a seat from the kitchen and sit around a circle.
+"Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
+It's a fairly standard group therapy session. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand. It's actually pretty nice being here!
+[1- Continue.] -> group_1_2
+=== group_1_2 ===
+During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
+The group leader responds: “Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… “weird”.”
+You: “How long do people stay here at this hospital?”
+“For the real basket cases? 3 months to a year. For most? As few as 3 to 5 days..”
+You: “So, you’re telling me I’m leaving in two days?”
+“HAH. I see why they call you kooky!”
 + [1- Continue.] -> checkBrother
 === checkBrother ===
 # checkBrother
@@ -247,7 +284,7 @@ At the conclusion of the therapy activity, you go back to your room.
 At the conclusion of the group, a man bumps into you.
 He says: “Step One is to call a number! It’s on your wrist!”
 You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?
-He gets tackled by two orderlies built like bulldozers. “I’m your brother!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
+He gets tackled by two orderlies built like bulldozers. “I’M YOUR BROTHER!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
 You don’t know who he is or where he will be taken.
 + [1- Continue.] -> setTimeFollowingTimePeriod
 
