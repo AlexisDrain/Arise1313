@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 public class TriggerTimeOfDay : MonoBehaviour
 {
-    [Header("Day3")]
+    [Header("Day1")]
     public List<GameObject> objectMorning;
     public List<GameObject> objectEvening;
     public List<GameObject> objectMidnight;
@@ -37,19 +37,36 @@ public class TriggerTimeOfDay : MonoBehaviour
     {
         if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
             
-            DisableAllMembers(objectEvening);
-            DisableAllMembers(objectMidnight);
-            EnableAllMembers(objectMorning); // enabled last so that objects listed in more than morning list does not get removed
+            if (GameManager.currentDayOfWeek == DayOfWeek.DayOne) {
+                DisableAllMembers(objectEvening);
+                DisableAllMembers(objectMidnight);
+                EnableAllMembers(objectMorning); // enabled last so that objects listed in more than morning list does not get removed
+            } else if (GameManager.currentDayOfWeek == DayOfWeek.DayTwo) {
+                DisableAllMembers(objectEvening2);
+                DisableAllMembers(objectMidnight2);
+                EnableAllMembers(objectMorning2); // enabled last so that objects listed in more than morning list does not get removed.
+            }
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
-
-            DisableAllMembers(objectMorning);
-            DisableAllMembers(objectMidnight);
-            EnableAllMembers(objectEvening); // enabled last so that objects listed in more than morning list does not get removed
+            if (GameManager.currentDayOfWeek == DayOfWeek.DayOne) {
+                DisableAllMembers(objectMidnight);
+                DisableAllMembers(objectMorning);
+                EnableAllMembers(objectEvening); // enabled last so that objects listed in more than morning list does not get removed.
+            } else if (GameManager.currentDayOfWeek == DayOfWeek.DayTwo) {
+                DisableAllMembers(objectMidnight2);
+                DisableAllMembers(objectMorning2);
+                EnableAllMembers(objectEvening2); // enabled last so that objects listed in more than morning list does not get removed.
+            }
         } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
 
-            DisableAllMembers(objectMorning);
-            DisableAllMembers(objectEvening);
-            EnableAllMembers(objectMidnight);
+            if (GameManager.currentDayOfWeek == DayOfWeek.DayOne) {
+                DisableAllMembers(objectEvening);
+                DisableAllMembers(objectMorning); 
+                EnableAllMembers(objectMidnight); // enabled last so that objects listed in more than morning list does not get removed.
+            } else if (GameManager.currentDayOfWeek == DayOfWeek.DayTwo) {
+                DisableAllMembers(objectEvening2);
+                DisableAllMembers(objectMorning2);
+                EnableAllMembers(objectMidnight2); // enabled last so that objects listed in more than morning list does not get removed.
+            }
         }
     }
 }

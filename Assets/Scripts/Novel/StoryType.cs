@@ -135,6 +135,11 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "closeNovel") {
                 CloseNovel();
             }
+            if (inkStory.currentTags[i] == "start3DGame") {
+                GameObject.Find("TimedObjects_Music/MainMenuMusic").SetActive(false);
+                GameManager.SetTimeOfDay(TimeOfDay.Morning);
+                CloseNovel();
+            }
             /*
             if (inkStory.currentTags[i] == "playerWakeupToNight") {
                 CloseNovel();

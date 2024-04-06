@@ -11,6 +11,10 @@ public enum TimeOfDay {
     Evening,
     Midnight
 }
+public enum DayOfWeek {
+    DayOne,
+    DayTwo
+}
 
 public enum PlayerProgress {
     PlayerInNovelIntroFirstTime,
@@ -41,12 +45,14 @@ public class GameManager : MonoBehaviour
     
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
-    public static Transform playerStartTrans;
+    public static Transform playerElevatorTrans;
 
     private static Pool pool_LoudAudioSource;
 
     public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
+    public static DayOfWeek currentDayOfWeek;
+
     // ritual
     public static bool stepOneComplete = false;
     public static bool stepTwoComplete = false;
@@ -102,22 +108,36 @@ public class GameManager : MonoBehaviour
         
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
-        playerStartTrans = GameObject.Find("PlayerStartTrans").transform;
+        playerElevatorTrans = GameObject.Find("PlayerElevatorTrans").transform;
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
         worldMask = LayerMask.NameToLayer("World");
         entityMask = LayerMask.NameToLayer("Entity");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
-        SetTimeOfDay(TimeOfDay.Morning);
-
+        SetTimeOfDay(TimeOfDay.Midnight); // because no music. progressing through novel will set to morning.
+        currentDayOfWeek = DayOfWeek.DayOne;
         // Time.timeScale = 0f;
     }
+
+    public static void NewGame() {
+        gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
+        gameHasBeenStartedOnce = true;
+        storySeenBrother = false;
+        playerInNovelOrSayonara = true;
+        playerInMainMenu = false;
+
+        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+            GameManager.StartNovel();
+        }
+
+    }
+    /*
     private void Start() {
         
         // GameManager.NewGame(); done in Main Menu
     }
-
+    */
     public static void FadeInThenOut() {
         imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
     }
@@ -143,11 +163,6 @@ public class GameManager : MonoBehaviour
         TMPro.TextMeshProUGUI iconTimeCutscene = timePass.transform.Find("TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
 
         // change player location
-        GameManager.player.position = GameManager.playerAwakeTrans.position;
-        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
-
         if (newTimeOfDay == TimeOfDay.Morning) {
             timePass.GetComponent<Animator>().SetTrigger("SetMorning");
             iconTime.text = "08:00 AM";
@@ -157,6 +172,19 @@ public class GameManager : MonoBehaviour
             iconMidNight.enabled = false;
             questManager.CreateNewQuest("breakfast3");
 
+            // player position
+            if (currentDayOfWeek == DayOfWeek.DayOne) {
+                GameManager.player.position = GameManager.playerElevatorTrans.position;
+                GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
+                GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
+                GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
+            } else if (currentDayOfWeek == DayOfWeek.DayTwo) {
+                GameManager.player.position = GameManager.playerAwakeTrans.position;
+                GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+                GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+                GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+            }
+
         } else if (newTimeOfDay == TimeOfDay.Evening) {
 
             timePass.GetComponent<Animator>().SetTrigger("SetEve");
@@ -165,6 +193,12 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = false;
             iconEvening.enabled = true;
             iconMidNight.enabled = false;
+
+            // player position
+            GameManager.player.position = GameManager.playerAwakeTrans.position;
+            GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
+            GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
+            GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
         } else if (newTimeOfDay == TimeOfDay.Midnight) {
             timePass.GetComponent<Animator>().SetTrigger("SetNight");
             iconTime.text = "11:00 PM";
@@ -172,6 +206,11 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = false;
             iconEvening.enabled = false;
             iconMidNight.enabled = true;
+
+            GameManager.player.position = GameManager.playerElevatorTrans.position;
+            GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
+            GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
+            GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
         }
 
     }
@@ -231,21 +270,6 @@ public class GameManager : MonoBehaviour
     public void ResumeGame() {
         Time.timeScale = 1.0f;
         gameIsPaused = false;
-    }
-    public static void NewGame() {
-        gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
-        gameHasBeenStartedOnce = true;
-        storySeenBrother = false;
-        playerInNovelOrSayonara = true;
-        playerInMainMenu = false;
-        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
-            GameManager.StartNovel();
-        }
-
-        GameManager.player.position = GameManager.playerStartTrans.position;
-        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerStartTrans.position;
-        GameManager.player.rotation = GameManager.playerStartTrans.rotation;
-        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerStartTrans.rotation;
     }
     public static void StartFoodQuestionnaire() {
         // remove tutorial:

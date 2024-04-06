@@ -54,7 +54,7 @@ The letter from my future-self DID NOT mention the cop, or that I will be commit
 Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
 I arrive through a one-way elevator to the psych ward. They shackle an ID bracelet on my wrist. The doors shut behind me.
 This could be where I will spend the last few days of my life.
-+ [1- Continue.] -> stopNovel
++ [1- Continue.] -> start3DGame
 
 /*
     Minor characters
@@ -67,8 +67,7 @@ She continues: "I suggest getting food first, then you have the option of going 
 
 === bystander_1 ===
 # image_black
-You approach a sitting patient.
-He yells past you, unanounced:
+You approach a sitting patient. He yells at the sky:
 "Apple juice is piss!"
 "Apple juice is piss!"
 "Apple juice is deluxe, demon piss!"
@@ -257,7 +256,7 @@ She talks in a way that you think SHE has a mental illness. Always has to rattle
 You: "Uh, well, I guess I've been feeling a bit..."
 "Fantastic! Feelings are like puzzle pieces, scattered across the canvas of our minds. Now, have you been hearing any voices lately? Oh, the symphony of voices in my head, they're like a choir singing the song of existence. Sometimes I wonder if they're trying to communicate some profound truth with me. But I digress! Your turn, my dear patient, any voices whispering sweet nothings in your ears?"
 You sigh internally, and talk robotically through the appointment.
-[1- Continue.]
++ [1- Continue.] -> meeting_3_2
 === meeting_3_2 ===
 At the conclusion of the therapy activity, you go back to your room.
 + [1- Continue.] -> setTimeFollowingTimePeriod
@@ -268,14 +267,6 @@ At the conclusion of the therapy activity, you go back to your room.
 "Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
 It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
 It's actually pretty nice being here!
-[1- Continue.] -> group_1_2
-=== group_1_2 ===
-During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
-The group leader responds: “Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… “weird”.”
-You: “How long do people stay here at this hospital?”
-“For the real basket cases? 3 months to a year. For most? As few as 3 to 5 days..”
-You: “So, you’re telling me I’m leaving in two days?”
-“HAH. I see why they call you kooky!”
 + [1- Continue.] -> checkBrother
 === checkBrother ===
 # checkBrother
@@ -289,6 +280,20 @@ He gets tackled by two orderlies built like bulldozers. “I’M YOUR BROTHER!�
 You don’t know who he is or where he will be taken.
 "He says that to everyone," the group leader claims, smiling knowingly.
 + [1- Continue.] -> setTimeFollowingTimePeriod
+
+// second group meeting
+=== group_2 ===
+During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
+The group leader responds: “Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… “weird”.”
+You: “How long do people stay here at this hospital?”
+“For the real basket cases? 3 months to a year. For most? As few as 3 to 5 days...”
+You: “So, you’re saying I’m leaving in two days?”
+“HAH. I see why they call you kooky!”
++ [1- Continue.] -> group_2_2
+=== group_2_2 ===
+At the conclusion of the group activity, you go back to your room.
++ [1- Continue.] -> setTimeFollowingTimePeriod
+
 
 /*
     Dreams
@@ -318,6 +323,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 
 === sayonara === // only one tag at a time
 # sayonaraStart
+-> END
+
+=== start3DGame === // only one tag at a time
+# start3DGame
 -> END
 
 === stopNovel === // only one tag at a time

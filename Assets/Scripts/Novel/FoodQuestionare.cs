@@ -83,10 +83,12 @@ public class FoodQuestionare : MonoBehaviour
         if (_currentBreakfastMain == Breakfast_main.ScrambledEggs) {
             GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
         }
+        // GameManager.ShowMessage("You got breakfast. Press TAB to view & eat it.");
     }
     public void PlayerGiveMealDinner() {
         print("give dinner");
         GameManager.playerGotDinner = true; // set to false in player wake up
+        GameManager.ShowMessage("You got dinner. Press TAB to view & eat it.");
     }
 
     public void ChangeMeal()
@@ -117,5 +119,6 @@ public class FoodQuestionare : MonoBehaviour
         }
 
         GameManager.StopFoodQuestionnaire();
+        GameManager.ShowMessage("You got breakfast. Press TAB to view & eat it."); // done here and not in PlayerGiveMealBreakfast(). hack
     }
 }
