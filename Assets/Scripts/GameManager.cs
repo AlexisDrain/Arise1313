@@ -321,8 +321,11 @@ public class GameManager : MonoBehaviour
             //&& (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
             //    playerInBed = !playerInBed;
             //}
+
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
+                print("this cheat is buggy");
+                GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 StopSayonara();
                 StopNovel();
             }

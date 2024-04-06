@@ -33,16 +33,18 @@ public class ToggleTabMenu : MonoBehaviour
         iconTime.SetActive(false);
         GameManager.playerInTabMenu = false;
     }
-    void Update()
-    {
+    void Update() {
 
-        if(GameManager.playerInNovelOrSayonara || GameManager.playerInMainMenu) {
+        if (GameManager.playerInNovelOrSayonara || GameManager.playerInMainMenu) {
             if (quests.activeSelf == true) {
                 HideMenu();
             }
             return;
         }
 
+        if (quests.activeSelf == true && (Mathf.Abs(Input.GetAxis("Vertical")) > 0.9f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.9f)) {
+            HideMenu();
+        }
         if (Input.GetButtonDown("ToggleTab")) {
             if(quests.activeSelf == false) {
                 quests.SetActive(true);

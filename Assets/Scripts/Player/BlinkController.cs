@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class BlinkController : MonoBehaviour
 {
-    public Camera blinkCam;
+
+    // Note: bluring the camera when not blinking is disabled because it's annoying and performs badly on WebGL.
+    // Otherwise, you can uncomment the lines
+
+    /*
     public UIBlur blurImage;
     public GameObject blurMessage;
     public float defaultTimeToBlink = 7f;
     private float currentTimeToBlink = 7f;
+    */
+
+    public Camera blinkCam;
     [Header("Read only")]
     public bool _eyesClosed = false;
     void Start()
@@ -18,9 +25,12 @@ public class BlinkController : MonoBehaviour
         GetComponent<Animator>().SetBool("EyesOpen", true);
         blinkCam.enabled = false;
 
+        // game blur mechanic
+        /*
         currentTimeToBlink = defaultTimeToBlink;
         blurImage.Intensity = 0f;
         blurImage.Multiplier = 0f;
+        */
     }
 
     private IEnumerator ActivateBlinkCam() {
@@ -35,6 +45,9 @@ public class BlinkController : MonoBehaviour
         _eyesClosed = false;
         GameManager.EyesOpenEvent.Invoke();
     }
+    /*
+     * Game blur mechanic
+     * 
     private void FixedUpdate() {
 
         if (GameManager.playerInBed || GameManager.playerInNovelOrSayonara || GameManager.playerInFoodQuestionnaire || GameManager.playerInTabMenu) {
@@ -62,12 +75,15 @@ public class BlinkController : MonoBehaviour
             }
         }
     }
+    */
     void LateUpdate()
     {
 
+        /*
         if (Input.GetButton("Blink")) {
             currentTimeToBlink = defaultTimeToBlink;
         }
+        */
 
         if (Input.GetButtonDown("Blink")) {
             GetComponent<Animator>().SetBool("EyesOpen", false);

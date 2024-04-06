@@ -226,10 +226,10 @@ You: “It’s says ‘You’re insane if you trust her.’”
 Therapist: “Ha-ha. Nothing un-insane about a visual hallucination telling you that you're not insane.”
 + [1- Continue.] -> meeting_1_2
 === meeting_1_2 ===
-Therapist: "I will let you in on a secret. There IS a step in the ritual that I know of:"
+Therapist Rose: "I will let you in on a secret. There IS a step in the ritual that I know of:"
 "Step Three requires a sacrifice. Of you or of someone else. That's all I'm going to say. And good luck getting that in the less than 3 days that this world has."
 She shifts her legs and continues: "My real employer provides me with $2000 per hour to... humor you. There's a wagering contest going on. And it looks like you're on the losing side already."
-She leaves. Leaving you absolutely stunned in your seat. A while later you go back to your room to think.
+She leaves, leaving you absolutely stunned in your seat. A while later you go back to your room to think.
 + [1- Continue.] -> setTimeFollowingTimePeriod
 
 // second therapist meeting

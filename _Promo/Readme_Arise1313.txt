@@ -1,7 +1,9 @@
 
 [Short Description]
+Story driven visual novel. The fate of the world relies on one schizophrenic person.
 
 [Long Description]
+Story driven visual novel. The fate of the world relies on one schizophrenic person.
 
 Controls:
 - WASD / Arrow keys: move and turn. Left and right keys rotate you like a tank.
