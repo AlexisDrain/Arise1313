@@ -14,7 +14,8 @@ public class ButtonShake : MonoBehaviour
     private float shakeSpeedCurrent = 0f;
     void Start()
     {
-        originalPos = transform.position;
+        UpdateNewLocation(transform.localPosition);
+
         if(startShaking == true) {
             ShakeButtonState(true);
         }
@@ -23,7 +24,7 @@ public class ButtonShake : MonoBehaviour
         shakeButtonState = newShakeState;
     }
     public void UpdateNewLocation(Vector3 newLocation) {
-        originalPos = transform.position;
+        originalPos = transform.localPosition;
     }
 
     void LateUpdate()
@@ -35,13 +36,14 @@ public class ButtonShake : MonoBehaviour
                 return;
             } else {
                 shakeSpeedCurrent = shakeSpeedDefault;
-                transform.position = new Vector3(originalPos.x + Random.Range(randomRange.x, randomRange.y),
+                
+                transform.localPosition = new Vector3(originalPos.x + Random.Range(randomRange.x, randomRange.y),
                                                 originalPos.y + Random.Range(randomRange.x, randomRange.y),
                                                 originalPos.z);
             }
 
         } else {
-            transform.position = originalPos;
+            transform.localPosition = originalPos;
         }
     }
 }
