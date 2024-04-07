@@ -137,16 +137,28 @@ Step Three: The Sacrifice.
 # checkStep3
 -> END
 
+=== ritual_step3_failedStepOneTwo ===
+# image_black
+The chaplain says, "the ritual failed. There's no point in doing the Third step."
+[1- Continue.] -> ritual_step3_failedStepOneTwo2
+
+=== ritual_step3_failedStepOneTwo2 ===
+"Dear god! The invasion is real!"
+Hellfire. Eternal Toture.
+[1- Continue.] -> stopNovel
+
 === ritual_step3_pet ===
 # image_black
 I have blood from the cat I killed earlier.
-+ [1- Continue.] -> ritual_step2
+The chaplin says, "the Third step is complete. I'm somehow glad we didn't have to sacrifice ourselves. I pray for Littlepip's soul."
++ [1- Continue.] -> ritual_total
 
 === ritual_step3_nopet ===
 # image_black
-I must do the sacrifice now.
-+ [1- Suicide.] -> ritual_total
-+ [2- Do not suicide.] -> ritual_total
+"One of use has to do the sacrifice," the chaplain says. "I am ready to do it, but the only weapon we have is this sharp pencil."
+Our gazes meet. "My soul, or yours. I leave you to decide."
++ [1- Sacrifice self.] -> ritual_total
++ [2- Sacrifice chaplain.] -> ritual_total
 
 === ritual_total ===
 # image_black

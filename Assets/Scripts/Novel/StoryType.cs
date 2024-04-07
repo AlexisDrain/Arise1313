@@ -272,12 +272,12 @@ public class StoryType : MonoBehaviour
         } else {
             choice1.HideChoice();
         }
-        if (inkStory.currentChoices[0].text.Contains("Suicide")) {
+        if (inkStory.currentChoices[0].text.Contains("Suicide") || inkStory.currentChoices[0].text.Contains("Sacrifice")) {
             choice0.ShakeButton(true);
         } else {
             choice0.ShakeButton(false);
         }
-        if (inkStory.currentChoices[1].text.Contains("Kill")) {
+        if (inkStory.currentChoices[1].text.Contains("Kill") || inkStory.currentChoices[1].text.Contains("Sacrifice")) {
             choice1.ShakeButton(true);
         } else {
             choice1.ShakeButton(false);
