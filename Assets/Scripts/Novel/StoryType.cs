@@ -277,6 +277,11 @@ public class StoryType : MonoBehaviour
         } else {
             choice0.ShakeButton(false);
         }
+        if (inkStory.currentChoices[1].text.Contains("Kill")) {
+            choice1.ShakeButton(true);
+        } else {
+            choice1.ShakeButton(false);
+        }
     }
     IEnumerator StoryIntroDelay() {
         yield return new WaitForSeconds(2f);

@@ -203,6 +203,38 @@ They make you promise not to go back to the hospital.
 + [1- Leave.] -> stopNovel
 
 /*
+    house of worship
+*/
+// first worship meeting. Morning of Day One
+=== worship1 ===
+As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
+“I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion. Please. Let’s pray together.” He sits on one of the rugs.
++ [1- Pray Fajr] -> worship_pray
++ [2- Meditate] -> worship_meditate
+
+// second worship meeting. Eve of Day One
+=== worship2 ===
+As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
+“Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
++ [1- Pray Dhuhr + Asr] -> worship_pray
++ [2- Meditate] -> worship_meditate
+
+// third worship meeting. Eve of Day One
+=== worship3 ===
+As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
+“Friend, let’s pray together.” He sits on one of the rugs.
++ [1- Pray Maghrib + Isha] -> worship_pray
++ [2- Meditate] -> worship_meditate
+
+=== worship_pray ===
+You feel spiritually rejuvenated. You are not alone when God is with you.
++ [1- Leave] -> stopNovel
+
+=== worship_meditate ===
+Saving the world requires a bit of faith. You muster as much of it as you can while meditating.
++ [1- Leave] -> stopNovel
+
+/*
     Activities
 */
 === breakfast_3 ===
@@ -242,10 +274,10 @@ Therapist: “Fascinating… Your delusions are consistent. Usually schizophreni
 + [2- “So you’ll let me out?”] -> meeting_2_2
 === meeting_2_2 ===
 Therapist: "No."
-+ [1- Leave.] -> meeting_2_3
++ [1- Continue.] -> meeting_2_3
 === meeting_2_3 ===
 At the conclusion of the therapy activity, you go back to your room.
-+ [1- Continue.] -> setTimeFollowingTimePeriod
++ [1- Leave.] -> setTimeFollowingTimePeriod
 
 // third therapist meeting
 === meeting_3 ===
@@ -267,10 +299,13 @@ At the conclusion of the therapy activity, you go back to your room.
 "Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
 It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
 It's actually pretty nice being here!
-+ [1- Continue.] -> checkBrother
-=== checkBrother ===
-# checkBrother
--> END
++ [1- Continue.] -> hasBrother
+/*
+    Redundant since brother now shows up on the first meeting everytime.
+    === checkBrother ===
+    # checkBrother
+    -> END
+*/
 === hasBrother ===
 # image_black
 At the conclusion of the group, a man bumps into you.
@@ -291,9 +326,24 @@ You: “So, you’re saying I’m leaving in two days?”
 “HAH. I see why they call you kooky!”
 + [1- Continue.] -> group_2_2
 === group_2_2 ===
-At the conclusion of the group activity, you go back to your room.
-+ [1- Continue.] -> setTimeFollowingTimePeriod
-
+A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is saying a lot since cats do not cuddle.
++ [1- Pet the cat.] -> group_2_pet
++ [2- Kill the cat.] -> setTimeFollowingTimePeriod
+=== group_2_pet ===
+The cat is as furry as you expect from a cat.
+You go back to your room at the conclusion of this group session.
+- [1- Leave.] -> stopNovel
+=== group_2_killHasPen ===
+"Holy shit," half the people exclaim as you stab the cat with your sharp pencil.
+"You have COMPLETELY lost your mind," yells the group leader.
+The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
+- [1- Leave.] -> stopNovel
+=== group_2_killNoPen ===
+You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
+You hit, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
+"What the hell are you doing?" yelled the group leader.
+The orderlies usher you away. This will set the progress of your ritual, and your arrest, back for a while.
+- [1- Leave.] -> stopNovel
 
 /*
     Dreams
