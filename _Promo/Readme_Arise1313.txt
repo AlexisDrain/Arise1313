@@ -70,6 +70,9 @@ SFX
 Footsteps
 https://freesound.org/people/avakas/sounds/172362/
 
+- Clock ticking (time progress)
+Sonniss 2023 - Game Audio Bundle \ InspectorJ - Essentials 02 Clocks\CLOCKTick_InsJ_Clock-03_Ticking_Multi_LOOP.wav
+
 -Door open:  
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_open_004.wav  
 Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav  

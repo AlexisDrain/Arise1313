@@ -277,7 +277,8 @@ public class StoryType : MonoBehaviour
         } else {
             choice0.ShakeButton(false);
         }
-        if (inkStory.currentChoices[1].text.Contains("Kill") || inkStory.currentChoices[1].text.Contains("Sacrifice")) {
+        if (inkStory.currentChoices.Count >= 2
+            && (inkStory.currentChoices[1].text.Contains("Kill") || inkStory.currentChoices[1].text.Contains("Sacrifice"))) {
             choice1.ShakeButton(true);
         } else {
             choice1.ShakeButton(false);

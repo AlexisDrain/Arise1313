@@ -154,6 +154,9 @@ public class GameManager : MonoBehaviour
         changeTimeOfDayEvent.Invoke();
 
         timePass.SetActive(true); // cutscene object
+        if(gameHasBeenStartedOnce) {
+            timePass.GetComponent<AudioSource>().PlayWebGL();
+        }
 
         //change time icon
         Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
