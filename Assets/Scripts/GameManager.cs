@@ -331,6 +331,7 @@ public class GameManager : MonoBehaviour
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 StopSayonara();
                 StopNovel();
+                timePass.SetActive(false);
             }
 
         }

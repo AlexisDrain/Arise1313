@@ -186,7 +186,7 @@ You put the receiver back.
 + [1- Leave.] -> stopNovel
 === telephone_parents ===
 # image_black
-Your relationship with your parents is normally strained, but talking about your suicidal ideation and your hospitalization brings anyone together.
+Your relationship with your parents is normally strained, but opening up about your suicidal ideation and your hospitalization brings anyone together.
 + [1- Leave.] -> stopNovel
 
 === telephone_2 ===
