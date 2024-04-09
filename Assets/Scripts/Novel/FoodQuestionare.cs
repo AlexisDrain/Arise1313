@@ -64,7 +64,7 @@ public class FoodQuestionare : MonoBehaviour
     public void UsePencilOnce() {
         dullPencilCountdown -= 1;
         if(dullPencilCountdown == 0) {
-            GameManager.ShowMessage("Your new pencil became dull because you used it.");
+            GameManager.ShowMessage("Your new pencil became dull because you used it too much.");
         }
     }
     public void OnEnable() {
