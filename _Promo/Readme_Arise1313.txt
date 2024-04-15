@@ -41,8 +41,11 @@ https://www.youtube.com/watch?v=cV18OJr0Vag
 
 ---
 
-Human 3D Model:
+Human 3D model:
 "Low Poly Male Base" (https://skfb.ly/KVAp) by wh_nerevar is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Grand piano model:
+Piano by jeremy [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/7U-93vxPOER)
 
 Plugins:
 - UI Blur:
