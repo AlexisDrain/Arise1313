@@ -20,12 +20,11 @@ https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 
 -----------------------
 
-Credits:
-
+=== Credits ===
 A game by Alexis Clay
 https://alexclay.itch.io/
 
-Music:
+=== Music ===
 - Debussy's Clair de Lune, performed by Caela Harrison
 https://archive.org/details/ClairDeLunedebussy
 
@@ -39,19 +38,18 @@ https://www.youtube.com/watch?v=jqW9l6iEHFg
 - muddasheep - a light long gone (feat. Lou Dunand-Vincent) 
 https://www.youtube.com/watch?v=cV18OJr0Vag
 
----
-
-Human 3D model:
+=== 3D Models ===
+- Human 3D model:
 "Low Poly Male Base" (https://skfb.ly/KVAp) by wh_nerevar is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
-Grand piano model:
+- Grand piano model:
 Piano by jeremy [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/7U-93vxPOER)
 
-Plugins:
-- UI Blur:
+=== Plugins ===
+- UI Blur
 https://assetstore.unity.com/packages/vfx/shaders/ui-blur-173331
 
-Fonts:  
+=== Fonts ===  
 - Jo_wrote_a_lovesong By Lars Manenschijn - "free for commercial use" license
 https://www.1001fonts.com/jo-wrote-a-lovesong-font.html
 - Roboto-Black by Christian Robertson - Apache License Version 2.0  
@@ -59,38 +57,45 @@ https://fonts.google.com/specimen/Roboto
 - Digital by shetshow - SIL OPEN FONT LICENSE Version 1.1
 https://fontstruct.com/fontstructions/show/1770102/digital-183
 
-Textures
-- Old book page - vusos & yd
+=== Textures ===
+- Old book page by vusos & yd
 https://opengameart.org/content/old-pagesflip-with-sound
 https://opengameart.org/content/horror-game-note-page-background-old-paper-png
 
-Phone HUD textures by Lucian Pavel:
+- Phone HUD textures by Lucian Pavel:
 https://opengameart.org/content/old-phone
 
-Wood texture. Door texture. Wall texture
+- Wall texture:
+https://opengameart.org/content/wall-grass-rock-stone-wood-and-dirt-480  
+
+- Ceiling texture (marble):
+https://www.texturecan.com/details/94/
+
+- Doors:  
+<a href="https://www.freepik.com/free-vector/realistic-doors-collection-illustration_17806539.htm#query=door%20texture&position=3&from_view=keyword&track=ais">Image by pikisuperstar</a> on Freepik  
 
 TV footage (royalty free stock footage):
 https://www.pexels.com/video/video-of-funny-cat-855029/
 
-SFX
-Footsteps
+=== SFX ===
+- Footsteps
 https://freesound.org/people/avakas/sounds/172362/
 
 - Clock ticking (time progress)
 Sonniss 2023 - Game Audio Bundle \ InspectorJ - Essentials 02 Clocks\CLOCKTick_InsJ_Clock-03_Ticking_Multi_LOOP.wav
 
--Door open:  
+- Door open:  
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_open_004.wav  
 Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav  
 
 - Sayonara SFX:
 Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
 
-Quest update SFX:
-Halfquake Trilogy by Muddasheep
+- Quest update SFX:
+Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
 
-Phone pickup / slam down:
+- Phone pickup / slam down:
 https://freesound.org/people/cookies+policy/sounds/556495/
 
-Phone dial:
+- Phone dial:
 https://opengameart.org/content/beep-sound
