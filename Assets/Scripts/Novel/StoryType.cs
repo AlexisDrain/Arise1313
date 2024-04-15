@@ -149,7 +149,6 @@ public class StoryType : MonoBehaviour
             */
             if (inkStory.currentTags[i] == "playerWakeupToMorning") {
                 CloseNovel();
-                GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 GameManager.PlayerLeaveBed();
             }
             if (inkStory.currentTags[i] == "setTimeFollowingTimePeriod") {

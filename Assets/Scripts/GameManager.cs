@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
 
     }
     public static void PlayerLeaveBed() {
-        SetTimeOfDay(TimeOfDay.Midnight);
+        GameManager.SetTimeOfDay(TimeOfDay.Morning);
 
         GameManager.playerInBed = false;
         GameManager.playerGotBreakfast = false;
@@ -327,7 +327,8 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
-                print("this cheat is buggy");
+                print("this cheat can be buggy");
+                GameObject.Find("TimedObjects_Music/MainMenuMusic").SetActive(false);
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 StopSayonara();
                 StopNovel();
