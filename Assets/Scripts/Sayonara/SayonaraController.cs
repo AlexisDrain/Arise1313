@@ -96,6 +96,7 @@ public class SayonaraController : MonoBehaviour
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
         GameManager.StopSayonara();
+        GameManager.StartNovel();
         sayonaraTransition = false;
     }
     public void GiveHealth() {

@@ -162,7 +162,9 @@ public class GameManager : MonoBehaviour
         message.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
         message.GetComponent<Animator>().SetTrigger("MessageFade");
     }
-
+    public static void SetDay(DayOfWeek dayOfWeek) {
+        GameManager.currentDayOfWeek = dayOfWeek;
+    }
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
         currentTimeOfDay = newTimeOfDay;
 
@@ -240,13 +242,17 @@ public class GameManager : MonoBehaviour
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = false;
     }
     public static void PlayerDream() {
-        storyType.StartRandomNightmare();
+
+        GameManager.playerInBed = false;
+        storyType.StartNovelKnot("dream_0");
+        // storyType.StartRandomNightmare();
 
     }
     public static void PlayerLeaveBed() {
+        GameManager.SetDay(DayOfWeek.DayTwo);
         GameManager.SetTimeOfDay(TimeOfDay.Morning);
 
-        GameManager.playerInBed = false;
+        // GameManager.playerInBed = false;
         GameManager.playerGotBreakfast = false;
         GameManager.playerGotDinner = false;
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
@@ -338,11 +344,9 @@ public class GameManager : MonoBehaviour
         }
 
         if (cheatMode == true) {
-            //if (Input.GetKey(KeyCode.G)
-            //&& (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
-            //    playerInBed = !playerInBed;
-            //}
+            
 
+            // skip intro novel
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
                 print("this cheat can be buggy");
@@ -352,11 +356,32 @@ public class GameManager : MonoBehaviour
                 StopNovel();
                 timePass.SetActive(false);
             }
+            // end game, kill self
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F6) || Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))) {
                 EndGame("You died, sparing youself from the eternal torture but not saving the world.");
 
             }
+
+            // set date
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.SetTimeOfDay(TimeOfDay.Morning);
+            }
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
+                GameManager.SetTimeOfDay(TimeOfDay.Evening);
+            }
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                GameManager.SetTimeOfDay(TimeOfDay.Midnight);
+            }
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F7) || Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7))) {
+                GameManager.SetDay(DayOfWeek.DayTwo);
+            }
+
+
         }
     }
 

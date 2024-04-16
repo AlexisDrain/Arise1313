@@ -85,6 +85,7 @@ public class BlinkController : MonoBehaviour
         }
         */
 
+
         if (Input.GetButtonDown("Blink")) {
             GetComponent<Animator>().SetBool("EyesOpen", false);
             StartCoroutine("ActivateBlinkCam");

@@ -62,8 +62,21 @@ This could be where I will spend the last few days of my life.
 
 === nursedesk_1 ===
 # image_black
-The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
-She continues: "I suggest getting food first, then you have the option of going to group or talking to a therapist 1-on-1."
+The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor. If you don't know where to go, you should come talk to me."
+She continues: "I suggest getting breakfast first, then you have the option of going to group or talking to a therapist 1-on-1."
++ [1- Leave.] -> stopNovel
+
+=== nursedesk_2 ===
+# image_black
+The nurse says: "You should get dinner, then you might want to go to the chaplain in the prayer room, he's excited to meet you! It's the last room on the hallway to my right."
+"After that, if you've already tried group then you should go to the therapist. Or vice versa."
+"Don't forget, if you don't know where to go, you should come talk to me."
++ [1- Leave.] -> stopNovel
+
+=== nursedesk_3 ===
+# image_black
+The nurse says: "It's waaay past bedtime for you. You should go to your room, it's the blue door on my left."
+"Don't forget, if you don't know where to go, you should come talk to me."
 + [1- Leave.] -> stopNovel
 
 /*
@@ -401,7 +414,6 @@ As you desperately try to escape, your movements become slower, more laborious. 
 === dream_1 === // Family replaced by clones
 # image_black
 You wake up to a world that seems eerily familiar yet unsettlingly different. As you navigate your once-familiar home, a sinister realization takes hold – your family has been replaced by emotionless, identical clones. Their faces bear an uncanny resemblance to your loved ones, but their eyes lack warmth, their voices devoid of genuine emotion.
-
 The air is heavy with an unnatural stillness as these doppelgangers move through the house, mimicking the routines and gestures of your family members with an unsettling precision. Conversations are stilted and void of genuine connection, each interaction leaving you with a sense of profound alienation.
 + [1- Wake up.] -> wakeupToMorning
 
