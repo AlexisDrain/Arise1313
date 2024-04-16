@@ -170,16 +170,16 @@ public class StoryType : MonoBehaviour
                 GameManager.SetTimeOfDay(TimeOfDay.Midnight);
             }
 
+            if (inkStory.currentTags[i] == "foodGetAndQuestionnaire") {
+                GameManager.questManager.SolveQuest("breakfast3");
+                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                GameManager.StartFoodQuestionnaire();
+                CloseNovel();
+            }
             if (inkStory.currentTags[i] == "foodGet") {
                 GameManager.questManager.SolveQuest("breakfast3");
                 //GameManager.StartFoodQuestionnaire();
-                GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
-                CloseNovel();
-            }
-            if (inkStory.currentTags[i] == "foodGetAndQuestionnaire") {
-                GameManager.questManager.SolveQuest("breakfast3");
                 GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
-                GameManager.StartFoodQuestionnaire();
                 CloseNovel();
             }
         }

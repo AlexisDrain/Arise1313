@@ -108,7 +108,7 @@ I forgot to dial it before the ritual.
 === ritual_step2 ===
 # image_black
 # updateMealString
-Step Two: The Last Meal: Apple juice and meat.
+Step Two: The Last Meal: Demon piss and flesh. I.e. Apple juice and meat.
 The last meal I had was:
 {finalMeal}
 + [1- Continue.] -> ritual_step2_check
@@ -228,8 +228,8 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 === worship2 ===
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
-+ [1- Pray Dhuhr + Asr] -> worship_pray
-+ [2- Meditate] -> worship_meditate
++ [1- Pray Dhuhr + Asr] -> worship_ritualstep
++ [2- Meditate] -> worship_ritualstep
 
 // third worship meeting. Eve of Day One
 === worship3 ===
@@ -246,21 +246,39 @@ You feel spiritually rejuvenated. You are not alone when God is with you.
 Saving the world requires a bit of faith. You muster as much of it as you can while meditating.
 + [1- Leave] -> stopNovel
 
+=== worship_ritualstep ===
+After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
+"What?"
+"I already said too much. Just go now. We can't talk."
++ [1- Leave] -> stopNovel
+
 /*
     Activities
 */
-=== breakfast_3 ===
+=== breakfast_1 ===
 # image_black
-"Hello sugar cube, here’s your food for the day. Oh, and before I forget, you should complete the food questionnaire for what you want to eat later."
-You get food, a new pencil, and a paper to fill out
-// commented out astrix: \*You get food, a new pencil, and a paper to fill out*
-+ [1- Fill out questionnaire] -> foodGetAndQuestionnaire
-
-=== dinner_3 ===
-# image_black
-"I hope you're starving! Plenty of food to go around."
-Chef Ratsy hands you your dinner.
+"Hello sugar cube. I hope you're starving!"
+The chef hands you a tray from the pile next to him. "Enjoy your breakfast!"
 + [1- Leave.] -> foodGet
+
+=== dinner_1 ===
+# image_black
+"Hello sugar cube. This time, you get to decide what to have for dinner. Please fill out the paper now."
+You get a new pencil, and a questionnaire to fill out
++ [1- Fill out questionnaire.] -> foodGetAndQuestionnaire
+
+=== breakfast_2 ===
+# image_black
+"Hello sugar cube. Plenty to go around!"
+The chef hands you a tray from the pile next to him. "Enjoy your breakfast!"
++ [1- Leave.] -> foodGet
+
+=== dinner_2 ===
+# image_black
+"Hello sugar cube. This time, you get to decide what to have for dinner. Please fill out the paper now."
+You get a new pencil, and a questionnaire to fill out
++ [1- Fill out questionnaire.] -> foodGetAndQuestionnaire
+
 
 // first therapist meeting
 === meeting_1 ===
@@ -271,7 +289,7 @@ Therapist: “Ha-ha. Nothing un-insane about a visual hallucination telling you 
 + [1- Continue.] -> meeting_1_2
 === meeting_1_2 ===
 Therapist Rose: "I will let you in on a secret. There IS a step in the ritual that I know of:"
-"Step Three requires a sacrifice. Of you or of someone else. That's all I'm going to say. And good luck getting that in the less than 3 days that this world has."
+"Step Two is to have a specific meal. Apple juice and meat. That's all I'm going to say. And good luck doing that in the less than 2 days that this world has."
 She shifts her legs and continues: "My real employer provides me with $2000 per hour to... humor you. There's a wagering contest going on. And it looks like you're on the losing side already."
 She leaves, leaving you absolutely stunned in your seat. A while later you go back to your room to think.
 + [1- Continue.] -> setTimeFollowingTimePeriod
