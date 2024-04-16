@@ -57,13 +57,26 @@ This could be where I will spend the last few days of my life.
 + [1- Continue.] -> start3DGame
 
 /*
-    Minor characters
+    Nurse desk / tutorial girl
 */
-=== nursedesk_3 ===
+
+=== nursedesk_1 ===
 # image_black
 The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
 She continues: "I suggest getting food first, then you have the option of going to group or talking to a therapist 1-on-1."
 + [1- Leave.] -> stopNovel
+
+/*
+    Minor characters
+*/
+
+=== bloodpressure_1 ===
+# image_black
+You see a bubbly young nurse with flowing blonde hair, chewing bubble gum.
+She says, "Hi, I'm doing blood pressure rounds. It's like, super important, you know? Let me take yours."
+She wraps a cuff around your arm. The machine gives you a fractional number which you immediately forget.
+"Oh yay, looking good! Your BP is totally on point, like, seriously awesome!"
++ [1- "Ok..." Leave.] -> stopNovel
 
 === bystander_1 ===
 # image_black
