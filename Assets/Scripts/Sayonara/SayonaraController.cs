@@ -84,9 +84,11 @@ public class SayonaraController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
-        GameManager.KillPlayer();
+        // GameManager.KillPlayer();
         GameManager.StopSayonara();
         sayonaraTransition = false;
+
+        GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.");
     }
     private IEnumerator EndSayonaraGood() {
         sayonaraTransition = true;

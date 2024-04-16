@@ -42,7 +42,9 @@ public class GameManager : MonoBehaviour
     public static InventoryTooltip invTooltip;
     public static GameObject imageScreenTransition;
     public static GameObject timePass;
-    
+    public static GameObject mainMenu;
+    public static GameObject endingMenu;
+
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
     public static Transform playerElevatorTrans;
@@ -105,6 +107,9 @@ public class GameManager : MonoBehaviour
         imageScreenTransition = GameObject.Find("ScreenTransition");
         timePass = GameObject.Find("Canvas/TimePass");
         timePass.SetActive(false);
+        mainMenu = GameObject.Find("Canvas/MainMenu").gameObject;
+        endingMenu = GameObject.Find("Canvas/EndingMenu").gameObject;
+        endingMenu.SetActive(false);
         
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
@@ -115,7 +120,7 @@ public class GameManager : MonoBehaviour
         entityMask = LayerMask.NameToLayer("Entity");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
-        SetTimeOfDay(TimeOfDay.Midnight); // because no music. progressing through novel will set to morning.
+        SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
         currentDayOfWeek = DayOfWeek.DayOne;
         // Time.timeScale = 0f;
     }
@@ -132,12 +137,22 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    /*
-    private void Start() {
-        
-        // GameManager.NewGame(); done in Main Menu
+    public static void RestartGame() { // confusingly, this is titled End Game inside the game
+        endingMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
+        mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
     }
-    */
+
+    public static void EndGame(string endGameMessage) {
+        SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
+        currentDayOfWeek = DayOfWeek.DayOne;
+        timePass.GetComponent<AudioSource>().StopWebGL();
+
+        endingMenu.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
     public static void FadeInThenOut() {
         imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
     }
@@ -304,9 +319,12 @@ public class GameManager : MonoBehaviour
     }
     public static void StopSayonara() {
         sayonaraController.gameObject.SetActive(false);
+        /*
+         * This was before I implemented EndingMenu
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
             GameManager.StartNovel();
         }
+        */
     }
 
     public void Update() {
@@ -334,7 +352,11 @@ public class GameManager : MonoBehaviour
                 StopNovel();
                 timePass.SetActive(false);
             }
+            if (Input.GetKey(KeyCode.G)
+            && (Input.GetKeyDown(KeyCode.F6) || Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))) {
+                EndGame("You died, sparing youself from the eternal torture but not saving the world.");
 
+            }
         }
     }
 

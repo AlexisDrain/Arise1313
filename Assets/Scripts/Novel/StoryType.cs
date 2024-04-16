@@ -34,6 +34,12 @@ public class StoryType : MonoBehaviour
         myText.enabled = true; // disabled in the editor and enabled here so that the first frame doesn't show the full text
     }
 
+    // to fix bug when starting dialogue too fast after closing it
+    private void OnDisable() {
+        StopCoroutine("Typewriter");
+        myText.text = "";
+    }
+
     public void CloseNovel() {
         StopCoroutine("Typewriter");
         GameManager.StopNovel();

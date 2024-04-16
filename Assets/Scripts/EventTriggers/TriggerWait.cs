@@ -34,6 +34,7 @@ public class TriggerWait : MonoBehaviour {
         } else {
             yield return new WaitForSeconds(timeToWait);
         }
+
         onTimeEnd.Invoke();
     }
 
