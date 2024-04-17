@@ -41,19 +41,19 @@ public class ToggleTabMenu : MonoBehaviour
     void Update() {
 
         if (GameManager.playerInNovelOrSayonara || GameManager.playerInMainMenu) {
-            if (quests.activeSelf == true) {
+            if (inventory.activeSelf == true) {
                 HideMenu();
             }
             return;
         }
 
-        if (quests.activeSelf == true && (Mathf.Abs(Input.GetAxis("Vertical")) > 0.9f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.9f)) {
+        if (inventory.activeSelf == true && (Mathf.Abs(Input.GetAxis("Vertical")) > 0.9f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.9f)) {
             HideMenu();
         }
         if (Input.GetButtonDown("ToggleTab")) {
-            if(quests.activeSelf == false) {
-                quests.SetActive(true);
-                sanity.SetActive(true);
+            if(inventory.activeSelf == false) {
+                // quests.SetActive(true);
+                // sanity.SetActive(true);
                 inventory.SetActive(true);
                 // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 iconTime.SetActive(true);

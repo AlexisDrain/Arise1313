@@ -88,7 +88,9 @@ public class FoodQuestionare : MonoBehaviour
     public void PlayerGiveMealDinner() {
         print("give dinner");
         GameManager.playerGotDinner = true; // set to false in player wake up
-        // GameManager.ShowMessage("You got dinner. Press TAB to view & eat it.");
+
+        // remove tutorial:
+        GameManager.tutorialControls.SetActive(false);
     }
 
     public void ChangeMeal()

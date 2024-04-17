@@ -19,9 +19,9 @@ VAR finalMeal = ""
 
 === novel_intro1 ===
 # image_redComputer
-72 hours until our world is devastated…
+48 hours until our world is devastated…
 The fate of humanity rests on my shoulders. A note that had my handwriting was sent back from the future that describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
-I have 3 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
+I have 2 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
 Or, I can at least spare myself the eternal torture.
 + [1- Suicide.] -> sayonara
 + [2- Drive to house of worship.] -> novel_intro2
@@ -45,7 +45,7 @@ The cop whips me with his pistol, then he starts stomping me on the ground until
 === novel_angryCop2 ===
 # image_black
 The cop fails to see my side of the conversation. I beg him to leave me until I perform the ritual. I also show him the letter from my future-self as evidence. He looks very disturbed by the content, but from his perspective it's the rambling of a madman. 
-After he notices a phrase in the paper that mentions a need to sacrifice a living being, he has me arrested under pretense of self-harm. He drives me to a psychiatric hospital.
+When I tell him the ritual requires a sacrifice of a living being, he has me arrested under pretense of self-harm. He drives me to a psychiatric hospital.
 + [1- Continue.] -> asylum1
 
 === asylum1 ===

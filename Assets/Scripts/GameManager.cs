@@ -171,10 +171,17 @@ public class GameManager : MonoBehaviour
         imageScreenTransition.GetComponent<Animator>().SetTrigger("FadeInThenOut");
     }
 
+    // messages and delayed messages
     public static void ShowMessage(string newMessageText) {
         Transform message = GameObject.Find("Canvas/Message").transform;
         message.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
         message.GetComponent<Animator>().SetTrigger("MessageFade");
+
+        /*
+        if(newMessageText.Length > 60) {
+            message.Find("Text (TMP)").GetComponent<RectTransform>().
+        }
+        */
     }
     public void DelayedMessage5Sec(string message) {
         StartCoroutine("DelayedMessage5SecCountdown", message);
@@ -183,6 +190,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         GameManager.ShowMessage(message);
     }
+
+
     public static void SetDay(DayOfWeek dayOfWeek) {
         GameManager.currentDayOfWeek = dayOfWeek;
     }
@@ -201,7 +210,9 @@ public class GameManager : MonoBehaviour
         Image iconEvening = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening").GetComponent<Image>();
         Image iconMidNight = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight").GetComponent<Image>();
         TMPro.TextMeshProUGUI iconTime = GameObject.Find("Canvas/TabMenu/IconTime/TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI timeLeft = GameObject.Find("Canvas/TabMenu/IconTime/TimeLeft").GetComponent<TMPro.TextMeshProUGUI>();
         TMPro.TextMeshProUGUI iconTimeCutscene = timePass.transform.Find("TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI timeLeftCutscene = timePass.transform.Find("TimeLeft").GetComponent<TMPro.TextMeshProUGUI>();
 
         // change player location
         if (newTimeOfDay == TimeOfDay.Morning) {
@@ -215,11 +226,15 @@ public class GameManager : MonoBehaviour
 
             // player position
             if (currentDayOfWeek == DayOfWeek.DayOne) {
+                timeLeftCutscene.text = "40 Hours Left";
+                timeLeft.text = "40 Hours Left";
                 GameManager.player.position = GameManager.playerElevatorTrans.position;
                 GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
                 GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
                 GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
             } else if (currentDayOfWeek == DayOfWeek.DayTwo) {
+                timeLeftCutscene.text = "16 Hours Left";
+                timeLeft.text = "16 Hours Left";
                 GameManager.player.position = GameManager.playerAwakeTrans.position;
                 GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
                 GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
@@ -240,6 +255,14 @@ public class GameManager : MonoBehaviour
             GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
             GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
             GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+
+            if (currentDayOfWeek == DayOfWeek.DayOne) {
+                timeLeftCutscene.text = "32 Hours Left";
+                timeLeft.text = "32 Hours Left";
+            } else if (currentDayOfWeek == DayOfWeek.DayTwo) {
+                timeLeftCutscene.text = "8 Hours Left";
+                timeLeft.text = "8 Hours Left";
+            }
         } else if (newTimeOfDay == TimeOfDay.Midnight) {
             timePass.GetComponent<Animator>().SetTrigger("SetNight");
             iconTime.text = "11:00 PM";
@@ -252,6 +275,14 @@ public class GameManager : MonoBehaviour
             GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
             GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
             GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
+
+            if (currentDayOfWeek == DayOfWeek.DayOne) {
+                timeLeftCutscene.text = "25 Hours Left";
+                timeLeft.text = "25 Hours Left";
+            } else if (currentDayOfWeek == DayOfWeek.DayTwo) {
+                timeLeftCutscene.text = "1 Hour Left";
+                timeLeft.text = "1 Hour Left";
+            }
         }
 
     }
@@ -317,8 +348,6 @@ public class GameManager : MonoBehaviour
         gameIsPaused = false;
     }
     public static void StartFoodQuestionnaire() {
-        // remove tutorial:
-        tutorialControls.SetActive(false);
 
         GameManager.foodQuestionnaire.SetActive(true);
         playerInFoodQuestionnaire = true;
