@@ -107,7 +107,6 @@ public class StoryType : MonoBehaviour
             }
 
             // ritual
-            print(inkStory.currentTags[i]);
             if (inkStory.currentTags[i] == "checkStep1") {
                 if (GameManager.stepOneComplete) {
                     GameManager.StartNovel("ritual_step1_correct");
@@ -133,6 +132,25 @@ public class StoryType : MonoBehaviour
                 }
             }
 
+            if (inkStory.currentTags[i] == "knowStepOne") {
+                GameManager.knowsStepOne = true;
+                GameManager.gameManagerObj.GetComponent<GameManager>().
+                    DelayedMessage5Sec("You learned Step 1 of the ritual. Check your future paper in TAB menu.");
+                // novel is closed in a seperate tag.
+            }
+            if (inkStory.currentTags[i] == "knowStepTwo") {
+                GameManager.knowsStepTwo = true;
+                GameManager.gameManagerObj.GetComponent<GameManager>().
+                    DelayedMessage5Sec("You learned Step 2 of the ritual. Check your future paper in TAB menu.");
+                // novel is closed in a seperate tag.
+            }
+            if (inkStory.currentTags[i] == "knowStepThree") {
+                GameManager.knowsStepThree = true;
+                GameManager.gameManagerObj.GetComponent<GameManager>().
+                    DelayedMessage5Sec("You learned Step 3 of the ritual. Check your future paper in TAB menu.");
+                CloseNovel(); // this closes it
+            }
+            
             // endings
             if (inkStory.currentTags[i] == "sayonaraStart") {
                 GameManager.StartSayonara();

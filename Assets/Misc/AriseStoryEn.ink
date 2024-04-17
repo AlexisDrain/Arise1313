@@ -62,8 +62,9 @@ This could be where I will spend the last few days of my life.
 
 === nursedesk_1 ===
 # image_black
-The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor. If you don't know where to go, you should come talk to me."
+The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
 She continues: "I suggest getting breakfast first, then you have the option of going to group or talking to a therapist 1-on-1."
+"Don't forget, if you don't know where to go, you should come talk to me."
 + [1- Leave.] -> stopNovel
 
 === nursedesk_2 ===
@@ -276,7 +277,7 @@ Saving the world requires a bit of faith. You muster as much of it as you can wh
 After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
 "What?"
 "I already said too much. Just go now. We can't talk."
-+ [1- Leave] -> stopNovel
++ [1- Leave] -> getStepThree
 
 /*
     Activities
@@ -318,7 +319,7 @@ Therapist Rose: "I will let you in on a secret. There IS a step in the ritual th
 "Step Two is to have a specific meal. Apple juice and meat. That's all I'm going to say. And good luck doing that in the less than 2 days that this world has."
 She shifts her legs and continues: "My real employer provides me with $2000 per hour to... humor you. There's a wagering contest going on. And it looks like you're on the losing side already."
 She leaves, leaving you absolutely stunned in your seat. A while later you go back to your room to think.
-+ [1- Continue.] -> setTimeFollowingTimePeriod
++ [1- Continue.] -> setTimeFollowingTimePeriodAndKnowStepTwo
 
 // second therapist meeting
 === meeting_2 ===
@@ -370,7 +371,7 @@ You look at the ID bracelet given to you on entrance to the hospital. The ID num
 He gets tackled by two orderlies built like bulldozers. “I’M YOUR BROTHER!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
 You don’t know who he is or where he will be taken.
 "He says that to everyone," the group leader claims, smiling knowingly.
-+ [1- Continue.] -> setTimeFollowingTimePeriod
++ [1- Continue.] -> setTimeFollowingTimePeriodAndKnowStepOne
 
 // second group meeting
 === group_2 ===
@@ -382,24 +383,44 @@ You: “So, you’re saying I’m leaving in two days?”
 “HAH. I see why they call you kooky!”
 + [1- Continue.] -> group_2_2
 === group_2_2 ===
-A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is saying a lot since cats do not cuddle.
-+ [1- Pet the cat.] -> group_2_pet
-+ [2- Kill the cat.] -> setTimeFollowingTimePeriod
-=== group_2_pet ===
+A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is saying a lot as the cats you know do not cuddle.
++ [1- Pet the cat.] -> group_pet
++ [2- Kill the cat.] -> group_catCheckPen
+
+// third group meeting if you dont attack cat
+=== group_3 ===
+They give everyone crayons, which you are too dull for anything but drawing.
+The group leader says: “Engaging in art and crafts can be highly therapeutic. It allows you to express yourselves creatively.”
+“It also creates a space for you to engage with others in a collaborative way, building social skills and a sense of community.”
+The drawing you make looks like the work of a talented 8-year-old. As you almost throw it away, the group leader interjects: “Please don’t throw out your drawings in the trash, even if you’re not happy with them. It’s disheartening for me to see all the years I spent in art therapy training gone wasted, haha!.”
++ [1- Continue.] -> group_3_2
+
+=== group_3_2 ===
+At the end of the group, the nurses bring the therapy cat Littlepip.
++ [1- Pet the cat.] -> group_pet
++ [2- Kill the cat.] -> group_catCheckPen
+
+// attack the cat
+=== group_pet ===
 The cat is as furry as you expect from a cat.
 You go back to your room at the conclusion of this group session.
 - [1- Leave.] -> stopNovel
-=== group_2_killHasPen ===
+=== group_catCheckPen ===
+# catKillCheck
+-> END
+
+=== group_killcat_HasPen ===
 "Holy shit," half the people exclaim as you stab the cat with your sharp pencil.
 "You have COMPLETELY lost your mind," yells the group leader.
 The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
 - [1- Leave.] -> stopNovel
-=== group_2_killNoPen ===
+=== group_killcat_NoPen ===
 You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
-You hit, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
+You make contact, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
 "What the hell are you doing?" yelled the group leader.
 The orderlies usher you away. This will set the progress of your ritual, and your arrest, back for a while.
 - [1- Leave.] -> stopNovel
+
 
 /*
     Dreams
@@ -442,6 +463,18 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 
 === setTimeFollowingTimePeriod === // in case an event forwards the time but we're not sure if it's morning or evening.
 # setTimeFollowingTimePeriod
+-> END
+=== setTimeFollowingTimePeriodAndKnowStepOne === // in case an event forwards the time but we're not sure if it's morning or evening.
+# knowStepOne
+# setTimeFollowingTimePeriod
+-> END
+=== setTimeFollowingTimePeriodAndKnowStepTwo === // in case an event forwards the time but we're not sure if it's morning or evening.
+# knowStepTwo
+# setTimeFollowingTimePeriod
+-> END
+
+=== getStepThree ===
+# knowStepThree
 -> END
 
 === setTimeEve === // only one tag at a time

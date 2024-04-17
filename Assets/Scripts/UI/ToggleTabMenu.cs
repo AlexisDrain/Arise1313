@@ -32,6 +32,11 @@ public class ToggleTabMenu : MonoBehaviour
         inventoryTooltip.SetActive(false);
         iconTime.SetActive(false);
         GameManager.playerInTabMenu = false;
+
+        GameObject futurePaper = GameObject.Find("Canvas/FuturePaper");
+        if (futurePaper) {
+            futurePaper.SetActive(false);
+        };
     }
     void Update() {
 

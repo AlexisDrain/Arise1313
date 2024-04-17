@@ -55,7 +55,15 @@ public class GameManager : MonoBehaviour
     public static TimeOfDay currentTimeOfDay;
     public static DayOfWeek currentDayOfWeek;
 
+    // group visit increment
+    public static int numberOfGroups = 0;
+    public static int numberOfTherapists = 0;
+    public static int numberOfPrayer = 0;
+
     // ritual
+    public static bool knowsStepOne = false;
+    public static bool knowsStepTwo = false;
+    public static bool knowsStepThree = false;
     public static bool stepOneComplete = false;
     public static bool stepTwoComplete = false;
     public static bool stepThreeComplete = false;
@@ -131,6 +139,12 @@ public class GameManager : MonoBehaviour
         storySeenBrother = false;
         playerInNovelOrSayonara = true;
         playerInMainMenu = false;
+        numberOfGroups = 0;
+        numberOfTherapists = 0;
+        numberOfPrayer = 0;
+        knowsStepOne = false;
+        knowsStepTwo = false;
+        knowsStepThree = false;
 
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
             GameManager.StartNovel();
@@ -161,6 +175,13 @@ public class GameManager : MonoBehaviour
         Transform message = GameObject.Find("Canvas/Message").transform;
         message.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
         message.GetComponent<Animator>().SetTrigger("MessageFade");
+    }
+    public void DelayedMessage5Sec(string message) {
+        StartCoroutine("DelayedMessage5SecCountdown", message);
+    }
+    public IEnumerator DelayedMessage5SecCountdown(string message) {
+        yield return new WaitForSeconds(5f);
+        GameManager.ShowMessage(message);
     }
     public static void SetDay(DayOfWeek dayOfWeek) {
         GameManager.currentDayOfWeek = dayOfWeek;
@@ -361,6 +382,13 @@ public class GameManager : MonoBehaviour
             && (Input.GetKeyDown(KeyCode.F6) || Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))) {
                 EndGame("You died, sparing youself from the eternal torture but not saving the world.");
 
+            }
+
+            if (Input.GetKey(KeyCode.J)
+            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.knowsStepOne = true;
+                GameManager.knowsStepTwo = true;
+                GameManager.knowsStepThree = true;
             }
 
             // set date
