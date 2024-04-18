@@ -80,6 +80,11 @@ The nurse says: "It's waaay past bedtime for you. You should go to your room, it
 "Don't forget, if you don't know where to go, you should come talk to me."
 + [1- Leave.] -> stopNovel
 
+=== nursedesk_6 ===
+# image_black
+The nurse says: "Tonight is the night. Go to the prayer room. Now! Or else."
++ [1- Leave.] -> stopNovel
+
 /*
     Minor characters
 */
