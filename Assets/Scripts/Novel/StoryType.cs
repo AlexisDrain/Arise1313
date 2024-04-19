@@ -150,7 +150,17 @@ public class StoryType : MonoBehaviour
                     DelayedMessage5Sec("You learned Step 3 of the ritual. Check your future paper in TAB menu.");
                 CloseNovel(); // this closes it
             }
-            
+            // group, therapist, prayer increment
+            if (inkStory.currentTags[i] == "groupIncrement") {
+                GameManager.numberOfGroups += 1;
+            }
+            if (inkStory.currentTags[i] == "therapyIncrement") {
+                GameManager.numberOfTherapists += 1;
+            }
+            if (inkStory.currentTags[i] == "prayerIncrement") {
+                GameManager.numberOfPrayer += 1;
+            }
+
             // endings
             if (inkStory.currentTags[i] == "sayonaraStart") {
                 GameManager.StartSayonara();

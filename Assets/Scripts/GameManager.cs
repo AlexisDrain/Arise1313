@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     private static Pool pool_LoudAudioSource;
 
-    public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
+   // public static PlayerProgress currentPlayerProgress = PlayerProgress.PlayerInNovelIntroFirstTime;
     public static TimeOfDay currentTimeOfDay;
     public static DayOfWeek currentDayOfWeek;
 
@@ -146,9 +146,9 @@ public class GameManager : MonoBehaviour
         knowsStepTwo = false;
         knowsStepThree = false;
 
-        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
-            GameManager.StartNovel();
-        }
+        // if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+        GameManager.StartNovel();
+        //}
 
     }
     public static void RestartGame() { // confusingly, this is titled End Game inside the game
@@ -328,10 +328,12 @@ public class GameManager : MonoBehaviour
 
         print("kill player");
 
-        if(GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
-            playerInNovelOrSayonara = true;
-            GameManager.NewGame();
-        }
+        // if(GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
+        playerInNovelOrSayonara = true;
+        GameManager.NewGame();
+        // }
+
+
         /*
         GameManager.canvasDeath.SetActive(true);
         GameManager.player.GetComponent<PlayerController>().graphicGirl.SetActive(false);
@@ -399,7 +401,7 @@ public class GameManager : MonoBehaviour
             // skip intro novel
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
-                print("this cheat can be buggy");
+                GameManager.ShowMessage("Cheat: skip intro novel. this cheat can be buggy");
                 GameObject.Find("TimedObjects_Music/MainMenuMusic").SetActive(false);
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 StopSayonara();
@@ -409,12 +411,14 @@ public class GameManager : MonoBehaviour
             // end game, kill self
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F6) || Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))) {
+                GameManager.ShowMessage("Cheat: end game, kill self");
                 EndGame("You died, sparing youself from the eternal torture but not saving the world.");
 
             }
 
             if (Input.GetKey(KeyCode.J)
             && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.ShowMessage("Cheat: learn all steps of the ritual");
                 GameManager.knowsStepOne = true;
                 GameManager.knowsStepTwo = true;
                 GameManager.knowsStepThree = true;
@@ -423,21 +427,40 @@ public class GameManager : MonoBehaviour
             // set date
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.ShowMessage("Cheat: goTo Morning");
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
             }
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
+                GameManager.ShowMessage("Cheat: goTo evening");
                 GameManager.SetTimeOfDay(TimeOfDay.Evening);
             }
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                GameManager.ShowMessage("Cheat: goTo midnight");
                 GameManager.SetTimeOfDay(TimeOfDay.Midnight);
             }
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F7) || Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7))) {
+                GameManager.ShowMessage("Cheat: goTo day 2");
                 GameManager.SetDay(DayOfWeek.DayTwo);
             }
 
+            if (Input.GetKey(KeyCode.H)
+            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.numberOfTherapists += 1;
+                GameManager.ShowMessage("Cheat: numberOfTherapist is now " + GameManager.numberOfTherapists);
+            }
+            if (Input.GetKey(KeyCode.H)
+            && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
+                GameManager.numberOfGroups += 1;
+                GameManager.ShowMessage("Cheat: numberOfGroups is now " + GameManager.numberOfGroups);
+            }
+            if (Input.GetKey(KeyCode.H)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                GameManager.numberOfPrayer += 1;
+                GameManager.ShowMessage("Cheat: numberOfPrayer is now " + GameManager.numberOfPrayer);
+            }
 
         }
     }

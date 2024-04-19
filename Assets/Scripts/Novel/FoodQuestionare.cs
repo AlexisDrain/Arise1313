@@ -73,7 +73,6 @@ public class FoodQuestionare : MonoBehaviour
     }
 
     public void PlayerGiveMealBreakfast() {
-        print("give breakfast");
         GameManager.playerGotBreakfast = true; // set to false in player wake up
 
         // todo
@@ -84,13 +83,12 @@ public class FoodQuestionare : MonoBehaviour
             GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
         }
         GameManager.ShowMessage("You got breakfast. Press TAB to view & eat it.");
-    }
-    public void PlayerGiveMealDinner() {
-        print("give dinner");
-        GameManager.playerGotDinner = true; // set to false in player wake up
 
         // remove tutorial:
         GameManager.tutorialControls.SetActive(false);
+    }
+    public void PlayerGiveMealDinner() {
+        GameManager.playerGotDinner = true; // set to false in player wake up
     }
 
     public void ChangeMeal()

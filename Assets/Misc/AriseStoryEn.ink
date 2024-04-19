@@ -82,7 +82,7 @@ The nurse says: "It's waaay past bedtime for you. You should go to your room, it
 
 === nursedesk_6 ===
 # image_black
-The nurse says: "Tonight is the night. Go to the prayer room. Now! Or else."
+The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else."
 + [1- Leave.] -> stopNovel
 
 /*
@@ -251,6 +251,7 @@ They make you promise not to go back to the hospital.
 */
 // first worship meeting. Morning of Day One
 === worship1 ===
+# prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion. Please. Let’s pray together.” He sits on one of the rugs.
 + [1- Pray Fajr] -> worship_pray
@@ -258,6 +259,7 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 
 // second worship meeting. Eve of Day One
 === worship2 ===
+# prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
 + [1- Pray Dhuhr + Asr] -> worship_ritualstep
@@ -265,6 +267,7 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 
 // third worship meeting. Eve of Day One
 === worship3 ===
+# prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “Friend, let’s pray together.” He sits on one of the rugs.
 + [1- Pray Maghrib + Isha] -> worship_pray
@@ -314,6 +317,7 @@ You get a new pencil, and a questionnaire to fill out
 
 // first therapist meeting
 === meeting_1 ===
+# therapyIncrement
 You: “Do you see yellow text while closing your eyes?”
 Therapist Rose: “Like… thinking of words and then imagining them in physical form? I think everyone does? What does the yellow text say by the way?”
 You: “It’s says ‘You’re insane if you trust her.’”
@@ -329,6 +333,7 @@ She leaves, leaving you absolutely stunned in your seat. A while later you go ba
 // second therapist meeting
 === meeting_2 ===
 # image_black
+# therapyIncrement
 This is a different therapist than before. She does not recognize the previous therapist. You spend the entire 1-on-1 session relaying the world ending phenomenon.
 You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
 Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.”
@@ -344,6 +349,7 @@ At the conclusion of the therapy activity, you go back to your room.
 // third therapist meeting
 === meeting_3 ===
 # image_black
+# therapyIncrement
 This is second therapist you met. The one that claimed they didn't know about the end of the world.
 She talks in a way that you think SHE has a mental illness. Always has to rattle off, never leaving you a chance to speak your turn.
 "Well, well, well! How are we feeling today, my dear inmate? Oh, I must say, I've been having the most intriguing thoughts about the interconnectedness of the universe. It's like this vast web of emotions and energy, you know? Speaking of which, how do you feel today? Don't hold back, spill the beans! Let's dissect those feelings and unravel the mysteries of your psyche."
@@ -358,6 +364,7 @@ At the conclusion of the therapy activity, you go back to your room.
 // first group meeting
 === group_1 ===
 # image_black
+# groupIncrement
 "Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
 It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
 It's actually pretty nice being here!
@@ -380,6 +387,7 @@ You don’t know who he is or where he will be taken.
 
 // second group meeting
 === group_2 ===
+# groupIncrement
 During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
 The group leader responds: “Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… “weird”.”
 You: “How long do people stay here at this hospital?”
@@ -394,6 +402,7 @@ A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is sa
 
 // third group meeting if you dont attack cat
 === group_3 ===
+# groupIncrement
 They give everyone crayons, which you are too dull for anything but drawing.
 The group leader says: “Engaging in art and crafts can be highly therapeutic. It allows you to express yourselves creatively.”
 “It also creates a space for you to engage with others in a collaborative way, building social skills and a sense of community.”
