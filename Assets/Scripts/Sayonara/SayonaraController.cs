@@ -88,7 +88,7 @@ public class SayonaraController : MonoBehaviour
         GameManager.StopSayonara();
         sayonaraTransition = false;
 
-        GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.");
+        GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
     }
     private IEnumerator EndSayonaraGood() {
         sayonaraTransition = true;

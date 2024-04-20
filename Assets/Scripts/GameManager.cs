@@ -158,12 +158,18 @@ public class GameManager : MonoBehaviour
         mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
     }
 
-    public static void EndGame(string endGameMessage) {
+    public static void EndGame(string endGameMessage, bool goodEnding) {
         SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
         currentDayOfWeek = DayOfWeek.DayOne;
         timePass.GetComponent<AudioSource>().StopWebGL();
 
         endingMenu.SetActive(true);
+        endingMenu.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = endGameMessage;
+        if(goodEnding == false) {
+            endingMenu.GetComponent<Animator>().SetTrigger("InvokeBad");
+        } else if (goodEnding == true) {
+            endingMenu.GetComponent<Animator>().SetTrigger("InvokeGood");
+        }
         mainMenu.SetActive(false);
     }
 
@@ -396,7 +402,6 @@ public class GameManager : MonoBehaviour
         }
 
         if (cheatMode == true) {
-            
 
             // skip intro novel
             if (Input.GetKey(KeyCode.G)
@@ -407,21 +412,6 @@ public class GameManager : MonoBehaviour
                 StopSayonara();
                 StopNovel();
                 timePass.SetActive(false);
-            }
-            // end game, kill self
-            if (Input.GetKey(KeyCode.G)
-            && (Input.GetKeyDown(KeyCode.F6) || Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))) {
-                GameManager.ShowMessage("Cheat: end game, kill self");
-                EndGame("You died, sparing youself from the eternal torture but not saving the world.");
-
-            }
-
-            if (Input.GetKey(KeyCode.J)
-            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
-                GameManager.ShowMessage("Cheat: learn all steps of the ritual");
-                GameManager.knowsStepOne = true;
-                GameManager.knowsStepTwo = true;
-                GameManager.knowsStepThree = true;
             }
 
             // set date
@@ -444,6 +434,15 @@ public class GameManager : MonoBehaviour
             && (Input.GetKeyDown(KeyCode.F7) || Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7))) {
                 GameManager.ShowMessage("Cheat: goTo day 2");
                 GameManager.SetDay(DayOfWeek.DayTwo);
+            }
+
+            // progress
+            if (Input.GetKey(KeyCode.J)
+            && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+                GameManager.ShowMessage("Cheat: learn all steps of the ritual");
+                GameManager.knowsStepOne = true;
+                GameManager.knowsStepTwo = true;
+                GameManager.knowsStepThree = true;
             }
 
             if (Input.GetKey(KeyCode.H)

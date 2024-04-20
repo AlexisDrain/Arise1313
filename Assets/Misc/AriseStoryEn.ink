@@ -250,7 +250,7 @@ They make you promise not to go back to the hospital.
     house of worship
 */
 // first worship meeting. Morning of Day One
-=== worship1 ===
+=== worship_1 ===
 # prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion. Please. Let’s pray together.” He sits on one of the rugs.
@@ -258,7 +258,7 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 + [2- Meditate] -> worship_meditate
 
 // second worship meeting. Eve of Day One
-=== worship2 ===
+=== worship_2 ===
 # prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
@@ -266,7 +266,7 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 + [2- Meditate] -> worship_ritualstep
 
 // third worship meeting. Eve of Day One
-=== worship3 ===
+=== worship_3 ===
 # prayerIncrement
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “Friend, let’s pray together.” He sits on one of the rugs.

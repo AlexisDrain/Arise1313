@@ -26,6 +26,7 @@ public class InventoryTooltip : MonoBehaviour
         if (_selectedGridItem != null) {
             // use item
             print("SFX: eat sound");
+            GameManager.ShowMessage("Demo: Eating is NOT implemented. -Alexis");
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
@@ -59,6 +60,7 @@ public class InventoryTooltip : MonoBehaviour
             } else if (_selectedGridItem.myInvItem == InvItem.PencilSharp) {
                 print("summon sayonara");
             }
+            GameManager.ShowMessage("Demo: self-harm is NOT implemented. -Alexis");
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect

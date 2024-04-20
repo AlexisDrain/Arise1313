@@ -32,7 +32,7 @@ public class TriggerPlayerProgress : MonoBehaviour
         for (int i = 0; i < progressObjects.Count; i++) {
             progressObjects[i].SetActive(false);
         }
-        if(progressObjects[progress]) {
+        if(progress < progressObjects.Count) {
             progressObjects[progress].SetActive(true);
         }
     }
