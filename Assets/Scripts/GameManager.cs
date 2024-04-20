@@ -369,7 +369,7 @@ public class GameManager : MonoBehaviour
 
     public static void StartNovel(string newStoryKnot = "") {
         playerInNovelOrSayonara = true;
-        if(newStoryKnot == "") {
+        if (newStoryKnot == "") {
             storyType.NovelStartFromIntro();
         } else {
             storyType.StartNovelKnot(newStoryKnot);

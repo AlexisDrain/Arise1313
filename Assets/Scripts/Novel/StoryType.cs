@@ -83,6 +83,33 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "confiscate") {
                 inkStory.variablesState["confiscateVar"] = "";
             }
+            // chaplain
+            if (inkStory.currentTags[i] == "checkWorship") {
+                if (GameManager.numberOfPrayer == 0) {
+                    GameManager.StartNovel("worship_intro");
+                } 
+                if (GameManager.numberOfPrayer >= 1) {
+                    if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
+                        GameManager.StartNovel("worship_Morn");
+                    } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
+                        GameManager.StartNovel("worship_Eve");
+                    } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
+                        GameManager.StartNovel("worship_Night");
+                    }
+                }
+                return; // inkStory tags that change the knot needs to return;
+            }
+            if (inkStory.currentTags[i] == "checkSecondChaplainMeeting") {
+                print(GameManager.numberOfPrayer);
+                if (GameManager.numberOfPrayer == 2) {
+                    GameManager.StartNovel("worship_ritualstep");
+                } else {
+                    CloseNovel();
+                }
+                return; // inkStory tags that change the knot needs to return;
+            }
+            
+
             // brother encounter
             if (inkStory.currentTags[i] == "checkBrother") {
                 if (GameManager.storySeenBrother == false) {
@@ -151,19 +178,23 @@ public class StoryType : MonoBehaviour
             }
             if (inkStory.currentTags[i] == "knowStepThree") {
                 GameManager.knowsStepThree = true;
-                GameManager.gameManagerObj.GetComponent<GameManager>().
-                    DelayedMessage5Sec("You learned Step 3 of the ritual. Check your future paper in TAB menu.");
+                GameManager.ShowMessage("You learned Step 3 of the ritual. Check your future paper in TAB menu.");
                 CloseNovel(); // this closes it
             }
             // group, therapist, prayer increment
             if (inkStory.currentTags[i] == "groupIncrement") {
                 GameManager.numberOfGroups += 1;
+                print("numberOfGroups = " + GameManager.numberOfGroups);
             }
             if (inkStory.currentTags[i] == "therapyIncrement") {
                 GameManager.numberOfTherapists += 1;
+                print("numberOfTherapists = " + GameManager.numberOfTherapists);
             }
             if (inkStory.currentTags[i] == "prayerIncrement") {
                 GameManager.numberOfPrayer += 1;
+                print("numberOfPrayer = " + GameManager.numberOfPrayer);
+                inkStory.currentTags.RemoveAt(i);
+                return;
             }
 
             // endings
@@ -174,6 +205,10 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "ending_good_sacrificeChaplain") {
                 CloseNovel();
                 GameManager.EndGame("You allowed the chaplain to sacrifice themself, thus saving the world.", true);
+            }
+            if (inkStory.currentTags[i] == "ending_good_sacrificePet") {
+                CloseNovel();
+                GameManager.EndGame("You sacrificed a cat to save the world.", true);
             }
 
             if (inkStory.currentTags[i] == "sayonaraStart") {
@@ -245,9 +280,11 @@ public class StoryType : MonoBehaviour
         myText.text = "";
         finalText = "";
         while (inkStory.canContinue) {
+
             if (inkStory.currentTags.Count > 0) {
                 ProcessTags();
             }
+
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
         }
@@ -262,6 +299,7 @@ public class StoryType : MonoBehaviour
             StopCoroutine("Typewriter");
             StartCoroutine("Typewriter");
         }
+
 
         if (inkStory.currentTags.Count > 0) {
             ProcessTags();

@@ -64,25 +64,26 @@ This could be where I will spend the last few days of my life.
 # image_black
 The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
 She continues: "I suggest getting breakfast first, then you have the option of going to group or talking to a therapist 1-on-1."
-"Don't forget, if you don't know where to go, you should come talk to me."
+"Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
 === nursedesk_2_4_5 ===
 # image_black
-The nurse says: "You should get dinner, then you might want to go to the chaplain in the prayer room, he's excited to meet you! It's the last room on the hallway to my right."
+The nurse says: "You should get dinner, then you might want to go to the chaplain in the prayer room, he want to talk to you! It's the last room on the hallway to my right."
 "After that, if you've already tried group then you should go to the therapist. Or vice versa."
-"Don't forget, if you don't know where to go, you should come talk to me."
+"Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
 === nursedesk_3 ===
 # image_black
 The nurse says: "It's waaay past bedtime for you. You should go to your room, it's the blue door on my left."
-"Don't forget, if you don't know where to go, you should come talk to me."
+"If you can't sleep, the chaplain is praying. I'm sure he'd like some company."
+"Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
 === nursedesk_6 ===
 # image_black
-The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else."
+The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else..."
 + [1- Leave.] -> stopNovel
 
 /*
@@ -184,7 +185,7 @@ Hellfire. Eternal Toture.
 # image_black
 I have blood from the cat I killed earlier.
 The chaplin says, "the Third step is complete. I'm somehow glad we didn't have to sacrifice ourselves. I pray for Littlepip's soul."
-+ [1- Continue.] -> ritual_total
++ [1- Continue.] -> ritual_totalPet
 
 === ritual_step3_nopet ===
 # image_black
@@ -192,6 +193,11 @@ The chaplin says, "the Third step is complete. I'm somehow glad we didn't have t
 Our gazes meet. "My soul, or yours. I leave you to decide."
 + [1- Sacrifice self.] -> ritual_totalSelf
 + [2- Sacrifice chaplain.] -> ritual_totalChaplain
+
+=== ritual_totalPet ===
+# image_black
+The ritual, in total, is correct.
++ [1- Finish.] -> ending_good_sacrificePet
 
 === ritual_totalSelf ===
 # image_black
@@ -256,37 +262,48 @@ They make you promise not to go back to the hospital.
 /*
     house of worship
 */
-// first worship meeting. Morning of Day One
-=== worship_1 ===
-# prayerIncrement
+=== worship_check ===
+# checkWorship
+-> END
+
+// first meeting with chaplain
+=== worship_intro ===
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
-“I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion. Please. Let’s pray together.” He sits on one of the rugs.
+“I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion."
++ [1- Shake hands.] -> worship_Morn
+
+// chaplain Morning
+=== worship_Morn ===
+“Please. Let’s pray together.” He sits on one of the rugs.
 + [1- Pray Fajr] -> worship_pray
 + [2- Meditate] -> worship_meditate
 
-// second worship meeting. Eve of Day One
-=== worship_2 ===
-# prayerIncrement
-As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
+// chaplain eve
+=== worship_Eve ===
 “Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
-+ [1- Pray Dhuhr + Asr] -> worship_ritualstep
-+ [2- Meditate] -> worship_ritualstep
++ [1- Pray Dhuhr + Asr] -> worship_pray
++ [2- Meditate] -> worship_meditate
 
-// third worship meeting. Eve of Day One
-=== worship_3 ===
-# prayerIncrement
-As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
-“Friend, let’s pray together.” He sits on one of the rugs.
+// chaplain night
+=== worship_Night ===
+“Friend, God is open to prayers at any hour. No matter how late.” He sits on one of the rugs.
 + [1- Pray Maghrib + Isha] -> worship_pray
 + [2- Meditate] -> worship_meditate
 
 === worship_pray ===
+# prayerIncrement
 You feel spiritually rejuvenated. You are not alone when God is with you.
-+ [1- Leave] -> stopNovel
++ [1- Leave] -> secondChaplainMeeting_check
 
 === worship_meditate ===
+# prayerIncrement
 Saving the world requires a bit of faith. You muster as much of it as you can while meditating.
-+ [1- Leave] -> stopNovel
++ [1- Leave] -> secondChaplainMeeting_check
+
+=== secondChaplainMeeting_check ===
+# checkSecondChaplainMeeting
+asdf
++ [asdf] -> END
 
 === worship_ritualstep ===
 After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
@@ -425,7 +442,7 @@ At the end of the group, the nurses bring the therapy cat Littlepip.
 === group_pet ===
 The cat is as furry as you expect from a cat.
 You go back to your room at the conclusion of this group session.
-- [1- Leave.] -> setTimeFollowingTimePeriod
++ [1- Leave.] -> setTimeFollowingTimePeriod
 
 === group_catCheckPen ===
 # catKillCheck
@@ -435,13 +452,13 @@ You go back to your room at the conclusion of this group session.
 "Holy shit," half the people exclaim as you stab the cat with your sharp pencil.
 "You have COMPLETELY lost your mind," yells the group leader.
 The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
-- [1- Leave.] -> setTimeFollowingTimePeriod
++ [1- Leave.] -> setTimeFollowingTimePeriod
 === group_killcat_NoPen ===
 You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
 You make contact, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
 "What the hell are you doing?" yelled the group leader.
 The orderlies usher you away. This will set the progress of your ritual, and your arrest, back for a while.
-- [1- Leave.] -> setTimeFollowingTimePeriod
++ [1- Leave.] -> setTimeFollowingTimePeriod
 
 
 /*
@@ -483,6 +500,12 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 # closeNovel
 -> END
 
+=== ending_good_sacrificeChaplain ===
+# ending_good_sacrificeChaplain
+-> END
+=== ending_good_sacrificePet ===
+# ending_good_sacrificePet
+-> END
 === ending_good_sacrificeSelf ===
 # ending_good_sacrificeSelf
 -> END
