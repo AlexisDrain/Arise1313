@@ -206,6 +206,7 @@ The ritual, in total, is correct.
 
 === ritual_totalChaplain ===
 # image_black
+"I will see you in another life," were the chaplain's final words.
 The ritual, in total, is correct.
 + [1- Finish.] -> ending_good_sacrificeChaplain
 
@@ -237,6 +238,7 @@ Your relationship with your parents is normally strained, but opening up about y
 === telephone_2 ===
 # image_black
 # sfx_phoneUp
+Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call sibling.] -> telephone_sibling
@@ -249,6 +251,7 @@ When you explain the world ending phenomenon and plead to your sibling to let yo
 === telephone_night ===
 # image_black
 # sfx_phoneUp
+Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_night_parents
@@ -270,7 +273,11 @@ They make you promise not to go back to the hospital.
 === worship_intro ===
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
 “I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion."
-+ [1- Shake hands.] -> worship_Morn
++ [1- Shake hands.] -> worship_chaplainShakeHands
+
+=== worship_chaplainShakeHands ===
+# checkChaplainShakeHands
+-> END
 
 // chaplain Morning
 === worship_Morn ===

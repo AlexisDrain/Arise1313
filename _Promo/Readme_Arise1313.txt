@@ -7,8 +7,10 @@ Story-driven visual novel. The fate of the world relies on one schizophrenic per
 
 Controls:
 - WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.
-- 1-9 keys or mouse to select choices in dialogue. 
 - You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.
+- use mouse or number keys 1 and 2 to select choices in dialogue.
+
+Note: performance is better on Chrome than Firefox.
 
 -----------------
 

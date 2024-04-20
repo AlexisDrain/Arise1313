@@ -99,6 +99,16 @@ public class StoryType : MonoBehaviour
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
+            if (inkStory.currentTags[i] == "checkChaplainShakeHands") {
+                if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
+                    GameManager.StartNovel("worship_Morn");
+                } else if (GameManager.currentTimeOfDay == TimeOfDay.Evening) {
+                    GameManager.StartNovel("worship_Eve");
+                } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
+                    GameManager.StartNovel("worship_Night");
+                }
+                return; // inkStory tags that change the knot needs to return;
+            }
             if (inkStory.currentTags[i] == "checkSecondChaplainMeeting") {
                 print(GameManager.numberOfPrayer);
                 if (GameManager.numberOfPrayer == 2) {
@@ -204,7 +214,7 @@ public class StoryType : MonoBehaviour
             }
             if (inkStory.currentTags[i] == "ending_good_sacrificeChaplain") {
                 CloseNovel();
-                GameManager.EndGame("You allowed the chaplain to sacrifice themself, thus saving the world.", true);
+                GameManager.EndGame("You allowed the chaplain to sacrifice himself, thus saving the world.", true);
             }
             if (inkStory.currentTags[i] == "ending_good_sacrificePet") {
                 CloseNovel();
