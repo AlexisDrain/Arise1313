@@ -171,7 +171,11 @@ public class StoryType : MonoBehaviour
                 CloseNovel();
                 GameManager.EndGame("You sacrificed yourself to save the world.", true);
             }
-            
+            if (inkStory.currentTags[i] == "ending_good_sacrificeChaplain") {
+                CloseNovel();
+                GameManager.EndGame("You allowed the chaplain to sacrifice themself, thus saving the world.", true);
+            }
+
             if (inkStory.currentTags[i] == "sayonaraStart") {
                 GameManager.StartSayonara();
                 CloseNovel();

@@ -190,13 +190,18 @@ The chaplin says, "the Third step is complete. I'm somehow glad we didn't have t
 # image_black
 "One of use has to do the sacrifice," the chaplain says. "I am ready to do it, but the only weapon we have is this sharp pencil."
 Our gazes meet. "My soul, or yours. I leave you to decide."
-+ [1- Sacrifice self.] -> ritual_total
-+ [2- Sacrifice chaplain.] -> ritual_total
++ [1- Sacrifice self.] -> ritual_totalSelf
++ [2- Sacrifice chaplain.] -> ritual_totalChaplain
 
-=== ritual_total ===
+=== ritual_totalSelf ===
 # image_black
 The ritual, in total, is correct.
 + [1- Finish.] -> ending_good_sacrificeSelf
+
+=== ritual_totalChaplain ===
+# image_black
+The ritual, in total, is correct.
++ [1- Finish.] -> ending_good_sacrificeChaplain
 
 /*
     Items
