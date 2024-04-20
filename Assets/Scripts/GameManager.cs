@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public static GameObject timePass;
     public static GameObject mainMenu;
     public static GameObject endingMenu;
+    public static GameObject mainMenuMusic;
 
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
@@ -118,7 +119,8 @@ public class GameManager : MonoBehaviour
         mainMenu = GameObject.Find("Canvas/MainMenu").gameObject;
         endingMenu = GameObject.Find("Canvas/EndingMenu").gameObject;
         endingMenu.SetActive(false);
-        
+        mainMenuMusic = GameObject.Find("TimedObjects_Music/MainMenuMusic").gameObject;
+
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
         playerElevatorTrans = GameObject.Find("PlayerElevatorTrans").transform;
@@ -407,7 +409,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeyCode.G)
             && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
                 GameManager.ShowMessage("Cheat: skip intro novel. this cheat can be buggy");
-                GameObject.Find("TimedObjects_Music/MainMenuMusic").SetActive(false);
+                GameManager.mainMenuMusic.SetActive(false);
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 StopSayonara();
                 StopNovel();

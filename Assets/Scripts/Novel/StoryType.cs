@@ -65,12 +65,7 @@ public class StoryType : MonoBehaviour
     public void ProcessTags() {
 
         for (int i = 0; i < inkStory.currentTags.Count; i++) {
-            print("inkStory tag: " + inkStory.currentTags[i]);
-            if (i > inkStory.currentTags[i].Length) {
-                print("no ink tags");
-                return;
-            }
-
+            print("inkStory tag: " + inkStory.currentTags[i] + " i: " + i);
 
             // images
             if (inkStory.currentTags[i] == "image_black") {
@@ -113,9 +108,11 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step1_incorrect");
                 }
+                return; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "updateMealString") {
-                inkStory.variablesState["finalMeal"] = "- Apple Juice\n - Yaba Daba Dooooo";
+                // inkStory.variablesState["finalMeal"] = "- Apple Juice\n - Yaba Daba Dooooo";
+                inkStory.variablesState["finalMeal"] = "- Demo, not implemented yet. -Alexis";
             }
             if (inkStory.currentTags[i] == "checkStep2") {
                 if (GameManager.stepTwoComplete) {
@@ -123,6 +120,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step2_incorrect");
                 }
+                return; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkStep3") {
                 if (GameManager.stepThreeComplete) {
@@ -130,6 +128,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step3_nopet");
                 }
+                return; // inkStory tags that change the knot needs to return;
             }
 
             if (inkStory.currentTags[i] == "knowStepOne") {
@@ -162,6 +161,11 @@ public class StoryType : MonoBehaviour
             }
 
             // endings
+            if (inkStory.currentTags[i] == "ending_good_sacrificeSelf") {
+                CloseNovel();
+                GameManager.EndGame("You sacrificed yourself to save the world.", true);
+            }
+            
             if (inkStory.currentTags[i] == "sayonaraStart") {
                 GameManager.StartSayonara();
                 CloseNovel();
@@ -170,7 +174,7 @@ public class StoryType : MonoBehaviour
                 CloseNovel();
             }
             if (inkStory.currentTags[i] == "start3DGame") {
-                GameObject.Find("TimedObjects_Music/MainMenuMusic").SetActive(false);
+                GameManager.mainMenuMusic.SetActive(false);
                 GameManager.SetTimeOfDay(TimeOfDay.Morning);
                 CloseNovel();
             }

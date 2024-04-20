@@ -195,7 +195,7 @@ Our gazes meet. "My soul, or yours. I leave you to decide."
 === ritual_total ===
 # image_black
 The ritual, in total, is correct.
-+ [1- Continue.] -> stopNovel
++ [1- Finish.] -> ending_good_sacrificeSelf
 
 /*
     Items
@@ -473,6 +473,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 
 === stopNovel === // only one tag at a time
 # closeNovel
+-> END
+
+=== ending_good_sacrificeSelf ===
+# ending_good_sacrificeSelf
 -> END
 
 === setTimeFollowingTimePeriod === // in case an event forwards the time but we're not sure if it's morning or evening.
