@@ -100,6 +100,12 @@ public class StoryType : MonoBehaviour
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
+            // pet encounter
+            if (inkStory.currentTags[i] == "catKillCheck") {
+                GameManager.StartNovel("group_killcat_HasPen");
+                return; // inkStory tags that change the knot needs to return;
+            }
+
 
             // ritual
             if (inkStory.currentTags[i] == "checkStep1") {

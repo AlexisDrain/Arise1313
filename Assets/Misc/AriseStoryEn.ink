@@ -67,7 +67,7 @@ She continues: "I suggest getting breakfast first, then you have the option of g
 "Don't forget, if you don't know where to go, you should come talk to me."
 + [1- Leave.] -> stopNovel
 
-=== nursedesk_2 ===
+=== nursedesk_2_4_5 ===
 # image_black
 The nurse says: "You should get dinner, then you might want to go to the chaplain in the prayer room, he's excited to meet you! It's the last room on the hallway to my right."
 "After that, if you've already tried group then you should go to the therapist. Or vice versa."
@@ -110,6 +110,7 @@ You approach a sitting patient. He yells at the sky:
 */
 === ritual_0 ===
 # image_black
+Demo: the ritual steps have not been implemented correctly yet. Press "Start The Ritual" anyway. -Alexis
 Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
 I must do step 1 and 2 before starting. I could do step 3 during the ritual.
 + [1- Delay The Ritual.] -> stopNovel
@@ -208,6 +209,7 @@ You try sticking the pencil in your eye but it's too dull to cause any harm to y
 === telephone_3 ===
 # image_black
 # sfx_phoneUp
+Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_parents
@@ -418,7 +420,8 @@ At the end of the group, the nurses bring the therapy cat Littlepip.
 === group_pet ===
 The cat is as furry as you expect from a cat.
 You go back to your room at the conclusion of this group session.
-- [1- Leave.] -> stopNovel
+- [1- Leave.] -> setTimeFollowingTimePeriod
+
 === group_catCheckPen ===
 # catKillCheck
 -> END
@@ -427,13 +430,13 @@ You go back to your room at the conclusion of this group session.
 "Holy shit," half the people exclaim as you stab the cat with your sharp pencil.
 "You have COMPLETELY lost your mind," yells the group leader.
 The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
-- [1- Leave.] -> stopNovel
+- [1- Leave.] -> setTimeFollowingTimePeriod
 === group_killcat_NoPen ===
 You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
 You make contact, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
 "What the hell are you doing?" yelled the group leader.
 The orderlies usher you away. This will set the progress of your ritual, and your arrest, back for a while.
-- [1- Leave.] -> stopNovel
+- [1- Leave.] -> setTimeFollowingTimePeriod
 
 
 /*
