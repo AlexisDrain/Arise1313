@@ -20,7 +20,7 @@ VAR finalMeal = ""
 === novel_intro1 ===
 # image_redComputer
 48 hours until our world is devastated…
-The fate of humanity rests on my shoulders. A note that had my handwriting was sent back from the future that describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
+The fate of humanity rests on my shoulders. A note that has my handwriting was sent back from the future. It describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
 I have 2 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
 Or, I can at least spare myself the eternal torture.
 + [1- Suicide.] -> sayonara
@@ -37,7 +37,7 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 
 === novel_angryCop1 ===
 # image_black
-Time was running out and every second mattered. With my heart pounding, I execute a harrowing decision.
+Time is running out and every second matters. With my heart pounding, I execute a harrowing decision.
 I reach for the cop’s handgun, part of me thinks that my hand will go through him, but no. I feel him. The cop is in as much disbelief as I am... until the shock passes through him.
 The cop whips me with his pistol, then he starts stomping me on the ground until I pass out. Later, I wake up in his cruiser, on the way to an asylum.
 + [1- Continue.] -> asylum1
@@ -456,7 +456,7 @@ You go back to your room at the conclusion of this group session.
 -> END
 
 === group_killcat_HasPen ===
-"Holy shit," half the people exclaim as you stab the cat with your sharp pencil.
+"Holy shit," half the people in the group exclaim as you stab the cat with your sharp pencil.
 "You have COMPLETELY lost your mind," yells the group leader.
 The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
 + [1- Leave.] -> setTimeFollowingTimePeriod

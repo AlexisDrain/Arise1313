@@ -26,18 +26,27 @@ https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 A game by Alexis Clay
 https://alexclay.itch.io/
 
-=== Music ===
-- Debussy's Clair de Lune, performed by Caela Harrison
+=== Additional writing ===
+ChatGPT-3.5 https://chat.openai.com/
+
+=== Music (in order of appearance) ===
+- Main Menu Music: AOC Quietness by SOUND AIRYLUVS
+https://wowsound.com/our-music/tracks/aoc-quietness-full-end-loop.aspx
+
+- Morning of Day 1 Piano song: Debussy's Clair de Lune, performed by Caela Harrison
 https://archive.org/details/ClairDeLunedebussy
 
-- "Gymnopedie No. 1" Kevin MacLeod (incompetech.com)
+- Evening of Day 1 Piano song: Gymnopedie No. 1, performed by Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-- muddasheep - grand ambience. From the album "grandscapism".
+- Morning of Day 2 Piano song: muddasheep - grand ambience. From the album "grandscapism".
 https://www.youtube.com/watch?v=jqW9l6iEHFg
 
-- muddasheep - a light long gone (feat. Lou Dunand-Vincent) 
+- Evening of Day 2 Piano song: muddasheep - a light long gone (Piano version) (Last song, starting at 34:40)
+https://www.youtube.com/watch?v=N39qdYzx75g
+
+- Midnight of Day 2 / The final ritual song: muddasheep - a light long gone (feat. Lou Dunand-Vincent) 
 https://www.youtube.com/watch?v=cV18OJr0Vag
 
 === 3D Models ===
@@ -76,8 +85,11 @@ https://www.texturecan.com/details/94/
 - Doors:  
 <a href="https://www.freepik.com/free-vector/realistic-doors-collection-illustration_17806539.htm#query=door%20texture&position=3&from_view=keyword&track=ais">Image by pikisuperstar</a> on Freepik  
 
-TV footage (royalty free stock footage):
+- TV footage (royalty free stock footage):
 https://www.pexels.com/video/video-of-funny-cat-855029/
+
+- Intro picture (person using computer):
+Midjourney https://www.midjourney.com/
 
 === SFX ===
 - Footsteps

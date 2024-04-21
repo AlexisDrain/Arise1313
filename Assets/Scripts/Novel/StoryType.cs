@@ -203,7 +203,7 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "prayerIncrement") {
                 GameManager.numberOfPrayer += 1;
                 print("numberOfPrayer = " + GameManager.numberOfPrayer);
-                inkStory.currentTags.RemoveAt(i);
+                inkStory.currentTags.RemoveAt(i); // hack because of nested tags bug
                 return;
             }
 
