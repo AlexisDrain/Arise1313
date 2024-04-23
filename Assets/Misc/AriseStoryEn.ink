@@ -91,12 +91,12 @@ The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else..."
 */
 
 === piano_1 ===
-You approach the piano player, Philipp. To your surprise, he's playing without reading sheet music!
+Peering past the polished piano, patient Philipp plays passionately. To your surprise, he's playing without reading sheet music!
 Someone asks him to play a Zelda song but he’s too concentrated on playing the current piece.
 + [1- Leave.] -> stopNovel
 
 === piano_2 ===
-You approach the piano player, Philipp. To your surprise, he's playing without reading sheet music!
+Peering past the polished piano, patient Philipp plays passionately. To your surprise, he's playing without reading sheet music!
 He’s beaming with pride at playing this song. He probably wrote it.
 + [1- Leave.] -> stopNovel
 
