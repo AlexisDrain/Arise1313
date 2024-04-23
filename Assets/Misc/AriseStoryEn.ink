@@ -90,6 +90,17 @@ The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else..."
     Minor characters
 */
 
+=== piano_1 ===
+You approach the piano player, Philipp. To your surprise, he's playing without reading sheet music!
+Someone asks him to play a Zelda song but he’s too concentrated on playing the current piece.
++ [1- Leave.] -> stopNovel
+
+=== piano_2 ===
+You approach the piano player, Philipp. To your surprise, he's playing without reading sheet music!
+He’s beaming with pride at playing this song. He probably wrote it.
++ [1- Leave.] -> stopNovel
+
+
 === bloodpressure_1 ===
 # image_black
 You see a bubbly young nurse with flowing blonde hair, chewing bubble gum.
@@ -100,7 +111,7 @@ She wraps a cuff around your arm. The machine gives you a fractional number whic
 
 === bystander_1 ===
 # image_black
-You approach a sitting patient. He yells at the sky:
+You approach a patient laying on the ground. He yells at the sky:
 "Apple juice is piss!"
 "Apple juice is piss!"
 "Apple juice is deluxe, demon piss!"
