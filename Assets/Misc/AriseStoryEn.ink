@@ -92,7 +92,7 @@ The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else..."
 
 === piano_1 ===
 Peering past the polished piano, patient Philipp plays passionately. To your surprise, he's playing without reading sheet music!
-Someone asks him to play a Zelda song but he’s too concentrated on playing the current piece.
+Someone asks him to play a Zelda song. "Patience," he says. He’s too concentrated on the current piece.
 + [1- Leave.] -> stopNovel
 
 === piano_2 ===
