@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1108912351157064276}
   - component: {fileID: 9164252176697189486}
   - component: {fileID: 8862046570468687198}
+  - component: {fileID: 7398409201384849190}
   m_Layer: 5
   m_Name: Button_BadSayonara
   m_TagString: Untagged
@@ -299,6 +300,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7398409201384849190}
+        m_TargetAssemblyTypeName: PlayAudioSourceSFX, Assembly-CSharp
+        m_MethodName: PlayLoudSFXInGameManager
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 86befa4ecd290a745ac219d0c502da89, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8862046570468687198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +327,19 @@ MonoBehaviour:
   sign: {fileID: 642512256632576177}
   giveHealth: 0
   waitUntilRemoveDefault: 1.5
+--- !u!114 &7398409201384849190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450165087830045971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5b77255a94d134b99ff3bdf68a5e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideAudioSourceVolume: 1
 --- !u!1 &7134044796560750206
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,9 @@ https://www.pexels.com/video/video-of-funny-cat-855029/
 Midjourney https://www.midjourney.com/
 
 === SFX ===
+- Piano Sound Bank (For sayonara minigame's Good/Bad word buttons):
+https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+
 - Footsteps
 https://freesound.org/people/avakas/sounds/172362/
 

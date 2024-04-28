@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class SayonaraController : MonoBehaviour
 {
     public bool sayonaraTutorial = true;
-    public bool sayonaraTransition = false;
-    public float healthDepletionRate = 0.01f;
     public Image imageHand;
     public Animator animFace;
     public Image sayonaraBar1;
@@ -17,18 +15,25 @@ public class SayonaraController : MonoBehaviour
     public SpawnSayonara spawnSayonara;
     public AudioSource scaryMusic;
 
+    [Header("Stuff to change for each minigame")]
+    public float healthDepletionRate = 0.01f;
+    public float healthStart = 0.6f;
+    public float waitUntilRemoveDefault = 1.5f;
+    public float waitUntilSpawnNewDefault = 1.5f;
+
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
+    public bool _sayonaraTransition = false;
 
     public UnityEvent onSayonaraGood;
     public UnityEvent onSayonaraBad;
 
     void OnEnable() {
-        _sayonaraHealth = 0.6f;
+        _sayonaraHealth = healthStart;
         imageHand.GetComponent<RectTransform>().anchoredPosition = new Vector2(537f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
         animFace.SetTrigger("NewSayonara");
 
-        sayonaraTransition = false;
+        _sayonaraTransition = false;
         sayonaraTutorial = true;
         //if (sayonaraTutorial == true) {
         sayonaraTutorialText.SetActive(true);
@@ -36,7 +41,7 @@ public class SayonaraController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(sayonaraTransition) {
+        if(_sayonaraTransition) {
             return;
         }
         sayonaraBar1.fillAmount = _sayonaraHealth;
@@ -78,7 +83,7 @@ public class SayonaraController : MonoBehaviour
     }
     private IEnumerator KillPlayerSayonara() {
 
-        sayonaraTransition = true;
+        _sayonaraTransition = true;
         imageHand.GetComponent<RectTransform>().anchoredPosition
             = new Vector2(200f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
@@ -88,18 +93,18 @@ public class SayonaraController : MonoBehaviour
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
         GameManager.StopSayonara();
-        sayonaraTransition = false;
+        _sayonaraTransition = false;
 
         // GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
         onSayonaraBad.Invoke();
     }
     private IEnumerator EndSayonaraGood() {
-        sayonaraTransition = true;
+        _sayonaraTransition = true;
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
         GameManager.StopSayonara();
-        sayonaraTransition = false;
+        _sayonaraTransition = false;
         onSayonaraGood.Invoke();
     }
     public void GiveHealth() {

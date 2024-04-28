@@ -10,8 +10,13 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
     public Image sign;
     public bool giveHealth = true;
     public float waitUntilRemoveDefault = 1.5f;
+
     private float waitUntilRemoveCurrent = 1.5f;
 
+    public void SetTimeToRemove(float newTime) {
+        waitUntilRemoveDefault = newTime;
+        waitUntilRemoveCurrent = newTime;
+    }
     void OnEnable()
     {
         waitUntilRemoveCurrent = waitUntilRemoveDefault;

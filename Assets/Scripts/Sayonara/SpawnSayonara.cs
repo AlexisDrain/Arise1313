@@ -17,7 +17,6 @@ public class SpawnSayonara : MonoBehaviour {
     public Vector2 randYPos = new Vector2(0f, 1080f);
     public float minimumButtonDistances = 150f;
 
-    public float waitUntilSpawnNewDefault = 1.5f;
     private float waitUntilSpawnNewCurrent = 0f;
 
     [Header("Read only")]
@@ -55,7 +54,6 @@ public class SpawnSayonara : MonoBehaviour {
         obj1.GetComponent<RectTransform>().anchoredPosition = setPosition;
         obj1.GetComponent<ButtonShake>().UpdateNewLocation(obj1.transform.position);
 
-
         GameObject obj2 = GameObject.Instantiate(sayoBadButton, transform);
         previousIndexBad = 0;
         setPosition = new Vector2(1100f, -500f);
@@ -81,6 +79,7 @@ public class SpawnSayonara : MonoBehaviour {
         obj.GetComponent<TextMeshProUGUI>().text = sayoGoodWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
+        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(sayonaraController.waitUntilRemoveDefault);
     }
     public void SpawnBad() {
 
@@ -99,19 +98,20 @@ public class SpawnSayonara : MonoBehaviour {
         obj.GetComponent<TextMeshProUGUI>().text = sayoBadWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
+        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(sayonaraController.waitUntilRemoveDefault);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (sayonaraController.sayonaraTutorial == true || sayonaraController.sayonaraTransition) {
+        if (sayonaraController.sayonaraTutorial == true || sayonaraController._sayonaraTransition) {
             return;
         }
 
         if(waitUntilSpawnNewCurrent > 0f) {
             waitUntilSpawnNewCurrent -= Time.deltaTime;
         } else {
-            waitUntilSpawnNewCurrent = waitUntilSpawnNewDefault;
+            waitUntilSpawnNewCurrent = sayonaraController.waitUntilSpawnNewDefault;
 
             SpawnGood();
             SpawnBad();
