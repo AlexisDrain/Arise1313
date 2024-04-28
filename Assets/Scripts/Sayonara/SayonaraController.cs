@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SayonaraController : MonoBehaviour
@@ -18,7 +19,9 @@ public class SayonaraController : MonoBehaviour
 
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
-    
+
+    public UnityEvent onSayonaraGood;
+    public UnityEvent onSayonaraBad;
 
     void OnEnable() {
         _sayonaraHealth = 0.6f;
@@ -84,11 +87,11 @@ public class SayonaraController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
-        // GameManager.KillPlayer();
         GameManager.StopSayonara();
         sayonaraTransition = false;
 
-        GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
+        // GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
+        onSayonaraBad.Invoke();
     }
     private IEnumerator EndSayonaraGood() {
         sayonaraTransition = true;
@@ -96,8 +99,8 @@ public class SayonaraController : MonoBehaviour
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);
         GameManager.StopSayonara();
-        GameManager.StartNovel();
         sayonaraTransition = false;
+        onSayonaraGood.Invoke();
     }
     public void GiveHealth() {
         _sayonaraHealth += 0.2f;

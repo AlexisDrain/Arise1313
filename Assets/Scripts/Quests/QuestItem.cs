@@ -22,10 +22,10 @@ public class QuestItem : MonoBehaviour
     {
         //TODO: repeated quest. set first in QuestManager
         text.text = newQuestText;
-        questIcon.sprite = GameManager.questManager.unsolvedQuestIconSprite;
+        // questIcon.sprite = GameManager.questManager.unsolvedQuestIconSprite;
     }
     public void SolveQuest() {
-        text.color = GameManager.questManager.solvedQuestColor;
-        questIcon.sprite = GameManager.questManager.solvedQuestIconSprite;
+        // text.color = GameManager.questManager.solvedQuestColor;
+        // questIcon.sprite = GameManager.questManager.solvedQuestIconSprite;
     }
 }

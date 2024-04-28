@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ToggleTabMenu : MonoBehaviour
 {
-    private GameObject quests;
+    // private GameObject quests;
     private GameObject sanity;
     private GameObject inventory;
     private GameObject inventoryTooltip;
     private GameObject iconTime;
     void Start()
     {
-        quests = transform.Find("Quests").gameObject;
-        quests.SetActive(false);
+        // quests = transform.Find("Quests").gameObject;
+        // quests.SetActive(false);
         sanity = transform.Find("Sanity").gameObject;
         sanity.SetActive(false);
         inventory = transform.Find("Inventory").gameObject;
@@ -26,7 +26,7 @@ public class ToggleTabMenu : MonoBehaviour
     }
 
     private void HideMenu() {
-        quests.SetActive(false);
+        // quests.SetActive(false);
         sanity.SetActive(false);
         inventory.SetActive(false);
         inventoryTooltip.SetActive(false);

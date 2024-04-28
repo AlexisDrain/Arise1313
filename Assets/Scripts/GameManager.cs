@@ -24,7 +24,7 @@ public enum PlayerProgress {
 public class GameManager : MonoBehaviour
 {
     public static GameObject gameManagerObj;
-    public static QuestManager questManager;
+    // public static QuestManager questManager;
     public static Transform player;
     public static SayonaraController sayonaraController;
     public static StoryType storyType;
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     void Awake() {
         gameManagerObj = gameObject;
-        questManager = GetComponent<QuestManager>();
+        // questManager = GetComponent<QuestManager>();
         player = GameObject.Find("Player").transform;
         sayonaraController = GameObject.Find("Canvas/Sayonara").GetComponent<SayonaraController>();
         sayonaraController.gameObject.SetActive(false);
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static void NewGame() {
-        gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
+        // gameManagerObj.GetComponent<QuestManager>().CreateNewQuest("q_goToGroupMorn");
         gameHasBeenStartedOnce = true;
         storySeenBrother = false;
         playerInNovelOrSayonara = true;
@@ -159,7 +159,9 @@ public class GameManager : MonoBehaviour
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
     }
-
+    public static void KillSelfEnding() {
+        GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
+    }
     public static void EndGame(string endGameMessage, bool goodEnding) {
         SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
         currentDayOfWeek = DayOfWeek.DayOne;
@@ -230,7 +232,7 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = true;
             iconEvening.enabled = false;
             iconMidNight.enabled = false;
-            questManager.CreateNewQuest("breakfast3");
+            // questManager.CreateNewQuest("breakfast3");
 
             // player position
             if (currentDayOfWeek == DayOfWeek.DayOne) {
