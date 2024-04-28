@@ -143,7 +143,12 @@ public class StoryType : MonoBehaviour
                 return; // inkStory tags that change the knot needs to return;
             }
 
-
+            if (inkStory.currentTags[i] == "stopNovelTeleportPlayerToRitualRoom") {
+                GameManager.TeleportPlayer(GameObject.Find("PlayerLeaveRitualTrans").transform);
+                CloseNovel();
+                return;
+            }
+                
             // ritual
             if (inkStory.currentTags[i] == "checkStep1") {
                 if (GameManager.stepOneComplete) {

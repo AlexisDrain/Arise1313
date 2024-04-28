@@ -236,17 +236,12 @@ public class GameManager : MonoBehaviour
             if (currentDayOfWeek == DayOfWeek.DayOne) {
                 timeLeftCutscene.text = "40 Hours Left";
                 timeLeft.text = "40 Hours Left";
-                GameManager.player.position = GameManager.playerElevatorTrans.position;
-                GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
-                GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
-                GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
+                GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
             } else if (currentDayOfWeek == DayOfWeek.DayTwo) {
                 timeLeftCutscene.text = "16 Hours Left";
                 timeLeft.text = "16 Hours Left";
-                GameManager.player.position = GameManager.playerAwakeTrans.position;
-                GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-                GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-                GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+
+                GameManager.TeleportPlayer(GameManager.playerAwakeTrans);
             }
 
         } else if (newTimeOfDay == TimeOfDay.Evening) {
@@ -259,10 +254,7 @@ public class GameManager : MonoBehaviour
             iconMidNight.enabled = false;
 
             // player position
-            GameManager.player.position = GameManager.playerAwakeTrans.position;
-            GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-            GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-            GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+            GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
 
             if (currentDayOfWeek == DayOfWeek.DayOne) {
                 timeLeftCutscene.text = "32 Hours Left";
@@ -279,10 +271,7 @@ public class GameManager : MonoBehaviour
             iconEvening.enabled = false;
             iconMidNight.enabled = true;
 
-            GameManager.player.position = GameManager.playerElevatorTrans.position;
-            GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerElevatorTrans.position;
-            GameManager.player.rotation = GameManager.playerElevatorTrans.rotation;
-            GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerElevatorTrans.rotation;
+            GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
 
             if (currentDayOfWeek == DayOfWeek.DayOne) {
                 timeLeftCutscene.text = "25 Hours Left";
@@ -308,6 +297,13 @@ public class GameManager : MonoBehaviour
         // storyType.StartRandomNightmare();
 
     }
+    public static void TeleportPlayer(Transform newTransform) {
+
+        GameManager.player.position = newTransform.position;
+        GameManager.player.GetComponent<Rigidbody>().position = newTransform.position;
+        GameManager.player.rotation = newTransform.rotation;
+        GameManager.player.GetComponent<Rigidbody>().rotation = newTransform.rotation;
+    }
     public static void PlayerLeaveBed() {
         GameManager.SetDay(DayOfWeek.DayTwo);
         GameManager.SetTimeOfDay(TimeOfDay.Morning);
@@ -317,10 +313,7 @@ public class GameManager : MonoBehaviour
         GameManager.playerGotDinner = false;
         GameManager.player.Find("Img").GetComponent<SpriteRenderer>().enabled = true;
 
-        GameManager.player.position = GameManager.playerAwakeTrans.position;
-        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.TeleportPlayer(GameManager.playerAwakeTrans);
 
         mainCamera.transform.position = GameObject.Find("Player/CamDolly").transform.position;
         mainCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
@@ -329,10 +322,7 @@ public class GameManager : MonoBehaviour
         blinkCamera.transform.rotation = GameObject.Find("Player/CamDolly").transform.rotation;
     }
     public static void KillPlayer() {
-        GameManager.player.position = GameManager.playerAwakeTrans.position;
-        GameManager.player.GetComponent<Rigidbody>().position = GameManager.playerAwakeTrans.position;
-        GameManager.player.rotation = GameManager.playerAwakeTrans.rotation;
-        GameManager.player.GetComponent<Rigidbody>().rotation = GameManager.playerAwakeTrans.rotation;
+        GameManager.TeleportPlayer(GameManager.playerAwakeTrans);
 
         print("kill player");
 

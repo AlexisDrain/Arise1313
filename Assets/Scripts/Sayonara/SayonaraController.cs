@@ -16,7 +16,7 @@ public class SayonaraController : MonoBehaviour
     public SpawnSayonara spawnSayonara;
     public AudioSource scaryMusic;
 
-    [Header("Read me")]
+    [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
     
 

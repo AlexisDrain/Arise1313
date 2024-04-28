@@ -125,7 +125,7 @@ You approach a patient laying on the ground. He yells at the sky:
 Demo: the ritual steps have not been implemented correctly yet. Press "Start The Ritual" anyway. -Alexis
 Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
 I must do step 1 and 2 before starting. I could do step 3 during the ritual.
-+ [1- Delay The Ritual.] -> stopNovel
++ [1- Delay The Ritual.] -> stopNovelTeleportPlayerToRitualRoom
 + [2- Start The Ritual.] -> ritual_step1
 
 // Step 1
@@ -516,6 +516,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 
 === stopNovel === // only one tag at a time
 # closeNovel
+-> END
+
+=== stopNovelTeleportPlayerToRitualRoom === // only one tag at a time
+# stopNovelTeleportPlayerToRitualRoom
 -> END
 
 === ending_good_sacrificeChaplain ===

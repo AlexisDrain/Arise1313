@@ -58,7 +58,7 @@ public class ToggleTabMenu : MonoBehaviour
                 // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 iconTime.SetActive(true);
                 GameManager.playerInTabMenu = true;
-            } else if (quests.activeSelf == true) {
+            } else if (inventory.activeSelf == true) {
                 HideMenu();
             }
         }

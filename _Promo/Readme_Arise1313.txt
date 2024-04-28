@@ -1,23 +1,28 @@
-
 [Short Description]
 Story-driven visual novel. The fate of the world relies on one schizophrenic person.
 
 [Long Description]
-Story-driven visual novel. The fate of the world relies on one schizophrenic person.
+Story-driven visual novel. The fate of the world relies on one schizophrenic person.  
 
-Controls:
-- WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.
-- You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.
-- use mouse or number keys 1 and 2 to select choices in dialogue.
+Controls:  
+- WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.  
+- Press P or TAB to see inventory and options menu.  
+- Hold right mouse click or F to close eyes. Helpful to identify the name of the rooms and for some puzzles.  
+- Press left mouse click or E to use/talk.  
+- Use mouse or number keys 1 and 2 to select choices in dialogue.  
 
-Note: performance is better on Chrome than Firefox.
+Notes:  
+- performance is better on Chrome than Firefox.  
+- You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.  
 
 -----------------
 
 TODO
 
 Song ideas:
-Muddasheep: cease, always believe, arise, hope (remains). Somos version one. Three thousand years. broken heaven. Still stand (light long gone). A light long gone (a long long gone), Thought Machine (Meadow Mayhem)
+Outro: Somos version one
+Muddasheep: cease, always believe, arise, hope (remains). Three thousand years. broken heaven.
+Still stand (light long gone). A light long gone (a long long gone), Thought Machine (Meadow Mayhem)
 https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 
 -----------------------
