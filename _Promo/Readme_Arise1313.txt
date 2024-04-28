@@ -97,8 +97,9 @@ https://www.pexels.com/video/video-of-funny-cat-855029/
 Midjourney https://www.midjourney.com/
 
 === SFX ===
-- Piano Sound Bank (For sayonara minigame's Good/Bad word buttons):
-https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+For sayonara minigame's buttons:
+Good button: Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
+Bad button: Piano Sound Bank (For sayonara minigame's Good/Bad word buttons): https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
 
 - Footsteps
 https://freesound.org/people/avakas/sounds/172362/
@@ -112,9 +113,6 @@ Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door
 
 - Sayonara SFX:
 Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
-
-- Quest update SFX:
-Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
 
 - Phone pickup / slam down:
 https://freesound.org/people/cookies+policy/sounds/556495/
