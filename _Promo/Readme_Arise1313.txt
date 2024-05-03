@@ -97,7 +97,7 @@ https://www.pexels.com/video/video-of-funny-cat-855029/
 Midjourney https://www.midjourney.com/
 
 === SFX ===
-For sayonara minigame's buttons:
+- Sayonara minigame's buttons:
 Good button: Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
 Bad button: Piano Sound Bank (For sayonara minigame's Good/Bad word buttons): https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
 
