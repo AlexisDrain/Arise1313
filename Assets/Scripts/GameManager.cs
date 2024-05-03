@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public static GameObject foodQuestionnaire; 
     public static GameObject tutorialControls;
     public static GameObject tabMenu;
+    public static GameObject sanityMenu;
     public static GameObject inventory;
     public static InventoryTooltip invTooltip;
     public static GameObject imageScreenTransition;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     public static DayOfWeek currentDayOfWeek;
 
     // group visit increment
+    public static int sanityHealth = 3;
     public static int numberOfGroups = 0;
     public static int numberOfTherapists = 0;
     public static int numberOfPrayer = 0;
@@ -111,6 +113,8 @@ public class GameManager : MonoBehaviour
         tutorialControls = GameObject.Find("Canvas/Tutorial_Controls");
         tabMenu = GameObject.Find("Canvas/TabMenu");
         //tabMenu.gameObject.SetActive(false);
+        sanityMenu = GameObject.Find("Canvas/TabMenu/Sanity");
+        sanityMenu.SetActive(false);
         inventory = GameObject.Find("Canvas/TabMenu/Inventory");
         invTooltip = GameObject.Find("Canvas/TabMenu/InventoryTooltip").GetComponent<InventoryTooltip>();
         imageScreenTransition = GameObject.Find("ScreenTransition");
@@ -201,6 +205,12 @@ public class GameManager : MonoBehaviour
         GameManager.ShowMessage(message);
     }
 
+    public static void IncreaseSanity() {
+        sanityMenu.GetComponent<SanityController>().IncreaseSanity();
+    }
+    public static void DecreaseSanity() {
+        sanityMenu.GetComponent<SanityController>().DecreaseSanity();
+    }
 
     public static void SetDay(DayOfWeek dayOfWeek) {
         GameManager.currentDayOfWeek = dayOfWeek;
@@ -455,6 +465,16 @@ public class GameManager : MonoBehaviour
                 GameManager.ShowMessage("Cheat: numberOfPrayer is now " + GameManager.numberOfPrayer);
             }
 
+            if (Input.GetKey(KeyCode.J)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                GameManager.IncreaseSanity();
+                GameManager.ShowMessage("Cheat: IncreaseSanity");
+            }
+            if (Input.GetKey(KeyCode.J)
+            && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
+                GameManager.DecreaseSanity();
+                GameManager.ShowMessage("Cheat: DecreaseSanity");
+            }
         }
     }
 

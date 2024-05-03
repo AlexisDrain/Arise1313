@@ -53,10 +53,11 @@ public class ToggleTabMenu : MonoBehaviour
         if (Input.GetButtonDown("ToggleTab")) {
             if(inventory.activeSelf == false) {
                 // quests.SetActive(true);
-                // sanity.SetActive(true);
+                sanity.SetActive(true);
+                sanity.GetComponent<SanityController>().StopCoroutine("DisapearSanity");
                 inventory.SetActive(true);
-                // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 iconTime.SetActive(true);
+                // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 GameManager.playerInTabMenu = true;
             } else if (inventory.activeSelf == true) {
                 HideMenu();

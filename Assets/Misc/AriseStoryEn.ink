@@ -50,6 +50,7 @@ When I tell him the ritual requires a sacrifice of a living being, he has me arr
 
 === asylum1 ===
 # image_black
+# sanityDown
 The letter from my future-self DID NOT mention the cop, or that I will be committed in an asylum. 
 Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
 I arrive through a one-way elevator to the psych ward. They shackle an ID bracelet on my wrist. The doors shut behind me.
@@ -407,6 +408,7 @@ At the conclusion of the therapy activity, you go back to your room.
 === group_1 ===
 # image_black
 # groupIncrement
+# sanityUp
 "Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
 It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
 It's actually pretty nice being here!
@@ -419,6 +421,7 @@ It's actually pretty nice being here!
 */
 === hasBrother ===
 # image_black
+# sanityDown
 At the conclusion of the group, a man bumps into you.
 He says: “Step One is to call a number! It’s on your wrist!”
 You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?

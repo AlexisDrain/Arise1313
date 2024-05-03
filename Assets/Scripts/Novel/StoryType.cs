@@ -80,6 +80,13 @@ public class StoryType : MonoBehaviour
             }
 
             // special functions
+            if (inkStory.currentTags[i] == "sanityUp") {
+                GameManager.IncreaseSanity();
+            }
+            if (inkStory.currentTags[i] == "sanityDown") {
+                GameManager.DecreaseSanity();
+            }
+
             if (inkStory.currentTags[i] == "confiscate") {
                 inkStory.variablesState["confiscateVar"] = "";
             }
