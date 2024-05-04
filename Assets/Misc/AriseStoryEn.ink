@@ -421,7 +421,7 @@ It's actually pretty nice being here!
 */
 === hasBrother ===
 # image_black
-# sanityDown
+# sanityDownTwice
 At the conclusion of the group, a man bumps into you.
 He says: “Step One is to call a number! It’s on your wrist!”
 You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?

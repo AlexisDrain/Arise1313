@@ -211,6 +211,9 @@ public class GameManager : MonoBehaviour
     public static void DecreaseSanity() {
         sanityMenu.GetComponent<SanityController>().DecreaseSanity();
     }
+    public static void DecreaseSanityTwice() {
+        sanityMenu.GetComponent<SanityController>().DecreaseSanityTwice();
+    }
 
     public static void SetDay(DayOfWeek dayOfWeek) {
         GameManager.currentDayOfWeek = dayOfWeek;

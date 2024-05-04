@@ -86,6 +86,9 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "sanityDown") {
                 GameManager.DecreaseSanity();
             }
+            if (inkStory.currentTags[i] == "sanityDownTwice") {
+                GameManager.DecreaseSanityTwice();
+            }
 
             if (inkStory.currentTags[i] == "confiscate") {
                 inkStory.variablesState["confiscateVar"] = "";
