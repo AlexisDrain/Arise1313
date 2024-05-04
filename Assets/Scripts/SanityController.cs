@@ -6,6 +6,8 @@ using TMPro;
 
 public class SanityController : MonoBehaviour
 {
+    public AudioClip sanityUpSFX;
+    public AudioClip sanityDownSFX;
     public TextMeshProUGUI sanityChangeText;
     public Image sanity3;
     public Image sanity2;
@@ -47,7 +49,8 @@ public class SanityController : MonoBehaviour
         GameManager.sanityHealth += 1;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);
         sanityChangeText.text = "<color=#00FF00>Sanity +1</color>";
-        myAnim.SetTrigger("ChangeSanity");
+        myAnim.SetTrigger("ChangeSanityUp");
+        GameManager.SpawnLoudAudio(sanityUpSFX);
         UpdateImage();
 
         StopCoroutine("DisapearSanity");
@@ -59,7 +62,8 @@ public class SanityController : MonoBehaviour
         GameManager.sanityHealth -= 1;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);
         sanityChangeText.text = "<color=#FF0000>Sanity -1</color>";
-        myAnim.SetTrigger("ChangeSanity");
+        myAnim.SetTrigger("ChangeSanityDown");
+        GameManager.SpawnLoudAudio(sanityDownSFX);
         UpdateImage();
 
         StopCoroutine("DisapearSanity");
@@ -71,7 +75,8 @@ public class SanityController : MonoBehaviour
         GameManager.sanityHealth -= 2;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);
         sanityChangeText.text = "<color=#FF0000>Sanity -2</color>";
-        myAnim.SetTrigger("ChangeSanity");
+        myAnim.SetTrigger("ChangeSanityDown");
+        GameManager.SpawnLoudAudio(sanityDownSFX);
         UpdateImage();
 
         StopCoroutine("DisapearSanity");
