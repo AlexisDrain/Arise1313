@@ -7,7 +7,7 @@ using TMPro;
 
 public class SpawnSayonara : MonoBehaviour {
 
-    public SayonaraController sayonaraController;
+    public SayonaraController currentSayonaraController;
 
     public List<string> sayoGoodWords = new List<string>();
     public List<string> sayoBadWords = new List<string>();
@@ -28,7 +28,13 @@ public class SpawnSayonara : MonoBehaviour {
     void OnEnable()
     {
         DestroyAllMembers();
-        SpawnTutorial();
+        if(currentSayonaraController.sayonaraTutorial) {
+            SpawnTutorial();
+            currentSayonaraController.text_getReady.SetActive(false);
+        } else {
+            waitUntilSpawnNewCurrent = currentSayonaraController.delayBeforeStart;
+            currentSayonaraController.text_getReady.SetActive(true);
+        }
     }
     public Vector2 GenerateNewPosition() {
         Vector2 randPosition = new Vector2(Random.Range(randXPos.x, randXPos.y), Random.Range(randYPos.x, randYPos.y));
@@ -52,6 +58,7 @@ public class SpawnSayonara : MonoBehaviour {
         _previousSpawnPositions.Add(setPosition);
         obj1.GetComponent<TextMeshProUGUI>().text = sayoGoodWords[0];
         obj1.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj1.GetComponent<ButtonSayonara>().currentSayonaraController = currentSayonaraController;
         obj1.GetComponent<ButtonShake>().UpdateNewLocation(obj1.transform.position);
 
         GameObject obj2 = GameObject.Instantiate(sayoBadButton, transform);
@@ -60,6 +67,7 @@ public class SpawnSayonara : MonoBehaviour {
         _previousSpawnPositions.Add(setPosition);
         obj2.GetComponent<TextMeshProUGUI>().text = sayoBadWords[0];
         obj2.GetComponent<RectTransform>().anchoredPosition = setPosition;
+        obj2.GetComponent<ButtonSayonara>().currentSayonaraController = currentSayonaraController;
         obj2.GetComponent<ButtonShake>().UpdateNewLocation(obj2.transform.position);
     }
     public void SpawnGood() {
@@ -78,8 +86,9 @@ public class SpawnSayonara : MonoBehaviour {
 
         obj.GetComponent<TextMeshProUGUI>().text = sayoGoodWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
+        obj.GetComponent<ButtonSayonara>().currentSayonaraController = currentSayonaraController;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
-        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(sayonaraController.waitUntilRemoveDefault);
+        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(currentSayonaraController.waitUntilRemoveDefault);
     }
     public void SpawnBad() {
 
@@ -97,22 +106,24 @@ public class SpawnSayonara : MonoBehaviour {
 
         obj.GetComponent<TextMeshProUGUI>().text = sayoBadWords[randIndex];
         obj.GetComponent<RectTransform>().anchoredPosition = randPosition;
+        obj.GetComponent<ButtonSayonara>().currentSayonaraController = currentSayonaraController;
         obj.GetComponent<ButtonShake>().UpdateNewLocation(obj.transform.position);
-        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(sayonaraController.waitUntilRemoveDefault);
+        obj.GetComponent<ButtonSayonara>().SetTimeToRemove(currentSayonaraController.waitUntilRemoveDefault);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (sayonaraController.sayonaraTutorial == true || sayonaraController._sayonaraTransition) {
+        if (currentSayonaraController.sayonaraTutorial == true || currentSayonaraController._sayonaraTransition) {
             return;
         }
 
         if(waitUntilSpawnNewCurrent > 0f) {
             waitUntilSpawnNewCurrent -= Time.deltaTime;
         } else {
-            waitUntilSpawnNewCurrent = sayonaraController.waitUntilSpawnNewDefault;
+            waitUntilSpawnNewCurrent = currentSayonaraController.waitUntilSpawnNewDefault;
 
+            currentSayonaraController.text_getReady.SetActive(false);
             SpawnGood();
             SpawnBad();
         }

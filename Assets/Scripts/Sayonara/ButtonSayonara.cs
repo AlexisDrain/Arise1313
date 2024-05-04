@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHandler {
 
+    [HideInInspector]
+    public SayonaraController currentSayonaraController;
+
     public Image sign;
     public bool giveHealth = true;
     public float waitUntilRemoveDefault = 1.5f;
@@ -41,24 +44,24 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
     }
 
     public void ClickSayonara() {
-        if (GameManager.sayonaraController.sayonaraTutorial == true) {
-            GameManager.sayonaraController.sayonaraTutorial = false;
-            GameManager.sayonaraController.sayonaraTutorialText.SetActive(false);
+        if (currentSayonaraController.sayonaraTutorial == true) {
+            currentSayonaraController.sayonaraTutorial = false;
+            currentSayonaraController.sayonaraTutorialText.SetActive(false);
         }
         GetComponent<Button>().interactable = false;
         GetComponent<Button>().interactable = true; // hack so that the button looks unhighlighted after clicking
 
         if (giveHealth==true) {
-            GameManager.sayonaraController.GiveHealth();
+            currentSayonaraController.GiveHealth();
         } else if (giveHealth == false) {
-            GameManager.sayonaraController.RemoveHealth();
+            currentSayonaraController.RemoveHealth();
         }
 
         Destroy(gameObject);
     }
     public void FixedUpdate() {
 
-        if (GameManager.sayonaraController.sayonaraTutorial == true) {
+        if (currentSayonaraController.sayonaraTutorial == true) {
             return;
         }
 

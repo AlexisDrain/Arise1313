@@ -236,8 +236,8 @@ public class StoryType : MonoBehaviour
                 GameManager.EndGame("You sacrificed a cat to save the world.", true);
             }
 
-            if (inkStory.currentTags[i] == "sayonaraStart") {
-                GameManager.StartSayonara();
+            if (inkStory.currentTags[i] == "sayonaraStart_Intro") {
+                GameManager.StartSayonara(SayonaraType.SayonaraIntro);
                 CloseNovel();
             }
             if (inkStory.currentTags[i] == "closeNovel") {

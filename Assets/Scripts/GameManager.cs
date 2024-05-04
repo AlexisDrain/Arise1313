@@ -16,9 +16,11 @@ public enum DayOfWeek {
     DayTwo
 }
 
-public enum PlayerProgress {
-    PlayerInNovelIntroFirstTime,
-
+public enum SayonaraType {
+    SayonaraIntro,
+    SayonaraZeroSanity,
+    SayonaraRitual,
+    SayonaraBloodPressure
 }
 
 public class GameManager : MonoBehaviour
@@ -26,13 +28,17 @@ public class GameManager : MonoBehaviour
     public static GameObject gameManagerObj;
     // public static QuestManager questManager;
     public static Transform player;
-    public static SayonaraController sayonaraController;
     public static StoryType storyType;
     public static Camera mainCamera;
     public static Camera blinkCamera;
     public static BlinkController blinkController;
     public static DisplayUseText displayUseText;
 
+    // Sayonara
+    public static GameObject sayonaraAssets;
+    public static SpawnSayonara sayonaraAssetsSpawn;
+    public static SayonaraController sayonaraIntroController;
+    public static SayonaraController sayonaraZeroSanityController;
     // canvas
     //public static GameObject dream;
     public static GameObject foodQuestionnaire; 
@@ -96,8 +102,6 @@ public class GameManager : MonoBehaviour
         gameManagerObj = gameObject;
         // questManager = GetComponent<QuestManager>();
         player = GameObject.Find("Player").transform;
-        sayonaraController = GameObject.Find("Canvas/Sayonara").GetComponent<SayonaraController>();
-        sayonaraController.gameObject.SetActive(false);
         storyType = GameObject.Find("Canvas/IntroNovel").GetComponent<StoryType>();
         storyType.gameObject.SetActive(false);
         mainCamera = GameObject.Find("Player/CamDolly/MainCam").GetComponent<Camera>();
@@ -105,7 +109,15 @@ public class GameManager : MonoBehaviour
         blinkController = GameObject.Find("CanvasEye/EyeBlink").GetComponent<BlinkController>();
         displayUseText = GameObject.Find("Canvas/UseTextBG").GetComponent<DisplayUseText>();
 
-        // canvas
+        // sayonara
+        sayonaraIntroController = GameObject.Find("Canvas/Sayonara/SayonaraIntro").GetComponent<SayonaraController>();
+        sayonaraIntroController.gameObject.SetActive(false);
+        sayonaraZeroSanityController = GameObject.Find("Canvas/Sayonara/SayonaraZeroSanity").GetComponent<SayonaraController>();
+        sayonaraZeroSanityController.gameObject.SetActive(false);
+        sayonaraAssets = GameObject.Find("Canvas/SayonaraAssets");
+        sayonaraAssetsSpawn = GameObject.Find("Canvas/SayonaraAssets/Pool_ButtonSayonara").GetComponent<SpawnSayonara>();
+        sayonaraAssets.gameObject.SetActive(false);
+
         //dream = GameObject.Find("Canvas/Dream");
         //dream.gameObject.SetActive(false);
         foodQuestionnaire = GameObject.Find("Canvas/FoodQuestionnaire");
@@ -384,12 +396,26 @@ public class GameManager : MonoBehaviour
         storyType.gameObject.SetActive(false);
         playerInNovelOrSayonara = false;
     }
-    public static void StartSayonara() {
-        sayonaraController.gameObject.SetActive(true);
+
+    public static void StartSayonara(SayonaraType mySayonaraType) {
+        SayonaraController currentSayonaraController = null;
+        if (mySayonaraType == SayonaraType.SayonaraIntro) {
+            currentSayonaraController = sayonaraIntroController;
+            currentSayonaraController.sayonaraTutorial = true;
+        } else if (mySayonaraType == SayonaraType.SayonaraZeroSanity) {
+            currentSayonaraController = sayonaraZeroSanityController;
+        }
+
+        currentSayonaraController.gameObject.SetActive(true);
+        sayonaraAssetsSpawn.currentSayonaraController = currentSayonaraController;
+        sayonaraAssets.gameObject.SetActive(true);
         playerInNovelOrSayonara = true;
     }
     public static void StopSayonara() {
-        sayonaraController.gameObject.SetActive(false);
+        sayonaraIntroController.gameObject.SetActive(false);
+        sayonaraZeroSanityController.gameObject.SetActive(false);
+
+        sayonaraAssets.gameObject.SetActive(false);
         /*
          * This was before I implemented EndingMenu
         if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {

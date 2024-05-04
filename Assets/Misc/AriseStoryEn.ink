@@ -510,7 +510,7 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 -> END
 
 === sayonara === // only one tag at a time
-# sayonaraStart
+# sayonaraStart_Intro
 -> END
 
 === start3DGame === // only one tag at a time

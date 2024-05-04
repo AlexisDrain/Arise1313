@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class SayonaraController : MonoBehaviour
 {
-    public bool sayonaraTutorial = true;
     public Image imageHand;
     public Animator animFace;
     public Image sayonaraBar1;
     public Image sayonaraBar2;
+    public GameObject text_getReady;
     public GameObject sayonaraTutorialText;
     public SpawnSayonara spawnSayonara;
     public AudioSource scaryMusic;
 
     [Header("Stuff to change for each minigame")]
+    public bool sayonaraTutorial = true;
+    public float delayBeforeStart = 2.5f;
     public float healthDepletionRate = 0.01f;
     public float healthStart = 0.6f;
     public float waitUntilRemoveDefault = 1.5f;
@@ -34,10 +36,12 @@ public class SayonaraController : MonoBehaviour
         animFace.SetTrigger("NewSayonara");
 
         _sayonaraTransition = false;
-        sayonaraTutorial = true;
-        //if (sayonaraTutorial == true) {
-        sayonaraTutorialText.SetActive(true);
-        //}
+        // sayonaraTutorial = false;
+        if (sayonaraTutorial == true) {
+            sayonaraTutorialText.SetActive(true);
+        } else {
+            text_getReady.SetActive(true);
+        }
     }
 
     private void FixedUpdate() {
