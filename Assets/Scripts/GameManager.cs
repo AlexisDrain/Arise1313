@@ -424,9 +424,11 @@ public class GameManager : MonoBehaviour
         currentSayonaraController.gameObject.SetActive(true);
         sayonaraAssetsSpawn.currentSayonaraController = currentSayonaraController;
         sayonaraAssets.gameObject.SetActive(true);
-        playerInNovelOrSayonara = true;
+        GameManager.playerInNovelOrSayonara = true;
+        GameManager.timePass.GetComponent<AudioSource>().StopWebGL(); // incase the sayonara is during timepass
     }
     public static void StopSayonara() {
+        playerInNovelOrSayonara = false;
         sayonaraIntroController.gameObject.SetActive(false);
         sayonaraZeroSanityController.gameObject.SetActive(false);
 

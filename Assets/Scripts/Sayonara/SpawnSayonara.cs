@@ -32,7 +32,7 @@ public class SpawnSayonara : MonoBehaviour {
             SpawnTutorial();
             currentSayonaraController.text_getReady.SetActive(false);
         } else {
-            waitUntilSpawnNewCurrent = currentSayonaraController.delayBeforeStart;
+            waitUntilSpawnNewCurrent = currentSayonaraController.waitBeforeStart;
             currentSayonaraController.text_getReady.SetActive(true);
         }
     }
@@ -118,7 +118,7 @@ public class SpawnSayonara : MonoBehaviour {
             return;
         }
 
-        if(waitUntilSpawnNewCurrent > 0f) {
+        if (waitUntilSpawnNewCurrent > 0f) {
             waitUntilSpawnNewCurrent -= Time.deltaTime;
         } else {
             waitUntilSpawnNewCurrent = currentSayonaraController.waitUntilSpawnNewDefault;

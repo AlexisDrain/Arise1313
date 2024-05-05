@@ -43,6 +43,9 @@ public class StoryType : MonoBehaviour
     public void CloseNovel() {
         StopCoroutine("Typewriter");
         GameManager.StopNovel();
+        if(GameManager.sanityHealth <= 0) {
+            GameManager.StartSayonara(SayonaraType.SayonaraZeroSanity);
+        }
     }
     public void NovelStartFromIntro() {
         inkStory = new Story(inkJSONAsset.text);

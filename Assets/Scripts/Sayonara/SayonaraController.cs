@@ -17,7 +17,7 @@ public class SayonaraController : MonoBehaviour
 
     [Header("Stuff to change for each minigame")]
     public bool sayonaraTutorial = true;
-    public float delayBeforeStart = 2.5f;
+    public float waitBeforeStart = 2.5f;
     public float healthDepletionRate = 0.01f;
     public float healthStart = 0.6f;
     public float waitUntilRemoveDefault = 1.5f;
@@ -26,6 +26,7 @@ public class SayonaraController : MonoBehaviour
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
     public bool _sayonaraTransition = false;
+    private float waitBeforeStartCurrent = 0f;
 
     public UnityEvent onSayonaraGood;
     public UnityEvent onSayonaraBad;
@@ -36,10 +37,14 @@ public class SayonaraController : MonoBehaviour
         animFace.SetTrigger("NewSayonara");
 
         _sayonaraTransition = false;
-        // sayonaraTutorial = false;
+
+        waitBeforeStartCurrent = waitBeforeStart;
+
         if (sayonaraTutorial == true) {
             sayonaraTutorialText.SetActive(true);
+            text_getReady.SetActive(false);
         } else {
+            sayonaraTutorialText.SetActive(false);
             text_getReady.SetActive(true);
         }
     }
@@ -48,17 +53,21 @@ public class SayonaraController : MonoBehaviour
         if(_sayonaraTransition) {
             return;
         }
+
         sayonaraBar1.fillAmount = _sayonaraHealth;
         sayonaraBar2.fillAmount = _sayonaraHealth;
 
         // sayonara hand position. max: 725f. Death: 275f, start: 537f
         float handPosRange = (725f - 275f);
         float handPosValue = (_sayonaraHealth * handPosRange) + 275f;
-        
         imageHand.GetComponent<RectTransform>().anchoredPosition
             = new Vector2(Mathf.Lerp(imageHand.GetComponent<RectTransform>().anchoredPosition.x, handPosValue, 0.1f), imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
         if (sayonaraTutorial == true) {
+            return;
+        }
+        if(waitBeforeStartCurrent > 0f) {
+            waitBeforeStartCurrent -= Time.deltaTime;
             return;
         }
 
