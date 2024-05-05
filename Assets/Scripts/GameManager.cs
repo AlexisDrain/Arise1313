@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
         numberOfGroups = 0;
         numberOfTherapists = 0;
         numberOfPrayer = 0;
+        sanityHealth = 3;
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
@@ -425,7 +426,7 @@ public class GameManager : MonoBehaviour
         sayonaraAssetsSpawn.currentSayonaraController = currentSayonaraController;
         sayonaraAssets.gameObject.SetActive(true);
         GameManager.playerInNovelOrSayonara = true;
-        GameManager.timePass.GetComponent<AudioSource>().StopWebGL(); // incase the sayonara is during timepass
+        timePass.GetComponent<AudioSource>().StopWebGL();
     }
     public static void StopSayonara() {
         playerInNovelOrSayonara = false;
@@ -433,12 +434,6 @@ public class GameManager : MonoBehaviour
         sayonaraZeroSanityController.gameObject.SetActive(false);
 
         sayonaraAssets.gameObject.SetActive(false);
-        /*
-         * This was before I implemented EndingMenu
-        if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
-            GameManager.StartNovel();
-        }
-        */
     }
 
     public void Update() {
