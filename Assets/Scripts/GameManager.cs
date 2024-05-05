@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
     public static GameObject endingMenu;
     public static GameObject mainMenuMusic;
 
+    public static GameObject outroWorld;
+
+    
+
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
     public static Transform playerElevatorTrans;
@@ -138,6 +142,8 @@ public class GameManager : MonoBehaviour
         endingMenu = GameObject.Find("Canvas/EndingMenu").gameObject;
         endingMenu.SetActive(false);
         mainMenuMusic = GameObject.Find("TimedObjects_Music/MainMenuMusic").gameObject;
+
+        outroWorld = GameObject.Find("OutroWorld").gameObject;
 
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
@@ -516,8 +522,9 @@ public class GameManager : MonoBehaviour
             && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
                 RenderSettings.fog = false;
                 RenderSettings.ambientIntensity = 0f;
+                GameManager.outroWorld.SetActive(true);
                 GameManager.TeleportPlayer(GameManager.playerOutroTrans);
-                GameManager.ShowMessage("Cheat: change lighting + outro trans");
+                GameManager.ShowMessage("Cheat: change lighting + go to outro world");
             }
         }
     }
