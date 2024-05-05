@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
         mainMenuMusic = GameObject.Find("TimedObjects_Music/MainMenuMusic").gameObject;
 
         outroWorld = GameObject.Find("OutroWorld").gameObject;
+        outroWorld.SetActive(false);
 
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
@@ -175,6 +176,7 @@ public class GameManager : MonoBehaviour
         knowsStepThree = false;
 
         RenderSettings.fog = true;
+        RenderSettings.reflectionIntensity = 1f;
         RenderSettings.ambientIntensity = 1f;
 
         // if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
@@ -521,6 +523,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeyCode.J)
             && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
                 RenderSettings.fog = false;
+                RenderSettings.reflectionIntensity = 0f;
                 RenderSettings.ambientIntensity = 0f;
                 GameManager.outroWorld.SetActive(true);
                 GameManager.TeleportPlayer(GameManager.playerOutroTrans);
