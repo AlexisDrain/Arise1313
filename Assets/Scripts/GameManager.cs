@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
     public static Transform playerElevatorTrans;
+    public static Transform playerOutroTrans;
 
     private static Pool pool_LoudAudioSource;
 
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public static LayerMask worldMask;
     public static LayerMask entityMask;
+    public static LayerMask eyesClosedMask;
     public static LayerMask triggersMask;
 
     public static UnityEvent changeTimeOfDayEvent = new UnityEvent();
@@ -114,8 +116,8 @@ public class GameManager : MonoBehaviour
         sayonaraIntroController.gameObject.SetActive(false);
         sayonaraZeroSanityController = GameObject.Find("Canvas/Sayonara/SayonaraZeroSanity").GetComponent<SayonaraController>();
         sayonaraZeroSanityController.gameObject.SetActive(false);
-        sayonaraAssets = GameObject.Find("Canvas/SayonaraAssets");
-        sayonaraAssetsSpawn = GameObject.Find("Canvas/SayonaraAssets/Pool_ButtonSayonara").GetComponent<SpawnSayonara>();
+        sayonaraAssets = GameObject.Find("Canvas/Sayonara/SayonaraAssets");
+        sayonaraAssetsSpawn = GameObject.Find("Canvas/Sayonara/SayonaraAssets/Pool_ButtonSayonara").GetComponent<SpawnSayonara>();
         sayonaraAssets.gameObject.SetActive(false);
 
         //dream = GameObject.Find("Canvas/Dream");
@@ -140,10 +142,12 @@ public class GameManager : MonoBehaviour
         bedCameraTransform = GameObject.Find("BedCamera").transform;
         playerAwakeTrans = GameObject.Find("PlayerAwakeTrans").transform;
         playerElevatorTrans = GameObject.Find("PlayerElevatorTrans").transform;
+        playerOutroTrans = GameObject.Find("PlayerOutroTrans").transform;
         pool_LoudAudioSource = transform.Find("pool_LoudAudioSource").GetComponent<Pool>();
 
         worldMask = LayerMask.NameToLayer("World");
         entityMask = LayerMask.NameToLayer("Entity");
+        eyesClosedMask = LayerMask.NameToLayer("EyesClosed");
         triggersMask = LayerMask.NameToLayer("Triggers");
 
         SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
@@ -163,6 +167,9 @@ public class GameManager : MonoBehaviour
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
+
+        RenderSettings.fog = true;
+        RenderSettings.ambientIntensity = 1f;
 
         // if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
         GameManager.StartNovel();
@@ -503,6 +510,14 @@ public class GameManager : MonoBehaviour
             && (Input.GetKeyDown(KeyCode.F2) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))) {
                 GameManager.DecreaseSanity();
                 GameManager.ShowMessage("Cheat: DecreaseSanity");
+            }
+
+            if (Input.GetKey(KeyCode.J)
+            && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
+                RenderSettings.fog = false;
+                RenderSettings.ambientIntensity = 0f;
+                GameManager.TeleportPlayer(GameManager.playerOutroTrans);
+                GameManager.ShowMessage("Cheat: change lighting + outro trans");
             }
         }
     }

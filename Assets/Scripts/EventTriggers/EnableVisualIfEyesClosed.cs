@@ -16,6 +16,11 @@ public class EnableVisualIfEyesClosed : MonoBehaviour
     }
 
     private void LateUpdate() {
+        if (flipIfBehind == false) {
+            // transform.localScale = new Vector3(1f, 1f, 1f);
+            return;
+        }
+
         Vector3 relativePos = GameManager.mainCamera.transform.position - transform.position;
         bool inFront = Vector3.Dot(transform.forward, relativePos) > 0.0f;
 
@@ -30,17 +35,29 @@ public class EnableVisualIfEyesClosed : MonoBehaviour
         
         if(GetComponent<Image>()) {
             GetComponent<Image>().enabled = false;
+            return;
         }
         if(GetComponent<TextMeshProUGUI>()) {
             GetComponent<TextMeshProUGUI>().enabled = false;
+            return;
+        }
+        if (GetComponent<MeshRenderer>()) {
+            GetComponent<MeshRenderer>().enabled = false;
+            return;
         }
     }
     void EnableVisual() {
         if (GetComponent<Image>()) {
             GetComponent<Image>().enabled = true;
+            return;
         }
         if (GetComponent<TextMeshProUGUI>()) {
             GetComponent<TextMeshProUGUI>().enabled = true;
+            return;
+        }
+        if (GetComponent<MeshRenderer>()) {
+            GetComponent<MeshRenderer>().enabled = true;
+            return;
         }
     }
 }
