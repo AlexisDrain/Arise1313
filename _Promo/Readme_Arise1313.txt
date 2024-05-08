@@ -1,8 +1,8 @@
 [Short Description]
-Story-driven visual novel. The fate of the world relies on one schizophrenic person.
+Asylum simulator visual novel. The fate of the world relies on one schizophrenic person.
 
 [Long Description]
-Story-driven visual novel. The fate of the world relies on one schizophrenic person.  
+Asylum simulator visual novel. The fate of the world relies on one schizophrenic person.  
 
 Controls:  
 - WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.  
@@ -26,6 +26,9 @@ Still stand (light long gone). A light long gone (a long long gone), Thought Mac
 https://wowsound.com/our-music/tracks/AOC-Quietness-FULL-End-Loop.aspx
 
 -----------------------
+
+Full credits + Source code
+https://github.com/AlexisDrain/Arise1313
 
 === Credits ===
 A game by Alexis Clay
