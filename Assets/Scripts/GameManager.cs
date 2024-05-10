@@ -13,7 +13,8 @@ public enum TimeOfDay {
 }
 public enum DayOfWeek {
     DayOne,
-    DayTwo
+    DayTwo,
+    Outro
 }
 
 public enum SayonaraType {
@@ -191,6 +192,16 @@ public class GameManager : MonoBehaviour
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
     }
+    public static void GoToOutro() {
+        GameManager.SetDay(DayOfWeek.Outro);
+        changeTimeOfDayEvent.Invoke();
+        RenderSettings.fog = false;
+        RenderSettings.reflectionIntensity = 0f;
+        RenderSettings.ambientIntensity = 0f;
+        GameManager.outroWorld.SetActive(true);
+        GameManager.TeleportPlayer(GameManager.playerOutroTrans);
+    }
+
     public static void KillSelfEnding() {
         GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
     }
@@ -519,16 +530,11 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.J)
             && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
-                RenderSettings.fog = false;
-                RenderSettings.reflectionIntensity = 0f;
-                RenderSettings.ambientIntensity = 0f;
-                GameManager.outroWorld.SetActive(true);
-                GameManager.TeleportPlayer(GameManager.playerOutroTrans);
+                GoToOutro();
                 GameManager.ShowMessage("Cheat: change lighting + go to outro world");
             }
         }
     }
-
     public static AudioSource SpawnLoudAudio(AudioClip newAudioClip, Vector2 pitch = new Vector2(), float newVolume = 1f) {
 
         float sfxPitch;

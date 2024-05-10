@@ -16,6 +16,9 @@ public class TriggerTimeOfDay : MonoBehaviour
     public List<GameObject> objectEvening2;
     public List<GameObject> objectMidnight2;
 
+    [Header("Other")]
+    public List<GameObject> objectOutro1;
+
     void Start()
     {
         GameManager.changeTimeOfDayEvent.AddListener(UpdateTimeOfDay);
@@ -41,6 +44,7 @@ public class TriggerTimeOfDay : MonoBehaviour
         DisableAllMembers(objectMorning2);
         DisableAllMembers(objectEvening2);
         DisableAllMembers(objectMidnight2);
+        DisableAllMembers(objectOutro1);
 
         // enabled last so that objects listed in more than morning list does not get removed
         if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
@@ -63,6 +67,10 @@ public class TriggerTimeOfDay : MonoBehaviour
             } else if (GameManager.currentDayOfWeek == DayOfWeek.DayTwo) {
                 EnableAllMembers(objectMidnight2);
             }
+        }
+
+        if (GameManager.currentDayOfWeek == DayOfWeek.Outro) {
+            EnableAllMembers(objectOutro1);
         }
     }
 }
