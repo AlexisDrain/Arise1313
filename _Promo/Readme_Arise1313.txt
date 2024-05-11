@@ -115,7 +115,10 @@ Sonniss 2023 - Game Audio Bundle \ InspectorJ - Essentials 02 Clocks\CLOCKTick_I
 
 - Door open:  
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_open_004.wav  
-Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav  
+Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav 
+
+- Door slam shut:  
+Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_close_003.wav  
 
 - Sayonara SFX:
 Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
@@ -125,3 +128,4 @@ https://freesound.org/people/cookies+policy/sounds/556495/
 
 - Phone dial:
 https://opengameart.org/content/beep-sound
+
