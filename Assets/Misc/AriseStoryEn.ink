@@ -500,6 +500,38 @@ You wake up to a world that seems eerily familiar yet unsettlingly different. As
 The air is heavy with an unnatural stillness as these doppelgangers move through the house, mimicking the routines and gestures of your family members with an unsettling precision. Conversations are stilted and void of genuine connection, each interaction leaving you with a sense of profound alienation.
 + [1- Wake up.] -> wakeupToMorning
 
+/*
+    Outro objects
+*/
+=== jail_0 ===
+# image_black
+You feel that you are facing a pitch black jail cell.
+This specific cell is empty.
++ [1- Leave.] -> stopNovel
+
+=== jail_1 === // Elena "The Chrono Thief" Dawson
+# image_black
+You feel that you are facing a pitch black jail cell. A voice in your head describes who is captured in it:
+Elena "The Chrono Thief" Dawson: Elena gained notoriety for her ability to steal artifacts from various time periods using advanced time-travel technology. Her crimes disrupted historical timelines and posed a threat to the stability of the space-time continuum. She was captured by the time-traveling prison operators to prevent further temporal disruptions.
++ [1- Leave.] -> stopNovel
+
+=== jail_2 === // Dr. Samuel Reed
+# image_black
+You feel that you are facing a pitch black jail cell. A voice in your head describes who is captured in it:
+Dr. Samuel Reed: Dr. Reed was once a brilliant physicist who became obsessed with unraveling the mysteries of time travel. In his pursuit of knowledge, he conducted dangerous experiments that endangered the fabric of reality itself. His reckless actions led to multiple temporal anomalies and paradoxes, prompting the time-traveling prison operators to apprehend him before he could cause further damage.
++ [1- Leave.] -> stopNovel
+
+=== jail_3 === // Vincent "The Temporal Assassin" Blackwood
+# image_black
+You feel that you are facing a pitch black jail cell. A voice in your head describes who is captured in it:
+Vincent "The Temporal Assassin" Blackwood: Vincent was a skilled assassin who specialized in eliminating targets across different points in history. His services were sought after by powerful individuals and organizations looking to alter the course of events for their own gain. However, his indiscriminate killings threatened the stability of the timeline, prompting the time-traveling prison operators to intervene and apprehend him before he could cause irreparable harm to history.
++ [1- Leave.] -> stopNovel
+
+=== jail_4 === // Amelia "The Time-Sorceress" Hawthorne
+# image_black
+You feel that you are facing a pitch black jail cell. A voice in your head describes who is captured in it:
+Amelia "The Time-Sorceress" Hawthorne: As a practitioner of forbidden temporal magic, Amelia wielded powers that could manipulate the very fabric of time itself. Her rituals and incantations posed a grave threat to the temporal balance, causing ripples and distortions across multiple timelines. The time-traveling prison operators deemed her too dangerous to roam freely and took her into custody to prevent her from unleashing further chaos.
++ [1- Leave.] -> stopNovel
 /* 
     special functions 
 */
