@@ -22,7 +22,9 @@ public enum InvItem {
     Hummus,
     Rice,
     MacAndCheese,
-    Milk
+    Milk,
+    BurgerBread,
+    MilkChocolate
 };
 
 public class InventoryGridItem : MonoBehaviour

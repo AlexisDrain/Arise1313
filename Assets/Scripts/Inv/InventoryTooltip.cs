@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class InventoryTooltip : MonoBehaviour
 {
@@ -70,10 +71,35 @@ public class InventoryTooltip : MonoBehaviour
         }
     }
 
+    /*
+     * From InventoryGridItem.cs
+     * 
+    None,
+            FuturePaper,
+    PencilDull,
+    PencilSharp,
+    Drugs,
+    Oatmeal,
+    ScrambledEggs,
+    FrenchToast,
+    AppleJuice,
+    CranberryJuice,
+    OrangeJuice,
+    DecafCoffee,
+    Pizza,
+    Burger,
+    Hummus,
+    Rice,
+    MacAndCheese,
+    Milk,
+    BurgerBread,
+    MilkChocolate
+     * */
     public void SummonTooltip(InventoryGridItem invItem) {
 
         // handle tooltip showing and hiding
         gameObject.SetActive(true);
+        GetComponent<DeactivateOnClick>().enabled = false;
         StartCoroutine("EnableTooltipDeactivate");
         GetComponent<RectTransform>().anchoredPosition = invItem.GetComponent<RectTransform>().anchoredPosition
             + inventory.GetComponent<RectTransform>().anchoredPosition
@@ -88,16 +114,33 @@ public class InventoryTooltip : MonoBehaviour
             eatButton.gameObject.SetActive(false);
             selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
-        } else if (invItem.myInvItem == InvItem.ScrambledEggs) {
+        } else if (invItem.myInvItem == InvItem.Oatmeal
+                || invItem.myInvItem == InvItem.ScrambledEggs
+                || invItem.myInvItem == InvItem.FrenchToast
+                || invItem.myInvItem == InvItem.AppleJuice
+                || invItem.myInvItem == InvItem.CranberryJuice
+                || invItem.myInvItem == InvItem.OrangeJuice
+                || invItem.myInvItem == InvItem.DecafCoffee
+                || invItem.myInvItem == InvItem.Pizza
+                || invItem.myInvItem == InvItem.Burger
+                || invItem.myInvItem == InvItem.Hummus
+                || invItem.myInvItem == InvItem.Rice
+                || invItem.myInvItem == InvItem.MacAndCheese
+                || invItem.myInvItem == InvItem.Milk
+                || invItem.myInvItem == InvItem.BurgerBread
+                || invItem.myInvItem == InvItem.MilkChocolate) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(true);
             selfharmButton.gameObject.SetActive(false);
-            discardButton.gameObject.SetActive(true);
-        } else if (invItem.myInvItem == InvItem.PencilDull) {
+            discardButton.gameObject.SetActive(false);
+        } else if (invItem.myInvItem == InvItem.PencilDull
+            || invItem.myInvItem == InvItem.PencilSharp) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(false);
-            selfharmButton.gameObject.SetActive(true);
-            discardButton.gameObject.SetActive(true);
+            selfharmButton.gameObject.SetActive(false);
+            discardButton.gameObject.SetActive(false);
+        }  else {
+            Debug.LogWarning("Inv item has no tooltip properties");
         }
     }
 

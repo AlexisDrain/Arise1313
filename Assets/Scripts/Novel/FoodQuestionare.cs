@@ -48,7 +48,19 @@ public class FoodQuestionare : MonoBehaviour
     public GameObject dullPencilText;
 
     [Space]
-    public GameObject breakfastEggs;
+    public GameObject item_Oatmeal;
+    public GameObject item_ScrambledEggs;
+    public GameObject item_FrenchToast;
+    public GameObject item_AppleJuice;
+    public GameObject item_CranberryJuice;
+    public GameObject item_OrangeJuice;
+    public GameObject item_DecafCoffee;
+    public GameObject item_Pizza;
+    public GameObject item_Burger;
+    public GameObject item_Hummus;
+    public GameObject item_Rice;
+    public GameObject item_MacAndCheese;
+    public GameObject item_Milk;
 
     [Header("Read Only")]
     public Breakfast_main _currentBreakfastMain = Breakfast_main.Oatmeal;
@@ -76,12 +88,38 @@ public class FoodQuestionare : MonoBehaviour
         GameManager.playerGotBreakfast = true; // set to false in player wake up
 
         // todo
-        print("TODO: remove breakfast eggs, add all other breakfast items inside the if statement");
-        GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
-
-        if (_currentBreakfastMain == Breakfast_main.ScrambledEggs) {
-            GameObject.Instantiate(breakfastEggs, GameManager.inventory.transform);
+        /*
+         *     Oatmeal,
+                ScrambledEggs,
+                FrenchToast
+         */
+        if (_currentBreakfastMain == Breakfast_main.Oatmeal) {
+            GameObject.Instantiate(item_Oatmeal, GameManager.inventory.transform);
         }
+        if (_currentBreakfastMain == Breakfast_main.ScrambledEggs) {
+            GameObject.Instantiate(item_ScrambledEggs, GameManager.inventory.transform);
+        } 
+        if (_currentBreakfastMain == Breakfast_main.FrenchToast) {
+            GameObject.Instantiate(item_FrenchToast, GameManager.inventory.transform);
+        }
+        /*
+ *         AppleJuice,
+        CranberryJuice,
+        OrangeJuice,
+        DecafCoffee */
+        if (_currentBreakfastBev == Breakfast_bev.AppleJuice) {
+            GameObject.Instantiate(item_AppleJuice, GameManager.inventory.transform);
+        }
+        if (_currentBreakfastBev == Breakfast_bev.CranberryJuice) {
+            GameObject.Instantiate(item_CranberryJuice, GameManager.inventory.transform);
+        }
+        if (_currentBreakfastBev == Breakfast_bev.OrangeJuice) {
+            GameObject.Instantiate(item_OrangeJuice, GameManager.inventory.transform);
+        }
+        if (_currentBreakfastBev == Breakfast_bev.DecafCoffee) {
+            GameObject.Instantiate(item_DecafCoffee, GameManager.inventory.transform);
+        }
+
         GameManager.ShowMessage("You got breakfast. Press TAB to view & eat it.");
 
         // remove tutorial:
@@ -89,6 +127,48 @@ public class FoodQuestionare : MonoBehaviour
     }
     public void PlayerGiveMealDinner() {
         GameManager.playerGotDinner = true; // set to false in player wake up
+
+        /*
+        * 
+        Pizza,
+        Burger
+        */
+        if (_currentDinnerMain == Dinner_main.Pizza) {
+            GameObject.Instantiate(item_Pizza, GameManager.inventory.transform);
+        }
+        if (_currentDinnerMain == Dinner_main.Burger) {
+            GameObject.Instantiate(item_Burger, GameManager.inventory.transform);
+        }
+
+        /*
+            Hummus,
+            Rice,
+            MacAndCheese
+        */
+        if (_currentDinnerSide == Dinner_side.Hummus) {
+            GameObject.Instantiate(item_Hummus, GameManager.inventory.transform);
+        }
+        if (_currentDinnerSide == Dinner_side.Rice) {
+            GameObject.Instantiate(item_Rice, GameManager.inventory.transform);
+        }
+        if (_currentDinnerSide == Dinner_side.MacAndCheese) {
+            GameObject.Instantiate(item_MacAndCheese, GameManager.inventory.transform);
+        }
+
+        /*
+            AppleJuice,
+            Milk,
+            DecafCoffee
+         */
+        if (_currentDinnerBev == Dinner_bev.AppleJuice) {
+            GameObject.Instantiate(item_AppleJuice, GameManager.inventory.transform);
+        }
+        if (_currentDinnerBev == Dinner_bev.Milk) {
+            GameObject.Instantiate(item_Milk, GameManager.inventory.transform);
+        }
+        if (_currentDinnerBev == Dinner_bev.DecafCoffee) {
+            GameObject.Instantiate(item_DecafCoffee, GameManager.inventory.transform);
+        }
     }
 
     public void ChangeMeal()
