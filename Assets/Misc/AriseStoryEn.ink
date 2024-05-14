@@ -233,7 +233,6 @@ You try sticking the pencil in your eye but it's too dull to cause any harm to y
 === telephone_3 ===
 # image_black
 # sfx_phoneUp
-Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_parents
@@ -244,32 +243,33 @@ You put the receiver back.
 + [1- Leave.] -> stopNovel
 === telephone_parents ===
 # image_black
+# sanityUp
 Your relationship with your parents is normally strained, but opening up about your suicidal ideation and your hospitalization brings anyone together.
 + [1- Leave.] -> stopNovel
 
 === telephone_2 ===
 # image_black
 # sfx_phoneUp
-Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call sibling.] -> telephone_sibling
 + [2- Leave.] -> telephone_noone
 === telephone_sibling ===
 # image_black
+# sanityDown
 When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: “Are you sure you’re taking your meds?”
 + [1- Leave.] -> stopNovel
 
 === telephone_night ===
 # image_black
 # sfx_phoneUp
-Demo: Dialing the number related to the ritual has not been implemented yet. -Alexis
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_night_parents
 + [2- Leave.] -> telephone_noone
 === telephone_night_parents ===
 # image_black
+# sanityUp
 Despite the hour being almost midnight, your parents are awake and concerened about your health. They were thinking of you when you called.
 They make you promise not to go back to the hospital.
 + [1- Leave.] -> stopNovel
@@ -311,11 +311,13 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 
 === worship_pray ===
 # prayerIncrement
+# sanityUp
 You feel spiritually rejuvenated. You are not alone when God is with you.
 + [1- Leave] -> secondChaplainMeeting_check
 
 === worship_meditate ===
 # prayerIncrement
+# sanityUp
 Saving the world requires a bit of faith. You muster as much of it as you can while meditating.
 + [1- Leave] -> secondChaplainMeeting_check
 
@@ -325,6 +327,7 @@ asdf
 + [asdf] -> END
 
 === worship_ritualstep ===
+# sanityDownTwice
 After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
 "What?"
 "I already said too much. Just go now. We can't talk."
@@ -367,6 +370,7 @@ You: “It’s says ‘You’re insane if you trust her.’”
 Therapist: “Ha-ha. Nothing un-insane about a visual hallucination telling you that you're not insane.”
 + [1- Continue.] -> meeting_1_2
 === meeting_1_2 ===
+# sanityDownTwice
 Therapist Rose: "I will let you in on a secret. There IS a step in the ritual that I know of:"
 "Step Two is to have a specific meal. Apple juice and meat. That's all I'm going to say. And good luck doing that in the less than 2 days that this world has."
 She shifts her legs and continues: "My real employer provides me with $2000 per hour to... humor you. There's a wagering contest going on. And it looks like you're on the losing side already."
@@ -466,6 +470,7 @@ You go back to your room at the conclusion of this group session.
 + [1- Leave.] -> setTimeFollowingTimePeriod
 
 === group_catCheckPen ===
+# sanityDownTwice
 # catKillCheck
 -> END
 

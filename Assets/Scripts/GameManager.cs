@@ -212,10 +212,15 @@ public class GameManager : MonoBehaviour
 
         endingMenu.SetActive(true);
         endingMenu.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = endGameMessage;
-        if(goodEnding == false) {
-            endingMenu.GetComponent<Animator>().SetTrigger("InvokeBad");
-        } else if (goodEnding == true) {
+        
+        if (goodEnding) {
+            endingMenu.transform.Find("Button_RestartGame").gameObject.SetActive(false);
+            endingMenu.transform.Find("Button_StartEpilogue").gameObject.SetActive(true);
             endingMenu.GetComponent<Animator>().SetTrigger("InvokeGood");
+        } else if (goodEnding == false) {
+            endingMenu.transform.Find("Button_RestartGame").gameObject.SetActive(true);
+            endingMenu.transform.Find("Button_StartEpilogue").gameObject.SetActive(false);
+            endingMenu.GetComponent<Animator>().SetTrigger("InvokeBad");
         }
         mainMenu.SetActive(false);
     }
