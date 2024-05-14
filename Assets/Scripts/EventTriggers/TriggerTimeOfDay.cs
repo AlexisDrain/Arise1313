@@ -35,6 +35,15 @@ public class TriggerTimeOfDay : MonoBehaviour
             members[i].SetActive(false);
         }
     }
+    public void DisableAllMembersAllGroups() {
+        DisableAllMembers(objectMorning);
+        DisableAllMembers(objectEvening);
+        DisableAllMembers(objectMidnight);
+        DisableAllMembers(objectMorning2);
+        DisableAllMembers(objectEvening2);
+        DisableAllMembers(objectMidnight2);
+        DisableAllMembers(objectOutro1);
+    }
 
     void UpdateTimeOfDay()
     {

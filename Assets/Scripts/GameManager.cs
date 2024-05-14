@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     public static GameObject timePass;
     public static GameObject mainMenu;
     public static GameObject endingMenu;
+    public static GameObject musicObj;
     public static GameObject mainMenuMusic;
 
     public static GameObject outroWorld;
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
         mainMenu = GameObject.Find("Canvas/MainMenu").gameObject;
         endingMenu = GameObject.Find("Canvas/EndingMenu").gameObject;
         endingMenu.SetActive(false);
+        musicObj = GameObject.Find("TimedObjects_Music").gameObject;
         mainMenuMusic = GameObject.Find("TimedObjects_Music/MainMenuMusic").gameObject;
 
         outroWorld = GameObject.Find("OutroWorld").gameObject;
@@ -176,6 +178,7 @@ public class GameManager : MonoBehaviour
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
+
 
         RenderSettings.fog = true;
         RenderSettings.reflectionIntensity = 1f;
@@ -221,6 +224,9 @@ public class GameManager : MonoBehaviour
             endingMenu.transform.Find("Button_RestartGame").gameObject.SetActive(true);
             endingMenu.transform.Find("Button_StartEpilogue").gameObject.SetActive(false);
             endingMenu.GetComponent<Animator>().SetTrigger("InvokeBad");
+
+            musicObj.GetComponent<TriggerTimeOfDay>().DisableAllMembersAllGroups(); // this kills all the music
+            mainMenuMusic.SetActive(true);
         }
         mainMenu.SetActive(false);
     }
@@ -268,7 +274,7 @@ public class GameManager : MonoBehaviour
         changeTimeOfDayEvent.Invoke();
 
         timePass.SetActive(true); // cutscene object
-        if(gameHasBeenStartedOnce) {
+        if(gameHasBeenStartedOnce && GameManager.sanityHealth > 0) {
             timePass.GetComponent<AudioSource>().PlayWebGL();
         }
 
@@ -445,9 +451,14 @@ public class GameManager : MonoBehaviour
         timePass.GetComponent<AudioSource>().StopWebGL();
     }
     public static void StopSayonara() {
+        
         playerInNovelOrSayonara = false;
         sayonaraIntroController.gameObject.SetActive(false);
-        sayonaraZeroSanityController.gameObject.SetActive(false);
+
+        if(sayonaraZeroSanityController.gameObject.activeSelf) {
+            GameManager.SetTimeOfDay(currentTimeOfDay);
+            sayonaraZeroSanityController.gameObject.SetActive(false);
+        }
 
         sayonaraAssets.gameObject.SetActive(false);
     }

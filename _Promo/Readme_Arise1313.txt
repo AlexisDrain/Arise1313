@@ -68,8 +68,8 @@ https://www.udio.com/songs/3TcLZfZ1T9sqKZ6UCr1HMq
 Piano by jeremy [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/7U-93vxPOER)
 
 === Plugins ===
-- UI Blur
-https://assetstore.unity.com/packages/vfx/shaders/ui-blur-173331
+- Story scripting: Ink by Inkle
+https://www.inklestudios.com/ink/
 
 === Fonts ===  
 - Jo_wrote_a_lovesong By Lars Manenschijn - "free for commercial use" license
