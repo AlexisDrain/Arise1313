@@ -30,6 +30,7 @@ public enum InvItem {
 public class InventoryGridItem : MonoBehaviour
 {
     public string itemLabelName;
+    public string mealName;
     public InvItem myInvItem;
 
     // Start is called before the first frame update

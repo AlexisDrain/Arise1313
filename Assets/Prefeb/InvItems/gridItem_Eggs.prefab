@@ -134,4 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLabelName: 'Food: Scrambled Eggs'
+  mealName: Scrambled Eggs
   myInvItem: 6

@@ -31,6 +31,9 @@ public class InventoryTooltip : MonoBehaviour
         if (_selectedGridItem != null) {
             // use item
             GameManager.SpawnLoudAudio(sfxEat);
+            if(_selectedGridItem.myInvItem == InvItem.Burger) {
+                GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_BurgerBread, GameManager.inventory.transform);
+            }
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect

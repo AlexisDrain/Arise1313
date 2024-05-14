@@ -282,6 +282,9 @@ public class GameManager : MonoBehaviour
         Image iconMorning = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning").GetComponent<Image>();
         Image iconEvening = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening").GetComponent<Image>();
         Image iconMidNight = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight").GetComponent<Image>();
+        TextMeshProUGUI iconMorningText = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Morning/IconTimeText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI iconEveText = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Evening/IconTimeText").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI iconNightText = GameObject.Find("Canvas/TabMenu/IconTime/IconTime_Midnight/IconTimeText").GetComponent<TextMeshProUGUI>();
         TMPro.TextMeshProUGUI iconTime = GameObject.Find("Canvas/TabMenu/IconTime/TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
         TMPro.TextMeshProUGUI timeLeft = GameObject.Find("Canvas/TabMenu/IconTime/TimeLeft").GetComponent<TMPro.TextMeshProUGUI>();
         TMPro.TextMeshProUGUI iconTimeCutscene = timePass.transform.Find("TimeDigital").GetComponent<TMPro.TextMeshProUGUI>();
@@ -295,6 +298,9 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = true;
             iconEvening.enabled = false;
             iconMidNight.enabled = false;
+            iconMorningText.enabled = true;
+            iconEveText.enabled = false;
+            iconNightText.enabled = false;
             // questManager.CreateNewQuest("breakfast3");
 
             // player position
@@ -317,6 +323,9 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = false;
             iconEvening.enabled = true;
             iconMidNight.enabled = false;
+            iconMorningText.enabled = false;
+            iconEveText.enabled = true;
+            iconNightText.enabled = false;
 
             // player position
             GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
@@ -335,6 +344,9 @@ public class GameManager : MonoBehaviour
             iconMorning.enabled = false;
             iconEvening.enabled = false;
             iconMidNight.enabled = true;
+            iconMorningText.enabled = false;
+            iconEveText.enabled = false;
+            iconNightText.enabled = true;
 
             GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
 
@@ -548,6 +560,12 @@ public class GameManager : MonoBehaviour
             && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
                 GoToOutro();
                 GameManager.ShowMessage("Cheat: change lighting + go to outro world");
+            }
+            if (Input.GetKey(KeyCode.K)
+            && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
+                foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
+                foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                GameManager.ShowMessage("Cheat: Give player food");
             }
         }
     }

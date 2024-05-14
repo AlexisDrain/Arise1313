@@ -134,4 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLabelName: 'Drink: Milk'
+  mealName: Milk
   myInvItem: 17
