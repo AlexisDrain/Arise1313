@@ -127,5 +127,11 @@ Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elem
 https://freesound.org/people/cookies+policy/sounds/556495/
 
 - Phone dial:
-https://opengameart.org/content/beep-sound
+cell phone dial 0-9_bip.wav by muses212 -- https://freesound.org/s/76927/ -- License: Creative Commons 0
 
+- Eating & drinking SFX:
+Sonniss 2019 - Game Audio Bundle\Eiravaein Works - WakeyWakey\WakeyWakey,tea,gaiwan,ceramic,glazed,thick,3piece,cup,full,drink,sipping,slurp,swallow,mouthclicks,alt5.wav  
+Sonniss 2017 - Game Audio Bundle\Joshua Reinhardt -  Ultimate Eats and Drinks\CHIP GRAB AND EAT CHILD_02_.wav  
+
+- Questionnaire pencil tick:
+Sonnis 2023 - Game Audio Bundle\CB Sound Design - Essential Sounds Vol.02 Pencils\colorpencil_6.wav

@@ -14,9 +14,13 @@ public class InventoryTooltip : MonoBehaviour
     public TextMeshProUGUI tooltipLabel;
     public Button readButton;
     public Button eatButton;
+    public Button drinkButton;
     public Button selfharmButton;
     public Button discardButton;
     public GameObject inventory;
+
+    public AudioClip sfxEat;
+    public AudioClip sfxDrink;
 
     void Start()
     {
@@ -26,7 +30,21 @@ public class InventoryTooltip : MonoBehaviour
     public void Eat() {
         if (_selectedGridItem != null) {
             // use item
-            print("SFX: eat sound");
+            GameManager.SpawnLoudAudio(sfxEat);
+
+            // remove item
+            _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
+            _selectedGridItem = null;
+
+            // hide tooltip
+            GetComponent<DeactivateOnClick>().enabled = false;
+            gameObject.SetActive(false);
+        }
+    }
+    public void Drink() {
+        if (_selectedGridItem != null) {
+            // use item
+            GameManager.SpawnLoudAudio(sfxDrink);
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
@@ -112,31 +130,39 @@ public class InventoryTooltip : MonoBehaviour
         if (invItem.myInvItem == InvItem.FuturePaper) {
             readButton.gameObject.SetActive(true);
             eatButton.gameObject.SetActive(false);
+            drinkButton.gameObject.SetActive(false);
+            selfharmButton.gameObject.SetActive(false);
+            discardButton.gameObject.SetActive(false);
+        } else if (invItem.myInvItem == InvItem.AppleJuice
+                || invItem.myInvItem == InvItem.CranberryJuice
+                || invItem.myInvItem == InvItem.OrangeJuice
+                || invItem.myInvItem == InvItem.DecafCoffee
+                || invItem.myInvItem == InvItem.Milk
+                || invItem.myInvItem == InvItem.MilkChocolate) {
+            readButton.gameObject.SetActive(false);
+            eatButton.gameObject.SetActive(false);
+            drinkButton.gameObject.SetActive(true);
             selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
         } else if (invItem.myInvItem == InvItem.Oatmeal
                 || invItem.myInvItem == InvItem.ScrambledEggs
                 || invItem.myInvItem == InvItem.FrenchToast
-                || invItem.myInvItem == InvItem.AppleJuice
-                || invItem.myInvItem == InvItem.CranberryJuice
-                || invItem.myInvItem == InvItem.OrangeJuice
-                || invItem.myInvItem == InvItem.DecafCoffee
                 || invItem.myInvItem == InvItem.Pizza
                 || invItem.myInvItem == InvItem.Burger
                 || invItem.myInvItem == InvItem.Hummus
                 || invItem.myInvItem == InvItem.Rice
                 || invItem.myInvItem == InvItem.MacAndCheese
-                || invItem.myInvItem == InvItem.Milk
-                || invItem.myInvItem == InvItem.BurgerBread
-                || invItem.myInvItem == InvItem.MilkChocolate) {
+                || invItem.myInvItem == InvItem.BurgerBread) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(true);
+            drinkButton.gameObject.SetActive(false);
             selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
         } else if (invItem.myInvItem == InvItem.PencilDull
-            || invItem.myInvItem == InvItem.PencilSharp) {
+                || invItem.myInvItem == InvItem.PencilSharp) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(false);
+            drinkButton.gameObject.SetActive(false);
             selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
         }  else {

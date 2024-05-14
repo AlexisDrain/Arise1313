@@ -46,6 +46,8 @@ public class FoodQuestionare : MonoBehaviour
     public ToggleGroup currentDinnerSideToggle;
     public ToggleGroup currentDinnerBevToggle;
     public GameObject dullPencilText;
+    public AudioClip sfxPencil1;
+    public AudioClip sfxPencil2;
 
     [Space]
     public GameObject item_Oatmeal;
@@ -71,12 +73,19 @@ public class FoodQuestionare : MonoBehaviour
     public GameObject invItemPencilDull;
     public GameObject invItemPencilSharp;
 
+
     private int dullPencilCountdown = 5;
 
     public void UsePencilOnce() {
         dullPencilCountdown -= 1;
         if(dullPencilCountdown == 0) {
             GameManager.ShowMessage("Your new pencil became dull because you used it too much.");
+        }
+
+        if (Random.Range(0f, 1f) > .5f) {
+            GameManager.SpawnLoudAudio(sfxPencil1);
+        } else {
+            GameManager.SpawnLoudAudio(sfxPencil2);
         }
     }
     public void OnEnable() {
