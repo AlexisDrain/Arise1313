@@ -173,7 +173,7 @@ public class StoryType : MonoBehaviour
             }
             if (inkStory.currentTags[i] == "updateMealString") {
                 // inkStory.variablesState["finalMeal"] = "- Apple Juice\n - Yaba Daba Dooooo";
-                inkStory.variablesState["finalMeal"] = "- Demo, not implemented yet. -Alexis";
+                inkStory.variablesState["finalMeal"] = PlayerEatingManager.myLastMealIs;
             }
             if (inkStory.currentTags[i] == "checkStep2") {
                 if (GameManager.stepTwoComplete) {

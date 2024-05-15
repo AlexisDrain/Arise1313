@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public static GameObject sanityMenu;
     public static GameObject inventory;
     public static InventoryTooltip invTooltip;
+    public static PlayerEatingManager playerEatingManager;
     public static GameObject imageScreenTransition;
     public static GameObject timePass;
     public static GameObject mainMenu;
@@ -56,8 +57,6 @@ public class GameManager : MonoBehaviour
     public static GameObject mainMenuMusic;
 
     public static GameObject outroWorld;
-
-    
 
     public static Transform bedCameraTransform;
     public static Transform playerAwakeTrans;
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour
     public static bool stepOneComplete = false;
     public static bool stepTwoComplete = false;
     public static bool stepThreeComplete = false;
-    public static string myLastMealIs = "- Nothing\n";
+
     // player navigation
     public static bool playerInMainMenu = true;
     public static bool playerInFoodQuestionnaire = false;
@@ -138,6 +137,7 @@ public class GameManager : MonoBehaviour
         sanityMenu.SetActive(false);
         inventory = GameObject.Find("Canvas/TabMenu/Inventory");
         invTooltip = GameObject.Find("Canvas/TabMenu/InventoryTooltip").GetComponent<InventoryTooltip>();
+        playerEatingManager = GetComponent<PlayerEatingManager>();
         imageScreenTransition = GameObject.Find("ScreenTransition");
         timePass = GameObject.Find("Canvas/TimePass");
         timePass.SetActive(false);
@@ -275,6 +275,7 @@ public class GameManager : MonoBehaviour
         currentTimeOfDay = newTimeOfDay;
 
         changeTimeOfDayEvent.Invoke();
+        PlayerEatingManager.stomachSize = 3;
 
         timePass.SetActive(true); // cutscene object
         if(gameHasBeenStartedOnce && GameManager.sanityHealth > 0) {

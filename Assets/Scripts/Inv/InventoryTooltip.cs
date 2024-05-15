@@ -30,16 +30,13 @@ public class InventoryTooltip : MonoBehaviour
     public void Eat() {
         if (_selectedGridItem != null) {
             // use item
-            GameManager.SpawnLoudAudio(sfxEat);
-            GameManager.myLastMealIs = GameManager.myLastMealIs + "- " + _selectedGridItem.mealName + "\n";
-            GameManager.ShowMessage("Your last meal is:\n" + GameManager.myLastMealIs);
-            if(_selectedGridItem.myInvItem == InvItem.Burger) {
-                GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_BurgerBread, GameManager.inventory.transform);
+            if (PlayerEatingManager.stomachSize > 0) {
+                GameManager.SpawnLoudAudio(sfxEat);
             }
-
+            PlayerEatingManager.Consume(_selectedGridItem); // rejecting this is done inside consume
+            // _selectedGridItem.DestroyGridItem(); // done in Consume
 
             // remove item
-            _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
             _selectedGridItem = null;
 
             // hide tooltip
@@ -50,12 +47,13 @@ public class InventoryTooltip : MonoBehaviour
     public void Drink() {
         if (_selectedGridItem != null) {
             // use item
-            GameManager.SpawnLoudAudio(sfxDrink);
-            GameManager.myLastMealIs = GameManager.myLastMealIs + "- " + _selectedGridItem.mealName + "\n";
-            GameManager.ShowMessage("Your last meal is:\n" + GameManager.myLastMealIs);
+            if (PlayerEatingManager.stomachSize > 0) {
+                GameManager.SpawnLoudAudio(sfxDrink);
+            }
+            PlayerEatingManager.Consume(_selectedGridItem); // rejecting this is done inside consume
+            // _selectedGridItem.DestroyGridItem(); // done in Consume
 
             // remove item
-            _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
             _selectedGridItem = null;
 
             // hide tooltip
@@ -66,6 +64,7 @@ public class InventoryTooltip : MonoBehaviour
     public void Discard() {
         if (_selectedGridItem != null) {
             // use item
+            Debug.LogWarning("We depricated Discard function.");
             print("SFX: discard sound / throwing away paper");
 
             // remove item
