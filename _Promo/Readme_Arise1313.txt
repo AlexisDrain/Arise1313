@@ -117,6 +117,9 @@ Sonniss 2023 - Game Audio Bundle \ InspectorJ - Essentials 02 Clocks\CLOCKTick_I
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_open_004.wav  
 Sonniss 2015 - Game Audio Bundle TheLibrarybyEmptySea - Gateway Part1\patio_door_wood_glass_INT_hinge_creak_open_close_08.wav 
 
+- Knock on door:  
+Sonniss 2020 - Game Audio Bundle\344 Audio - Practical Doors\Knocking On Heavy Door 1.wav  
+
 - Door slam shut:  
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_close_003.wav  
 
