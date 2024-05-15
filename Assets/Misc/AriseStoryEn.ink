@@ -123,7 +123,6 @@ You approach a patient laying on the ground. He yells at the sky:
 */
 === ritual_0 ===
 # image_black
-Demo: the ritual steps have not been implemented correctly yet. Press "Start The Ritual" anyway. -Alexis
 Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
 I must do step 1 and 2 before starting. I could do step 3 during the ritual.
 + [1- Delay The Ritual.] -> stopNovelTeleportPlayerToRitualRoom
@@ -208,16 +207,19 @@ Our gazes meet. "My soul, or yours. I leave you to decide."
 
 === ritual_totalPet ===
 # image_black
+# sanityUp
 The ritual, in total, is correct.
 + [1- Finish.] -> ending_good_sacrificePet
 
 === ritual_totalSelf ===
 # image_black
+# sanityUp
 The ritual, in total, is correct.
 + [1- Finish.] -> ending_good_sacrificeSelf
 
 === ritual_totalChaplain ===
 # image_black
+# sanityUp
 "I will see you in another life," were the chaplain's final words.
 The ritual, in total, is correct.
 + [1- Finish.] -> ending_good_sacrificeChaplain

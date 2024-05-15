@@ -31,9 +31,12 @@ public class InventoryTooltip : MonoBehaviour
         if (_selectedGridItem != null) {
             // use item
             GameManager.SpawnLoudAudio(sfxEat);
+            GameManager.myLastMealIs = GameManager.myLastMealIs + "- " + _selectedGridItem.mealName + "\n";
+            GameManager.ShowMessage("Your last meal is:\n" + GameManager.myLastMealIs);
             if(_selectedGridItem.myInvItem == InvItem.Burger) {
                 GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_BurgerBread, GameManager.inventory.transform);
             }
+
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect
@@ -48,6 +51,8 @@ public class InventoryTooltip : MonoBehaviour
         if (_selectedGridItem != null) {
             // use item
             GameManager.SpawnLoudAudio(sfxDrink);
+            GameManager.myLastMealIs = GameManager.myLastMealIs + "- " + _selectedGridItem.mealName + "\n";
+            GameManager.ShowMessage("Your last meal is:\n" + GameManager.myLastMealIs);
 
             // remove item
             _selectedGridItem.DestroyGridItem(); // destroy first THEN unselect

@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     public static bool stepOneComplete = false;
     public static bool stepTwoComplete = false;
     public static bool stepThreeComplete = false;
+    public static string myLastMealIs = "- Nothing\n";
     // player navigation
     public static bool playerInMainMenu = true;
     public static bool playerInFoodQuestionnaire = false;
@@ -196,8 +197,10 @@ public class GameManager : MonoBehaviour
         mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
     }
     public static void GoToOutro() {
+        endingMenu.SetActive(false);
         GameManager.SetDay(DayOfWeek.Outro);
         changeTimeOfDayEvent.Invoke();
+        timePass.SetActive(false);
         RenderSettings.fog = false;
         RenderSettings.reflectionIntensity = 0f;
         RenderSettings.ambientIntensity = 0f;
