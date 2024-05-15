@@ -77,7 +77,7 @@ The nurse says: "You should get dinner, then you might want to go to the chaplai
 
 === nursedesk_3 ===
 # image_black
-The nurse says: "It's waaay past bedtime for you. You should go to your room, it's the blue door on my left."
+The nurse says: "It's waaay past bedtime for you. You should go to your room, it's the blue door on your right."
 "If you can't sleep, the chaplain is praying. I'm sure he'd like some company."
 "Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel

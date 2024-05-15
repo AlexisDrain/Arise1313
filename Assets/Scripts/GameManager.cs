@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
     // messages and delayed messages
     public static void ShowMessage(string newMessageText) {
         Transform message = GameObject.Find("Canvas/Message").transform;
-        message.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
+        message.Find("MessageBG/Text (TMP)").GetComponent<TextMeshProUGUI>().text = newMessageText;
         message.GetComponent<Animator>().SetTrigger("MessageFade");
 
         /*
