@@ -271,6 +271,8 @@ public class GameManager : MonoBehaviour
     public static void SetDay(DayOfWeek dayOfWeek) {
         GameManager.currentDayOfWeek = dayOfWeek;
     }
+
+    // TO DO: make the visual aspect (animation) of the time of day SEPERATE from the actual time of day change.
     public static void SetTimeOfDay(TimeOfDay newTimeOfDay) {
         currentTimeOfDay = newTimeOfDay;
 

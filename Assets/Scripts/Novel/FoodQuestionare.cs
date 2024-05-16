@@ -64,6 +64,7 @@ public class FoodQuestionare : MonoBehaviour
     public GameObject item_Rice;
     public GameObject item_MacAndCheese;
     public GameObject item_Milk;
+    public GameObject item_ChocolateMilk;
 
     [Header("Read Only")]
     public Breakfast_main _currentBreakfastMain = Breakfast_main.Oatmeal;

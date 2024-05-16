@@ -131,7 +131,11 @@ public class StoryType : MonoBehaviour
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
-            
+
+            // bystander 3
+            if (inkStory.currentTags[i] == "giveChocolate") {
+                GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_ChocolateMilk, GameManager.inventory.transform);
+            }
 
             // brother encounter
             if (inkStory.currentTags[i] == "checkBrother") {
@@ -221,7 +225,7 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "prayerIncrement") {
                 GameManager.numberOfPrayer += 1;
                 print("numberOfPrayer = " + GameManager.numberOfPrayer);
-                inkStory.currentTags.RemoveAt(i); // hack because of nested tags bug
+                // inkStory.currentTags.RemoveAt(i); // hack because of nested tags bug
                 return;
             }
 
@@ -311,6 +315,7 @@ public class StoryType : MonoBehaviour
 
             if (inkStory.currentTags.Count > 0) {
                 ProcessTags();
+                print("first ProcessTags");
             }
 
             inkStory.Continue();
@@ -331,6 +336,7 @@ public class StoryType : MonoBehaviour
 
         if (inkStory.currentTags.Count > 0) {
             ProcessTags();
+            inkStory.currentTags.Clear(); // hack. For when the story knot changes
         }
     }
 

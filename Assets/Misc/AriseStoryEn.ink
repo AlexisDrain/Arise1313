@@ -118,6 +118,19 @@ You approach a patient laying on the ground. He yells at the sky:
 "Apple juice is deluxe, demon piss!"
 + [1- "Ok..." Leave.] -> stopNovel
 
+=== bystander_2 ===
+# image_black
+You approach a patient whispering to himself. You feel sorry for his roommate.
+"You know, have you ever thought about how butterflies are like tiny fairies with wings? I mean, wings! Magical flutters in the air, just like my thoughts, you know? Thoughts, thoughts, thoughts buzzing like bees in my brain. But seriously, have you ever tried counting stars and wondering if each one is a secret message from aliens? I did that last night, or was it the night before? Time is a slippery eel, my friend, slipping through our fingers like sand in an hourglass. And speaking of time, did you know that time travel is theoretically possible? I read it on the internet, the vast ocean of knowledge and misinformation. The internet, like a digital spider weaving a web of connections, just like the voices in my head. Voices, voices, whispering secrets and conspiracies. Do you believe in conspiracies? I do, sometimes, especially when the moon is full and the shadows dance on the walls. Shadows, shadows, morphing into creatures from another dimension. Ever felt like you're living in a parallel universe? Like, what if reality is just a hologram projected by interdimensional beings? Beings, beings, watching us like actors on a cosmic stage. And have you noticed how the walls have ears? Not literally, of course, but metaphorically, absorbing the vibrations of our existence. Existence, existence, a puzzle with missing pieces. I once tried solving it with a Rubik's Cube, but the colors kept changing, like a psychedelic kaleidoscope. Kaleidoscope, kaleidoscope, turning reality into a colorful whirlwind. Whirlwind, whirlwind, spinning, spinning, spinning... Hey, are you still awake? I can't sleep, you know? Sleep, sleep, a realm of dreams and nightmares. Nightmares, nightmares, lurking in the shadows of the mind. Mind, mind, a labyrinth of thoughts and echoes. Echoes, echoes, bouncing off the walls of my consciousness. Consciousness, consciousness, an enigma wrapped in a riddle. Riddle, riddle, can you solve it? Solve, solve, like a mathematical equation with infinite variables. Variables, variables, shifting like the sands of time. Time, time, slipping away, slipping away... But seriously, have you ever thought about how butterflies are like tiny fairies with wings?
++ [1- Leave.] -> stopNovel
+
+=== bystander_3 ===
+# image_black
+# sanityUp
+# giveChocolate
+Nice Nurse: “It’s very late for you sweetie. Here’s a cup of hot chocolate, but don’t tell anyone I got it for you.” She winks and hands you a cup.
++ [1- Thank her and leave.] -> stopNovel
+
 /*
     banishment ritual
 */
@@ -312,14 +325,14 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 + [2- Meditate] -> worship_meditate
 
 === worship_pray ===
-# prayerIncrement
 # sanityUp
+# prayerIncrement
 You feel spiritually rejuvenated. You are not alone when God is with you.
 + [1- Leave] -> secondChaplainMeeting_check
 
 === worship_meditate ===
-# prayerIncrement
 # sanityUp
+# prayerIncrement
 Saving the world requires a bit of faith. You muster as much of it as you can while meditating.
 + [1- Leave] -> secondChaplainMeeting_check
 
