@@ -209,6 +209,7 @@ public class FoodQuestionare : MonoBehaviour
         }
 
         GameManager.StopFoodQuestionnaire();
+        PlayerGiveMealDinner();
         GameManager.ShowMessage("You got dinner. Press TAB to view & eat it."); // done here and not in PlayerGiveMealDinner(). hack
     }
 }

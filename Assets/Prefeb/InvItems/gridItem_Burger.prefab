@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLabelName: 'Food: Burger'
-  mealName: Burger
+  mealName: Meat
   myInvItem: 13

@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
-
+        PlayerEatingManager.RestartEatingManager();
 
         RenderSettings.fog = true;
         RenderSettings.reflectionIntensity = 1f;
@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
         currentTimeOfDay = newTimeOfDay;
 
         changeTimeOfDayEvent.Invoke();
-        PlayerEatingManager.stomachSize = 3;
+        PlayerEatingManager.ResetStomackSize();
 
         timePass.SetActive(true); // cutscene object
         if(gameHasBeenStartedOnce && GameManager.sanityHealth > 0) {

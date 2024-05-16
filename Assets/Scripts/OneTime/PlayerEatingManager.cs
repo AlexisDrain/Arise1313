@@ -11,9 +11,17 @@ public class PlayerEatingManager : MonoBehaviour {
     public static bool ateBurger = false;
     public static bool ateSomethingelse = false;
 
-    void Start()
+    public static void RestartEatingManager()
     {
-        
+        PlayerEatingManager.myLastMealIs = "- Nothing\n";
+        PlayerEatingManager.stomachSize = 3;
+        ateAppleJuice = false;
+        ateBurger = false;
+        ateSomethingelse = false;
+    }
+
+    public static void ResetStomackSize() {
+        PlayerEatingManager.stomachSize = 3;
     }
 
     public static void Consume(InventoryGridItem selectedGridItem) {
@@ -39,7 +47,6 @@ public class PlayerEatingManager : MonoBehaviour {
         }
         else if (selectedGridItem.myInvItem == InvItem.AppleJuice) {
             ateAppleJuice = true;
-            GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_BurgerBread, GameManager.inventory.transform);
         } else {
             ateSomethingelse = true;
         }
