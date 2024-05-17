@@ -205,12 +205,20 @@ public class FoodQuestionare : MonoBehaviour
         // give dull or sharp pencil
         if (dullPencilCountdown <= 0) {
             GameObject.Instantiate(invItemPencilDull, GameManager.inventory.transform);
+            GameManager.hasPencilDull = true;
         } else {
             GameObject.Instantiate(invItemPencilSharp, GameManager.inventory.transform);
+            GameManager.hasPencilSharp = true;
         }
 
         GameManager.StopFoodQuestionnaire();
         PlayerGiveMealDinner();
         GameManager.ShowMessage("You got dinner. Press TAB to view & eat it."); // done here and not in PlayerGiveMealDinner(). hack
+
+        // hack in case the player has zero sanity in chef dialogue
+        if (GameManager.sanityHealth <= 0) {
+            GameManager.StartSayonara(SayonaraType.SayonaraZeroSanity);
+        }
+
     }
 }

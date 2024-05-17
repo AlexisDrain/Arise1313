@@ -43,8 +43,12 @@ public class StoryType : MonoBehaviour
     public void CloseNovel() {
         StopCoroutine("Typewriter");
         GameManager.StopNovel();
-        if(GameManager.sanityHealth <= 0) {
-            GameManager.StartSayonara(SayonaraType.SayonaraZeroSanity);
+        if (GameManager.sanityHealth <= 0) {
+            if(GameManager.hasPencilDull || GameManager.hasPencilSharp) {
+                GameManager.StartSayonara(SayonaraType.SayonaraZeroSanity);
+            } else {
+                GameManager.ShowMessage("You cannot attempt suicide because you do not have a pencil");
+            }
         }
     }
     public void NovelStartFromIntro() {
@@ -321,6 +325,7 @@ public class StoryType : MonoBehaviour
             inkStory.Continue();
             finalText += inkStory.currentText + "\n";
         }
+        // inkStory.currentTags.Clear(); // hack.
 
         // buttons
         choice0.HideChoice();

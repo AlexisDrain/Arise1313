@@ -103,14 +103,23 @@ https://www.pexels.com/video/video-of-funny-cat-855029/
 Midjourney https://www.midjourney.com/
 
 === SFX ===
+- Button SFX:
+Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
+
 - Sayonara minigame's buttons:
 Good button: Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
-Bad button: Piano Sound Bank (For sayonara minigame's Good/Bad word buttons): https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
+Bad button: Piano Sound Bank: https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html
 
-- Footsteps
+- Sayonara SFX:
+Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
+
+- Sanity Up / Down:
+Sonniss 2017 - Game Audio Bundle\MatiasMacSD - PIANO ZONE_ATMOSPHERIC ELEMENTS\Upright Piano_Transition-08.wav
+
+- Footsteps:
 https://freesound.org/people/avakas/sounds/172362/
 
-- Clock ticking (time progress)
+- Clock ticking (time progress):
 Sonniss 2023 - Game Audio Bundle \ InspectorJ - Essentials 02 Clocks\CLOCKTick_InsJ_Clock-03_Ticking_Multi_LOOP.wav
 
 - Door open:  
@@ -122,9 +131,6 @@ Sonniss 2020 - Game Audio Bundle\344 Audio - Practical Doors\Knocking On Heavy D
 
 - Door slam shut:  
 Sonniss 2016 - Game Audio Bundle\3maze -  Doors, Locks and Drawers\door_close_003.wav  
-
-- Sayonara SFX:
-Sonniss 2023 - Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements - Dark Ambience Pad High Screaming Swarm
 
 - Phone pickup / slam down:
 https://freesound.org/people/cookies+policy/sounds/556495/

@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
     public static int numberOfGroups = 0;
     public static int numberOfTherapists = 0;
     public static int numberOfPrayer = 0;
+    public static bool hasPencilDull = false;
+    public static bool hasPencilSharp = false;
 
     // ritual
     public static bool knowsStepOne = false;
@@ -176,6 +178,8 @@ public class GameManager : MonoBehaviour
         numberOfTherapists = 0;
         numberOfPrayer = 0;
         sanityHealth = 3;
+        GameManager.hasPencilDull = false;
+        GameManager.hasPencilSharp = false;
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
