@@ -271,7 +271,7 @@ Who do you want to call? // there's a bug where a knot that has only one sentenc
 + [2- Leave.] -> telephone_noone
 === telephone_sibling ===
 # image_black
-# sanityDown
+// # sanityDown
 When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: “Are you sure you’re taking your meds?”
 + [1- Leave.] -> stopNovel
 
@@ -342,7 +342,7 @@ asdf
 + [asdf] -> END
 
 === worship_ritualstep ===
-# sanityDownTwice
+// # sanityDownTwice
 After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
 "What?"
 "I already said too much. Just go now. We can't talk."

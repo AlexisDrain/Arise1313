@@ -47,7 +47,7 @@ public class StoryType : MonoBehaviour
             if(GameManager.hasPencilDull || GameManager.hasPencilSharp) {
                 GameManager.StartSayonara(SayonaraType.SayonaraZeroSanity);
             } else {
-                GameManager.ShowMessage("You cannot attempt suicide because you do not have a pencil");
+                GameManager.ShowMessage("You cannot attempt suicide because you do not have a pencil.");
             }
         }
     }

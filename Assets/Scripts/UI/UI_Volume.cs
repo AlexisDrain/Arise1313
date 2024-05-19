@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 /*
 * Author: Alexis Clay Drain
@@ -11,25 +12,39 @@ using UnityEngine.UI;
 public class UI_Volume : MonoBehaviour
 {
 	public AudioMixer audioMixer;
-	public Text text_VolumeAmount;
+	public TextMeshProUGUI text_VolumeAmount;
     public Slider slider;
 	public bool music = true;
     public bool footsteps = false;
 
+    /*
     public void VolumeIncreaseByPoint5() {
-        /* OldRange = (OldMax - OldMin)
-			NewRange = (NewMax - NewMin)
-			NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin */
         slider.value += 0.05f;
         slider.value = Mathf.Clamp(slider.value, 0.001f, 1f);
 
         UpdateValues();
     }
     public void VolumeDecreaseByPoint5() {
+        slider.value -= 0.05f;
+        slider.value = Mathf.Clamp(slider.value, 0.001f, 1f);
+
+        UpdateValues();
+    }
+    */
+    public void VolumeIncreaseByPoint10() {
         /* OldRange = (OldMax - OldMin)
 			NewRange = (NewMax - NewMin)
 			NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin */
-        slider.value -= 0.05f;
+        slider.value += 0.1f;
+        slider.value = Mathf.Clamp(slider.value, 0.001f, 1f);
+
+        UpdateValues();
+    }
+    public void VolumeDecreaseByPoint10() {
+        /* OldRange = (OldMax - OldMin)
+			NewRange = (NewMax - NewMin)
+			NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin */
+        slider.value -= 0.1f;
         slider.value = Mathf.Clamp(slider.value, 0.001f, 1f);
 
         UpdateValues();

@@ -9,6 +9,8 @@ public class ToggleTabMenu : MonoBehaviour
     private GameObject inventory;
     private GameObject inventoryTooltip;
     private GameObject iconTime;
+    public GameObject button_options;
+    public GameObject optionsMenu;
     void Start()
     {
         // quests = transform.Find("Quests").gameObject;
@@ -21,6 +23,7 @@ public class ToggleTabMenu : MonoBehaviour
         inventoryTooltip.SetActive(false);
         iconTime = transform.Find("IconTime").gameObject;
         iconTime.SetActive(false);
+        button_options.SetActive(false);
 
         GameManager.playerInTabMenu = false;
     }
@@ -31,6 +34,8 @@ public class ToggleTabMenu : MonoBehaviour
         inventory.SetActive(false);
         inventoryTooltip.SetActive(false);
         iconTime.SetActive(false);
+        button_options.SetActive(false);
+        optionsMenu.SetActive(false);
         GameManager.playerInTabMenu = false;
 
         GameObject futurePaper = GameObject.Find("Canvas/FuturePaper");
@@ -57,6 +62,7 @@ public class ToggleTabMenu : MonoBehaviour
                 sanity.GetComponent<SanityController>().StopCoroutine("DisapearSanity");
                 inventory.SetActive(true);
                 iconTime.SetActive(true);
+                button_options.SetActive(true);
                 // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 GameManager.playerInTabMenu = true;
             } else if (inventory.activeSelf == true) {

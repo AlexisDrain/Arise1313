@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     public static GameObject imageScreenTransition;
     public static GameObject timePass;
     public static GameObject mainMenu;
+    public static GameObject mainMenuButtons;
     public static GameObject endingMenu;
     public static GameObject musicObj;
     public static GameObject mainMenuMusic;
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
         timePass = GameObject.Find("Canvas/TimePass");
         timePass.SetActive(false);
         mainMenu = GameObject.Find("Canvas/MainMenu").gameObject;
+        mainMenuButtons = mainMenu.transform.Find("MainMenuButtons").gameObject;
         endingMenu = GameObject.Find("Canvas/EndingMenu").gameObject;
         endingMenu.SetActive(false);
         musicObj = GameObject.Find("TimedObjects_Music").gameObject;
@@ -185,6 +187,7 @@ public class GameManager : MonoBehaviour
         knowsStepThree = false;
         PlayerEatingManager.RestartEatingManager();
 
+        outroWorld.SetActive(false);
         RenderSettings.fog = true;
         RenderSettings.reflectionIntensity = 1f;
         RenderSettings.ambientIntensity = 1f;
@@ -198,7 +201,7 @@ public class GameManager : MonoBehaviour
         endingMenu.SetActive(false);
         mainMenu.SetActive(true);
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
-        mainMenu.transform.Find("Buttons").gameObject.SetActive(true);
+        mainMenuButtons.gameObject.SetActive(true);
     }
     public static void GoToOutro() {
         endingMenu.SetActive(false);
