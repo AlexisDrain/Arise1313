@@ -7,7 +7,7 @@ Asylum simulator, visual novel. The fate of the world relies on one schizophreni
 Controls:  
 - WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.  
 - Press P or TAB to see inventory and options menu.  
-- Hold right mouse click or F to close eyes. Helpful to identify the name of the rooms and for some puzzles.  
+- Hold right mouse click or F to close eyes. Helpful to identify the name of the rooms and for one puzzle.  
 - Press left mouse click or E to use/talk.  
 - Use mouse or number keys 1 and 2 to select choices in dialogue.  
 

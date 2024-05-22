@@ -61,6 +61,7 @@ This could be where I will spend the last few days of my life.
     Nurse desk / tutorial girl
 */
 
+// Day 1 morning
 === nursedesk_1 ===
 # image_black
 The nurse says: "Welcome. Welcome to New Dawn. We were expecting you at our humble psychiatric floor."
@@ -68,13 +69,23 @@ She continues: "I suggest getting breakfast first, then you have the option of g
 "Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
-=== nursedesk_2_4_5 ===
+// Day 1 + Day 2 Eve
+=== nursedesk_2_5 ===
 # image_black
 The nurse says: "You should get dinner, then you might want to go to the chaplain in the prayer room, he want to talk to you! It's the last room on the hallway to my right."
 "After that, if you've already tried group then you should go to the therapist. Or vice versa."
 "Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
+// Day 2 Morn
+=== nursedesk_4 ===
+# image_black
+The nurse says: "You should get breakfast, then you might want to go to the chaplain in the prayer room, he want to talk to you! It's the last room on the hallway to my right."
+"After that, if you've already tried group then you should go to the therapist. Or vice versa."
+"Don't forget, if you don't know where to go, you should come talk to me!"
++ [1- Leave.] -> stopNovel
+
+// Day 1 Night
 === nursedesk_3 ===
 # image_black
 The nurse says: "It's waaay past bedtime for you. You should go to your room, it's the blue door on your right."
@@ -82,6 +93,7 @@ The nurse says: "It's waaay past bedtime for you. You should go to your room, it
 "Don't forget, if you don't know where to go, you should come talk to me!"
 + [1- Leave.] -> stopNovel
 
+// Day 2 Night
 === nursedesk_6 ===
 # image_black
 The nurse says: "Tonight is the night. Go to the prayer room, stat! Or else..."
