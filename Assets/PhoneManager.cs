@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhoneManager : MonoBehaviour
 {
+    [Header("read only")]
     public bool _calledRitualDadDay1;
     public bool _calledRitualDadDay2;
     public bool _calledParentsDay;

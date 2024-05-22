@@ -148,8 +148,11 @@ Nice Nurse: “It’s very late for you sweetie. Here’s a cup of hot chocolate
 */
 === ritual_0 ===
 # image_black
+# updateMealString
 Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
 I must do step 1 and 2 before starting. I could do step 3 during the ritual.
+The last meal I had was:
+{finalMeal}
 + [1- Delay The Ritual.] -> stopNovelTeleportPlayerToRitualRoom
 + [2- Start The Ritual.] -> ritual_step1
 
@@ -214,8 +217,13 @@ The chaplain says, "the ritual failed. There's no point in doing the Third step.
 
 === ritual_step3_failedStepOneTwo2 ===
 "Dear god! The invasion is real!"
-Hellfire. Eternal Toture.
-[1- Continue.] -> stopNovel
+An army of military men lead by a stern, authoritative figure break into the hospital. In seconds that feel like hours later, they meet you in the prayer room.
+"You have disappointed me for the last time. Hellfire. Eternal Toture. This is the fate of you and other misguided infidels."
+[1- Continue.] -> ending_bad_ritualIncorrect
+
+=== ritual_step3_checkPet ===
+# checkStep3Pet
+-> END
 
 === ritual_step3_pet ===
 # image_black
@@ -625,6 +633,9 @@ Amelia "The Time-Sorceress" Hawthorne: As a practitioner of forbidden temporal m
 # stopNovelTeleportPlayerToRitualRoom
 -> END
 
+=== ending_bad_ritualIncorrect ===
+# ending_bad_ritualIncorrect
+-> END
 === ending_good_sacrificeChaplain ===
 # ending_good_sacrificeChaplain
 -> END

@@ -511,6 +511,12 @@ public class GameManager : MonoBehaviour
             blinkCamera.transform.rotation = Quaternion.Lerp(blinkCamera.transform.rotation, bedCameraTransform.rotation, 0.01f);
         }
 
+        // activate cheat mode
+        if (Input.GetKey(KeyCode.C)
+        && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
+            GameManager.ShowMessage("Cheat: activate cheats");
+            GameManager.gameManagerObj.GetComponent<GameManager>().cheatMode = true;
+        }
         if (cheatMode == true) {
 
             // skip intro novel

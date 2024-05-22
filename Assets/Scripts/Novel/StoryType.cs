@@ -217,18 +217,26 @@ public class StoryType : MonoBehaviour
                 inkStory.variablesState["finalMeal"] = PlayerEatingManager.myLastMealIs;
             }
             if (inkStory.currentTags[i] == "checkStep2") {
-                if (GameManager.stepTwoComplete) {
+                if (PlayerEatingManager.ateAppleJuice && PlayerEatingManager.ateBurger && PlayerEatingManager.ateSomethingelse == false) {
                     GameManager.StartNovel("ritual_step2_correct");
+                    GameManager.stepTwoComplete = true;
                 } else {
                     GameManager.StartNovel("ritual_step2_incorrect");
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkStep3") {
+                /*
                 if (GameManager.stepThreeComplete) {
                     GameManager.StartNovel("ritual_step3_pet");
                 } else {
                     GameManager.StartNovel("ritual_step3_nopet");
+                }
+                */
+                if(GameManager.stepOneComplete && GameManager.stepTwoComplete) {
+                    GameManager.StartNovel("ritual_step3_checkPet");
+                } else {
+                    GameManager.StartNovel("ritual_step3_failedStepOneTwo");
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
@@ -278,6 +286,10 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "ending_good_sacrificePet") {
                 CloseNovel();
                 GameManager.EndGame("You sacrificed a cat to save the world.", true);
+            }
+            if (inkStory.currentTags[i] == "ending_bad_ritualIncorrect") {
+                CloseNovel();
+                GameManager.EndGame("You failed to perform the ritual. The world has ended. You will be tortured forever.", false);
             }
 
             if (inkStory.currentTags[i] == "sayonaraStart_Intro") {
