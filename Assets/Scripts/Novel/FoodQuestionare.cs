@@ -95,6 +95,27 @@ public class FoodQuestionare : MonoBehaviour
         dullPencilText.SetActive(false);
     }
 
+    public void CheatGiveEverything() {
+
+        GameObject.Instantiate(item_Oatmeal, GameManager.inventory.transform);
+        GameObject.Instantiate(item_ScrambledEggs, GameManager.inventory.transform);
+        GameObject.Instantiate(item_FrenchToast, GameManager.inventory.transform);
+        GameObject.Instantiate(item_AppleJuice, GameManager.inventory.transform);
+        GameObject.Instantiate(item_CranberryJuice, GameManager.inventory.transform);
+        GameObject.Instantiate(item_OrangeJuice, GameManager.inventory.transform);
+        GameObject.Instantiate(item_DecafCoffee, GameManager.inventory.transform);
+        GameObject.Instantiate(item_Pizza, GameManager.inventory.transform);
+        GameObject.Instantiate(item_Burger, GameManager.inventory.transform);
+        GameObject.Instantiate(item_Hummus, GameManager.inventory.transform);
+        GameObject.Instantiate(item_Rice, GameManager.inventory.transform);
+        GameObject.Instantiate(item_MacAndCheese, GameManager.inventory.transform);
+        GameObject.Instantiate(item_AppleJuice, GameManager.inventory.transform);
+        GameObject.Instantiate(item_Milk, GameManager.inventory.transform);
+        GameObject.Instantiate(item_DecafCoffee, GameManager.inventory.transform);
+        GameObject.Instantiate(item_BurgerBread, GameManager.inventory.transform);
+        GameObject.Instantiate(item_ChocolateMilk, GameManager.inventory.transform);
+
+    }
     public void PlayerGiveMealBreakfast() {
         GameManager.playerGotBreakfast = true; // set to false in player wake up
 

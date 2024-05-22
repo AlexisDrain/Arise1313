@@ -576,9 +576,17 @@ public class GameManager : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.K)
             && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {
-                foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
-                foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                //foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
+                //foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                foodQuestionnaire.GetComponent<FoodQuestionare>().CheatGiveEverything();
                 GameManager.ShowMessage("Cheat: Give player food");
+            }
+            if (Input.GetKey(KeyCode.K)
+            && (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))) {
+                //foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealBreakfast();
+                //foodQuestionnaire.GetComponent<FoodQuestionare>().PlayerGiveMealDinner();
+                GameManager.ShowMessage("Cheat: become hungry");
+                PlayerEatingManager.ResetStomackSize();
             }
         }
     }
