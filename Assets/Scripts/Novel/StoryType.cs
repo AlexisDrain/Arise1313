@@ -98,8 +98,41 @@ public class StoryType : MonoBehaviour
             }
 
             if (inkStory.currentTags[i] == "confiscate") {
+                // depricated
                 inkStory.variablesState["confiscateVar"] = "";
             }
+            // phone
+            if (inkStory.currentTags[i] == "checkPhone") {
+                GameManager.phoneManager.StoryCallCorrectPerson();
+                return;
+            }
+            if (inkStory.currentTags[i] == "telephone_checkWeirdNumber") {
+                if (GameManager.currentDayOfWeek == DayOfWeek.DayOne && GameManager.phoneManager._calledRitualDadDay1 == false) {
+                    GameManager.StartNovel("telephone_ritual_wrongDay");
+                    GameManager.phoneManager._calledRitualDadDay1 = true;
+                    return;
+                } else if (GameManager.currentDayOfWeek == DayOfWeek.DayTwo && GameManager.phoneManager._calledRitualDadDay2 == false) {
+                    GameManager.StartNovel("telephone_ritual_rightDay");
+                    GameManager.stepOneComplete = true;
+                    GameManager.phoneManager._calledRitualDadDay2 = true;
+                    return;
+                }
+                return;
+            }
+            
+            if (inkStory.currentTags[i] == "boolTrue_calledParentsDay") {
+                GameManager.phoneManager._calledParentsDay = true;
+                return;
+            }
+            if (inkStory.currentTags[i] == "boolTrue_calledParentsNight") {
+                GameManager.phoneManager._calledParentsNight = true;
+                return;
+            }
+            if (inkStory.currentTags[i] == "boolTrue_calledSiblingsDay") {
+                GameManager.phoneManager._calledSiblingsDay = true;
+                return;
+            }
+
             // chaplain
             if (inkStory.currentTags[i] == "checkWorship") {
                 if (GameManager.numberOfPrayer == 0) {

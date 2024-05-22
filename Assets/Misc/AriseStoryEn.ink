@@ -245,13 +245,27 @@ The ritual, in total, is correct.
 You try sticking the pencil in your eye but it's too dull to cause any harm to your eye or brain.
 + [1- Continue.] -> stopNovel
 
-=== telephone_3 ===
+=== telephone ===
 # image_black
 # sfx_phoneUp
+# checkPhone
+-> END
+
+=== telephone_1 ===
 You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_parents
-+ [2- Leave.] -> telephone_noone
++ [2- Hang up.] -> telephone_noone
+=== telephone_2 ===
+You pick up the phone receiver.
+Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Call sibling.] -> telephone_sibling
++ [2- Hang up.] -> telephone_noone
+// === telephone_calledEveryone ===
+// You pick up the phone receiver.
+// Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
+// + [1- Leave.] -> telephone_noone
+
 === telephone_noone ===
 After thinking, you do not have anyone on mind to call.
 You put the receiver back.
@@ -259,21 +273,16 @@ You put the receiver back.
 === telephone_parents ===
 # image_black
 # sanityUp
+# boolTrue_calledParentsDay
 Your relationship with your parents is normally strained, but opening up about your suicidal ideation and your hospitalization brings anyone together.
-+ [1- Leave.] -> stopNovel
++ [1- Hang up.] -> stopNovel
 
-=== telephone_2 ===
-# image_black
-# sfx_phoneUp
-You pick up the phone receiver.
-Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
-+ [1- Call sibling.] -> telephone_sibling
-+ [2- Leave.] -> telephone_noone
 === telephone_sibling ===
 # image_black
+# boolTrue_calledSiblingsDay
 // # sanityDown
 When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: “Are you sure you’re taking your meds?”
-+ [1- Leave.] -> stopNovel
++ [1- Hang up.] -> stopNovel
 
 === telephone_night ===
 # image_black
@@ -282,12 +291,37 @@ You pick up the phone receiver.
 Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
 + [1- Call parents.] -> telephone_night_parents
 + [2- Leave.] -> telephone_noone
+
 === telephone_night_parents ===
 # image_black
 # sanityUp
+# boolTrue_calledParentsNight
 Despite the hour being almost midnight, your parents are awake and concerened about your health. They were thinking of you when you called.
 They make you promise not to go back to the hospital.
-+ [1- Leave.] -> stopNovel
++ [1- Hang up.] -> stopNovel
+
+
+=== telephone_dialWeirdNumber ===
+You pick up the phone receiver.
+Who do you want to call? // there's a bug where a knot that has only one sentence repeats its tags, so we add another sentence here.
++ [1- Dial 69624-105-9226] -> telephone_checkWeirdNumber
++ [2- Hang up.] -> telephone_noone
+=== telephone_checkWeirdNumber ===
+# telephone_checkWeirdNumber
+-> END
+
+
+=== telephone_ritual_wrongDay ===
+The voice on the other end carries a weight of familiarity, one you knew from childhood...
+“You're supposed to call me TOMORROW, MORON!”
+The man on the other side of the phone hangs up.
++ [1- Hang up.] -> stopNovel
+
+=== telephone_ritual_rightDay ===
+The voice on the other end carries a weight of familiarity, but you don’t remember who it is.
+“So you finally called! You better complete the rest of the ritual tonight PROPERLY or I will detach your teeth!”
+The man on the other side of the phone hangs up.
++ [1- Hang up.] -> stopNovel
 
 /*
     house of worship

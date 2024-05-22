@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public static GameObject inventory;
     public static InventoryTooltip invTooltip;
     public static PlayerEatingManager playerEatingManager;
+    public static PhoneManager phoneManager;
     public static GameObject imageScreenTransition;
     public static GameObject timePass;
     public static GameObject mainMenu;
@@ -78,10 +79,20 @@ public class GameManager : MonoBehaviour
     public static bool hasPencilDull = false;
     public static bool hasPencilSharp = false;
 
+    // phone manager:
+    /*
+    public static bool knowsStepOne;
+    public static bool calledRitualDay1;
+    public static bool calledRitualDay2;
+    public static bool calledParentsDay;
+    public static bool calledParentsNight;
+    public static bool calledSiblings;
+    */
+
     // ritual
-    public static bool knowsStepOne = false;
-    public static bool knowsStepTwo = false;
-    public static bool knowsStepThree = false;
+    public static bool knowsStepOne = false; // the phone number
+    public static bool knowsStepTwo = false; // final meal
+    public static bool knowsStepThree = false; // sacrifice
     public static bool stepOneComplete = false;
     public static bool stepTwoComplete = false;
     public static bool stepThreeComplete = false;
@@ -141,6 +152,7 @@ public class GameManager : MonoBehaviour
         inventory = GameObject.Find("Canvas/TabMenu/Inventory");
         invTooltip = GameObject.Find("Canvas/TabMenu/InventoryTooltip").GetComponent<InventoryTooltip>();
         playerEatingManager = GetComponent<PlayerEatingManager>();
+        phoneManager = GetComponent<PhoneManager>();
         imageScreenTransition = GameObject.Find("ScreenTransition");
         timePass = GameObject.Find("Canvas/TimePass");
         timePass.SetActive(false);
@@ -186,6 +198,7 @@ public class GameManager : MonoBehaviour
         knowsStepTwo = false;
         knowsStepThree = false;
         PlayerEatingManager.RestartEatingManager();
+        GameManager.phoneManager.RestartPhoneStats();
 
         outroWorld.SetActive(false);
         RenderSettings.fog = true;
