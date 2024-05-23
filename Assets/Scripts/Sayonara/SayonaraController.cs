@@ -22,7 +22,7 @@ public class SayonaraController : MonoBehaviour
     public float healthStart = 0.6f;
     public float waitUntilRemoveDefault = 1.5f;
     public float waitUntilSpawnNewDefault = 1.5f;
-    public bool hideHand = false;
+    public bool hideKill = false;
 
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
@@ -48,7 +48,7 @@ public class SayonaraController : MonoBehaviour
             sayonaraTutorialText.SetActive(false);
             text_getReady.SetActive(true);
         }
-        if (hideHand == true) {
+        if (hideKill == true) {
             imageHand.GetComponent<Image>().enabled = false;
         } else {
             imageHand.GetComponent<Image>().enabled = true;
@@ -108,7 +108,9 @@ public class SayonaraController : MonoBehaviour
             = new Vector2(200f, imageHand.GetComponent<RectTransform>().anchoredPosition.y);
 
         spawnSayonara.DestroyAllMembers();
-        animFace.SetTrigger("Die");
+        if (hideKill == false) {
+            animFace.SetTrigger("Die");
+        }
         yield return new WaitForSeconds(1.5f);
         GameManager.FadeInThenOut();
         yield return new WaitForSeconds(0.5f);

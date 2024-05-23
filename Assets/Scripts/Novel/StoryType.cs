@@ -174,6 +174,13 @@ public class StoryType : MonoBehaviour
                 GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().item_ChocolateMilk, GameManager.inventory.transform);
             }
 
+            // blood pressure
+            if (inkStory.currentTags[i] == "checkBloodPressure") {
+                CloseNovel();
+                GameManager.StartSayonara(SayonaraType.SayonaraBloodPressure);
+                return;
+            }
+
             // brother encounter
             if (inkStory.currentTags[i] == "checkBrother") {
                 if (GameManager.storySeenBrother == false) {

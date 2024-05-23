@@ -118,8 +118,25 @@ He’s beaming with pride at playing this song. He probably wrote it.
 # image_black
 You see a bubbly young nurse with flowing blonde hair, chewing bubble gum.
 She says, "Hi, I'm doing blood pressure rounds. It's like, super important, you know? Let me take yours."
-She wraps a cuff around your arm. The machine gives you a fractional number which you immediately forget.
++ [1- Wrap cuff around your arm.] -> bloodpressure_check
++ [2- Leave.] -> stopNovel
+
+=== bloodpressure_check ==
+# checkBloodPressure
+-> END
+
+=== bloodpressure_good ===
+# sanityUp
+The machine gives you a fractional number which you immediately forget.
 "Oh yay, looking good! Your BP is totally on point, like, seriously awesome!"
+Despite your stress, you manage to keep it cool enough that the machine gives you a normal figure.
++ [1- "Ok..." Leave.] -> stopNovel
+
+=== bloodpressure_bad ===
+# sanityDown
+The machine gives you a fractional number which you immediately forget.
+"You seem so stressed!" She gives you a frown so animated it looks cartoonish. "Please take it easy!"
+You can't take it easy. If people find out you're stressed they might keep you here forever.
 + [1- "Ok..." Leave.] -> stopNovel
 
 === bystander_1 ===
@@ -151,8 +168,8 @@ Nice Nurse: “It’s very late for you sweetie. Here’s a cup of hot chocolate
 # image_black
 # updateMealString
 Tonight is the night. The ritual must be followed as described by the letter sent to me from the future.
-I must do step 1 and 2 before starting. I could do step 3 during the ritual.
-The last meal I had was:
+You must do step 1 and 2 before starting. You could do step 3 during the ritual.
+The last meal you had was:
 {finalMeal}
 + [1- Delay The Ritual.] -> stopNovelTeleportPlayerToRitualRoom
 + [2- Start The Ritual.] -> ritual_step1
@@ -160,7 +177,7 @@ The last meal I had was:
 // Step 1
 === ritual_step1 ===
 # image_black
-With trembling hands, I enacted the banishment ritual.
+With trembling hands, you enacted the banishment ritual.
 Step One: Dialing the number: 69624-105-9226
 + [1- Continue.] -> ritual_step1_check
 
@@ -170,12 +187,12 @@ Step One: Dialing the number: 69624-105-9226
 
 === ritual_step1_correct ===
 # image_black
-I have dialed the number correctly the past day.
+You have dialed the number correctly the past day.
 + [1- Continue.] -> ritual_step2
 
 === ritual_step1_incorrect ===
 # image_black
-I forgot to dial it before the ritual.
+You forgot to dial it before the ritual.
 + [1- Continue.] -> ritual_step2
 
 // Step 2
@@ -183,7 +200,7 @@ I forgot to dial it before the ritual.
 # image_black
 # updateMealString
 Step Two: The Last Meal: Demon piss and flesh. I.e. Apple juice and meat.
-The last meal I had was:
+The last meal you had was:
 {finalMeal}
 + [1- Continue.] -> ritual_step2_check
 
@@ -193,12 +210,12 @@ The last meal I had was:
 
 === ritual_step2_correct ===
 # image_black
-My last meal matches the second ritual step meal.
+Your last meal matches the second ritual step meal.
 + [1- Continue.] -> ritual_step3
 
 === ritual_step2_incorrect ===
 # image_black
-My last meal DOES NOT match the second ritual step meal.
+Your last meal DOES NOT match the second ritual step meal.
 + [1- Continue.] -> ritual_step3
 
 // Step 3
@@ -228,14 +245,14 @@ An army of military men lead by a stern, authoritative figure break into the hos
 
 === ritual_step3_pet ===
 # image_black
-I have blood from the cat I killed earlier.
+You present the bloodied pencil from the cat you killed earlier.
 The chaplin says, "the Third step is complete. I'm somehow glad we didn't have to sacrifice ourselves. I pray for Littlepip's soul."
 + [1- Continue.] -> ritual_totalPet
 
 === ritual_step3_nopet ===
 # image_black
 "One of use has to do the sacrifice," the chaplain says. "I am ready to do it, but the only weapon we have is this sharp pencil."
-Our gazes meet. "My soul, or yours. I leave you to decide."
+Your gazes meet. "My soul, or yours. I leave you to decide."
 + [1- Sacrifice self.] -> ritual_totalSelf
 + [2- Sacrifice chaplain.] -> ritual_totalChaplain
 

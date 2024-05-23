@@ -507,6 +507,12 @@ public class GameManager : MonoBehaviour
             GameManager.SetTimeOfDay(currentTimeOfDay);
             sayonaraZeroSanityController.gameObject.SetActive(false);
         }
+        if (sayonaraRitualController.gameObject.activeSelf) {
+            sayonaraRitualController.gameObject.SetActive(false);
+        }
+        if (sayonaraBloodPressureController.gameObject.activeSelf) {
+            sayonaraBloodPressureController.gameObject.SetActive(false);
+        }
 
         sayonaraAssets.gameObject.SetActive(false);
     }
