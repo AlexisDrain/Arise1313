@@ -74,8 +74,10 @@ https://www.inklestudios.com/ink/
 === Fonts ===  
 - Jo_wrote_a_lovesong By Lars Manenschijn - "free for commercial use" license
 https://www.1001fonts.com/jo-wrote-a-lovesong-font.html
+
 - Roboto-Black by Christian Robertson - Apache License Version 2.0  
 https://fonts.google.com/specimen/Roboto
+
 - Digital by shetshow - SIL OPEN FONT LICENSE Version 1.1
 https://fontstruct.com/fontstructions/show/1770102/digital-183
 
