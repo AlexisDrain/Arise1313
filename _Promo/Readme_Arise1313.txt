@@ -103,8 +103,11 @@ https://www.pexels.com/video/video-of-funny-cat-855029/
 Midjourney https://www.midjourney.com/
 
 === SFX ===
-- Button SFX:
+- UI buttons click SFX:
 Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  
+
+- UI buttons hover + blood pressure minigame.
+BFXR https://www.bfxr.net/
 
 - Sayonara minigame's buttons:
 Good button: Halfquake 1 by Muddasheep: https://store.steampowered.com/app/644320/Halfquake_Trilogy/  

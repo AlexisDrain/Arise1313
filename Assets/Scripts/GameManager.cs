@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public static SpawnSayonara sayonaraAssetsSpawn;
     public static SayonaraController sayonaraIntroController;
     public static SayonaraController sayonaraZeroSanityController;
+    public static SayonaraController sayonaraRitualController;
+    public static SayonaraController sayonaraBloodPressureController;
     // canvas
     //public static GameObject dream;
     public static GameObject foodQuestionnaire; 
@@ -136,6 +138,10 @@ public class GameManager : MonoBehaviour
         sayonaraIntroController.gameObject.SetActive(false);
         sayonaraZeroSanityController = GameObject.Find("Canvas/Sayonara/SayonaraZeroSanity").GetComponent<SayonaraController>();
         sayonaraZeroSanityController.gameObject.SetActive(false);
+        sayonaraRitualController = GameObject.Find("Canvas/Sayonara/SayonaraRitual").GetComponent<SayonaraController>();
+        sayonaraRitualController.gameObject.SetActive(false);
+        sayonaraBloodPressureController = GameObject.Find("Canvas/Sayonara/SayonaraBloodPressure").GetComponent<SayonaraController>();
+        sayonaraBloodPressureController.gameObject.SetActive(false);
         sayonaraAssets = GameObject.Find("Canvas/Sayonara/SayonaraAssets");
         sayonaraAssetsSpawn = GameObject.Find("Canvas/Sayonara/SayonaraAssets/Pool_ButtonSayonara").GetComponent<SpawnSayonara>();
         sayonaraAssets.gameObject.SetActive(false);
@@ -480,6 +486,10 @@ public class GameManager : MonoBehaviour
             currentSayonaraController.sayonaraTutorial = true;
         } else if (mySayonaraType == SayonaraType.SayonaraZeroSanity) {
             currentSayonaraController = sayonaraZeroSanityController;
+        } else if (mySayonaraType == SayonaraType.SayonaraRitual) {
+            currentSayonaraController = sayonaraRitualController;
+        } else if (mySayonaraType == SayonaraType.SayonaraBloodPressure) {
+            currentSayonaraController = sayonaraBloodPressureController;
         }
 
         currentSayonaraController.gameObject.SetActive(true);
@@ -516,6 +526,7 @@ public class GameManager : MonoBehaviour
         && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
             GameManager.ShowMessage("Cheat: activate cheats");
             GameManager.gameManagerObj.GetComponent<GameManager>().cheatMode = true;
+            StartSayonara(SayonaraType.SayonaraBloodPressure);
         }
         if (cheatMode == true) {
 

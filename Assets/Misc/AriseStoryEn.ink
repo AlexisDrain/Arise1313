@@ -141,6 +141,7 @@ You approach a patient whispering to himself. You feel sorry for his roommate.
 # sanityUp
 # giveChocolate
 Nice Nurse: “It’s very late for you sweetie. Here’s a cup of hot chocolate, but don’t tell anyone I got it for you.” She winks and hands you a cup.
+"By the way, if you still can't sleep, then call your parents on the public phone. From my experience, parents of patients can't sleep easy either."
 + [1- Thank her and leave.] -> stopNovel
 
 /*

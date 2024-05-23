@@ -22,6 +22,7 @@ public class SayonaraController : MonoBehaviour
     public float healthStart = 0.6f;
     public float waitUntilRemoveDefault = 1.5f;
     public float waitUntilSpawnNewDefault = 1.5f;
+    public bool hideHand = false;
 
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
@@ -47,6 +48,11 @@ public class SayonaraController : MonoBehaviour
             sayonaraTutorialText.SetActive(false);
             text_getReady.SetActive(true);
         }
+        if (hideHand == true) {
+            imageHand.GetComponent<Image>().enabled = false;
+        } else {
+            imageHand.GetComponent<Image>().enabled = true;
+        }
     }
 
     private void FixedUpdate() {
@@ -58,10 +64,11 @@ public class SayonaraController : MonoBehaviour
         sayonaraBar2.fillAmount = _sayonaraHealth;
 
         // sayonara hand position. max: 725f. Death: 275f, start: 537f
-        float handPosRange = (725f - 275f);
-        float handPosValue = (_sayonaraHealth * handPosRange) + 275f;
-        imageHand.GetComponent<RectTransform>().anchoredPosition
-            = new Vector2(Mathf.Lerp(imageHand.GetComponent<RectTransform>().anchoredPosition.x, handPosValue, 0.1f), imageHand.GetComponent<RectTransform>().anchoredPosition.y);
+            float handPosRange = (725f - 275f);
+            float handPosValue = (_sayonaraHealth * handPosRange) + 275f;
+            imageHand.GetComponent<RectTransform>().anchoredPosition
+                = new Vector2(Mathf.Lerp(imageHand.GetComponent<RectTransform>().anchoredPosition.x, handPosValue, 0.1f), imageHand.GetComponent<RectTransform>().anchoredPosition.y);
+
 
         if (sayonaraTutorial == true) {
             return;
