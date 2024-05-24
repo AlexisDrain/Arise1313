@@ -17,24 +17,24 @@ Notes:
 
 -----------------
 
-=== Cheats ===
-On your keyboard, hold both buttons at the same time while you are in the 3d game (i.e. walking in the asylum):
-"C + 1" -> Enable cheats (press this first to enable the rest).
+=== Cheats ===  
+On your keyboard, hold both buttons at the same time while you are in the 3d game (i.e. walking in the asylum):  
+"C + 1" -> Enable cheats (press this first to enable the rest).  
 
-"G + 1" -> Go to morning (of the current day.)
-"G + 2" -> Go to evening (of the current day.)
-"G + 3" -> Go to midnight (of the current day.)
-"G + 7" -> Go to day 2.
-"G + 4" -> skip intro novel. Very buggy.
-"J + 1" -> learn all steps of the ritual.
-"J + 2" -> decrease sanity.
-"J + 3" -> increase sanity.
-"J + 5" -> skip to epilogue.
-"H + 1" -> increase how many times you've been to therapist.
-"H + 2" -> increase how many times you've been to group.
-"H + 3" -> increase how many times you've been to chaplain/prayer.
-"K + 3" -> Give all food items in the game.
-"K + 4" -> Become hungry (kind of buggy).
+"G + 1" -> Go to morning (of the current day.)  
+"G + 2" -> Go to evening (of the current day.)  
+"G + 3" -> Go to midnight (of the current day.)  
+"G + 7" -> Go to day 2.  
+"G + 4" -> skip intro novel. Very buggy.  
+"J + 1" -> learn all steps of the ritual.  
+"J + 2" -> decrease sanity.  
+"J + 3" -> increase sanity.  
+"J + 5" -> skip to epilogue.  
+"H + 1" -> increase how many times you've been to therapist.  
+"H + 2" -> increase how many times you've been to group.  
+"H + 3" -> increase how many times you've been to chaplain/prayer.  
+"K + 3" -> Give all food items in the game.  
+"K + 4" -> Become hungry (kind of buggy).  
 
 -----------------------
 
