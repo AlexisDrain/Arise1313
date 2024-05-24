@@ -125,7 +125,9 @@ public class SpawnSayonara : MonoBehaviour {
 
             currentSayonaraController.text_getReady.SetActive(false);
             SpawnGood();
-            SpawnBad();
+            if(currentSayonaraController.disableBadWords == false) {
+                SpawnBad();
+            }
         }
     }
 

@@ -20,9 +20,12 @@ public class SayonaraController : MonoBehaviour
     public float waitBeforeStart = 2.5f;
     public float healthDepletionRate = 0.01f;
     public float healthStart = 0.6f;
+    public float giveHealthAmount = 0.2f;
+    public float loseHealthAmount = 0.1f;
     public float waitUntilRemoveDefault = 1.5f;
     public float waitUntilSpawnNewDefault = 1.5f;
     public bool hideKill = false;
+    public bool disableBadWords = false;
 
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;
@@ -130,10 +133,10 @@ public class SayonaraController : MonoBehaviour
         onSayonaraGood.Invoke();
     }
     public void GiveHealth() {
-        _sayonaraHealth += 0.2f;
+        _sayonaraHealth += giveHealthAmount;
     }
     public void RemoveHealth() {
-        _sayonaraHealth -= 0.1f;
+        _sayonaraHealth -= loseHealthAmount;
     }
 
 }
