@@ -417,7 +417,7 @@ asdf
 // # sanityDownTwice
 After your session, the chaplain grips your hand as you're leaving. "Step Three requires a sacrifice. Of you or another living being." he says.
 "What?"
-"I already said too much. Just go now. We can't talk."
+"Use a sharp pencil if you have to! It doesn't have to be yourself! I already said too much. Just go now. We can't talk."
 + [1- Leave] -> getStepThree
 
 /*

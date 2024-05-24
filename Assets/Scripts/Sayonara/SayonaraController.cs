@@ -26,6 +26,7 @@ public class SayonaraController : MonoBehaviour
     public float waitUntilSpawnNewDefault = 1.5f;
     public bool hideKill = false;
     public bool disableBadWords = false;
+    public bool disableGoodWords = false;
 
     [Header("Read only")]
     public float _sayonaraHealth = 0.6f;

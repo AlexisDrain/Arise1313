@@ -532,6 +532,7 @@ public class GameManager : MonoBehaviour
         && (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))) {
             GameManager.ShowMessage("Cheat: activate cheats");
             GameManager.gameManagerObj.GetComponent<GameManager>().cheatMode = true;
+            // GameManager.StartSayonara(SayonaraType.SayonaraRitual);
         }
         if (cheatMode == true) {
 

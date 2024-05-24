@@ -124,7 +124,9 @@ public class SpawnSayonara : MonoBehaviour {
             waitUntilSpawnNewCurrent = currentSayonaraController.waitUntilSpawnNewDefault;
 
             currentSayonaraController.text_getReady.SetActive(false);
-            SpawnGood();
+            if (currentSayonaraController.disableGoodWords == false) {
+                SpawnGood();
+            }
             if(currentSayonaraController.disableBadWords == false) {
                 SpawnBad();
             }
