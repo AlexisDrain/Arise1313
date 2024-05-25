@@ -247,6 +247,26 @@ public class StoryType : MonoBehaviour
                 }
                 return; // inkStory tags that change the knot needs to return;
             }
+            if (inkStory.currentTags[i] == "checkStep3Pet") {
+                if (GameManager.killedCat) {
+                    GameManager.StartNovel("ritual_step3_pet");
+                } else {
+                    GameManager.StartNovel("ritual_step3_nopet");
+                }
+                return; // inkStory tags that change the knot needs to return;
+            }
+
+            if (inkStory.currentTags[i] == "func_ritual_sayonara") {
+                CloseNovel();
+                GameManager.StartSayonara(SayonaraType.SayonaraRitual);
+                return; // inkStory tags that change the knot needs to return;
+            }
+
+            if (inkStory.currentTags[i] == "func_startOutro") {
+                CloseNovel();
+                GameManager.GoToOutro();
+                return; // inkStory tags that change the knot needs to return;
+            }
 
             if (inkStory.currentTags[i] == "knowStepOne") {
                 GameManager.knowsStepOne = true;

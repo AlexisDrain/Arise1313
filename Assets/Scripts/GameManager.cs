@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
     public static int numberOfPrayer = 0;
     public static bool hasPencilDull = false;
     public static bool hasPencilSharp = false;
+    public static bool killedCat = false;
 
     // phone manager:
     /*
@@ -198,6 +199,7 @@ public class GameManager : MonoBehaviour
         numberOfTherapists = 0;
         numberOfPrayer = 0;
         sanityHealth = 3;
+        killedCat = false;
         GameManager.hasPencilDull = false;
         GameManager.hasPencilSharp = false;
         knowsStepOne = false;
@@ -205,6 +207,7 @@ public class GameManager : MonoBehaviour
         knowsStepThree = false;
         PlayerEatingManager.RestartEatingManager();
         GameManager.phoneManager.RestartPhoneStats();
+        GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().DestroyAllInvExceptFuturePaper();
 
         outroWorld.SetActive(false);
         RenderSettings.fog = true;

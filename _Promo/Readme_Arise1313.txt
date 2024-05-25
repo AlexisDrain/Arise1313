@@ -25,7 +25,6 @@ On your keyboard, hold both buttons at the same time while you are in the 3d gam
 "G + 2" -> Go to evening (of the current day.)  
 "G + 3" -> Go to midnight (of the current day.)  
 "G + 7" -> Go to day 2.  
-"G + 4" -> skip intro novel. Very buggy.  
 "J + 1" -> learn all steps of the ritual.  
 "J + 2" -> decrease sanity.  
 "J + 3" -> increase sanity.  
@@ -35,6 +34,7 @@ On your keyboard, hold both buttons at the same time while you are in the 3d gam
 "H + 3" -> increase how many times you've been to chaplain/prayer.  
 "K + 3" -> Give all food items in the game.  
 "K + 4" -> Become hungry (kind of buggy).  
+"G + 4" -> skip intro novel. Very buggy.  
 
 -----------------------
 

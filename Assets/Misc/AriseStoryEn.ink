@@ -177,8 +177,9 @@ The last meal you had was:
 // Step 1
 === ritual_step1 ===
 # image_black
-With trembling hands, you enacted the banishment ritual.
-Step One: Dialing the number: 69624-105-9226
+With trembling hands, you and the chaplain enact the banishment ritual.
+He orders the seemingly empty prayer room with authority, "the time has come to begin our ritual."
+"Step One: Dialing the number: 69624-105-9226"
 + [1- Continue.] -> ritual_step1_check
 
 === ritual_step1_check ===
@@ -199,7 +200,7 @@ You forgot to dial it before the ritual.
 === ritual_step2 ===
 # image_black
 # updateMealString
-Step Two: The Last Meal: Demon piss and flesh. I.e. Apple juice and meat.
+"Step Two: The Last Meal: Demon piss and flesh. As in, apple juice and meat."
 The last meal you had was:
 {finalMeal}
 + [1- Continue.] -> ritual_step2_check
@@ -221,7 +222,7 @@ Your last meal DOES NOT match the second ritual step meal.
 // Step 3
 === ritual_step3 ===
 # image_black
-Step Three: The Sacrifice.
+"Step Three: The Sacrifice."
 + [1- Continue.] -> ritual_step3_check
 
 === ritual_step3_check ===
@@ -231,13 +232,13 @@ Step Three: The Sacrifice.
 === ritual_step3_failedStepOneTwo ===
 # image_black
 The chaplain says, "the ritual failed. There's no point in doing the Third step."
-[1- Continue.] -> ritual_step3_failedStepOneTwo2
++ [1- Continue.] -> ritual_step3_failedStepOneTwo2
 
 === ritual_step3_failedStepOneTwo2 ===
 "Dear god! The invasion is real!"
 An army of military men lead by a stern, authoritative figure break into the hospital. In seconds that feel like hours later, they meet you in the prayer room.
 "You have disappointed me for the last time. Hellfire. Eternal Toture. This is the fate of you and other misguided infidels."
-[1- Continue.] -> ending_bad_ritualIncorrect
++ [1- Continue.] -> ending_bad_ritualIncorrect
 
 === ritual_step3_checkPet ===
 # checkStep3Pet
@@ -253,26 +254,38 @@ The chaplin says, "the Third step is complete. I'm somehow glad we didn't have t
 # image_black
 "One of use has to do the sacrifice," the chaplain says. "I am ready to do it, but the only weapon we have is this sharp pencil."
 Your gazes meet. "My soul, or yours. I leave you to decide."
-+ [1- Sacrifice self.] -> ritual_totalSelf
++ [1- Sacrifice self.] -> func_ritual_sayonara
 + [2- Sacrifice chaplain.] -> ritual_totalChaplain
 
 === ritual_totalPet ===
 # image_black
-# sanityUp
-The ritual, in total, is correct.
+With no human life loss, the ritual, in total, has been performed correctly.
 + [1- Finish.] -> ending_good_sacrificePet
 
-=== ritual_totalSelf ===
+=== func_ritual_sayonara ===
+# func_ritual_sayonara
+-> END
+
+=== ritual_totalSelfCannot ===
 # image_black
-# sanityUp
-The ritual, in total, is correct.
+You are unable to sacrifice yourself.
+"I understand," the chaplain says. "It has to be done." He pauses, then he takes the pencil from your hand.
+"I will see you in another life," were the chaplain's final words. He sticks the pencil in his eye with a fluid, practiced motion.
+The ritual, in total, has been performed correctly.
++ [1- Finish.] -> ending_good_sacrificeSelf
+
+=== ritual_totalSelfCan ===
+# image_black
+The chaplain looks at you with teary eyes. "You are so... brave. I will hopefully see you in another life."
+The pencil penetrates your eyeball. You are now... dead.
+The ritual, in total, has been performed correctly.
 + [1- Finish.] -> ending_good_sacrificeSelf
 
 === ritual_totalChaplain ===
 # image_black
-# sanityUp
-"I will see you in another life," were the chaplain's final words.
-The ritual, in total, is correct.
+"I will see you in another life," were the chaplain's final words. He sticks the pencil in his eye with a fluid, practiced motion.
+He is now... dead.
+The ritual, in total, has been performed correctly.
 + [1- Finish.] -> ending_good_sacrificeChaplain
 
 /*
@@ -500,7 +513,7 @@ At the conclusion of the therapy activity, you go back to your room.
 # image_black
 # groupIncrement
 # sanityUp
-"Alright class! Everyone, grab a seat from the kitchen and sit around a circle."
+"Alright class! Everyone, grab a seat from the dining room and sit around in a circle."
 It's a fairly standard group therapy session. Everyone introduces themselves by name and a fun fact about them. The group leader speaks like a bro - you feel like you could be friends with him outside of the hospital. There's also a "musical therapist" who plays guitar songs on demand.
 It's actually pretty nice being here!
 + [1- Continue.] -> hasBrother
@@ -595,6 +608,14 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
 /*
     Outro objects
 */
+=== startOutro_1 ===
+placeholder text
++ [1- Stand up] -> func_startOutro
+
+=== func_startOutro ===
+# func_startOutro
+-> END
+
 === jail_0 ===
 # image_black
 You feel that you are facing a pitch black jail cell.

@@ -95,6 +95,14 @@ public class FoodQuestionare : MonoBehaviour
         dullPencilText.SetActive(false);
     }
 
+    public void DestroyAllInvExceptFuturePaper() {
+        for (int i = 0; i < GameManager.inventory.transform.childCount; i++) {
+            if (GameManager.inventory.transform.GetChild(i).GetComponent<InventoryGridItem>().myInvItem != InvItem.FuturePaper) {
+                GameManager.inventory.transform.GetChild(i).GetComponent<InventoryGridItem>().DestroyGridItem();
+            }
+        }
+    }
+
     public void CheatGiveEverything() {
 
         GameObject.Instantiate(item_Oatmeal, GameManager.inventory.transform);
