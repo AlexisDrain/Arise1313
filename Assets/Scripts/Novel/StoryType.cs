@@ -104,7 +104,7 @@ public class StoryType : MonoBehaviour
             // phone
             if (inkStory.currentTags[i] == "checkPhone") {
                 GameManager.phoneManager.StoryCallCorrectPerson();
-                return;
+                continue;
             }
             if (inkStory.currentTags[i] == "telephone_checkWeirdNumber") {
                 if (GameManager.currentDayOfWeek == DayOfWeek.DayOne && GameManager.phoneManager._calledRitualDadDay1 == false) {
@@ -117,20 +117,20 @@ public class StoryType : MonoBehaviour
                     GameManager.phoneManager._calledRitualDadDay2 = true;
                     return;
                 }
-                return;
+                continue;
             }
             
             if (inkStory.currentTags[i] == "boolTrue_calledParentsDay") {
                 GameManager.phoneManager._calledParentsDay = true;
-                return;
+                continue;
             }
             if (inkStory.currentTags[i] == "boolTrue_calledParentsNight") {
                 GameManager.phoneManager._calledParentsNight = true;
-                return;
+                continue;
             }
             if (inkStory.currentTags[i] == "boolTrue_calledSiblingsDay") {
                 GameManager.phoneManager._calledSiblingsDay = true;
-                return;
+                continue;
             }
 
             // chaplain
@@ -147,7 +147,7 @@ public class StoryType : MonoBehaviour
                         GameManager.StartNovel("worship_Night");
                     }
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkChaplainShakeHands") {
                 if (GameManager.currentTimeOfDay == TimeOfDay.Morning) {
@@ -157,7 +157,7 @@ public class StoryType : MonoBehaviour
                 } else if (GameManager.currentTimeOfDay == TimeOfDay.Midnight) {
                     GameManager.StartNovel("worship_Night");
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkSecondChaplainMeeting") {
                 print(GameManager.numberOfPrayer);
@@ -166,7 +166,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     CloseNovel();
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
 
             // bystander 3
@@ -178,7 +178,7 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "checkBloodPressure") {
                 CloseNovel();
                 GameManager.StartSayonara(SayonaraType.SayonaraBloodPressure);
-                return;
+                continue;
             }
 
             // brother encounter
@@ -196,18 +196,18 @@ public class StoryType : MonoBehaviour
                     }
                     CloseNovel();
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             // pet encounter
             if (inkStory.currentTags[i] == "catKillCheck") {
                 GameManager.StartNovel("group_killcat_HasPen");
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
 
             if (inkStory.currentTags[i] == "stopNovelTeleportPlayerToRitualRoom") {
                 GameManager.TeleportPlayer(GameObject.Find("PlayerLeaveRitualTrans").transform);
                 CloseNovel();
-                return;
+                continue;
             }
                 
             // ritual
@@ -217,7 +217,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step1_incorrect");
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "updateMealString") {
                 // inkStory.variablesState["finalMeal"] = "- Apple Juice\n - Yaba Daba Dooooo";
@@ -230,7 +230,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step2_incorrect");
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkStep3") {
                 /*
@@ -245,7 +245,7 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step3_failedStepOneTwo");
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkStep3Pet") {
                 if (GameManager.killedCat) {
@@ -253,19 +253,19 @@ public class StoryType : MonoBehaviour
                 } else {
                     GameManager.StartNovel("ritual_step3_nopet");
                 }
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
 
             if (inkStory.currentTags[i] == "func_ritual_sayonara") {
                 CloseNovel();
                 GameManager.StartSayonara(SayonaraType.SayonaraRitual);
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
 
             if (inkStory.currentTags[i] == "func_startOutro") {
                 CloseNovel();
                 GameManager.GoToOutro();
-                return; // inkStory tags that change the knot needs to return;
+                continue; // inkStory tags that change the knot needs to return;
             }
 
             if (inkStory.currentTags[i] == "knowStepOne") {
@@ -298,7 +298,7 @@ public class StoryType : MonoBehaviour
                 GameManager.numberOfPrayer += 1;
                 print("numberOfPrayer = " + GameManager.numberOfPrayer);
                 // inkStory.currentTags.RemoveAt(i); // hack because of nested tags bug
-                return;
+                continue;
             }
 
             // endings

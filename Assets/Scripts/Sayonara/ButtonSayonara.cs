@@ -15,6 +15,7 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
     public float waitUntilRemoveDefault = 1.5f;
 
     private float waitUntilRemoveCurrent = 1.5f;
+    private bool mouseIsHovering = false;
 
     public void SetTimeToRemove(float newTime) {
         waitUntilRemoveDefault = newTime;
@@ -31,9 +32,12 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
     }
 
     public void OnPointerMove(PointerEventData pointerEventData) {
+        mouseIsHovering = true;
         sign.enabled = true;
     }
     public void OnPointerExit(PointerEventData pointerEventData) {
+        mouseIsHovering = false;
+        waitUntilRemoveCurrent += 0.2f; // a little coyote time. if the player hovers over the mouse a little and misses, this gives some time to recover.
 
         if (GameManager.sayonaraColorBlind == true) {
             sign.enabled = true;
@@ -68,9 +72,12 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
         if (waitUntilRemoveCurrent > 0f) {
             waitUntilRemoveCurrent -= Time.deltaTime;
         } else {
-            waitUntilRemoveCurrent = waitUntilRemoveDefault;
+            // time is over. cannot kill button when mouse is hovering over it.
+            if (mouseIsHovering == false) {
+                waitUntilRemoveCurrent = waitUntilRemoveDefault;
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 
