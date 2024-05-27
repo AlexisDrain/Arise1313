@@ -80,7 +80,8 @@ public class GameManager : MonoBehaviour
     public static int numberOfPrayer = 0;
     public static bool hasPencilDull = false;
     public static bool hasPencilSharp = false;
-    public static bool killedCat = false;
+    public static bool catKilled = false;
+    public static bool catAttacked = false;
 
     // phone manager:
     /*
@@ -199,7 +200,8 @@ public class GameManager : MonoBehaviour
         numberOfTherapists = 0;
         numberOfPrayer = 0;
         sanityHealth = 3;
-        killedCat = false;
+        catKilled = false;
+        catAttacked = false;
         GameManager.hasPencilDull = false;
         GameManager.hasPencilSharp = false;
         knowsStepOne = false;

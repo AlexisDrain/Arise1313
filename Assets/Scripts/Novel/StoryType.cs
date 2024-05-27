@@ -248,7 +248,7 @@ public class StoryType : MonoBehaviour
                 continue; // inkStory tags that change the knot needs to return;
             }
             if (inkStory.currentTags[i] == "checkStep3Pet") {
-                if (GameManager.killedCat) {
+                if (GameManager.catKilled) {
                     GameManager.StartNovel("ritual_step3_pet");
                 } else {
                     GameManager.StartNovel("ritual_step3_nopet");

@@ -12,7 +12,8 @@ Controls:
 - Use mouse or number keys 1 and 2 to select choices in dialogue.  
 
 Notes:  
-- performance is better on Chrome than Firefox.  
+- Performance is better on Chrome than Firefox.  
+- Performance is better with fullscreen disabled.
 - You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.  
 
 -----------------
@@ -109,11 +110,11 @@ https://www.texturecan.com/details/94/
 - Doors:  
 <a href="https://www.freepik.com/free-vector/realistic-doors-collection-illustration_17806539.htm#query=door%20texture&position=3&from_view=keyword&track=ais">Image by pikisuperstar</a> on Freepik  
 
-- TV footage (royalty free stock footage):
-https://www.pexels.com/video/video-of-funny-cat-855029/
-
-- Intro picture (person using computer):
+- Intro picture (person using computer) and "New Dawn" logo:
 Midjourney https://www.midjourney.com/
+
+- [Unused] TV footage (royalty free stock footage):
+https://www.pexels.com/video/video-of-funny-cat-855029/
 
 === SFX ===
 - UI buttons click SFX:

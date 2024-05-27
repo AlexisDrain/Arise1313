@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonShake : MonoBehaviour
 {
-
+    // Big bug with using this function: make sure the RectTransform element is CENTERED.
     public Vector2 randomRange = new Vector2(-4f, 4f);
     public float shakeSpeedDefault = 0.01f;
     public bool startShaking = false;

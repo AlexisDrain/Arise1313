@@ -277,7 +277,7 @@ The ritual, in total, has been performed correctly.
 === ritual_totalSelfCan ===
 # image_black
 The chaplain looks at you with teary eyes. "You are so... brave. I will hopefully see you in another life."
-The pencil penetrates your eyeball. You are now... dead.
+The pencil penetrates your brain. You are now... dead.
 The ritual, in total, has been performed correctly.
 + [1- Finish.] -> ending_good_sacrificeSelf
 

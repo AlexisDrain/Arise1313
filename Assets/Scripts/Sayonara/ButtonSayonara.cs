@@ -36,8 +36,8 @@ public class ButtonSayonara : MonoBehaviour, IPointerExitHandler, IPointerMoveHa
         sign.enabled = true;
     }
     public void OnPointerExit(PointerEventData pointerEventData) {
-        mouseIsHovering = false;
         waitUntilRemoveCurrent += 0.2f; // a little coyote time. if the player hovers over the mouse a little and misses, this gives some time to recover.
+        mouseIsHovering = false;
 
         if (GameManager.sayonaraColorBlind == true) {
             sign.enabled = true;
