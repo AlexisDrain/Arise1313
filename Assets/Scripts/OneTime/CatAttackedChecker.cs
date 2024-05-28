@@ -7,7 +7,7 @@ public class CatAttackedChecker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("TODOOOO");
     }
 
     // Update is called once per frame

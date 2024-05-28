@@ -27,6 +27,7 @@ public enum SayonaraType {
 public class GameManager : MonoBehaviour
 {
     public static GameObject gameManagerObj;
+    public static NGHelper ngHelper;
     // public static QuestManager questManager;
     public static Transform player;
     public static StoryType storyType;
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
 
     void Awake() {
         gameManagerObj = gameObject;
+        ngHelper = transform.Find("NGHelper").GetComponent<NGHelper>();
         // questManager = GetComponent<QuestManager>();
         player = GameObject.Find("Player").transform;
         storyType = GameObject.Find("Canvas/IntroNovel").GetComponent<StoryType>();
@@ -240,6 +242,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static void KillSelfEnding() {
+        GameManager.ngHelper.UnlockMedal("sayonara");
         GameManager.EndGame("You died, sparing youself from the eternal torture but not saving the world.", false);
     }
     public static void EndGame(string endGameMessage, bool goodEnding) {
@@ -251,6 +254,7 @@ public class GameManager : MonoBehaviour
         endingMenu.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = endGameMessage;
         
         if (goodEnding) {
+            GameManager.ngHelper.UnlockMedal("faith");
             endingMenu.transform.Find("Button_RestartGame").gameObject.SetActive(false);
             endingMenu.transform.Find("Button_StartEpilogue").gameObject.SetActive(true);
             endingMenu.GetComponent<Animator>().SetTrigger("InvokeGood");

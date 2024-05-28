@@ -49,21 +49,17 @@ public class NGHelper : MonoBehaviour
 
         io.newgrounds.components.Medal.unlock medal_unlock = new io.newgrounds.components.Medal.unlock();
 		if(medal == "prison") {
-			medal_unlock.id = 75906;
-		} else if(medal == "turret") {
-            medal_unlock.id = 75907;
-        } else if (medal == "someplaceElse") {
-            medal_unlock.id = 75908;
-        } else if (medal == "repeat") {
-            medal_unlock.id = 75909;
-        } else if (medal == "laser") {
-            medal_unlock.id = 75910;
-        } else if (medal == "somos") {
-            medal_unlock.id = 75911;
-        } else if (medal == "theend") {
-            medal_unlock.id = 75912;
+			medal_unlock.id = 79000;
+		} else if(medal == "sayonara") {
+            medal_unlock.id = 79001;
+        } else if (medal == "cat") {
+            medal_unlock.id = 79002;
+        } else if (medal == "faith") {
+            medal_unlock.id = 79003;
+        } else if (medal == "time") {
+            medal_unlock.id = 79004;
         } else {
-			print("Medal not found");
+			Debug.LogWarning("Medal not found");
 		}
 
         medal_unlock.callWith(ngio_core);

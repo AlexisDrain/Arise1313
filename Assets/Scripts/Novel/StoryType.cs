@@ -85,6 +85,12 @@ public class StoryType : MonoBehaviour
             if (inkStory.currentTags[i] == "sfx_phoneUp") {
                 GameManager.SpawnLoudAudio(audioClipList[0]);
             }
+            if (inkStory.currentTags[i] == "sfx_cryLoud") {
+                GameManager.SpawnLoudAudio(audioClipList[1]);
+            }
+            if (inkStory.currentTags[i] == "sfx_crySmall") {
+                GameManager.SpawnLoudAudio(audioClipList[2]);
+            }
 
             // special functions
             if (inkStory.currentTags[i] == "sanityUp") {
@@ -200,7 +206,13 @@ public class StoryType : MonoBehaviour
             }
             // pet encounter
             if (inkStory.currentTags[i] == "catKillCheck") {
-                GameManager.StartNovel("group_killcat_HasPen");
+                GameManager.catAttacked = true;
+                if(GameManager.hasPencilSharp) {
+                    GameManager.catKilled = true;
+                    GameManager.StartNovel("group_killcat_HasPen");
+                } else {
+                    GameManager.StartNovel("group_killcat_NoPen");
+                }
                 continue; // inkStory tags that change the knot needs to return;
             }
 
@@ -340,6 +352,7 @@ public class StoryType : MonoBehaviour
             */
             if (inkStory.currentTags[i] == "playerWakeupToMorning") {
                 CloseNovel();
+                GameManager.ngHelper.UnlockMedal("prison");
                 GameManager.PlayerLeaveBed();
             }
             if (inkStory.currentTags[i] == "setTimeFollowingTimePeriod") {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Ink.Runtime;
 
 public class SanityController : MonoBehaviour
 {
@@ -16,11 +17,20 @@ public class SanityController : MonoBehaviour
     public GameObject sanity0Effect;
 
     private Animator myAnim;
+    public Image sanityFadeMe;
+
     void Awake()
     {
         myAnim = GetComponent<Animator>();
         UpdateImage();
     }
+    private void Update() {
+        if (sanityFadeMe.color.a >= 0.001f) {
+            float newAlpha = Mathf.Lerp(sanityFadeMe.color.a, 0f, 0.01f);
+            sanityFadeMe.color = new Color(sanityFadeMe.color.r, sanityFadeMe.color.g, sanityFadeMe.color.b, newAlpha);
+        }
+    }
+    
 
     public void UpdateImage() {
         sanity3.enabled = false;
@@ -41,10 +51,23 @@ public class SanityController : MonoBehaviour
         }
 
     }
-
+    private void SanityFade(int oldImage) {
+        if (oldImage == 0) {
+            sanityFadeMe.sprite = sanity0.sprite;
+        } else if (oldImage == 1) {
+            sanityFadeMe.sprite = sanity1.sprite;
+        } else if (oldImage == 2) {
+            sanityFadeMe.sprite = sanity2.sprite;
+        } else if (oldImage == 3) {
+            sanityFadeMe.sprite = sanity3.sprite;
+        }
+        sanityFadeMe.color = new Color(1f, 1f, 1f, 1f);
+    }
     public void IncreaseSanity()
     {
         gameObject.SetActive(true);
+
+        SanityFade(GameManager.sanityHealth);
 
         GameManager.sanityHealth += 1;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);
@@ -59,6 +82,8 @@ public class SanityController : MonoBehaviour
     public void DecreaseSanity() {
         gameObject.SetActive(true);
 
+        SanityFade(GameManager.sanityHealth);
+
         GameManager.sanityHealth -= 1;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);
         sanityChangeText.text = "<color=#FF0000>Sanity -1</color>";
@@ -71,6 +96,8 @@ public class SanityController : MonoBehaviour
     }
     public void DecreaseSanityTwice() {
         gameObject.SetActive(true);
+
+        SanityFade(GameManager.sanityHealth);
 
         GameManager.sanityHealth -= 2;
         GameManager.sanityHealth = Mathf.Clamp(GameManager.sanityHealth, 0, 3);

@@ -565,6 +565,7 @@ At the end of the group, the nurses bring the therapy cat Littlepip.
 
 // attack the cat
 === group_pet ===
+# sanityUp
 The cat is as furry as you expect from a cat.
 You go back to your room at the conclusion of this group session.
 + [1- Leave.] -> setTimeFollowingTimePeriod
@@ -575,11 +576,13 @@ You go back to your room at the conclusion of this group session.
 -> END
 
 === group_killcat_HasPen ===
+# sfx_cryLoud
 "Holy shit," half the people in the group exclaim as you stab the cat with your sharp pencil.
 "You have COMPLETELY lost your mind," yells the group leader.
 The orderlies usher you away as you clutch the pencil with the cat's blood on it. You hope the ritual was worth killing Littlepip cold-blooded.
 + [1- Leave.] -> setTimeFollowingTimePeriod
 === group_killcat_NoPen ===
+# sfx_crySmall
 You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
 You make contact, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
 "What the hell are you doing?" yelled the group leader.
@@ -598,7 +601,7 @@ You feel an unnatural weight on your limbs as an unseen force begins the petrifi
 As you desperately try to escape, your movements become slower, more laborious. Your skin starts to take on a cold, stony texture, and a creeping numbness spreads through your body. Panic sets in as you realize that your very essence is being transformed into unfeeling stone.
 + [1- Arise.] -> wakeupToMorning
 
-=== dream_1 === // Family replaced by clones
+=== dream_1 === // Family replaced by clones // unused
 # image_black
 # sanityDown
 You wake up to a world that seems eerily familiar yet unsettlingly different. As you navigate your once-familiar home, a sinister realization takes hold – your family has been replaced by emotionless, identical clones. Their faces bear an uncanny resemblance to your loved ones, but their eyes lack warmth, their voices devoid of genuine emotion.
