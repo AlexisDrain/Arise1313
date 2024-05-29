@@ -1,6 +1,9 @@
 # Arise1313
 Asylum simulator, visual novel. The fate of the world relies on one schizophrenic person.  
 
+Walkthrough  
+https://github.com/AlexisDrain/Arise1313/blob/main/_Promo/Walkthrough.md  
+
 Controls:  
 - WASD / Arrow keys: Left and Right rotate you like a tank. Up and Down move you forwards or backward.  
 - Press P or TAB to see inventory and options menu.  
