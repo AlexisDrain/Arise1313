@@ -162,7 +162,7 @@ You approach a patient whispering to himself. You feel sorry for his roommate.
 # image_black
 # sanityUp
 # giveChocolate
-Nice Nurse: “It’s very late for you sweetie. Here’s a cup of hot chocolate, but don’t tell anyone I got it for you.” She winks and hands you a cup.
+Nice Nurse: "It’s very late for you sweetie. Here’s a cup of hot chocolate, but don’t tell anyone I got it for you." She winks and hands you a cup.
 "By the way, if you still can't sleep, then call your parents on the public phone. From my experience, parents of patients can't sleep easy either."
 + [1- Thank her and leave.] -> stopNovel
 
@@ -337,7 +337,7 @@ Your relationship with your parents is normally strained, but opening up about y
 # image_black
 # boolTrue_calledSiblingsDay
 // # sanityDown
-When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: “Are you sure you’re taking your meds?”
+When you explain the world ending phenomenon and plead to your sibling to let you out, they just say: "Are you sure you’re taking your meds?"
 + [1- Hang up.] -> stopNovel
 
 === telephone_night ===
@@ -369,13 +369,13 @@ Who do you want to call? // there's a bug where a knot that has only one sentenc
 
 === telephone_ritual_wrongDay ===
 The voice on the other end carries a weight of familiarity, one you knew from childhood...
-“You're supposed to call me TOMORROW, MORON!”
-The man on the other side of the phone hangs up.
+"You're supposed to call me TOMORROW!"
+The man on the other side of the phone hangs up. No big deal. This won't affect the ritual.
 + [1- Hang up.] -> stopNovel
 
 === telephone_ritual_rightDay ===
 The voice on the other end carries a weight of familiarity, but you don’t remember who it is.
-“So you finally called! You better complete the rest of the ritual tonight PROPERLY or I will detach your teeth!”
+"So you finally called! You better complete the rest of the ritual tonight properly or I will detach your teeth!"
 The man on the other side of the phone hangs up.
 + [1- Hang up.] -> stopNovel
 
@@ -389,7 +389,7 @@ The man on the other side of the phone hangs up.
 // first meeting with chaplain
 === worship_intro ===
 As you enter the prayer room (and makeshift storage), you see a tall man in a sharp suit.
-“I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion."
+"I’ve been expecting you. I’m the chaplain of New Dawn. I provide spiritual care no matter your religion."
 + [1- Shake hands.] -> worship_chaplainShakeHands
 
 === worship_chaplainShakeHands ===
@@ -398,19 +398,19 @@ As you enter the prayer room (and makeshift storage), you see a tall man in a sh
 
 // chaplain Morning
 === worship_Morn ===
-“Please. Let’s pray together.” He sits on one of the rugs.
+"Please. Let’s pray together." He sits on one of the rugs.
 + [1- Pray Fajr] -> worship_pray
 + [2- Meditate] -> worship_meditate
 
 // chaplain eve
 === worship_Eve ===
-“Welcome to the prayer room. Please. Let’s pray together.” He sits on one of the rugs.
+"Welcome to the prayer room. Please. Let’s pray together." He sits on one of the rugs.
 + [1- Pray Dhuhr + Asr] -> worship_pray
 + [2- Meditate] -> worship_meditate
 
 // chaplain night
 === worship_Night ===
-“Friend, God is open to prayers at any hour. No matter how late.” He sits on one of the rugs.
+"Friend, God is open to prayers at any hour. No matter how late." He sits on one of the rugs.
 + [1- Pray Maghrib + Isha] -> worship_pray
 + [2- Meditate] -> worship_meditate
 
@@ -476,10 +476,10 @@ Time will advance by 8 hours.
 
 === meeting_1 ===
 # therapyIncrement
-You: “Do you see yellow text while closing your eyes?”
-Therapist Rose: “Like… thinking of words and then imagining them in physical form? I think everyone does? What does the yellow text say by the way?”
-You: “It’s says ‘You’re insane if you trust her.’”
-Therapist: “Ha-ha. Nothing un-insane about a visual hallucination telling you that you're not insane.”
+You: "Do you see yellow text while closing your eyes?"
+Therapist Rose: "Like… thinking of words and then imagining them in physical form? I think everyone does? What does the yellow text say by the way?"
+You: "It’s says ‘You’re insane if you trust her.’"
+Therapist: "Ha-ha. Nothing un-insane about a visual hallucination telling you that you're not insane."
 + [1- Continue.] -> meeting_1_2
 === meeting_1_2 ===
 # sanityDownTwice
@@ -501,10 +501,10 @@ Time will advance by 8 hours.
 # image_black
 # therapyIncrement
 This is a different therapist than before. She does not recognize the previous therapist. You spend the entire 1-on-1 session relaying the world ending phenomenon.
-You: “... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days.”
-Therapist: “Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations.”
-+ [1- “So you don’t believe me?”] -> meeting_2_2
-+ [2- “So you’ll let me out?”] -> meeting_2_2
+You: "... and that’s why you need to let me out. I would honestly prefer to have the world end rather than experience what’s going to happen in 2 days."
+Therapist: "Fascinating… Your delusions are consistent. Usually schizophrenic people have holes in their explanations."
++ [1- "So you don’t believe me?"] -> meeting_2_2
++ [2- "So you’ll let me out?"] -> meeting_2_2
 === meeting_2_2 ===
 Therapist: "No."
 + [1- Continue.] -> meeting_2_3
@@ -560,9 +560,9 @@ It's actually pretty nice being here!
 # image_black
 # sanityDownTwice
 At the conclusion of the group, a man bumps into you.
-He says: “Step One is to call a number! It’s on your wrist!”
+He says: "Step One is to call a number! It’s on your wrist!"
 You look at the ID bracelet given to you on entrance to the hospital. The ID number reads: 69624-105-9226. Does this number mean anything significant?
-He gets tackled by two orderlies built like bulldozers. “I’M YOUR BROTHER!” He says, as he gets dragged away and into the elevator. “I love you very much!” he says.
+He gets tackled by two orderlies built like bulldozers. "I’M YOUR BROTHER!" He says, as he gets dragged away and into the elevator. "I love you very much!" he says.
 You don’t know who he is or where he will be taken.
 "He says that to everyone," the group leader claims, smiling knowingly.
 + [1- Continue.] -> setTimeFollowingTimePeriodAndKnowStepOne
@@ -577,12 +577,12 @@ Time will advance by 8 hours.
 
 === group_2 ===
 # groupIncrement
-During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
-The group leader responds: “Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… “weird”.”
-You: “How long do people stay here at this hospital?”
-“For the real basket cases? 3 months to a year. For most? As few as 3 to 5 days...”
-You: “So, you’re saying I’m leaving in two days?”
-“HAH. I see why they call you kooky!”
+During the group therapy, someone mentions needing to leave the hospital early: "I have to get to work! I’ll be fired otherwise!"
+The group leader responds: "Your life is more important than your welfare. We cannot trust you to go to work. We cannot even trust you to eat without supervision! You leave the hospital early by showing us signs of you getting better, getting less… "weird"."
+You: "How long do people stay here at this hospital?"
+"For the real basket cases? 3 months to a year. For most? As few as 3 to 5 days..."
+You: "So, you’re saying I’m leaving in two days?"
+"HAH. I see why they call you kooky!"
 + [1- Continue.] -> group_2_2
 === group_2_2 ===
 A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is saying a lot as the cats you know do not cuddle.
@@ -600,9 +600,9 @@ Time will advance by 8 hours.
 === group_3 ===
 # groupIncrement
 They give everyone crayons, which you are too dull for anything but drawing.
-The group leader says: “Engaging in art and crafts can be highly therapeutic. It allows you to express yourselves creatively.”
-“It also creates a space for you to engage with others in a collaborative way, building social skills and a sense of community.”
-The drawing you make looks like the work of a talented 8-year-old. As you almost throw it away, the group leader interjects: “Please don’t throw out your drawings in the trash, even if you’re not happy with them. It’s disheartening for me to see all the years I spent in art therapy training gone wasted, haha!.”
+The group leader says: "Engaging in art and crafts can be highly therapeutic. It allows you to express yourselves creatively."
+"It also creates a space for you to engage with others in a collaborative way, building social skills and a sense of community."
+The drawing you make looks like the work of a talented 8-year-old. As you almost throw it away, the group leader interjects: "Please don’t throw out your drawings in the trash, even if you’re not happy with them. It’s disheartening for me to see all the years I spent in art therapy training gone wasted, haha!."
 + [1- Continue.] -> group_3_2
 
 === group_3_2 ===
@@ -658,15 +658,69 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
     Outro objects
 */
 === startOutro_1 ===
+# image_black
 # blueText
 I arise from a bathtub filled with water and a red liquidy substance. The incantation must have worked, memory fog is a possible side-effect.
 One thing my mind is telling me: What happened in the hospital was purgatory. This is the real world. The future. A voice in my head tells me that I'm about to experience my real timeline.
-I hear a knock on the door. I get out of the tub and dry myself.
+I hear a knock from the door. Slowly, I drag myself out all wet. I sit until I dry and gather the courage to confront whoever waits on the other side.
 + [1- Stand up] -> func_startOutro
 
 === func_startOutro ===
 # func_startOutro
 -> END
+
+=== outro_brother_1 ===
+You see that stranger again, from the group session... your brother?
+He says, "come with me now." Surprisingly, he isn’t speaking English. He’s speaking a language you haven’t heard since you were six years old, yet you understand him perfectly.
+"You’ve stopped the time travelers’ invasion. That was really clutch! But I doubt that you would have done that without me!"
+He continues, "This corridor is tricky. Look with your heart, not your eyes. That’s how you navigate it."
++ [1- Continue.] -> stopNovel
+
+=== outro_ending_1 ===
+Your brother is standing beside you. "The ritual was a test to gauge if this time era is worth preserving. We were testing your faith, and you’ve succeeded. You have convinced the leader of the invasion to stop from possibly destroying time itself."
+"Who?"
+"Him."
+You see a middle-aged man before you. A stern figure in a military uniform, sunglasses, and a beret. He exudes an aura of authority despite being slightly shorter than you. His gaze pierces through you as he speaks.
++ [1- Continue.] -> outro_ending_2
+
+=== outro_ending_2 ===
+Military man: "So what brings you here? Are you seeking to join our ranks? Or are you standing in my way?"
+"I think I’m standing in the way."
+A chilling grin twists his lips as he leans in closer "Keep this sharp attitude and I'll gouge out your eyes, shatter your fingers, and make every moment a torment. Trust me. I have the technology to ensure you suffer to no end!"
+You: "I assumed from the ritual that you’re a worshiper? In that case, you must acknowledge that only your god has the authority to dispense punishment. Kill me now and let god account for my deeds."
+His expression darkens, but he steps back, the threat lingering in the air like a shadow.
++ [1- Continue.] -> outro_ending_3
+
+=== outro_ending_3 ===
+You: "What was with this ritual? It didn’t make sense! The last meal?"
+Military man: "People in your time are such weak, tender kids. All those ‘lab grown, imitation meats’ you have. I had to force-feed you real meat!"
+"A random phone number to dial?"
+Military man: "That was MY phone number, you moron! You forgot your own father’s phone number?!"
+"What? So you’re my father?"
+Military man: "Yes, your real father."
++ [1- Continue.] -> outro_ending_4
+
+=== outro_ending_4 ===
+You: "And the sacrifice?"
+Military man: "I wanted to see if you’re willing to martyr or kill for the good of your timeline!"
+"Well. I jumped through your hoops. What now?"
+Military man: "To be honest. I didn’t think you had it in you to pray. I’m reconsidering what I want to do with you."
+"So that’s what a paternal bond feels like?"
++ [1- Continue.] -> outro_ending_5
+
+=== outro_ending_5 ===
+Military man: "I left you because you wouldn’t behave, and it looks like that wasn’t enough punishment. I thought it was enough to send you back in time to this dark age of humanity. But now I want to run you through a meat grinder like that therapist Rose."
+Your brother interjects, "let’s go back to our time and talk this through. You’re about to destroy a time period from before time traveling was invented."
+The military man stares at both of you venomously. And then leaves the room to vent.
++ [1- Continue.] -> outro_ending_6
+
+=== outro_ending_6 ===
+"So what happens now?" You say to your newfound brother.
+"Now, you will write the ritual paper, and we will send it back in time to complete the time loop. And then… you will come with us. Sending you back to your time period with knowledge of time travel and the invasion could jeopardize our present."
+Your brother smiles at you. "Trust me, we have a lot to catch up on."
+\- The end -
+Thank you for playing! - Alexis Clay
++ [1- End game.] -> restartGame
 
 === jail_0 ===
 # image_black
@@ -766,4 +820,8 @@ Amelia "The Time-Sorceress" Hawthorne: As a practitioner of forbidden temporal m
 
 === wakeupToMorning === // only one tag at a time
 # playerWakeupToMorning
+-> END
+
+=== restartGame ===
+# restartGame
 -> END

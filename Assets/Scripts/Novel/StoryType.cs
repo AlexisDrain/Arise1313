@@ -337,6 +337,11 @@ public class StoryType : MonoBehaviour
                 CloseNovel();
                 GameManager.EndGame("You failed to perform the ritual. The world has ended. You will be tortured forever.", false);
             }
+            if (inkStory.currentTags[i] == "restartGame") {
+                CloseNovel();
+                GameManager.RestartGame();
+                continue;
+            }
 
             if (inkStory.currentTags[i] == "sayonaraStart_Intro") {
                 GameManager.StartSayonara(SayonaraType.SayonaraIntro);

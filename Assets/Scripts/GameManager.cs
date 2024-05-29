@@ -238,6 +238,7 @@ public class GameManager : MonoBehaviour
         GameManager.SetDay(DayOfWeek.Outro);
         changeTimeOfDayEvent.Invoke();
         timePass.SetActive(false);
+        mainMenuMusic.SetActive(false);
         RenderSettings.fog = false;
         RenderSettings.reflectionIntensity = 0f;
         RenderSettings.ambientIntensity = 0f;
@@ -620,7 +621,8 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.J)
             && (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))) {
-                GoToOutro();
+                //GoToOutro();
+                GameManager.EndGame("You sacrificed yourself to save the world.", true);
                 GameManager.ShowMessage("Cheat: change lighting + go to outro world");
             }
             if (Input.GetKey(KeyCode.K)

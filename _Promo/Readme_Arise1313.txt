@@ -39,7 +39,7 @@ On your keyboard, hold both buttons at the same time while you are in the 3d gam
 
 -----------------------
 
-Full credits + Source code
+Full credits + Source code + Cheats
 https://github.com/AlexisDrain/Arise1313
 
 === Credits ===
