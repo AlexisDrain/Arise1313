@@ -206,6 +206,9 @@ public class GameManager : MonoBehaviour
         catAttacked = false;
         GameManager.hasPencilDull = false;
         GameManager.hasPencilSharp = false;
+        stepOneComplete = false;
+        stepTwoComplete = false;
+        stepThreeComplete = false;
         knowsStepOne = false;
         knowsStepTwo = false;
         knowsStepThree = false;
@@ -231,6 +234,7 @@ public class GameManager : MonoBehaviour
     }
     public static void GoToOutro() {
         endingMenu.SetActive(false);
+        GameManager.ngHelper.UnlockMedal("time");
         GameManager.SetDay(DayOfWeek.Outro);
         changeTimeOfDayEvent.Invoke();
         timePass.SetActive(false);

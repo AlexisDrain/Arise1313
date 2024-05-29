@@ -74,6 +74,12 @@ public class StoryType : MonoBehaviour
         for (int i = 0; i < inkStory.currentTags.Count; i++) {
             print("inkStory tag: " + inkStory.currentTags[i] + " i: " + i);
 
+            if (inkStory.currentTags[i] == "blueText") {
+                myText.color = new Color(0, 0.5686275f, 1f);
+            } else {
+                myText.color = Color.white;
+            }
+
             // images
             if (inkStory.currentTags[i] == "image_black") {
                 bgImage.sprite = imageList[0];
@@ -206,6 +212,7 @@ public class StoryType : MonoBehaviour
             }
             // pet encounter
             if (inkStory.currentTags[i] == "catKillCheck") {
+                GameManager.ngHelper.UnlockMedal("cat");
                 GameManager.catAttacked = true;
                 if(GameManager.hasPencilSharp) {
                     GameManager.catKilled = true;

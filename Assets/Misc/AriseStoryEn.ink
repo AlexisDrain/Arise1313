@@ -19,6 +19,7 @@ VAR finalMeal = ""
 
 === novel_intro1 ===
 # image_redComputer
+# blueText
 48 hours until our world is devastated…
 The fate of humanity rests on my shoulders. A note that has my handwriting was sent back from the future. It describes the unholy things that the eldritch invasion will do to the world, as well as how to stop it.
 I have 2 days to conduct the correct banishment ritual and halt the eldritch invasion. I only have a vague idea of what the ritual looks like, but I have to try something!
@@ -28,6 +29,7 @@ Or, I can at least spare myself the eternal torture.
 
 === novel_intro2 ===
 # image_black
+# blueText
 Speeding like a bat out of hell, it’s no surprise that I encountered a cop.
 After flashing his lights we slow down to the side of the road. He gets out, goes over to my side and starts tapping on my window. He’s threatening to have me arrested.
 For all I know, he’s an agent sent by the eldritch invasion. Given the state of the impending doom, I have only one obvious option...
@@ -37,6 +39,7 @@ For all I know, he’s an agent sent by the eldritch invasion. Given the state o
 
 === novel_angryCop1 ===
 # image_black
+# blueText
 Time is running out and every second matters. With my heart pounding, I execute a harrowing decision.
 I reach for the cop’s handgun, part of me thinks that my hand will go through him, but no. I feel him. The cop is in as much disbelief as I am... until the shock passes through him.
 The cop whips me with his pistol, then he starts stomping me on the ground until I pass out. Later, I wake up in his cruiser, on the way to an asylum.
@@ -44,6 +47,7 @@ The cop whips me with his pistol, then he starts stomping me on the ground until
 
 === novel_angryCop2 ===
 # image_black
+# blueText
 The cop fails to see my side of the conversation. I beg him to leave me until I perform the ritual. I also show him the letter from my future-self as evidence. He looks very disturbed by the content, but from his perspective it's the rambling of a madman. 
 When I tell him the ritual requires a sacrifice of a living being, he has me arrested under pretense of self-harm. He drives me to a psychiatric hospital.
 + [1- Continue.] -> asylum1
@@ -51,9 +55,10 @@ When I tell him the ritual requires a sacrifice of a living being, he has me arr
 === asylum1 ===
 # image_black
 # sanityDown
+# blueText
 The letter from my future-self DID NOT mention the cop, or that I will be committed in an asylum. 
 Then why did my future-self not write about it? Did it not happen to them? In any case, I cannot do anything about it. I’m going to an asylum. The fate of the universe doesn’t rest with me anymore… Or, maybe the incantation can still be performed here?
-I arrive through a one-way elevator to the psych ward. They shackle an ID bracelet on my wrist. The doors shut behind me.
+I arrive through a one-way elevator to the psych ward on the 13th floor. They shackle an ID bracelet on my wrist. The doors shut behind me.
 This could be where I will spend the last few days of my life.
 + [1- Continue.] -> start3DGame
 
@@ -236,7 +241,7 @@ The chaplain says, "the ritual failed. There's no point in doing the Third step.
 
 === ritual_step3_failedStepOneTwo2 ===
 "Dear god! The invasion is real!"
-An army of military men lead by a stern, authoritative figure break into the hospital. In seconds that feel like hours later, they meet you in the prayer room.
+An army of military men lead by a stern, authoritative figure break into the hospital. In seconds that feel much longer, they meet you in the prayer room.
 "You have disappointed me for the last time. Hellfire. Eternal Toture. This is the fate of you and other misguided infidels."
 + [1- Continue.] -> ending_bad_ritualIncorrect
 
@@ -462,6 +467,13 @@ You get a new pencil, and a questionnaire to fill out
 
 
 // first therapist meeting
+=== meeting_11 ===
+# image_black
+Do you want to talk to the therapist?
+Time will advance by 8 hours.
++ [1- Talk to therapist.] -> meeting_1
++ [2- Don't.] -> stopNovel
+
 === meeting_1 ===
 # therapyIncrement
 You: “Do you see yellow text while closing your eyes?”
@@ -478,6 +490,13 @@ She leaves, leaving you absolutely stunned in your seat. A while later you go ba
 + [1- Continue.] -> setTimeFollowingTimePeriodAndKnowStepTwo
 
 // second therapist meeting
+=== meeting_22 ===
+# image_black
+Do you want to talk to the therapist?
+Time will advance by 8 hours.
++ [1- Talk to therapist.] -> meeting_2
++ [2- Don't.] -> stopNovel
+
 === meeting_2 ===
 # image_black
 # therapyIncrement
@@ -494,6 +513,13 @@ At the conclusion of the therapy activity, you go back to your room.
 + [1- Leave.] -> setTimeFollowingTimePeriod
 
 // third therapist meeting
+=== meeting_33 ===
+# image_black
+Do you want to talk to the therapist?
+Time will advance by 8 hours.
++ [1- Talk to therapist.] -> meeting_3
++ [2- Don't.] -> stopNovel
+
 === meeting_3 ===
 # image_black
 # therapyIncrement
@@ -509,6 +535,13 @@ At the conclusion of the therapy activity, you go back to your room.
 + [1- Continue.] -> setTimeFollowingTimePeriod
 
 // first group meeting
+=== group_11 ===
+# image_black
+Do you want to join this group meeting?
+Time will advance by 8 hours.
++ [1- Join group.] -> group_1
++ [2- Don't.] -> stopNovel
+
 === group_1 ===
 # image_black
 # groupIncrement
@@ -535,6 +568,13 @@ You don’t know who he is or where he will be taken.
 + [1- Continue.] -> setTimeFollowingTimePeriodAndKnowStepOne
 
 // second group meeting
+=== group_22 ===
+# image_black
+Do you want to join this group meeting?
+Time will advance by 8 hours.
++ [1- Join group.] -> group_2
++ [2- Don't.] -> stopNovel
+
 === group_2 ===
 # groupIncrement
 During the group therapy, someone mentions needing to leave the hospital early: “I have to get to work! I’ll be fired otherwise!”
@@ -550,6 +590,13 @@ A therapy cat named Littlepip shows up. He's the cuddliest cat ever, which is sa
 + [2- Kill the cat.] -> group_catCheckPen
 
 // third group meeting if you dont attack cat
+=== group_33 ===
+# image_black
+Do you want to join this group meeting?
+Time will advance by 8 hours.
++ [1- Join group.] -> group_3
++ [2- Don't.] -> stopNovel
+
 === group_3 ===
 # groupIncrement
 They give everyone crayons, which you are too dull for anything but drawing.
@@ -585,10 +632,9 @@ The orderlies usher you away as you clutch the pencil with the cat's blood on it
 # sfx_crySmall
 You do not have a sharp tool to attack the cat. Nevertheless, you bludgeon it with your fist.
 You make contact, but it's not enough to kill the cat. Littlepip hisses and runs out of the room.
-"What the hell are you doing?" yelled the group leader.
-The orderlies usher you away. This will set the progress of your ritual, and your arrest, back for a while.
+"What the hell are you doing?" yells the group leader.
+The orderlies usher you away. This could set back the progress of your psychiatric hold, but that doesn't matter given the world is ending.
 + [1- Leave.] -> setTimeFollowingTimePeriod
-
 
 /*
     Dreams
@@ -612,7 +658,10 @@ The air is heavy with an unnatural stillness as these doppelgangers move through
     Outro objects
 */
 === startOutro_1 ===
-placeholder text
+# blueText
+I arise from a bathtub filled with water and a red liquidy substance. The incantation must have worked, memory fog is a possible side-effect.
+One thing my mind is telling me: What happened in the hospital was purgatory. This is the real world. The future. A voice in my head tells me that I'm about to experience my real timeline.
+I hear a knock on the door. I get out of the tub and dry myself.
 + [1- Stand up] -> func_startOutro
 
 === func_startOutro ===

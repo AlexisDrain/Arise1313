@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CatAttackedChecker : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject oldInteract;
+    public GameObject catAttackedInteract;
     void Start()
     {
-        print("TODOOOO");
+        GameManager.changeTimeOfDayEvent.AddListener(ChangedDayCheckCat);
     }
 
     // Update is called once per frame
-    void Update()
+    void ChangedDayCheckCat()
     {
-        
+        if (GameManager.catAttacked || GameManager.catKilled) {
+            oldInteract.gameObject.SetActive(false);
+            catAttackedInteract.gameObject.SetActive(true);
+        }
     }
 }
