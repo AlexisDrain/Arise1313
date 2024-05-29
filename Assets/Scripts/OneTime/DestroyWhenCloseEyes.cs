@@ -13,6 +13,7 @@ public class DestroyWhenCloseEyes : MonoBehaviour
     }
     public void OverrideEnable() {
         blinkTimeTillDeactivate = 2.5f;
+        countDown = false;
         gameObject.SetActive(true);
     }
     private void FixedUpdate() {

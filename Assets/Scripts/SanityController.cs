@@ -24,9 +24,9 @@ public class SanityController : MonoBehaviour
         myAnim = GetComponent<Animator>();
         UpdateImage();
     }
-    private void Update() {
+    private void FixedUpdate() {
         if (sanityFadeMe.color.a >= 0.001f) {
-            float newAlpha = Mathf.Lerp(sanityFadeMe.color.a, 0f, 0.01f);
+            float newAlpha = Mathf.Lerp(sanityFadeMe.color.a, 0f, 0.08f);
             sanityFadeMe.color = new Color(sanityFadeMe.color.r, sanityFadeMe.color.g, sanityFadeMe.color.b, newAlpha);
         }
     }

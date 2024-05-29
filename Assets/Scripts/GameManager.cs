@@ -223,16 +223,20 @@ public class GameManager : MonoBehaviour
         RenderSettings.reflectionIntensity = 1f;
         RenderSettings.ambientIntensity = 1f;
 
+        GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
         // if (GameManager.currentPlayerProgress == PlayerProgress.PlayerInNovelIntroFirstTime) {
         GameManager.StartNovel();
         //}
 
     }
     public static void RestartGame() { // confusingly, this is titled End Game inside the game
+        GameManager.SetDay(DayOfWeek.DayOne);
         endingMenu.SetActive(false);
         mainMenu.SetActive(true);
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenuButtons.gameObject.SetActive(true);
+        GameManager.outroWorld.SetActive(false);
+        GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
     }
     public static void GoToOutro() {
         endingMenu.SetActive(false);

@@ -1,4 +1,5 @@
-# Walkthrough  
+# Arise: 1313 Walkthrough  
+- Epilogue: When you encounter the dark hallway, hold the "close eyes" button (F or Right Mouse) to see the path forward.  
 - To know what a room is called in-game, hold the "close eyes" button (F or Right Mouse).  
 - You cannot look up and down due to WebGL limitations!  
 
@@ -14,7 +15,7 @@
 - At night, talk to the nurse in the left hallway (blue eyes). She gives you chocolate milk, you don't have to drink it, you gain one sanity point.  
 - Using the phone booth in the right hallway, call your parents. You gain one sanity when you call them during morning and evening. And you gain another sanity when you call them at night. (total of 2 sanity gains).  
 
-## How to perform the ritual  
+# How to perform the ritual  
 The ritual steps are:  
 1- "Call a number." You learn this step by going to group for the first time.  
 To achieve this step: There's a phone booth in the right hallway from where you spawn. You have to call the number on the second day (same day as the ritual). Calling it on the first day does nothing.  
@@ -30,8 +31,8 @@ When you eat the burger, you automatically get "burger bread." Do not eat the "b
 To achieve this step: you don't have to do anything before the ritual! During the ritual, you are given the option to sacrifice yourself or the chaplain. Both achieve the same result.  
 Alternatively, you can kill the cat in group session 2 or 3, but you must have a sharp pencil (not dull).  
 To get a sharp pencil, you are given a sharp pencil when you go to dinner and sign the questionnaire. You must sign less than 5 bullet points to keep the pencil sharp. (I suggest signing only apple juice and burger, as the other food items don't do anything).  
-- During the ritual minigame, you have to click the red words instead as you are trying to sacrifice yourself. If you fail that minigame, you get the ending where the chaplain sacrifices himself instead.  
+During the ritual minigame, you have to click the red words instead as you are trying to sacrifice yourself. If you fail that minigame, you get the ending where the chaplain sacrifices himself instead.  
 
-## How to beat the epilogue  
+# How to beat the epilogue  
 - When you encounter the dark hallway, hold the "close eyes" button (F or Right Mouse) to see the path forward.  
 - Finally, go past the prison cells, then go up the stairs and talk to the Military Man (red eyes) to finish the game.  
