@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     //public static GameObject dream;
     public static GameObject foodQuestionnaire; 
     public static GameObject tutorialControls;
+    public static GameObject tutorialBlinkControls;
     public static GameObject tabMenu;
     public static GameObject sanityMenu;
     public static GameObject inventory;
@@ -155,6 +156,7 @@ public class GameManager : MonoBehaviour
         foodQuestionnaire = GameObject.Find("Canvas/FoodQuestionnaire");
         foodQuestionnaire.gameObject.SetActive(false);
         tutorialControls = GameObject.Find("Canvas/Tutorial_Controls");
+        tutorialBlinkControls = GameObject.Find("Canvas/Tutorial_ControlsBlink");
         tabMenu = GameObject.Find("Canvas/TabMenu");
         //tabMenu.gameObject.SetActive(false);
         sanityMenu = GameObject.Find("Canvas/TabMenu/Sanity");
@@ -236,6 +238,8 @@ public class GameManager : MonoBehaviour
         endingMenu.SetActive(false);
         GameManager.ngHelper.UnlockMedal("time");
         GameManager.SetDay(DayOfWeek.Outro);
+        GameManager.tutorialControls.gameObject.SetActive(false);
+        GameManager.tutorialBlinkControls.GetComponent<DestroyWhenCloseEyes>().OverrideEnable();
         changeTimeOfDayEvent.Invoke();
         timePass.SetActive(false);
         mainMenuMusic.SetActive(false);

@@ -11,12 +11,16 @@ public class DestroyWhenCloseEyes : MonoBehaviour
     {
         
     }
+    public void OverrideEnable() {
+        blinkTimeTillDeactivate = 2.5f;
+        gameObject.SetActive(true);
+    }
     private void FixedUpdate() {
         if(countDown == true) {
             blinkTimeTillDeactivate -= Time.deltaTime;
         }
         if(blinkTimeTillDeactivate < 0f) {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     // Update is called once per frame
