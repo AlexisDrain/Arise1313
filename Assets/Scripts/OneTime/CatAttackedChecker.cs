@@ -8,15 +8,17 @@ public class CatAttackedChecker : MonoBehaviour
     public GameObject catAttackedInteract;
     void Start()
     {
-        GameManager.changeTimeOfDayEvent.AddListener(ChangedDayCheckCat);
+        // GameManager.changeTimeOfDayEvent.AddListener(ChangedDayCheckCat);
     }
 
     // Update is called once per frame
-    void ChangedDayCheckCat()
+    public void Update()
     {
-        if (GameManager.catAttacked || GameManager.catKilled) {
-            oldInteract.gameObject.SetActive(false);
-            catAttackedInteract.gameObject.SetActive(true);
+        if (oldInteract.gameObject.activeSelf == true) {
+            if (GameManager.catAttacked || GameManager.catKilled) {
+                oldInteract.gameObject.SetActive(false);
+                catAttackedInteract.gameObject.SetActive(true);
+            }
         }
     }
 }

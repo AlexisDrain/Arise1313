@@ -5,8 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class InventoryTooltip : MonoBehaviour
-{
+public class InventoryTooltip : MonoBehaviour {
     [Header("Read only")]
     public InventoryGridItem _selectedGridItem;
 
@@ -22,8 +21,7 @@ public class InventoryTooltip : MonoBehaviour
     public AudioClip sfxEat;
     public AudioClip sfxDrink;
 
-    void Start()
-    {
+    void Start() {
 
     }
 
@@ -166,7 +164,8 @@ public class InventoryTooltip : MonoBehaviour
             selfharmButton.gameObject.SetActive(false);
             discardButton.gameObject.SetActive(false);
         } else if (invItem.myInvItem == InvItem.PencilDull
-                || invItem.myInvItem == InvItem.PencilSharp) {
+                || invItem.myInvItem == InvItem.PencilSharp
+                || invItem.myInvItem == InvItem.PencilBloody) {
             readButton.gameObject.SetActive(false);
             eatButton.gameObject.SetActive(false);
             drinkButton.gameObject.SetActive(false);

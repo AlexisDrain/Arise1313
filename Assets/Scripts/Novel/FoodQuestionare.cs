@@ -36,8 +36,7 @@ public enum Dinner_bev {
 };
 
 
-public class FoodQuestionare : MonoBehaviour
-{
+public class FoodQuestionare : MonoBehaviour {
 
     [Header("Set once")]
     public ToggleGroup currentBreakfastMainToggle;
@@ -74,9 +73,30 @@ public class FoodQuestionare : MonoBehaviour
     public Dinner_bev _currentDinnerBev = Dinner_bev.AppleJuice;
     public GameObject invItemPencilDull;
     public GameObject invItemPencilSharp;
+    public GameObject invItemPencilBloody;
 
 
     private int dullPencilCountdown = 5;
+
+    public void Update() {
+        if(Input.GetKey(KeyCode.K)) {
+            ResetQuestionare();
+        }
+    }
+
+    public void ResetQuestionare() {
+        currentBreakfastMainToggle.SetAllTogglesOff();
+        currentBreakfastBevToggle.SetAllTogglesOff();
+        currentDinnerMainToggle.SetAllTogglesOff();
+        currentDinnerSideToggle.SetAllTogglesOff();
+        currentDinnerBevToggle.SetAllTogglesOff();
+
+        _currentBreakfastMain = Breakfast_main.Oatmeal;
+        _currentBreakfastBev = Breakfast_bev.AppleJuice;
+        _currentDinnerMain = Dinner_main.Pizza;
+        _currentDinnerSide = Dinner_side.Hummus;
+        _currentDinnerBev = Dinner_bev.AppleJuice;
+    }
 
     public void UsePencilOnce() {
         dullPencilCountdown -= 1;
@@ -102,7 +122,18 @@ public class FoodQuestionare : MonoBehaviour
             }
         }
     }
+    public void ReplaceSharpPencilWithBloodyPencil() {
 
+        GameObject.Instantiate(GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().invItemPencilBloody, GameManager.inventory.transform);
+
+        for (int i = 0; i < GameManager.inventory.transform.childCount; i++) {
+            if(GameManager.inventory.transform.GetChild(i).GetComponent<InventoryGridItem>()
+                && GameManager.inventory.transform.GetChild(i).GetComponent<InventoryGridItem>().myInvItem == InvItem.PencilSharp) {
+                GameManager.inventory.transform.GetChild(i).GetComponent<InventoryGridItem>().DestroyGridItem();
+                return;
+            }
+        }
+    }
     public void CheatGiveEverything() {
 
         GameObject.Instantiate(item_Oatmeal, GameManager.inventory.transform);

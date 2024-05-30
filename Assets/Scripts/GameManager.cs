@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
         triggersMask = LayerMask.NameToLayer("Triggers");
 
         SetTimeOfDay(TimeOfDay.Midnight); // because midnight has no music. progressing through novel will set to morning.
-        currentDayOfWeek = DayOfWeek.DayOne;
+        SetDay(DayOfWeek.DayOne);
         // Time.timeScale = 0f;
     }
 
@@ -206,6 +206,8 @@ public class GameManager : MonoBehaviour
         sanityHealth = 3;
         catKilled = false;
         catAttacked = false;
+        GameManager.playerGotBreakfast = false;
+        GameManager.playerGotDinner = false;
         GameManager.hasPencilDull = false;
         GameManager.hasPencilSharp = false;
         stepOneComplete = false;
@@ -217,6 +219,9 @@ public class GameManager : MonoBehaviour
         PlayerEatingManager.RestartEatingManager();
         GameManager.phoneManager.RestartPhoneStats();
         GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().DestroyAllInvExceptFuturePaper();
+        GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().ResetQuestionare();
+
+        mainMenu.GetComponent<Animator>().ResetTrigger("PauseFade");
 
         outroWorld.SetActive(false);
         RenderSettings.fog = true;
@@ -230,9 +235,8 @@ public class GameManager : MonoBehaviour
 
     }
     public static void RestartGame() { // confusingly, this is titled End Game inside the game
-        GameManager.SetDay(DayOfWeek.DayOne);
-        GameManager.SetTimeOfDay(TimeOfDay.Midnight);
-        endingMenu.SetActive(false);
+        SetTimeOfDay(TimeOfDay.Midnight);
+        SetDay(DayOfWeek.DayOne);endingMenu.SetActive(false);
         mainMenu.SetActive(true);
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenuButtons.gameObject.SetActive(true);
@@ -545,15 +549,17 @@ public class GameManager : MonoBehaviour
         sayonaraAssets.gameObject.SetActive(false);
     }
 
+    public void FixedUpdate() { // in FixedUpdate because of WebGL bug where Update is slower.
+        if (GameManager.playerInBed) {
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, bedCameraTransform.position, 0.05f);
+            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, bedCameraTransform.rotation, 0.05f);
+
+            blinkCamera.transform.position = Vector3.Lerp(blinkCamera.transform.position, bedCameraTransform.position, 0.05f);
+            blinkCamera.transform.rotation = Quaternion.Lerp(blinkCamera.transform.rotation, bedCameraTransform.rotation, 0.05f);
+        }
+    }
     public void Update() {
 
-        if (GameManager.playerInBed) {
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, bedCameraTransform.position, 0.01f);
-            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, bedCameraTransform.rotation, 0.01f);
-
-            blinkCamera.transform.position = Vector3.Lerp(blinkCamera.transform.position, bedCameraTransform.position, 0.01f);
-            blinkCamera.transform.rotation = Quaternion.Lerp(blinkCamera.transform.rotation, bedCameraTransform.rotation, 0.01f);
-        }
 
         // activate cheat mode
         if (Input.GetKey(KeyCode.C)
@@ -563,6 +569,8 @@ public class GameManager : MonoBehaviour
             // GameManager.StartSayonara(SayonaraType.SayonaraRitual);
         }
         if (cheatMode == true) {
+
+            // GameManager.player.GetComponent<PlayerController>().maxVelocity = 10f;
 
             // skip intro novel
             if (Input.GetKey(KeyCode.G)

@@ -216,6 +216,7 @@ public class StoryType : MonoBehaviour
                 GameManager.catAttacked = true;
                 if(GameManager.hasPencilSharp) {
                     GameManager.catKilled = true;
+                    GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().ReplaceSharpPencilWithBloodyPencil();
                     GameManager.StartNovel("group_killcat_HasPen");
                 } else {
                     GameManager.StartNovel("group_killcat_NoPen");

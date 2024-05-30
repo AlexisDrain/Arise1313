@@ -24,7 +24,7 @@ public class SanityController : MonoBehaviour
         myAnim = GetComponent<Animator>();
         UpdateImage();
     }
-    private void FixedUpdate() {
+    private void FixedUpdate() { // in FixedUpdate because of WebGL bug where Update is slower.
         if (sanityFadeMe.color.a >= 0.001f) {
             float newAlpha = Mathf.Lerp(sanityFadeMe.color.a, 0f, 0.08f);
             sanityFadeMe.color = new Color(sanityFadeMe.color.r, sanityFadeMe.color.g, sanityFadeMe.color.b, newAlpha);

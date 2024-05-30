@@ -24,7 +24,8 @@ public enum InvItem {
     MacAndCheese,
     Milk,
     BurgerBread,
-    MilkChocolate
+    MilkChocolate,
+    PencilBloody
 };
 
 public class InventoryGridItem : MonoBehaviour
