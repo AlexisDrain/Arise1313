@@ -61,8 +61,10 @@ public class ToggleTabMenu : MonoBehaviour
                 sanity.SetActive(true);
                 sanity.GetComponent<SanityController>().StopCoroutine("DisapearSanity");
                 inventory.SetActive(true);
-                iconTime.SetActive(true);
                 button_options.SetActive(true);
+                if(GameManager.currentDayOfWeek != DayOfWeek.Outro) {
+                    iconTime.SetActive(true);
+                }
                 // inventoryTooltip.SetActive(true); gets unhiden by using the inventory
                 GameManager.playerInTabMenu = true;
             } else if (inventory.activeSelf == true) {

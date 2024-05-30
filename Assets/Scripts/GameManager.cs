@@ -231,16 +231,22 @@ public class GameManager : MonoBehaviour
     }
     public static void RestartGame() { // confusingly, this is titled End Game inside the game
         GameManager.SetDay(DayOfWeek.DayOne);
+        GameManager.SetTimeOfDay(TimeOfDay.Midnight);
         endingMenu.SetActive(false);
         mainMenu.SetActive(true);
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenuButtons.gameObject.SetActive(true);
+        mainMenuMusic.SetActive(true);
+
+        timePass.GetComponent<AudioSource>().StopWebGL();
         GameManager.outroWorld.SetActive(false);
         GameManager.TeleportPlayer(GameManager.playerElevatorTrans);
     }
     public static void GoToOutro() {
         endingMenu.SetActive(false);
         GameManager.ngHelper.UnlockMedal("time");
+        GameManager.playerInNovelOrSayonara = false;
+        GameManager.playerInMainMenu = false;
         GameManager.SetDay(DayOfWeek.Outro);
         GameManager.tutorialControls.gameObject.SetActive(false);
         GameManager.tutorialBlinkControls.GetComponent<DestroyWhenCloseEyes>().OverrideEnable();

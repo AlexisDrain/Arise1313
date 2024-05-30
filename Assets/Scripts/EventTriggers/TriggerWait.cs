@@ -12,12 +12,19 @@ public class TriggerWait : MonoBehaviour {
     public bool waitForSecondsRealtime = false;
     public bool startOnEnable = true;
     public bool startOnStart = false;
+    public bool startOnTimeChange = false;
     public bool restartTimerOnReset = true;
 
     void Start() {
         if (startOnStart) {
             ResetTrigger();
         }
+        if (startOnTimeChange) {
+            GameManager.changeTimeOfDayEvent.AddListener(OnTimeChange);
+        }
+    }
+    public void OnTimeChange() {
+        ResetTrigger();
     }
     public void StartCoroutine() {
         ResetTrigger();

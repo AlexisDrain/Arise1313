@@ -243,7 +243,8 @@ public class StoryType : MonoBehaviour
                 inkStory.variablesState["finalMeal"] = PlayerEatingManager.myLastMealIs;
             }
             if (inkStory.currentTags[i] == "checkStep2") {
-                if (PlayerEatingManager.ateAppleJuice && PlayerEatingManager.ateBurger && PlayerEatingManager.ateSomethingelse == false) {
+                if (PlayerEatingManager.ateAppleJuice && PlayerEatingManager.ateBurger) {
+                    //&& PlayerEatingManager.ateSomethingelse == false) { Ate something else is now removed
                     GameManager.StartNovel("ritual_step2_correct");
                     GameManager.stepTwoComplete = true;
                 } else {

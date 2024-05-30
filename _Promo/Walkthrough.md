@@ -22,7 +22,7 @@ To achieve this step: There's a phone booth in the right hallway from where you 
 
 2- "Eat a specific meal: Meat and Apple juice." You learn this step by going to therapy for the first time.  
 To achieve this step: There is no specific "meat" food item. You must eat the "burger" from the dinner menu.  
-You can eat the meat and apple juice in any order, but if you eat a third item, this step will fail.  
+You can eat the meat and apple juice in any order, if you ate a third item this step won't fail.  
 If you ate something other than meat and apple juice, you can pass the time by 8 hours and then eat the correct meal.  
 You eat meals by clicking TAB and then clicking on the food item in the inventory, then clicking "Eat".  
 When you eat the burger, you automatically get "burger bread." Do not eat the "burger bread."
@@ -36,3 +36,6 @@ During the ritual minigame, you have to click the red words instead as you are t
 # How to beat the epilogue  
 - When you encounter the dark hallway, hold the "close eyes" button (F or Right Mouse) to see the path forward.  
 - Finally, go past the prison cells, then go up the stairs and talk to the Military Man (red eyes) to finish the game.  
+
+# Cheat
+Cheat to access the epilogue level without finishing the game: On your keyboard, press C+1 and then press J+5.

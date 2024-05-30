@@ -672,7 +672,7 @@ I hear a knock from the door. Slowly, I drag myself out all wet. I sit until I d
 === outro_brother_1 ===
 You see that stranger again, from the group session... your brother?
 He says, "come with me now." Surprisingly, he isn’t speaking English. He’s speaking a language you haven’t heard since you were six years old, yet you understand him perfectly.
-"You’ve stopped the time travelers’ invasion. That was really clutch! But I doubt that you would have done that without me!"
+"The invasion? It’s not extraterrestrial – it’s an army from the future, and you've stopped it! That was really clutch! But I doubt that you would have done that without me!"
 He continues, "This corridor is tricky. Look with your heart, not your eyes. That’s how you navigate it."
 + [1- Continue.] -> stopNovel
 
