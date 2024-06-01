@@ -189,6 +189,7 @@ public class StoryType : MonoBehaviour
             // blood pressure
             if (inkStory.currentTags[i] == "checkBloodPressure") {
                 CloseNovel();
+                GameManager.sayonaraZeroSanityController.gameObject.SetActive(false); // for specific case where player has zero sanity and talks to blood pressure nurse
                 GameManager.StartSayonara(SayonaraType.SayonaraBloodPressure);
                 continue;
             }
