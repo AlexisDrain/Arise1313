@@ -1,4 +1,5 @@
 # Arise: 1313 Walkthrough  
+# Notes:
 - Epilogue: When you encounter the dark hallway, hold the "close eyes" button (F or Right Mouse) to see the path forward.  
 - To know what a room is called in-game, hold the "close eyes" button (F or Right Mouse).  
 - You cannot look up and down due to WebGL limitations!  
@@ -10,9 +11,10 @@
 - During the ritual minigame, you have to click the red words instead as you are trying to sacrifice yourself.  
 
 # If you are low on sanity:  
+- Eating food does not replenish sanity.
 - Go to the prayer room every 8 hours (every time pass.)  
 - Talk to the blood pressure measuring nurse (pink eyes) every 8 hours. She's in the right hallway during morning and evening (but not at night). She gives you the "low sanity" minigame. If you succeed, you gain a sanity point, and if you fail, you lose one sanity.  
-- At night, talk to the nurse in the left hallway (blue eyes). She gives you chocolate milk, you don't have to drink it, you gain one sanity point.  
+- At night, talk to the nurse in the left hallway (greenish eyes). She gives you chocolate milk, you don't have to drink it, you gain one sanity point.  
 - Using the phone booth in the right hallway, call your parents. You gain one sanity when you call them during morning and evening. And you gain another sanity when you call them at night. (total of 2 sanity gains).  
 
 # How to perform the ritual  
@@ -25,7 +27,7 @@ To achieve this step: There is no specific "meat" food item. You must eat the "b
 You can eat the meat and apple juice in any order, if you ate a third item this step won't fail.  
 If you ate something other than meat and apple juice, you can pass the time by 8 hours and then eat the correct meal.  
 You eat meals by clicking TAB and then clicking on the food item in the inventory, then clicking "Eat".  
-When you eat the burger, you automatically get "burger bread." Do not eat the "burger bread."
+When you eat the burger, you automatically get "burger bread." You don't have to eat the "burger bread."
 
 3- "The sacrifice." You learn this step by talking to the chaplain twice (prayer room).  
 To achieve this step: you don't have to do anything before the ritual! During the ritual, you are given the option to sacrifice yourself or the chaplain. Both achieve the same result.  
