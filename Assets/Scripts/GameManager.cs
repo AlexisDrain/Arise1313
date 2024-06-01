@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public static GameObject endingMenu;
     public static GameObject musicObj;
     public static GameObject mainMenuMusic;
+    public static GameObject outroMusic;
 
     public static GameObject outroWorld;
 
@@ -174,6 +175,7 @@ public class GameManager : MonoBehaviour
         endingMenu.SetActive(false);
         musicObj = GameObject.Find("TimedObjects_Music").gameObject;
         mainMenuMusic = GameObject.Find("TimedObjects_Music/MainMenuMusic").gameObject;
+        outroMusic = GameObject.Find("TimedObjects_Music/MusicOutro").gameObject;
 
         outroWorld = GameObject.Find("OutroWorld").gameObject;
         outroWorld.SetActive(false);
@@ -240,6 +242,8 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(true);
         mainMenu.GetComponent<Animator>().SetTrigger("PauseFade");
         mainMenuButtons.gameObject.SetActive(true);
+
+        outroMusic.SetActive(false);
         mainMenuMusic.SetActive(true);
 
         timePass.GetComponent<AudioSource>().StopWebGL();
@@ -646,6 +650,7 @@ public class GameManager : MonoBehaviour
                 //GoToOutro();
                 GameManager.EndGame("You sacrificed yourself to save the world.", true);
                 GameManager.ShowMessage("Cheat: change lighting + go to outro world");
+                GameManager.mainMenu.GetComponent<ResetMainMenu>().InvokeMainMenu();
             }
             if (Input.GetKey(KeyCode.K)
             && (Input.GetKeyDown(KeyCode.F3) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))) {

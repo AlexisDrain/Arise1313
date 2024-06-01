@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetQuestionnaire : MonoBehaviour
 {
@@ -11,4 +12,12 @@ public class SetQuestionnaire : MonoBehaviour
     public Dinner_side currentDinnerSide = Dinner_side.None;
     public Dinner_bev currentDinnerBev = Dinner_bev.None;
 
+    public void ToggleValueChanged() {
+        if (GetComponent<Toggle>().isOn) {
+            GameManager.foodQuestionnaire.GetComponent<FoodQuestionare>().UsePencilOnce();
+        }
+    }
+    public void DisableValue() {
+        GetComponent<Toggle>().isOn = false;
+    }
 }

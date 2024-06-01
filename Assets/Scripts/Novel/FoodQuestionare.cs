@@ -44,6 +44,7 @@ public class FoodQuestionare : MonoBehaviour {
     public ToggleGroup currentDinnerMainToggle;
     public ToggleGroup currentDinnerSideToggle;
     public ToggleGroup currentDinnerBevToggle;
+    public List<Toggle> everyToggleItem;
     public GameObject dullPencilText;
     public AudioClip sfxPencil1;
     public AudioClip sfxPencil2;
@@ -78,18 +79,26 @@ public class FoodQuestionare : MonoBehaviour {
 
     private int dullPencilCountdown = 5;
 
+    /*
     public void Update() {
         if(Input.GetKey(KeyCode.K)) {
             ResetQuestionare();
         }
     }
+    */
 
     public void ResetQuestionare() {
+        /*
+         * Only works when ToggleGroup is active. Same issue with .ActiveToggles()
         currentBreakfastMainToggle.SetAllTogglesOff();
         currentBreakfastBevToggle.SetAllTogglesOff();
         currentDinnerMainToggle.SetAllTogglesOff();
         currentDinnerSideToggle.SetAllTogglesOff();
         currentDinnerBevToggle.SetAllTogglesOff();
+        */
+        for(int i = 0; i < everyToggleItem.Count; i++) {
+            everyToggleItem[i].GetComponent<SetQuestionnaire>().DisableValue();
+        }
 
         _currentBreakfastMain = Breakfast_main.Oatmeal;
         _currentBreakfastBev = Breakfast_bev.AppleJuice;
