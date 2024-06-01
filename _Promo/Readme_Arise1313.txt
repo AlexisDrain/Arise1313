@@ -7,7 +7,7 @@ Asylum simulator, visual novel. The fate of the world relies on one schizophreni
 Walkthrough:  
 https://github.com/AlexisDrain/Arise1313/blob/main/_Promo/Walkthrough.md  
 
-Full credits + Source code + Cheats  
+Full credits + Source code + Cheats:  
 https://github.com/AlexisDrain/Arise1313  
 
 Controls:  
@@ -19,7 +19,7 @@ Controls:
 
 Notes:  
 - Performance is better on Chrome than Firefox.  
-- Performance is better with fullscreen disabled.
+- Performance is better with fullscreen disabled.  
 - You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.  
 
 -----------------
