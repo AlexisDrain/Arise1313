@@ -1,7 +1,11 @@
 # Arise1313
 Asylum simulator, visual novel. The fate of the world relies on one schizophrenic person.  
 
-Walkthrough  
+# Play  
+Newgrounds: https://www.newgrounds.com/portal/view/932861  
+Itch: https://alexclay.itch.io/arise-1313  
+
+# Walkthrough  
 https://github.com/AlexisDrain/Arise1313/blob/main/_Promo/Walkthrough.md  
 
 Controls:  
@@ -11,7 +15,7 @@ Controls:
 - Press left mouse click or E to use/talk.  
 - Use mouse or number keys 1 and 2 to select choices in dialogue.  
 
-Notes:  
+# Notes:  
 - Performance is better on Chrome than Firefox.  
 - Performance is better with fullscreen disabled.
 - You cannot look up or down! This is intentional due to web game limits. Mouse lock on the web is bug-prone and unintuitive from my experience in making web FPS games.  
